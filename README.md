@@ -23,7 +23,7 @@ This project is licensed under the Apache-2.0 License.
 
 The purpose of this project is to create a series of scripts to handle EBCDIC files migrated from mainframes or AS/400 platforms.
 
-extract-ebcdic-to-ascii.py is the first script of this project. The idea is to
+extract-ebcdic-to-ascii.py is the first script/tool of this project. It uses a json parameter file to slice an EBCDIC fixed length file and unpack its contents.
 
 ## Status
 
@@ -46,7 +46,9 @@ In progress
     | pd        | packed-decimal       | pic  9 comp-3  |
     | pd+       | signed packed-decimal| pic s9 comp-3  |
 
-    ### Length value must be in bytes. A 18 digit integer only takes 10 bytes.
+    The length must be in bytes. A 18 digit integer field, for instance, only takes 10 bytes.
+
+    For more information check [IBM Documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items)
 
     ### Layout of the input file used for testing (in Cobol notation).
 
