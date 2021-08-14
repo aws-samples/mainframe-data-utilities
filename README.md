@@ -36,13 +36,15 @@ In progress
 2. Using the ParamFile.json as an example, create the json parameter file based on your legacy file layout.
 
     ### The types must correspond to the list below:
-    - ch : text                 | pic  x
-    - zd : zoned                | pic  9
-    - zd+: signed zoned         | pic s9
-    - bi : binary               | pic  9 comp
-    - bi+: signed binary        | pic s9 comp
-    - pd : packed-decimal       | pic  9 comp-3
-    - pd+: signed packed-decimal| pic s9 comp-3
+| Parameter | Meaning              |Legacy Notation |
+|-----------|----------------------|----------------|
+| ch        | text                 | pic  x         |
+| zd        | zoned                | pic  9         |
+| zd+       | signed zoned         | pic s9|        |
+| bi        | binary               | pic  9 comp    |
+| bi+       | signed binary        | pic s9 comp    |
+| pd        | packed-decimal       | pic  9 comp-3  |
+| pd+       | signed packed-decimal| pic s9 comp-3  |
 
     ### Length value must be in bytes. A 18 digit integer only takes 10 bytes.
 
@@ -62,9 +64,9 @@ In progress
     3. Execute through the command below:
 
     ```
-    python3 e2a.py ParamFile.json 
+    python3 extract-ebcdic-to-ascii.py extract-ebcdic-to-ascii/ParamFile.json 
         ```
 
 ## LegacyReference 
 
-The code under the *LegacyReference* folder are JCL and Cobol components created exclusively to generate EBCDIC data mass for testing purposes.
+The source code under the *LegacyReference* folder are JCL and Cobol components created exclusively to generate EBCDIC data mass for testing purposes.
