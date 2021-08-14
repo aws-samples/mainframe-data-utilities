@@ -7,8 +7,9 @@ Table of contents
 * About
 * Status
 * How to use
+    * Python
     * Parameters
-    * Local files execution
+    * Execution
 * LegacyReference
 
 ## Security
@@ -31,44 +32,49 @@ In progress
 
 ## How to use extract-ebcdic-to-ascii
 
-1. Ensure that Python 3 or above is installed.
+### Python
 
-2. Using the ParamFile.json as an example, create the json parameter file based on your legacy file layout.
+Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 
-    ### The types must correspond to the list below:
-    | Parameter | Meaning              |Legacy Notation |
-    |-----------|----------------------|----------------|
-    | ch        | text                 | pic  x         |
-    | zd        | zoned                | pic  9         |
-    | zd+       | signed zoned         | pic s9|        |
-    | bi        | binary               | pic  9 comp    |
-    | bi+       | signed binary        | pic s9 comp    |
-    | pd        | packed-decimal       | pic  9 comp-3  |
-    | pd+       | signed packed-decimal| pic s9 comp-3  |
+### Parameters
 
-    The length must be in bytes. A 18 digit integer field, for instance, only takes 10 bytes.
+Using `extract-ebcdic-to-ascii/ParamFile.json` as an example, create the json parameter file based on your legacy file layout. The types must correspond to the list below:
 
-    For more information check [IBM Computational items documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items).
+| Parameter | Meaning              |Legacy Notation |
+|-----------|----------------------|----------------|
+| ch        | text                 | pic  x         |
+| zd        | zoned                | pic  9         |
+| zd+       | signed zoned         | pic s9|        |
+| bi        | binary               | pic  9 comp    |
+| bi+       | signed binary        | pic s9 comp    |
+| pd        | packed-decimal       | pic  9 comp-3  |
+| pd+       | signed packed-decimal| pic s9 comp-3  |
 
-    ### Layout of the input file used for testing (in Cobol notation).
 
-    ```
-        01. OUTFILE.
-        03  OUTFILE-TEXT              PIC -9(18). 
-        03  OUTFILE-UNPACKED          PIC  9(18). 
-        03  OUTFILE-UNPACKED-SIGNED   PIC S9(18). 
-        03  OUTFILE-COMP-SIGNED       PIC  9(18) COMP. 
-        03  OUTFILE-COMP              PIC S9(18) COMP. 
-        03  OUTFILE-COMP3             PIC  9(18) COMP-3. 
-        03  OUTFILE-COMP3-SIGNED      PIC S9(18) COMP-3. 
-    ```
+The length must be in bytes. A 18 digit integer field, for instance, only takes 10 bytes. For more information check [IBM Computational items documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items).
 
-3. Execute through the command below:
 
-    ```
-    python3 extract-ebcdic-to-ascii.py extract-ebcdic-to-ascii/ParamFile.json 
-        ```
+### Execution
+
+Execute `extract-ebcdic-to-ascii.py` passing the json parameter file as an argument, as the command below:
+
+```
+python3 extract-ebcdic-to-ascii.py extract-ebcdic-to-ascii/ParamFile.json 
+```
 
 ## LegacyReference 
 
 The source code under the *LegacyReference* folder are JCL and Cobol components created exclusively to generate EBCDIC data mass for testing purposes.
+
+The layout of the [source file](extract-ebcdic-to-ascii/SourceFile.txt) used for testing (in Cobol notation) is:
+
+```
+01. OUTFILE.
+03  OUTFILE-TEXT              PIC -9(18). 
+03  OUTFILE-UNPACKED          PIC  9(18). 
+03  OUTFILE-UNPACKED-SIGNED   PIC S9(18). 
+03  OUTFILE-COMP-SIGNED       PIC  9(18) COMP. 
+03  OUTFILE-COMP              PIC S9(18) COMP. 
+03  OUTFILE-COMP3             PIC  9(18) COMP-3. 
+03  OUTFILE-COMP3-SIGNED      PIC S9(18) COMP-3. 
+```
