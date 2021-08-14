@@ -24,7 +24,7 @@ This project is licensed under the Apache-2.0 License.
 
 The purpose of this project is to create a series of scripts to handle EBCDIC files migrated from mainframes or AS/400 platforms.
 
-extract-ebcdic-to-ascii.py is the first script/tool of this project. It uses a json parameter file to slice an EBCDIC fixed length file and unpack its contents.
+extract-ebcdic-to-ascii.py is the first script/tool of this project. It uses a json parameter file to slice a fixed length EBCDIC file and unpack its contents.
 
 ## Status
 
@@ -56,7 +56,7 @@ The length must be in bytes. A 18 digit integer field, for instance, only takes 
 
 ### Execution
 
-Execute `extract-ebcdic-to-ascii.py` passing the json parameter file as an argument, as the command below:
+Execute `extract-ebcdic-to-ascii.py` passing the json parameter file created in the previous step as an argument. The command below will process the [extract-ebcdic-to-ascii/SourceFile.txt](extract-ebcdic-to-ascii/SourceFile.txt) file provided as an example.
 
 ```
 python3 extract-ebcdic-to-ascii.py extract-ebcdic-to-ascii/ParamFile.json 
