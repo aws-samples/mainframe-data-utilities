@@ -48,7 +48,7 @@ In progress
 
     The length must be in bytes. A 18 digit integer field, for instance, only takes 10 bytes.
 
-    For more information check [IBM Documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items)
+    For more information check [IBM Computational items documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items).
 
     ### Layout of the input file used for testing (in Cobol notation).
 
