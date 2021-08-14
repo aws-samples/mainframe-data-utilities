@@ -1,0 +1,46 @@
+{
+    "input": "extract-ebcdic-to-ascii/SourceFile.txt", 
+    "output": "extract-ebcdic-to-ascii/TargetFile.txt",
+    "max": 0,
+    "skip": 0,
+    "print": 20000,
+    "lrecl": 100,
+    "separator": "|",
+    "transf": [
+        {
+            "type": "ch",
+            "val": 19,
+            "name": "1. text"
+        },
+        {
+            "type": "zd",
+            "val": 18,
+            "name": "2. zoned PIC 9"
+        },
+        {
+            "type": "zd+",
+            "val": 18,
+            "name": "3. signed zoned PIC S9"
+        },
+        {
+            "type": "bi",
+            "val": 8,
+            "name": "4. binary PIC 9 COMP."
+        },
+        {
+            "type": "bi+",
+            "val": 8,
+            "name": "5. signed binary PIC S9 COMP."
+        },
+        {
+            "type": "pd",
+            "val": 10,
+            "name": "6. packed-decimal PIC 9 COMP-3."
+        },
+        {
+            "type": "pd+",
+            "val": 10,
+            "name": "7. signed packed-decimal PIC S9 COMP-3."
+        }
+    ]
+}

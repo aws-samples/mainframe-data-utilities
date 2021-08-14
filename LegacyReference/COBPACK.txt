@@ -1,0 +1,79 @@
+      *-----------------------------------------------------------------
+      * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+      * SPDX-License-Identifier: Apache-2.0
+      *-----------------------------------------------------------------
+       IDENTIFICATION DIVISION.                                         00010000
+       PROGRAM-ID. COBPACK.                                             00020000
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.                                            00030000
+      *-----------------------------------------------------------------00030200
+       FILE-CONTROL.                                                    00030300
+                                                                        00030400
+           SELECT OUTFILE ASSIGN TO OUTFILE                             00030500
+                  FILE STATUS IS WS-FS-OUTFILE.                         00030700
+      *-----------------------------------------------------------------00030800
+       DATA DIVISION.                                                   00030900
+       FILE SECTION.                                                    00034000
+                                                                        00036000
+       FD  OUTFILE                                                      00037000
+           BLOCK CONTAINS 0 RECORDS                                     00038000
+           RECORDING MODE IS F                                          00039000
+           RECORD CONTAINS 100 CHARACTERS.                              00039100
+                                                                        00039200
+       01  REC-OUTFILE.                                                 00039300
+           03  OUTFILE-TEXT              PIC -9(18).                    00039400
+           03  OUTFILE-UNPACKED          PIC  9(18).                    00039400
+           03  OUTFILE-UNPACKED-SIGNED   PIC S9(18).                    00039400
+           03  OUTFILE-COMP-SIGNED       PIC  9(18) COMP.               00039500
+           03  OUTFILE-COMP              PIC S9(18) COMP.               00039500
+           03  OUTFILE-COMP3             PIC  9(18) COMP-3.             00039500
+           03  OUTFILE-COMP3-SIGNED      PIC S9(18) COMP-3.             00039500
+
+       WORKING-STORAGE SECTION.
+      *-----------------------------------------------------------------
+       01  WS-AUX.
+           05  WS-FS-OUTFILE             PIC X(002)  VALUE SPACES.
+           05  WS-IX                     PIC S9(18).                    00039400
+
+       PROCEDURE DIVISION.                                              00040000
+
+           DISPLAY 'COBPACK START...'.                                  00050000
+           OPEN OUTPUT OUTFILE.
+           IF WS-FS-OUTFILE NOT EQUAL '00'
+              DISPLAY 'OPEN OUTFILE FS:  ' WS-FS-OUTFILE
+              STOP RUN
+           END-IF
+
+           MOVE -100000000 TO WS-IX
+
+           PERFORM UNTIL WS-IX          GREATER 100000000
+
+              MOVE WS-IX
+              TO   OUTFILE-TEXT                                               00
+                   OUTFILE-UNPACKED                                           00
+                   OUTFILE-UNPACKED-SIGNED                                  0003
+                   OUTFILE-COMP-SIGNED                                      0003
+                   OUTFILE-COMP                                             0003
+                   OUTFILE-COMP3                                            0003
+                   OUTFILE-COMP3-SIGNED                                       00
+
+              WRITE REC-OUTFILE         END-WRITE
+
+              IF WS-FS-OUTFILE NOT EQUAL '00'
+                 DISPLAY 'WRITE OUTFILE FS:  ' WS-FS-OUTFILE
+                 STOP RUN
+              END-IF
+
+              ADD 1001 TO WS-IX
+
+           END-PERFORM.
+
+           CLOSE OUTFILE.
+           IF WS-FS-OUTFILE NOT EQUAL '00'
+              DISPLAY 'CLOSE OUTFILE FS: ' WS-FS-OUTFILE
+              STOP RUN
+           END-IF
+
+           DISPLAY 'COBPACK FINISH..'.                                  00050000
+
+           STOP RUN.                                                    00060000
