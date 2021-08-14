@@ -22,9 +22,15 @@ This project is licensed under the Apache-2.0 License.
 
 ## About
 
-The purpose of this project is to create a series of scripts to handle EBCDIC files migrated from mainframes or AS/400 platforms.
+Mainframe Data Utilities is an AWS Sample
 
-extract-ebcdic-to-ascii.py is the first script/tool of this project. It uses a json parameter file to slice a fixed length EBCDIC file and unpack its contents.
+The purpose of this project is to create a series of Python scripts to handle EBCDIC files migrated from mainframes or AS/400 platforms to AWS or any distributed environment.
+
+The first release of this toolset consists of two scripts:
+
+- extract-ebcdic-to-ascii.py is the first script/tool of this project. It uses a json parameter file to slice a fixed length EBCDIC file and unpack its contents and write them to an ASCII file.
+
+- ebcdic is the main library that handles the encoding transformation logic.
 
 ## Status
 
