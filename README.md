@@ -34,7 +34,7 @@ The first release of this toolset consists of two scripts:
 
 ## Status
 
-In progress
+Content Security Review requested
 
 ## How to use extract-ebcdic-to-ascii
 
