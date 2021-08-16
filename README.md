@@ -55,7 +55,7 @@ Using `extract-ebcdic-to-ascii/ParamFile.json` as an example, create the json pa
 | bi+       | signed binary        | pic s9 comp    |
 | pd        | packed-decimal       | pic  9 comp-3  |
 | pd+       | signed packed-decimal| pic s9 comp-3  |
-| skip      | skip/bypass column   | N/A            |
+| skip      | skip / bypass column | N/A            |
 
 The length must be in bytes. A 18 digit integer field, for instance, only takes 10 bytes. For more information check [IBM Computational items documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items).
 
