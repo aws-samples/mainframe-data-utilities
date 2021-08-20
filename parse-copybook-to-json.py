@@ -41,8 +41,8 @@ def getLenType(atr):
     ret['length'] = Lgt
 
     #Data size in bytes
-    if   ret['type']     == "pd":  ret['bytes'] = round((Lgt)/2)
-    elif ret['type']     == "pd+": ret['bytes'] = round((Lgt+1)/2)
+    #if  ret['type']     == "pd":  ret['bytes'] = round((Lgt)/2)
+    if   ret['type'][:2] == "pd": ret['bytes'] = round((Lgt+1)/2)
     elif ret['type'][:2] == "bi": 
         if   Lgt <  5:             ret['bytes'] = 2
         elif Lgt < 10:             ret['bytes'] = 4

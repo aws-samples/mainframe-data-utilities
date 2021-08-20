@@ -1,0 +1,70 @@
+{
+    "REC-OUTFILE": {
+        "id": 1,
+        "level": 1,
+        "group": true,
+        "OUTFILE-TEXT": {
+            "id": 2,
+            "level": 3,
+            "group": false,
+            "pict": "-9(18)",
+            "type": "ch",
+            "length": 18,
+            "bytes": 18
+        },
+        "OUTFILE-UNPACKED": {
+            "id": 3,
+            "level": 3,
+            "group": false,
+            "pict": "9(18)",
+            "type": "zd",
+            "length": 18,
+            "bytes": 18
+        },
+        "OUTFILE-UNPACKED-SIGNED": {
+            "id": 4,
+            "level": 3,
+            "group": false,
+            "pict": "S9(18)",
+            "type": "zd+",
+            "length": 18,
+            "bytes": 18
+        },
+        "OUTFILE-COMP": {
+            "id": 5,
+            "level": 3,
+            "group": false,
+            "pict": "9(18)",
+            "type": "bi",
+            "length": 18,
+            "bytes": 8
+        },
+        "OUTFILE-COMP-SIGNED": {
+            "id": 6,
+            "level": 3,
+            "group": false,
+            "pict": "S9(18)",
+            "type": "bi+",
+            "length": 18,
+            "bytes": 8
+        },
+        "OUTFILE-COMP3": {
+            "id": 7,
+            "level": 3,
+            "group": false,
+            "pict": "9(18)",
+            "type": "pd",
+            "length": 18,
+            "bytes": 10
+        },
+        "OUTFILE-COMP3-SIGNED": {
+            "id": 8,
+            "level": 3,
+            "group": false,
+            "pict": "S9(18)",
+            "type": "pd+",
+            "length": 18,
+            "bytes": 10
+        }
+    }
+}
