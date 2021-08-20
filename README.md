@@ -6,11 +6,12 @@ Table of contents
 * License
 * About
 * Status
-* How to use
-    * Python
+* Requirements
+* extract-ebcdic-to-ascii
     * Parameters
     * Execution
 * LegacyReference
+* Roadmap
 
 ## Security
 
@@ -32,15 +33,17 @@ The first release of this toolset consists of two scripts:
 
 - ebcdic is the main library that handles the encoding transformation logic.
 
+- parse-copybook-to-json is a module to automate the creation of the parameters file required by the extract-ebcdic-to-ascii script.
+
 ## Status
 
-Content Security Review requested
+In progress
 
-## How to use extract-ebcdic-to-ascii
-
-### Python
+### Requirements
 
 Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
+
+## extract-ebcdic-to-ascii
 
 ### Parameters
 
@@ -65,6 +68,13 @@ Execute `extract-ebcdic-to-ascii.py` passing the json parameter file created in 
 
 ```
 python3 extract-ebcdic-to-ascii.py extract-ebcdic-to-ascii/ParamFile.json 
+```
+
+## parse-copybook-to-json
+### Execution
+
+```
+python parse-copybook-to-json.py parse-copybook-to-json/stock.cpy parse-copybook-to-json/stock.json
 ```
 
 ## LegacyReference 
