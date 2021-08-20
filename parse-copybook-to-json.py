@@ -41,14 +41,15 @@ def getLenType(atr):
     ret['length'] = Lgt
 
     #Data size in bytes
-    #if  ret['type']     == "pd":  ret['bytes'] = round((Lgt)/2)
     if   ret['type'][:2] == "pd": ret['bytes'] = round((Lgt+1)/2)
     elif ret['type'][:2] == "bi": 
         if   Lgt <  5:             ret['bytes'] = 2
         elif Lgt < 10:             ret['bytes'] = 4
         else         :             ret['bytes'] = 8
-    else:                          ret['bytes'] = Lgt
-
+    else:                          
+        if FirstCh=='-': Lgt += 1
+        ret['bytes'] = Lgt
+        
     return ret
 
 ############# DICTIONARY AND HIERARCHICAL LOGIC ###########################
@@ -81,17 +82,37 @@ def add2dict(lvl, grp, itm, stt, id):
         stk[itm]['length'] = tplen['length']
         stk[itm]['bytes'] = tplen['bytes']
 
+###### Create the extraction parameter file
+def CreateExtraction(obj):
+    global lrecl
+    for k in obj:
+        if k != "id" and k != "level" and k != "group":
+            if 'times' not in obj[k]:
+                t = 1
+            else: t = obj['times']
+
+            if 'redefines' not in obj[k]:
+                if obj[k]['group'] == True:
+                    iTimes = 0
+                    while iTimes < t:
+                        iTimes +=1
+                        CreateExtraction(obj[k])
+                else:
+                    item = {}
+                    item['type'] = obj[k]['type']
+                    item['val']  = obj[k]['bytes']
+                    item['name'] = k
+                    transf.append(item)
+                    lrecl = lrecl + obj[k]['bytes']
+                
 ############################### MAIN ###################################
 
 print("-----------------------------------------------------")
 print("\nInput file.............|",sys.argv[1],"\nOutput file.............|",sys.argv[2])
 
 finp=open(sys.argv[1],"r")
-fout=open(sys.argv[2],"w")
-
 id = 0
 FillerCount=0
-
 cur=0
 output={}
 stack = {}
@@ -113,5 +134,24 @@ for variable in stt.split("."):
             add2dict(int(attribute[0]), False if 'PIC'in attribute else True, attribute[1], attribute, id)
 
 # CONVERTS DICT TO JSON #
-fout.write(json.dumps(output,indent=4))
+transf = []
+lrecl = 0
+CreateExtraction(output)
+
+param = {}
+param['input'] = 'ebcdicfile.txt'
+param['output'] = 'asciifile.txt'
+param['max'] = 0
+param['skip'] = 0
+param['print'] = 20000
+param['lrecl'] = lrecl
+param['separator'] = '|'
+param['transf'] = transf
+
+fout=open(sys.argv[2],"w")
+fout.write(json.dumps(param,indent=4))
 fout.close()
+
+#fout=open(sys.argv[2],"w")
+#fout.write(json.dumps(output,indent=4))
+#fout.close()

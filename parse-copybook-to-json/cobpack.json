@@ -1,70 +1,46 @@
 {
-    "REC-OUTFILE": {
-        "id": 1,
-        "level": 1,
-        "group": true,
-        "OUTFILE-TEXT": {
-            "id": 2,
-            "level": 3,
-            "group": false,
-            "pict": "-9(18)",
+    "input": "ebcdicfile.txt",
+    "output": "asciifile.txt",
+    "max": 0,
+    "skip": 0,
+    "print": 20000,
+    "lrecl": 91,
+    "separator": "|",
+    "transf": [
+        {
             "type": "ch",
-            "length": 18,
-            "bytes": 18
+            "val": 19,
+            "name": "OUTFILE-TEXT"
         },
-        "OUTFILE-UNPACKED": {
-            "id": 3,
-            "level": 3,
-            "group": false,
-            "pict": "9(18)",
+        {
             "type": "zd",
-            "length": 18,
-            "bytes": 18
+            "val": 18,
+            "name": "OUTFILE-UNPACKED"
         },
-        "OUTFILE-UNPACKED-SIGNED": {
-            "id": 4,
-            "level": 3,
-            "group": false,
-            "pict": "S9(18)",
+        {
             "type": "zd+",
-            "length": 18,
-            "bytes": 18
+            "val": 18,
+            "name": "OUTFILE-UNPACKED-SIGNED"
         },
-        "OUTFILE-COMP": {
-            "id": 5,
-            "level": 3,
-            "group": false,
-            "pict": "9(18)",
+        {
             "type": "bi",
-            "length": 18,
-            "bytes": 8
+            "val": 8,
+            "name": "OUTFILE-COMP"
         },
-        "OUTFILE-COMP-SIGNED": {
-            "id": 6,
-            "level": 3,
-            "group": false,
-            "pict": "S9(18)",
+        {
             "type": "bi+",
-            "length": 18,
-            "bytes": 8
+            "val": 8,
+            "name": "OUTFILE-COMP-SIGNED"
         },
-        "OUTFILE-COMP3": {
-            "id": 7,
-            "level": 3,
-            "group": false,
-            "pict": "9(18)",
+        {
             "type": "pd",
-            "length": 18,
-            "bytes": 10
+            "val": 10,
+            "name": "OUTFILE-COMP3"
         },
-        "OUTFILE-COMP3-SIGNED": {
-            "id": 8,
-            "level": 3,
-            "group": false,
-            "pict": "S9(18)",
+        {
             "type": "pd+",
-            "length": 18,
-            "bytes": 10
+            "val": 10,
+            "name": "OUTFILE-COMP3-SIGNED"
         }
-    }
+    ]
 }
