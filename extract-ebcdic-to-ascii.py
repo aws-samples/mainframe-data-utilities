@@ -28,7 +28,7 @@ while i < param["max"] or param["max"] == 0:
         ini = 0
         for transf in param["transf"]:
 
-            fim += transf["val"]
+            fim += transf["bytes"]
 
             OutF.write((ebcdic.unpack(linha[ini:fim],transf["type"],transf["name"]) + param["separator"]))
 

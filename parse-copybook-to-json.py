@@ -41,7 +41,7 @@ def getLenType(atr):
     ret['length'] = Lgt
 
     #Data size in bytes
-    if   ret['type'][:2] == "pd": ret['bytes'] = round((Lgt+1)/2)
+    if   ret['type'][:2] == "pd": ret['bytes'] = round((Lgt/2))+1
     elif ret['type'][:2] == "bi": 
         if   Lgt <  5:             ret['bytes'] = 2
         elif Lgt < 10:             ret['bytes'] = 4
@@ -72,7 +72,7 @@ def add2dict(lvl, grp, itm, stt, id):
     if grp == True:
         stack[lvl] = itm
         cur = lvl
-        if 'OCCURS'in stt: stk[itm]['occurs'] = stt[3]
+        if 'OCCURS'in stt: stk[itm]['occurs'] = int(stt[3])
         if 'REDEFINES'in stt: stk[itm]['redefines'] = stt[3]
     else:
         tplen = {}
@@ -86,10 +86,11 @@ def add2dict(lvl, grp, itm, stt, id):
 def CreateExtraction(obj):
     global lrecl
     for k in obj:
-        if k != "id" and k != "level" and k != "group":
-            if 'times' not in obj[k]:
+        if k != "id" and k != "level" and k != "group" and k != "occurs" and k != "redefines":
+            if 'occurs' not in obj[k]:
                 t = 1
-            else: t = obj['times']
+            else: 
+                t = obj[k]['occurs']
 
             if 'redefines' not in obj[k]:
                 if obj[k]['group'] == True:
@@ -100,7 +101,7 @@ def CreateExtraction(obj):
                 else:
                     item = {}
                     item['type'] = obj[k]['type']
-                    item['val']  = obj[k]['bytes']
+                    item['bytes']  = obj[k]['bytes']
                     item['name'] = k
                     transf.append(item)
                     lrecl = lrecl + obj[k]['bytes']
@@ -108,7 +109,8 @@ def CreateExtraction(obj):
 ############################### MAIN ###################################
 
 print("-----------------------------------------------------")
-print("\nInput file.............|",sys.argv[1],"\nOutput file.............|",sys.argv[2])
+print("\nInput file.............|",sys.argv[1],"\nList notation.....|",sys.argv[2])
+if len(sys.argv[2]) > 3: print("Object notation......|",sys.argv[3])
 
 finp=open(sys.argv[1],"r")
 id = 0
@@ -143,7 +145,7 @@ param['input'] = 'ebcdicfile.txt'
 param['output'] = 'asciifile.txt'
 param['max'] = 0
 param['skip'] = 0
-param['print'] = 20000
+param['print'] = 0
 param['lrecl'] = lrecl
 param['separator'] = '|'
 param['transf'] = transf
@@ -152,6 +154,7 @@ fout=open(sys.argv[2],"w")
 fout.write(json.dumps(param,indent=4))
 fout.close()
 
-#fout=open(sys.argv[2],"w")
-#fout.write(json.dumps(output,indent=4))
-#fout.close()
+if len(sys.argv[2]) > 3:
+    fout=open(sys.argv[3],"w")
+    fout.write(json.dumps(output,indent=4))
+    fout.close()

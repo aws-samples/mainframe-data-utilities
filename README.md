@@ -76,7 +76,7 @@ python3 extract-ebcdic-to-ascii.py extract-ebcdic-to-ascii/ParamFile.json
 ```
 python parse-copybook-to-json.py parse-copybook-to-json/stock.cpy parse-copybook-to-json/stock.json
 
-python parse-copybook-to-json.py parse-copybook-to-json/cobpack.cpy parse-copybook-to-json/cobpack.json
+python parse-copybook-to-json.py parse-copybook-to-json/cobpack2.cpy parse-copybook-to-json/cobpack2.json
 ```
 
 ## LegacyReference 
