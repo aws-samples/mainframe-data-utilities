@@ -3,7 +3,7 @@
       * SPDX-License-Identifier: Apache-2.0
       *-----------------------------------------------------------------
        IDENTIFICATION DIVISION.                                         00010000
-       PROGRAM-ID. COBPACK.                                             00020000
+       PROGRAM-ID. COBPACK2.                                             00020000
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.                                            00030000
       *-----------------------------------------------------------------00030200
