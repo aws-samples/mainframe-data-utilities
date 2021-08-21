@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [        
+
+
+
+        {
+            "name": "extract-ebcdic-to-ascii",
+            "type": "python",
+            "request": "launch",
+            "program": "extract-ebcdic-to-ascii.py",
+            "console": "integratedTerminal",
+            "args": ["parse-copybook-to-json/cobpack2-list.json"]
+        },
+        {
+            "name": "parse-copybook-to-json",
+            "type": "python",
+            "request": "launch",
+            "program": "parse-copybook-to-json.py",
+            "console": "integratedTerminal",
+            "args": ["parse-copybook-to-json/cobpack2.cpy", 
+                     "parse-copybook-to-json/cobpack2-list.json",
+                     "parse-copybook-to-json/cobpack2-dict.json"]
+        }
+    ]
+}

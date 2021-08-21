@@ -21,16 +21,16 @@ while i < param["max"] or param["max"] == 0:
     fim=0
     if i > param["skip"]:
             
-        if(i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
+        if(param["print"] != 0 and i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
 
         if(i >= param["max"]-3 and i <= param["max"]): print(linha.hex())
 
         ini = 0
         for transf in param["transf"]:
 
-            fim += transf["val"]
+            fim += transf["bytes"]
 
-            OutF.write((ebcdic.unpack(linha[ini:fim],transf["type"],transf["name"]) + param["separator"]))
+            OutF.write((ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]) + param["separator"]))
 
             ini = fim
 

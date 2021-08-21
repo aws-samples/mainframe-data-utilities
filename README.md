@@ -6,11 +6,12 @@ Table of contents
 * License
 * About
 * Status
-* How to use
-    * Python
+* Requirements
+* extract-ebcdic-to-ascii
     * Parameters
     * Execution
 * LegacyReference
+* Roadmap
 
 ## Security
 
@@ -32,15 +33,17 @@ The first release of this toolset consists of two scripts:
 
 - ebcdic is the main library that handles the encoding transformation logic.
 
+- parse-copybook-to-json is a module to automate the creation of the parameters file required by the extract-ebcdic-to-ascii script.
+
 ## Status
 
-Content Security Review requested
+In progress
 
-## How to use extract-ebcdic-to-ascii
-
-### Python
+### Requirements
 
 Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
+
+## extract-ebcdic-to-ascii
 
 ### Parameters
 
@@ -55,7 +58,6 @@ Using `extract-ebcdic-to-ascii/ParamFile.json` as an example, create the json pa
 | bi+       | signed binary        | pic s9 comp    |
 | pd        | packed-decimal       | pic  9 comp-3  |
 | pd+       | signed packed-decimal| pic s9 comp-3  |
-| skip      | skip / bypass column | N/A            |
 
 The length must be in bytes. A 18 digit integer field, for instance, only takes 10 bytes. For more information check [IBM Computational items documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items).
 
@@ -65,6 +67,15 @@ Execute `extract-ebcdic-to-ascii.py` passing the json parameter file created in 
 
 ```
 python3 extract-ebcdic-to-ascii.py extract-ebcdic-to-ascii/ParamFile.json 
+```
+
+## parse-copybook-to-json
+### Execution
+
+```
+python parse-copybook-to-json.py parse-copybook-to-json/stock.cpy parse-copybook-to-json/stock.json
+
+python parse-copybook-to-json.py parse-copybook-to-json/cobpack2.cpy parse-copybook-to-json/cobpack2.json
 ```
 
 ## LegacyReference 
