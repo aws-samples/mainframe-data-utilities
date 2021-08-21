@@ -6,23 +6,24 @@
     "configurations": [        
 
 
+
         {
             "name": "extract-ebcdic-to-ascii",
             "type": "python",
             "request": "launch",
             "program": "extract-ebcdic-to-ascii.py",
             "console": "integratedTerminal",
-            "args": ["parse-copybook-to-json/cobpack2.json"]
+            "args": ["parse-copybook-to-json/cobpack2-list.json"]
         },
         {
             "name": "parse-copybook-to-json",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "program": "parse-copybook-to-json.py",
             "console": "integratedTerminal",
             "args": ["parse-copybook-to-json/cobpack2.cpy", 
-                     "parse-copybook-to-json/cobpack2.json",
-                     "parse-copybook-to-json/cobpack2temp.json"]
+                     "parse-copybook-to-json/cobpack2-list.json",
+                     "parse-copybook-to-json/cobpack2-dict.json"]
         }
     ]
 }

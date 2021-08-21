@@ -1,4 +1,5 @@
 import json, sys
+from os import truncate
 
 # FUNCTIONS TO HANDLE THE HIERARCHICAL STACK #
 def fGetSetack():
@@ -108,9 +109,9 @@ def CreateExtraction(obj):
                 
 ############################### MAIN ###################################
 
-print("-----------------------------------------------------")
-print("\nInput file.............|",sys.argv[1],"\nList notation.....|",sys.argv[2])
-if len(sys.argv[2]) > 3: print("Object notation......|",sys.argv[3])
+print("----------------------------------------------------------------------")
+print("Input file..................|",sys.argv[1],"\nJSON List (extraction input)|",sys.argv[2])
+if len(sys.argv[2]) > 3: print("JSON Dict (documentation)...|",sys.argv[3])
 
 finp=open(sys.argv[1],"r")
 id = 0
@@ -147,6 +148,7 @@ param['max'] = 0
 param['skip'] = 0
 param['print'] = 0
 param['lrecl'] = lrecl
+param['rem-low-values'] = True
 param['separator'] = '|'
 param['transf'] = transf
 
@@ -158,3 +160,5 @@ if len(sys.argv[2]) > 3:
     fout=open(sys.argv[3],"w")
     fout.write(json.dumps(output,indent=4))
     fout.close()
+
+print("----------------------------------------------------------------------")

@@ -21,3 +21,4 @@
              07 TEXT1                   PIC  X(01).                     00039500
            03  GROUP2 REDEFINES GROUP1.
             05 TEXT2                     PIC  X(02).                    00039500
+           03 FILLER                     PIC  X(29).                    

@@ -4,7 +4,7 @@
 //* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //* SPDX-License-Identifier: Apache-2.0
 //**********************************************************************
-//COBPACK  EXEC PGM=COBPACK
+//COBPACK  EXEC PGM=COBPACK2
 //STEPLIB  DD  DISP=SHR,DSN=LUISDAN.LOAD
 //SYSPRINT DD  SYSOUT=*
 //UTPRINT  DD  SYSOUT=*
