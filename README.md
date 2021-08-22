@@ -7,6 +7,7 @@ Table of contents
 * About
 * Status
 * Requirements
+* Limitations
 * extract-ebcdic-to-ascii
     * Parameters
     * Execution
@@ -27,7 +28,7 @@ Mainframe Data Utilities is an AWS Sample
 
 The purpose of this project is to create a series of Python scripts to handle EBCDIC files migrated from mainframes or AS/400 platforms to AWS or any distributed environment.
 
-The first release of this toolset consists of two scripts:
+The first release of this toolset consists of three scripts:
 
 - extract-ebcdic-to-ascii.py is the first script/tool of this project. It uses a json parameter file to slice a fixed length EBCDIC file and unpack its contents and write them to an ASCII file.
 
@@ -39,9 +40,13 @@ The first release of this toolset consists of two scripts:
 
 In progress
 
-### Requirements
+## Requirements
 
 Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
+
+## Limitations
+
+Redefines statements are ignored.
 
 ## extract-ebcdic-to-ascii
 
