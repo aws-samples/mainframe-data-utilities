@@ -24,9 +24,9 @@ This project is licensed under the Apache-2.0 License.
 
 ## About
 
-Mainframe Data Utilities is an AWS Sample
+Mainframe Data Utilities is an AWS Sample written in Python.
 
-The purpose of this project is to create a series of Python scripts to handle EBCDIC files migrated from mainframes or AS/400 platforms to AWS or any distributed environment.
+The purpose of this project is to provide a series of Python scripts as a starting point for those who need to handle EBCDIC files migrated from mainframes or AS/400 platforms to AWS or any distributed environment.
 
 The first release of this toolset consists of three scripts:
 
