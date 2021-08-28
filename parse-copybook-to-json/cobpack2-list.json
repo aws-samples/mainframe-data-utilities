@@ -1,6 +1,6 @@
 {
-    "input": "extract-ebcdic-to-ascii/COBPACK.OUTFILE.txt",
-    "output": "extract-ebcdic-to-ascii/COBPACK.ASCII.txt",
+    "input": "ebcdicfile.txt",
+    "output": "asciifile.txt",
     "max": 0,
     "skip": 0,
     "print": 0,
