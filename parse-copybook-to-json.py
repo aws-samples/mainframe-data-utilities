@@ -1,5 +1,4 @@
 import json, sys
-#from os import truncate
 
 # FUNCTIONS TO HANDLE THE HIERARCHICAL STACK #
 def fGetSetack():
@@ -110,11 +109,21 @@ def CreateExtraction(obj):
 ############################### MAIN ###################################
 
 print("-----------------------------------------------------------------------")
-print("Input file..................|",sys.argv[1])
-print("JSON List (extraction input)|",sys.argv[2])
-if len(sys.argv) > 3: print("JSON Dict (documentation)...|",sys.argv[3])
 
-finp=open(sys.argv[1],"r")
+iparm = dict(zip(sys.argv[1::2], sys.argv[2::2]))
+
+if '-copybook' not in iparm or '-output' not in iparm:
+    print('Sintax: python parse-copybook-to json -copybook <copybookfile.cpb> -output <jsonfile.json>\n')
+    quit()
+
+print("Copybook file...............|", iparm['-copybook'])
+print("Parsed copybook (JSON List).|", iparm['-output'])
+
+if '-dict'   in iparm: print("JSON Dict (documentation)...|", iparm['-dict'])
+if '-ascii'  in iparm: print("ASCII file..................|", iparm['-ascii'])
+if '-ebcdic' in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
+
+finp=open(iparm['-copybook'], "r")
 id = 0
 FillerCount=0
 cur=0
@@ -143,8 +152,8 @@ lrecl = 0
 CreateExtraction(output)
 
 param = {}
-param['input'] = 'ebcdicfile.txt'
-param['output'] = 'asciifile.txt'
+param['input'] = iparm['-ebcdic'] if '-ebcdic'in iparm else 'ebcdicfile.txt'
+param['output'] = iparm['-ascii'] if '-ascii'in iparm else 'asciifile.txt'
 param['max'] = 0
 param['skip'] = 0
 param['print'] = 0
@@ -153,12 +162,12 @@ param['rem-low-values'] = True
 param['separator'] = '|'
 param['transf'] = transf
 
-fout=open(sys.argv[2],"w")
+fout=open(iparm['-output'],"w")
 fout.write(json.dumps(param,indent=4))
 fout.close()
 
-if len(sys.argv) > 3:
-    fout=open(sys.argv[3],"w")
+if '-dict' in iparm:
+    fout=open(iparm['-dict'],"w")
     fout.write(json.dumps(output,indent=4))
     fout.close()
 
