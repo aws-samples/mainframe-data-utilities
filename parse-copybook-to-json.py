@@ -122,6 +122,7 @@ print("Parsed copybook (JSON List).|", iparm['-output'])
 if '-dict'   in iparm: print("JSON Dict (documentation)...|", iparm['-dict'])
 if '-ascii'  in iparm: print("ASCII file..................|", iparm['-ascii'])
 if '-ebcdic' in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
+if '-print'  in iparm: print("Print each..................|", iparm['-print'])
 
 finp=open(iparm['-copybook'], "r")
 id = 0
@@ -156,7 +157,7 @@ param['input'] = iparm['-ebcdic'] if '-ebcdic'in iparm else 'ebcdicfile.txt'
 param['output'] = iparm['-ascii'] if '-ascii'in iparm else 'asciifile.txt'
 param['max'] = 0
 param['skip'] = 0
-param['print'] = 0
+param['print'] = int(iparm['-print']) if '-print'in iparm else 0
 param['lrecl'] = lrecl
 param['rem-low-values'] = True
 param['separator'] = '|'
