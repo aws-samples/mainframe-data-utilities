@@ -64,7 +64,7 @@ python parse-copybook-to-json.py -copybook LegacyReference/COBPACK2.cpy -output 
 3. Run `extract-ebcdic-to-ascii.py`to extract the `COBPACK.OUTFILE.txt` into an ASCII file.
 
 ```
-python3 extract-ebcdic-to-ascii.py sample-data/cobpack2-list.json
+python extract-ebcdic-to-ascii.py sample-data/cobpack2-list.json
 ```
 
 ## How it works
