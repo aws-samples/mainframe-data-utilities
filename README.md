@@ -11,7 +11,7 @@ Table of contents
 * Getting started
 * How it works
 * LegacyReference
-* Roadmap
+* To be implemented
 
 ## Security
 
@@ -185,9 +185,8 @@ The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBP
     03 FILLER                     PIC  X(29).                   
 ```
 
-## Roadmap
-
+## To be implemented
 - Creation of the DDL from JSON parsed copybook.
-- Redefines handling
+- Multi-layout files / redefines handling
 - Easytrive layout parsing
 
