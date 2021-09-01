@@ -45,7 +45,8 @@ Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 
 ## Limitations
 
-Redefines statements are ignored.
+1. Multi-layout files are not supported. Redefines statements are ignored.
+2. File layouts defined inside Cobol programas are not supported.
 
 ## Getting started
 
