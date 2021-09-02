@@ -45,9 +45,10 @@ Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 
 ## Limitations
 
-1. Multi-layout files are not supported. Redefines statements are ignored.
-2. File layouts defined inside Cobol programas are not supported.
-3. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
+1. Occurs for non-group data elements are not detected by the copybook parser yet.
+2. Multi-layout files are not supported. Redefines statements are ignored.
+3. File layouts defined inside Cobol programas are not supported.
+4. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
 
 ## Getting started
 
@@ -187,7 +188,8 @@ The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBP
 ```
 
 ## To be implemented
+- Occurs for non-group data elements.
 - Creation of the DDL from JSON parsed copybook.
-- Multi-layout files / redefines handling
-- Easytrive layout parsing
+- Multi-layout files / redefines handling.
+- Easytrive layout parsing.
 
