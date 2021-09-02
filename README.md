@@ -47,6 +47,7 @@ Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 
 1. Multi-layout files are not supported. Redefines statements are ignored.
 2. File layouts defined inside Cobol programas are not supported.
+3. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
 
 ## Getting started
 
