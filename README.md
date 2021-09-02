@@ -161,30 +161,30 @@ The source code under the *LegacyReference* folder are JCL and Cobol components 
 The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBPACK.OUTFILE.txt) used for testing (in Cobol notation) is:
 
 ```
-01  REC-OUTFILE.                                                 
-    03  OUTFILE-TEXT              PIC -9(18).                    
-    03  OUTFILE-UNPACKED          PIC  9(18).                    
-    03  OUTFILE-UNPACKED-S        PIC S9(18).                    
-    03  BINARY-FIELDS.                                           
-    05 OUTFILE-COMP-04           PIC  9(04) COMP.               
-    05 OUTFILE-COMP-04-S         PIC S9(04) COMP.               
-    05 OUTFILE-COMP-09           PIC  9(09) COMP.               
-    05 OUTFILE-COMP-09-S         PIC S9(09) COMP.               
-    05 OUTFILE-COMP-18           PIC  9(18) COMP.               
-    05 OUTFILE-COMP-18-S         PIC S9(18) COMP.               
-    03  PACKED-DECIMAL-FIELDS.                                   
-    05 OUTFILE-COMP3-04          PIC  9(04) COMP-3.             
-    05 OUTFILE-COMP3-04-S        PIC S9(04) COMP-3.             
-    05 OUTFILE-COMP3-09          PIC  9(09) COMP-3.             
-    05 OUTFILE-COMP3-09-S        PIC S9(09) COMP-3.             
-    05 OUTFILE-COMP3-18          PIC  9(18) COMP-3.             
-    05 OUTFILE-COMP3-18-S        PIC S9(18) COMP-3.             
-    03  GROUP1.
-    05 GROUP1-1 OCCURS 2 TIMES.                                 
-        07 TEXT1                   PIC  X(01).                     
-    03  GROUP2 REDEFINES GROUP1.
-    05 TEXT2                     PIC  X(02).                    
-    03 FILLER                     PIC  X(29).                   
+01 REC-OUTFILE.                                                 
+   03 OUTFILE-TEXT                PIC -9(18).                    
+   03 OUTFILE-UNPACKED            PIC  9(18).                    
+   03 OUTFILE-UNPACKED-S          PIC S9(18).                    
+   03 BINARY-FIELDS.                                           
+      05 OUTFILE-COMP-04          PIC  9(04) COMP.               
+      05 OUTFILE-COMP-04-S        PIC S9(04) COMP.               
+      05 OUTFILE-COMP-09          PIC  9(09) COMP.               
+      05 OUTFILE-COMP-09-S        PIC S9(09) COMP.               
+      05 OUTFILE-COMP-18          PIC  9(18) COMP.               
+      05 OUTFILE-COMP-18-S        PIC S9(18) COMP.               
+   03 PACKED-DECIMAL-FIELDS.                                  
+      05 OUTFILE-COMP3-04         PIC  9(04) COMP-3.             
+      05 OUTFILE-COMP3-04-S       PIC S9(04) COMP-3.             
+      05 OUTFILE-COMP3-09         PIC  9(09) COMP-3.             
+      05 OUTFILE-COMP3-09-S       PIC S9(09) COMP-3.             
+      05 OUTFILE-COMP3-18         PIC  9(18) COMP-3.             
+      05 OUTFILE-COMP3-18-S       PIC S9(18) COMP-3.             
+   03 GROUP1.
+      05 GROUP1-1 OCCURS 2 TIMES.                                 
+         07 TEXT1                 PIC  X(01).                     
+   03 GROUP2 REDEFINES GROUP1.
+      05 TEXT2                    PIC  X(02).                    
+   03 FILLER                      PIC  X(29).                   
 ```
 
 ## To be implemented
