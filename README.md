@@ -47,7 +47,7 @@ Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 
 1. Occurs for non-group data elements are not detected by the copybook parser yet.
 2. Multi-layout files are not supported. Redefines statements are ignored.
-3. File layouts defined inside Cobol programas are not supported.
+3. File layouts defined inside Cobol programs are not supported.
 4. Packing statement not considered when defined before the PIC clause. 
 5. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
 
