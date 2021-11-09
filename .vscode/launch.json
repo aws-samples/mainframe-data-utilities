@@ -21,9 +21,17 @@
             "request": "launch",
             "program": "parse-copybook-to-json.py",
             "console": "integratedTerminal",
-            "args": ["parse-copybook-to-json/cobpack2.cpy", 
-                     "parse-copybook-to-json/cobpack2-list.json",
-                     "parse-copybook-to-json/cobpack2-dict.json"]
+            "args": ["-copybook",
+                "LegacyReference/COBPACK2.cpy",
+                "-output",
+                "sample-data/cobpack2-list.json", 
+                "-dict",
+                "sample-data/cobpack2-dict.json",
+                "-ebcdic",
+                "sample-data/COBPACK.OUTFILE.txt",
+                "-ascii", 
+                "sample-data/COBPACK.ASCII.txt", "-print",
+                "10000"]
         }
     ]
 }
