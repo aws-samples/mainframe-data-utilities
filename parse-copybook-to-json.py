@@ -4,11 +4,9 @@ import json, sys, copybook
 def CreateExtraction(obj):
     global lrecl
     for k in obj:
-        if k != "id" and k != "level" and k != "group" and k != "occurs" and k != "redefines":
-            if 'occurs' not in obj[k]:
-                t = 1
-            else: 
-                t = obj[k]['occurs']
+        if type(obj[k]) is dict:
+
+            t = 1 if 'occurs' not in obj[k] else obj[k]['occurs']
 
             if 'redefines' not in obj[k]:
                 if obj[k]['group'] == True:
