@@ -98,5 +98,92 @@
             "bytes": 29,
             "name": "FILLER-1"
         }
+    ],
+    "transf1": [
+        {
+            "type": "ch",
+            "bytes": 19,
+            "name": "OUTFILE-TEXT"
+        },
+        {
+            "type": "zd",
+            "bytes": 18,
+            "name": "OUTFILE-UNPACKED"
+        },
+        {
+            "type": "zd+",
+            "bytes": 18,
+            "name": "OUTFILE-UNPACKED-S"
+        },
+        {
+            "type": "bi",
+            "bytes": 2,
+            "name": "OUTFILE-COMP-04"
+        },
+        {
+            "type": "bi+",
+            "bytes": 2,
+            "name": "OUTFILE-COMP-04-S"
+        },
+        {
+            "type": "bi",
+            "bytes": 4,
+            "name": "OUTFILE-COMP-09"
+        },
+        {
+            "type": "bi+",
+            "bytes": 4,
+            "name": "OUTFILE-COMP-09-S"
+        },
+        {
+            "type": "bi",
+            "bytes": 8,
+            "name": "OUTFILE-COMP-18"
+        },
+        {
+            "type": "bi+",
+            "bytes": 8,
+            "name": "OUTFILE-COMP-18-S"
+        },
+        {
+            "type": "pd",
+            "bytes": 3,
+            "name": "OUTFILE-COMP3-04"
+        },
+        {
+            "type": "pd+",
+            "bytes": 3,
+            "name": "OUTFILE-COMP3-04-S"
+        },
+        {
+            "type": "pd",
+            "bytes": 5,
+            "name": "OUTFILE-COMP3-09"
+        },
+        {
+            "type": "pd+",
+            "bytes": 5,
+            "name": "OUTFILE-COMP3-09-S"
+        },
+        {
+            "type": "pd",
+            "bytes": 10,
+            "name": "OUTFILE-COMP3-18"
+        },
+        {
+            "type": "pd+",
+            "bytes": 10,
+            "name": "OUTFILE-COMP3-18-S"
+        },
+        {
+            "type": "ch",
+            "bytes": 2,
+            "name": "TEXT2"
+        },
+        {
+            "type": "ch",
+            "bytes": 29,
+            "name": "FILLER-1"
+        }
     ]
 }

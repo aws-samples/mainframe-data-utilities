@@ -38,5 +38,32 @@
             "bytes": 444,
             "name": "FILLER-1"
         }
+    ],
+    "transf1": [
+        {
+            "type": "bi",
+            "bytes": 4,
+            "name": "CLIENT-ID"
+        },
+        {
+            "type": "bi",
+            "bytes": 2,
+            "name": "CLIENT-TYPE"
+        },
+        {
+            "type": "bi",
+            "bytes": 4,
+            "name": "CLIENT-ADDR-NUMBER"
+        },
+        {
+            "type": "ch",
+            "bytes": 40,
+            "name": "CLIENT-ADDR-STREET"
+        },
+        {
+            "type": "ch",
+            "bytes": 450,
+            "name": "FILLER-2"
+        }
     ]
 }

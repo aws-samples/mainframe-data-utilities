@@ -1,7 +1,7 @@
 import json, sys, copybook
 
 ###### Create the extraction parameter file
-def CreateExtraction(obj):
+def CreateExtraction(obj, alt={}):
     global lrecl
     for k in obj:
         if type(obj[k]) is dict:
@@ -13,8 +13,12 @@ def CreateExtraction(obj):
                 iTimes +=1
 
                 if 'redefines' not in obj[k]:
+
+                    if k in alt:
+                        obj[k] = alt[k]
+
                     if obj[k]['group'] == True:
-                        CreateExtraction(obj[k])
+                        CreateExtraction(obj[k], alt)
                     else:
                         item = {}
                         item['type'] = obj[k]['type']
@@ -22,6 +26,11 @@ def CreateExtraction(obj):
                         item['name'] = k
                         transf.append(item)
                         lrecl = lrecl + obj[k]['bytes']
+                elif not alt:
+                    red = {}
+                    red[obj[k]['redefines']] = obj[k]
+                    red[obj[k]['redefines']]['newname'] = k
+                    altlay.append(red)
                 
 ############################### MAIN ###################################
 print("-----------------------------------------------------------------------")
@@ -40,12 +49,16 @@ if '-ascii'  in iparm: print("ASCII file..................|", iparm['-ascii'])
 if '-ebcdic' in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
 if '-print'  in iparm: print("Print each..................|", iparm['-print'])
 
-transf = []
-lrecl = 0
-
 with open(iparm['-copybook'], "r") as finp:
     output = copybook.toDict(finp.readlines())
 
+if '-dict' in iparm:
+    with open(iparm['-dict'],"w") as fout:
+        fout.write(json.dumps(output,indent=4))
+
+altlay = []
+transf = []
+lrecl = 0
 CreateExtraction(output)
 
 param = {}
@@ -57,15 +70,18 @@ param['print'] = int(iparm['-print']) if '-print'in iparm else 0
 param['lrecl'] = lrecl
 param['rem-low-values'] = True
 param['separator'] = '|'
+#param['alt-layout'] = [5,2,'bi','eq',1,'transf1']
 param['transf'] = transf
 
-fout=open(iparm['-output'],"w")
-fout.write(json.dumps(param,indent=4))
-fout.close()
+ialt = 0
+for r in altlay:
+    transf = []
+    CreateExtraction(output,r)
+    ialt += 1
+    param['transf' + str(ialt)] = transf
 
-if '-dict' in iparm:
-    fout=open(iparm['-dict'],"w")
-    fout.write(json.dumps(output,indent=4))
-    fout.close()
+with open(iparm['-output'],"w") as fout:
+    fout.write(json.dumps(param,indent=4))
+
 
 print("-----------------------------------------------------------------------")
