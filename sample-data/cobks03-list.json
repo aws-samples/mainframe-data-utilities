@@ -1,0 +1,42 @@
+{
+    "input": "sample-data/CLIENT.EBCDIC.txt",
+    "output": "sample-data/CLIENT.ASCII.txt",
+    "max": 0,
+    "skip": 0,
+    "print": 10000,
+    "lrecl": 500,
+    "rem-low-values": true,
+    "separator": "|",
+    "transf": [
+        {
+            "type": "bi",
+            "bytes": 4,
+            "name": "CLIENT-ID"
+        },
+        {
+            "type": "bi",
+            "bytes": 2,
+            "name": "CLIENT-TYPE"
+        },
+        {
+            "type": "ch",
+            "bytes": 30,
+            "name": "CLIENT-NAME"
+        },
+        {
+            "type": "ch",
+            "bytes": 10,
+            "name": "CLIENT-BDATE"
+        },
+        {
+            "type": "ch",
+            "bytes": 10,
+            "name": "CLIENT-ED-LVL"
+        },
+        {
+            "type": "ch",
+            "bytes": 444,
+            "name": "FILLER-1"
+        }
+    ]
+}

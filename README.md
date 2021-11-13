@@ -62,13 +62,13 @@ git clone git@github.com:aws-samples/mainframe-data-utilities.git.
 2. Run the `parse-copybook-to-json.py` script to parse the copybook file provided in `sample-data`.
 
 ```
-python parse-copybook-to-json.py -copybook LegacyReference/COBPACK2.cpy -output sample-data/cobpack2-list.json -dict sample-data/cobpack2-dict.json -ebcdic sample-data/COBPACK.OUTFILE.txt -ascii sample-data/COBPACK.ASCII.txt -print 10000
+python3 parse-copybook-to-json.py -copybook LegacyReference/COBPACK2.cpy -output sample-data/cobpack2-list.json -dict sample-data/cobpack2-dict.json -ebcdic sample-data/COBPACK.OUTFILE.txt -ascii sample-data/COBPACK.ASCII.txt -print 10000
 ```
 
 3. Run `extract-ebcdic-to-ascii.py`to extract the `COBPACK.OUTFILE.txt` into an ASCII file.
 
 ```
-python extract-ebcdic-to-ascii.py sample-data/cobpack2-list.json
+python3 extract-ebcdic-to-ascii.py sample-data/cobpack2-list.json
 ```
 
 ## How it works
