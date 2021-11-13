@@ -32,6 +32,25 @@
                 "-ascii", 
                 "sample-data/COBPACK.ASCII.txt", "-print",
                 "10000"]
+        },
+
+        {
+            "name": "parse-copybook-to-json-multi",
+            "type": "python",
+            "request": "launch",
+            "program": "parse-copybook-to-json.py",
+            "console": "integratedTerminal",
+            "args": ["-copybook",
+                "LegacyReference/COBKS03.cpy",
+                "-output",
+                "sample-data/cobks03-list.json", 
+                "-dict",
+                "sample-data/cobks03-dict.json",
+                "-ebcdic",
+                "sample-data/CLIENT.EBCDIC.txt",
+                "-ascii", 
+                "sample-data/CLIENT.ASCII.txt", "-print",
+                "10000"]
         }
     ]
 }
