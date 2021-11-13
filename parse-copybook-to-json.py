@@ -8,19 +8,20 @@ def CreateExtraction(obj):
 
             t = 1 if 'occurs' not in obj[k] else obj[k]['occurs']
 
-            if 'redefines' not in obj[k]:
-                if obj[k]['group'] == True:
-                    iTimes = 0
-                    while iTimes < t:
-                        iTimes +=1
+            iTimes = 0
+            while iTimes < t:
+                iTimes +=1
+
+                if 'redefines' not in obj[k]:
+                    if obj[k]['group'] == True:
                         CreateExtraction(obj[k])
-                else:
-                    item = {}
-                    item['type'] = obj[k]['type']
-                    item['bytes']  = obj[k]['bytes']
-                    item['name'] = k
-                    transf.append(item)
-                    lrecl = lrecl + obj[k]['bytes']
+                    else:
+                        item = {}
+                        item['type'] = obj[k]['type']
+                        item['bytes']  = obj[k]['bytes']
+                        item['name'] = k
+                        transf.append(item)
+                        lrecl = lrecl + obj[k]['bytes']
                 
 ############################### MAIN ###################################
 print("-----------------------------------------------------------------------")
