@@ -13,11 +13,9 @@ def CreateExtraction(obj, alt={}):
                 iTimes +=1
 
                 if 'redefines' not in obj[k]:
-
                     if k in alt:
-                        obj[k] = alt[k]
-
-                    if obj[k]['group'] == True:
+                        CreateExtraction(alt[k], alt)
+                    elif obj[k]['group'] == True:
                         CreateExtraction(obj[k], alt)
                     else:
                         item = {}
@@ -70,7 +68,7 @@ param['print'] = int(iparm['-print']) if '-print'in iparm else 0
 param['lrecl'] = lrecl
 param['rem-low-values'] = True
 param['separator'] = '|'
-#param['alt-layout'] = [5,2,'bi','eq',1,'transf1']
+param['transf-rule'] = {}
 param['transf'] = transf
 
 ialt = 0
@@ -82,6 +80,5 @@ for r in altlay:
 
 with open(iparm['-output'],"w") as fout:
     fout.write(json.dumps(param,indent=4))
-
 
 print("-----------------------------------------------------------------------")

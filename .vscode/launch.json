@@ -4,16 +4,21 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [        
-
-
-
         {
             "name": "extract-ebcdic-to-ascii",
             "type": "python",
             "request": "launch",
             "program": "extract-ebcdic-to-ascii.py",
             "console": "integratedTerminal",
-            "args": ["parse-copybook-to-json/cobpack2-list.json"]
+            "args": ["sample-data/cobpack2-list.json"]
+        },
+        {
+            "name": "extract-ebcdic-to-ascii-multi",
+            "type": "python",
+            "request": "launch",
+            "program": "extract-ebcdic-to-ascii.py",
+            "console": "integratedTerminal",
+            "args": ["sample-data/cobks04-list-multi.json"]
         },
         {
             "name": "parse-copybook-to-json",
@@ -41,11 +46,11 @@
             "program": "parse-copybook-to-json.py",
             "console": "integratedTerminal",
             "args": ["-copybook",
-                "LegacyReference/COBKS03.cpy",
+                "LegacyReference/COBKS04.cpy",
                 "-output",
-                "sample-data/cobks03-list.json", 
+                "sample-data/cobks04-list.json", 
                 "-dict",
-                "sample-data/cobks03-dict.json",
+                "sample-data/cobks04-dict.json",
                 "-ebcdic",
                 "sample-data/CLIENT.EBCDIC.txt",
                 "-ascii", 

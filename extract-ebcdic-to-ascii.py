@@ -3,6 +3,15 @@
 
 import json, sys, ebcdic, datetime
 
+def GetLayout(_data, _rules):
+    
+    if len(_rules) == 0: return "transf"
+
+    for r in _rules:
+        if _data[r["offset"]:r["offset"]+r["size"]].hex() == r["hex"]: 
+            return r["transf"]
+    return "transf"
+
 print("-----------------------------------------------------","\nParameter file.............|",sys.argv[1])
 
 with open(sys.argv[1]) as json_file: param = json.load(json_file)
@@ -14,19 +23,21 @@ i=0
 while i < param["max"] or param["max"] == 0:
 
     linha = InpF.read(param["lrecl"])
-    
-    if not linha: break
 
+    if not linha: break
+    
     i+= 1
     fim=0
     if i > param["skip"]:
             
+        layout = GetLayout(linha, param["transf-rule"])
+        
         if(param["print"] != 0 and i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
 
         if(i >= param["max"]-3 and i <= param["max"]): print(linha.hex())
 
         ini = 0
-        for transf in param["transf"]:
+        for transf in param[layout]:
 
             fim += transf["bytes"]
 
