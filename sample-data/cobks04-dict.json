@@ -1,0 +1,128 @@
+{
+    "REC-CLIENT": {
+        "id": 1,
+        "level": 1,
+        "group": true,
+        "CLIENT-KEY": {
+            "id": 2,
+            "level": 3,
+            "group": true,
+            "CLIENT-ID": {
+                "id": 3,
+                "level": 5,
+                "group": false,
+                "pict": "9(009)",
+                "type": "bi",
+                "length": 9,
+                "bytes": 4
+            },
+            "CLIENT-TYPE": {
+                "id": 4,
+                "level": 5,
+                "group": false,
+                "pict": "9(004)",
+                "type": "bi",
+                "length": 4,
+                "bytes": 2
+            }
+        },
+        "CLIENT-MAIN": {
+            "id": 5,
+            "level": 3,
+            "group": true,
+            "CLIENT-NAME": {
+                "id": 6,
+                "level": 5,
+                "group": false,
+                "pict": "X(030)",
+                "type": "ch",
+                "length": 30,
+                "bytes": 30
+            },
+            "CLIENT-BDATE": {
+                "id": 7,
+                "level": 5,
+                "group": false,
+                "pict": "X(010)",
+                "type": "ch",
+                "length": 10,
+                "bytes": 10
+            },
+            "CLIENT-ED-LVL": {
+                "id": 8,
+                "level": 5,
+                "group": false,
+                "pict": "X(010)",
+                "type": "ch",
+                "length": 10,
+                "bytes": 10
+            },
+            "FILLER-1": {
+                "id": 9,
+                "level": 5,
+                "group": false,
+                "pict": "X(444)",
+                "type": "ch",
+                "length": 444,
+                "bytes": 444
+            }
+        },
+        "CLIENT-ADDRESS": {
+            "id": 10,
+            "level": 3,
+            "group": true,
+            "redefines": "CLIENT-MAIN",
+            "CLIENT-ADDR-NUMBER": {
+                "id": 11,
+                "level": 5,
+                "group": false,
+                "pict": "9(009)",
+                "type": "bi",
+                "length": 9,
+                "bytes": 4
+            },
+            "CLIENT-ADDR-STREET": {
+                "id": 12,
+                "level": 5,
+                "group": false,
+                "pict": "X(040)",
+                "type": "ch",
+                "length": 40,
+                "bytes": 40
+            },
+            "FILLER-2": {
+                "id": 13,
+                "level": 5,
+                "group": false,
+                "pict": "X(450)",
+                "type": "ch",
+                "length": 450,
+                "bytes": 450
+            }
+        },
+        "CLIENT-HEADER": {
+            "id": 14,
+            "level": 3,
+            "group": true,
+            "redefines": "CLIENT-MAIN",
+            "CLIENT-RECORD-COUNT": {
+                "id": 15,
+                "level": 5,
+                "group": false,
+                "pict": "9(009)",
+                "type": "bi",
+                "length": 9,
+                "bytes": 4
+            },
+            "FILLER-3": {
+                "id": 16,
+                "level": 5,
+                "group": false,
+                "pict": "X(490)",
+                "type": "ch",
+                "length": 490,
+                "bytes": 490
+            }
+        }
+    }
+}
