@@ -70,8 +70,8 @@ def add2dict(lvl, grp, itm, stt, id):
     if grp == True:
         stack[lvl] = itm
         cur = lvl
-        if 'OCCURS'in stt: stk[itm]['occurs'] = int(stt[3])
-        if 'REDEFINES'in stt: stk[itm]['redefines'] = stt[3]
+        if 'OCCURS'in stt: stk[itm]['occurs'] = int(stt[stt.index('OCCURS')+1])
+        if 'REDEFINES'in stt: stk[itm]['redefines'] = stt[stt.index('REDEFINES')+1]
     else:
         tplen = {}
         tplen = getLenType(stt)
@@ -93,7 +93,8 @@ def toDict(lines):
     id = 0
     stt = ""
     for line in lines: 
-        if line[6] != "*": stt += line.replace('\t', '    ')[6:72]    
+        if len(line) > 1:
+            if line[6] != "*": stt += line.replace('\t', '    ')[6:72]    
 
     # READS FIELD BY FIELD / SPLITS ATTRIBUTES #
     for variable in stt.split("."):
