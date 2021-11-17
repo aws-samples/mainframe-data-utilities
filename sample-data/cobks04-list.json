@@ -37,7 +37,7 @@
         {
             "type": "ch",
             "bytes": 444,
-            "name": "FILLER-1"
+            "name": "FILLER_1"
         }
     ],
     "transf1": [
@@ -64,7 +64,7 @@
         {
             "type": "ch",
             "bytes": 450,
-            "name": "FILLER-2"
+            "name": "FILLER_2"
         }
     ],
     "transf2": [
@@ -86,7 +86,7 @@
         {
             "type": "ch",
             "bytes": 490,
-            "name": "FILLER-3"
+            "name": "FILLER_3"
         }
     ]
 }

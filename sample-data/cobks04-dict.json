@@ -57,7 +57,7 @@
                 "length": 10,
                 "bytes": 10
             },
-            "FILLER-1": {
+            "FILLER_1": {
                 "id": 9,
                 "level": 5,
                 "group": false,
@@ -90,7 +90,7 @@
                 "length": 40,
                 "bytes": 40
             },
-            "FILLER-2": {
+            "FILLER_2": {
                 "id": 13,
                 "level": 5,
                 "group": false,
@@ -114,7 +114,7 @@
                 "length": 9,
                 "bytes": 4
             },
-            "FILLER-3": {
+            "FILLER_3": {
                 "id": 16,
                 "level": 5,
                 "group": false,

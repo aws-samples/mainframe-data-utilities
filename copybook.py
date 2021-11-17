@@ -57,7 +57,7 @@ def add2dict(lvl, grp, itm, stt, id):
 
     if itm.upper() == "FILLER":
         FillerCount += 1
-        itm = itm + "-" + str(FillerCount)
+        itm = itm + "_" + str(FillerCount)
 
     if lvl <= cur: stack = fRemStack(stack, lvl)
 
@@ -66,12 +66,12 @@ def add2dict(lvl, grp, itm, stt, id):
     stk[itm]['id'] = id
     stk[itm]['level'] = lvl
     stk[itm]['group'] = grp
+    if 'OCCURS'   in stt: stk[itm]['occurs']    = int(stt[stt.index('OCCURS')+1])
+    if 'REDEFINES'in stt: stk[itm]['redefines'] = stt[stt.index('REDEFINES')+1]
 
     if grp == True:
         stack[lvl] = itm
         cur = lvl
-        if 'OCCURS'in stt: stk[itm]['occurs'] = int(stt[stt.index('OCCURS')+1])
-        if 'REDEFINES'in stt: stk[itm]['redefines'] = stt[stt.index('REDEFINES')+1]
     else:
         tplen = {}
         tplen = getLenType(stt)
