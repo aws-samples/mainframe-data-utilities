@@ -38,7 +38,7 @@ def unpack(bytes: bytearray, type: str, rem_lv: bool):
     # - 2 bytes comp-unsigned struct H: 0 through +65535
     
     if type.lower() == "ch" or type.lower() == "zd":               
-        return bytes.decode('cp037').replace('\x00', '') if rem_lv == True else bytes.decode('cp037')
+        return bytes.decode('cp037').replace('\x00', '').rstrip() if rem_lv == True else bytes.decode('cp037')
     elif type.lower() == "pd" or type.lower() == "pd+":        
         return ("" if bytes.hex()[-1:] != "d" and bytes.hex()[-1:] != "b" else "-") + bytes.hex()[:-1]
     elif type.lower() == "bi" or (type.lower() == "bi+" and bytes.hex() <= HighestPositive[:len(bytes)*2]): 
