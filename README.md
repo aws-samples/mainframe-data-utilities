@@ -34,7 +34,9 @@ The current release of this toolset consists of three scripts:
 
 - **extract-ebcdic-to-ascii.py** uses the JSON parameter file to slice a fixed length EBCDIC file, unpack its contents and write them to an ASCII file.
 
-- **ebcdic** is the main library that handles the encoding transformation logic.
+- **ebcdic.py** is the main library that handles the encoding transformation logic.
+
+- **copybook.py** is the main library that generates a Python dictionary from COBOL copybooks.
 
 ## Status
 
