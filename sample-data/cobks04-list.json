@@ -7,7 +7,7 @@
     "lrecl": 500,
     "rem-low-values": true,
     "separator": "|",
-    "transf-rule": {},
+    "transf-rule": [],
     "transf": [
         {
             "type": "bi",

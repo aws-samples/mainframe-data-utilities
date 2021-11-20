@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [        
+    
         {
             "name": "extract-ebcdic-to-ascii",
             "type": "python",
@@ -38,7 +39,6 @@
                 "sample-data/COBPACK.ASCII.txt", "-print",
                 "10000"]
         },
-
         {
             "name": "parse-copybook-to-json-multi",
             "type": "python",

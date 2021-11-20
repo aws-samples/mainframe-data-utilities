@@ -7,7 +7,7 @@
     "lrecl": 150,
     "rem-low-values": true,
     "separator": "|",
-    "transf-rule": {},
+    "transf-rule": [],
     "transf": [
         {
             "type": "ch",
@@ -97,7 +97,7 @@
         {
             "type": "ch",
             "bytes": 29,
-            "name": "FILLER-1"
+            "name": "FILLER_1"
         }
     ],
     "transf1": [
@@ -184,7 +184,7 @@
         {
             "type": "ch",
             "bytes": 29,
-            "name": "FILLER-1"
+            "name": "FILLER_1"
         }
     ]
 }
