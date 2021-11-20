@@ -9,6 +9,7 @@ Table of contents
 * Requirements
 * Limitations
 * Getting started
+* Multi-layout support
 * How it works
 * LegacyReference
 * To be implemented
@@ -45,11 +46,9 @@ Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 
 ## Limitations
 
-1. Occurs for non-group data elements are not detected by the copybook parser yet.
-2. Multi-layout files are not supported. Redefines statements are ignored.
-3. File layouts defined inside Cobol programs are not supported.
-4. Packing statement not considered when defined before the PIC clause. 
-5. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
+1. File layouts defined inside Cobol programs are not supported.
+2. Packing statement not considered when defined before the PIC clause. 
+3. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
 
 ## Getting started
 
@@ -62,13 +61,66 @@ git clone git@github.com:aws-samples/mainframe-data-utilities.git.
 2. Run the `parse-copybook-to-json.py` script to parse the copybook file provided in `sample-data`.
 
 ```
-python3 parse-copybook-to-json.py -copybook LegacyReference/COBPACK2.cpy -output sample-data/cobpack2-list.json -dict sample-data/cobpack2-dict.json -ebcdic sample-data/COBPACK.OUTFILE.txt -ascii sample-data/COBPACK.ASCII.txt -print 10000
+python3 parse-copybook-to-json.py       \
+-copybook LegacyReference/COBPACK2.cpy  \
+-output sample-data/cobpack2-list.json  \
+-dict sample-data/cobpack2-dict.json    \
+-ebcdic sample-data/COBPACK.OUTFILE.txt \
+-ascii sample-data/COBPACK.ASCII.txt    \
+-print 10000
 ```
 
 3. Run `extract-ebcdic-to-ascii.py`to extract the `COBPACK.OUTFILE.txt` into an ASCII file.
 
 ```
 python3 extract-ebcdic-to-ascii.py sample-data/cobpack2-list.json
+```
+
+## Multiple layout support
+
+There are often multiple layouts in mainframe sequential (flat) and VSAM files. It means that you need a different transformation depending on the row you are reading.
+
+The REDEFINES statement is the one that allows the multiple layouts declaration in the COBOL language.
+
+The [COBKS04.cpy](LegacyReference/COBKS04.cpy) is provided in [LegacyReference](LegacyReference/) folder as an example of a VSAM file copoybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
+
+1. Run the `parse-copybook-to-json.py` script to parse the copybook file provided in `sample-data`.
+
+```
+python3 parse-copybook-to-json.py       \
+-copybook LegacyReference/COBKS04.cpy  \
+-output sample-data/cobks04-list.json  \
+-dict sample-data/cobks04-dict.json    \
+-ebcdic sample-data/CLIENT.EBCDIC.txt \
+-ascii sample-data/CLIENT.ASCII.txt    \
+-print 20
+```
+
+2. The step abobe will generate the [cobks04-list.json](sample-data/cobks04-list.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save it:
+
+```
+ "transf-rule": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "transf": "transf1"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "transf": "transf2"
+        }
+    ],
+```
+
+The parameters above inform the code that records that have "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout. Whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
+
+3. Run `extract-ebcdic-to-ascii.py`to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
+
+```
+python3 extract-ebcdic-to-ascii.py sample-data/cobks04-list.json
 ```
 
 ## How it works
@@ -96,19 +148,21 @@ The arguments below are supported by this function:
 
 This script generates a JSON file that holds **general parameters** and **layout transformation parameters** as its output.
 
-|Parameter      |Description                                    |
-|---------------|-----------------------------------------------|
-|input          |Name of the input EBCDIC file to be extracted  |
-|output         |Name of the outout ASCII file to be generated  |
-|max            |Max number of records to be extracted          |
-|skip           |Number of records to be skiped                 |
-|print          |Amount of records before print status          |
-|lrecl          |Logical record lenght of the ebcdic file       |
-|rem-low-values |Remove null chars                              |
-|separator      |Char to add between fields to separate them    |
-|transf.type    |type of the field to be transformed            |
-|transf.bytes   |Sice in bytes of the field to be transformed   |
-|transf.name    |Name of the field to be transformed            |
+|Parameter      |Description                                           |
+|---------------|------------------------------------------------------|
+|input          |Name of the input EBCDIC file to be extracted         |
+|output         |Name of the outout ASCII file to be generated         |
+|max            |Max number of records to be extracted                 |
+|skip           |Number of records to be skiped                        |
+|print          |Amount of records before print status                 |
+|lrecl          |Logical record lenght of the ebcdic file              |
+|rem-low-values |Remove null chars                                     |
+|separator      |Char to add between fields to separate them           |
+|transf-rule    |Rules for layout section whithin a multi-layout file  |
+|transf         |List of the transformation fields (layout)            |
+|transf.type    |type of the field to be transformed                   |
+|transf.bytes   |Sice in bytes of the field to be transformed          |
+|transf.name    |Name of the field to be transformed                   |
 
 Sample:
 ```
@@ -120,6 +174,7 @@ Sample:
     "lrecl": 150,
     "rem-low-values": true,
     "separator": "|",
+    "transf-rule": [],
     "transf": [
         {
             "type": "ch",
@@ -191,14 +246,10 @@ The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBP
 ## To be implemented
 
 ### Copybook parser
+- DynamoDB schema parser
+- Aurora schema parser
 - Add similar packing statements (BINARY, PACKED-DECIMAL...)
-- Handle Occurs for non-group data elements.
 - Handle packing statement (COMP, COMP-3, etc) when declared before PIC statement.
-
-### EBCDIC extract
-- Multi-layout files / redefines handling.
 
 ### More features
 - Creation of the DDL from JSON parsed copybook.
-- Easytrive layout parsing.
-
