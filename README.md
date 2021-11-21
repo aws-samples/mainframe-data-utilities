@@ -49,7 +49,7 @@ Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 ## Limitations
 
 1. File layouts defined inside Cobol programs are not supported.
-2. Packing statement not considered when defined before the PIC clause. 
+2. Packing statement is ignored when defined before the PIC clause. 
 3. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
 
 ## Getting started
@@ -124,7 +124,7 @@ The result of the change above must be a file like [COBKS05-rules.json](sample-d
 3. Run `extract-ebcdic-to-ascii.py`to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
 ```
-python3 extract-ebcdic-to-ascii.py sample-data/cobks04-list.json
+python3 extract-ebcdic-to-ascii.py sample-data/COBKS05-list.json
 ```
 
 4. Check the [CLIENT.ASCII.txt](sample-data/CLIENT.ASCII.txt) file.
@@ -253,9 +253,6 @@ The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBP
 
 ### Copybook parser
 - DynamoDB schema parser
-- Aurora schema parser
+- Aurora schema parser (DDL)
 - Add similar packing statements (BINARY, PACKED-DECIMAL...)
 - Handle packing statement (COMP, COMP-3, etc) when declared before PIC statement.
-
-### More features
-- Creation of the DDL from JSON parsed copybook.
