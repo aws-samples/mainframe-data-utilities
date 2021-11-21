@@ -80,25 +80,25 @@ python3 extract-ebcdic-to-ascii.py sample-data/cobpack2-list.json
 
 ## Multiple layout support
 
-There are often multiple layouts in mainframe sequential (flat) and VSAM files. It means that you need a different transformation depending on the row you are reading.
+There are often multiple layouts in mainframe VSAM or sequential (flat) files. It means that you need a different transformation depending on the row you are reading.
 
-The REDEFINES statement is the one that allows the multiple layouts declaration in the COBOL language.
+The REDEFINES statement allows multiple layouts declaration in the COBOL language.
 
-The [COBKS04.cpy](LegacyReference/COBKS04.cpy) is provided in [LegacyReference](LegacyReference/) folder as an example of a VSAM file copoybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
+The [COBKS05.cpy](LegacyReference/COBKS05.cpy) is provided in [LegacyReference](LegacyReference/) folder as an example of a VSAM file copoybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
 
 1. Run the `parse-copybook-to-json.py` script to parse the copybook file provided in `sample-data`.
 
 ```
-python3 parse-copybook-to-json.py       \
--copybook LegacyReference/COBKS04.cpy  \
--output sample-data/cobks04-list.json  \
--dict sample-data/cobks04-dict.json    \
--ebcdic sample-data/CLIENT.EBCDIC.txt \
--ascii sample-data/CLIENT.ASCII.txt    \
--print 20
+python3   parse-copybook-to-json.py     \
+-copybook LegacyReference/COBKS05.cpy   \
+-output   sample-data/COBKS05-list.json \
+-dict     sample-data/COBKS05-dict.json \
+-ebcdic   sample-data/CLIENT.EBCDIC.txt \
+-ascii    sample-data/CLIENT.ASCII.txt  \
+-print    20
 ```
 
-2. The step abobe will generate the [cobks04-list.json](sample-data/cobks04-list.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save it:
+2. The step above will generate the [COBKS05-list.json](sample-data/COBKS05-list.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list.json`:
 
 ```
  "transf-rule": [
@@ -117,13 +117,17 @@ python3 parse-copybook-to-json.py       \
     ],
 ```
 
-The parameters above inform the code that records that have "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout. Whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
+The parameters above will inform the `extract-ebcdic-to-ascii.py` script that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout. Whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
+
+The result of the change above must be a file like [COBKS05-rules.json](sample-data/COBKS05-rules.json).
 
 3. Run `extract-ebcdic-to-ascii.py`to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
 ```
 python3 extract-ebcdic-to-ascii.py sample-data/cobks04-list.json
 ```
+
+4. Check the [CLIENT.ASCII.txt](sample-data/CLIENT.ASCII.txt) file.
 
 ## How it works
 
