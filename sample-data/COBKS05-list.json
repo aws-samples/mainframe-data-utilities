@@ -3,53 +3,52 @@
     "output": "sample-data/CLIENT.ASCII.txt",
     "max": 0,
     "skip": 0,
-    "print": 10000,
+    "print": 20,
     "lrecl": 500,
     "rem-low-values": true,
     "separator": "|",
-    "transf-rule": [
-        {
-            "offset": 4,
-            "size": 2,
-            "hex": "0002",
-            "transf": "transf1"
-        },
-        {
-            "offset": 4,
-            "size": 2,
-            "hex": "0000",
-            "transf": "transf2"
-        }
-    ],
+    "transf-rule": [],
     "transf": [
         {
             "type": "bi",
             "bytes": 4,
+            "dplaces": 0,
             "name": "CLIENT-ID"
         },
         {
             "type": "bi",
             "bytes": 2,
+            "dplaces": 0,
             "name": "CLIENT-TYPE"
         },
         {
             "type": "ch",
             "bytes": 30,
+            "dplaces": 0,
             "name": "CLIENT-NAME"
         },
         {
             "type": "ch",
             "bytes": 10,
+            "dplaces": 0,
             "name": "CLIENT-BDATE"
         },
         {
             "type": "ch",
             "bytes": 10,
+            "dplaces": 0,
             "name": "CLIENT-ED-LVL"
         },
         {
+            "type": "pd",
+            "bytes": 5,
+            "dplaces": 2,
+            "name": "CLIENT-INCOME"
+        },
+        {
             "type": "ch",
-            "bytes": 444,
+            "bytes": 439,
+            "dplaces": 0,
             "name": "FILLER_1"
         }
     ],
@@ -57,26 +56,31 @@
         {
             "type": "bi",
             "bytes": 4,
+            "dplaces": 0,
             "name": "CLIENT-ID"
         },
         {
             "type": "bi",
             "bytes": 2,
+            "dplaces": 0,
             "name": "CLIENT-TYPE"
         },
         {
             "type": "bi",
             "bytes": 4,
+            "dplaces": 0,
             "name": "CLIENT-ADDR-NUMBER"
         },
         {
             "type": "ch",
             "bytes": 40,
+            "dplaces": 0,
             "name": "CLIENT-ADDR-STREET"
         },
         {
             "type": "ch",
             "bytes": 450,
+            "dplaces": 0,
             "name": "FILLER_2"
         }
     ],
@@ -84,21 +88,25 @@
         {
             "type": "bi",
             "bytes": 4,
+            "dplaces": 0,
             "name": "CLIENT-ID"
         },
         {
             "type": "bi",
             "bytes": 2,
+            "dplaces": 0,
             "name": "CLIENT-TYPE"
         },
         {
             "type": "bi",
             "bytes": 4,
+            "dplaces": 0,
             "name": "CLIENT-RECORD-COUNT"
         },
         {
             "type": "ch",
             "bytes": 490,
+            "dplaces": 0,
             "name": "FILLER_3"
         }
     ]

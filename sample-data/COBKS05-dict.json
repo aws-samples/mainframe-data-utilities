@@ -14,7 +14,8 @@
                 "pict": "9(009)",
                 "type": "bi",
                 "length": 9,
-                "bytes": 4
+                "bytes": 4,
+                "dplaces": 0
             },
             "CLIENT-TYPE": {
                 "id": 4,
@@ -23,7 +24,8 @@
                 "pict": "9(004)",
                 "type": "bi",
                 "length": 4,
-                "bytes": 2
+                "bytes": 2,
+                "dplaces": 0
             }
         },
         "CLIENT-MAIN": {
@@ -37,7 +39,8 @@
                 "pict": "X(030)",
                 "type": "ch",
                 "length": 30,
-                "bytes": 30
+                "bytes": 30,
+                "dplaces": 0
             },
             "CLIENT-BDATE": {
                 "id": 7,
@@ -46,7 +49,8 @@
                 "pict": "X(010)",
                 "type": "ch",
                 "length": 10,
-                "bytes": 10
+                "bytes": 10,
+                "dplaces": 0
             },
             "CLIENT-ED-LVL": {
                 "id": 8,
@@ -55,73 +59,90 @@
                 "pict": "X(010)",
                 "type": "ch",
                 "length": 10,
-                "bytes": 10
+                "bytes": 10,
+                "dplaces": 0
             },
-            "FILLER_1": {
+            "CLIENT-INCOME": {
                 "id": 9,
                 "level": 5,
                 "group": false,
-                "pict": "X(444)",
+                "pict": "9(007)V99",
+                "type": "pd",
+                "length": 9,
+                "bytes": 5,
+                "dplaces": 2
+            },
+            "FILLER_1": {
+                "id": 10,
+                "level": 5,
+                "group": false,
+                "pict": "X(439)",
                 "type": "ch",
-                "length": 444,
-                "bytes": 444
+                "length": 439,
+                "bytes": 439,
+                "dplaces": 0
             }
         },
         "CLIENT-ADDRESS": {
-            "id": 10,
+            "id": 11,
             "level": 3,
             "group": true,
             "redefines": "CLIENT-MAIN",
             "CLIENT-ADDR-NUMBER": {
-                "id": 11,
+                "id": 12,
                 "level": 5,
                 "group": false,
                 "pict": "9(009)",
                 "type": "bi",
                 "length": 9,
-                "bytes": 4
+                "bytes": 4,
+                "dplaces": 0
             },
             "CLIENT-ADDR-STREET": {
-                "id": 12,
+                "id": 13,
                 "level": 5,
                 "group": false,
                 "pict": "X(040)",
                 "type": "ch",
                 "length": 40,
-                "bytes": 40
+                "bytes": 40,
+                "dplaces": 0
             },
             "FILLER_2": {
-                "id": 13,
+                "id": 14,
                 "level": 5,
                 "group": false,
                 "pict": "X(450)",
                 "type": "ch",
                 "length": 450,
-                "bytes": 450
+                "bytes": 450,
+                "dplaces": 0
             }
         },
         "CLIENT-HEADER": {
-            "id": 14,
+            "id": 15,
             "level": 3,
             "group": true,
             "redefines": "CLIENT-MAIN",
             "CLIENT-RECORD-COUNT": {
-                "id": 15,
+                "id": 16,
                 "level": 5,
                 "group": false,
                 "pict": "9(009)",
                 "type": "bi",
                 "length": 9,
-                "bytes": 4
+                "bytes": 4,
+                "dplaces": 0
             },
             "FILLER_3": {
-                "id": 16,
+                "id": 17,
                 "level": 5,
                 "group": false,
                 "pict": "X(490)",
                 "type": "ch",
                 "length": 490,
-                "bytes": 490
+                "bytes": 490,
+                "dplaces": 0
             }
         }
     }

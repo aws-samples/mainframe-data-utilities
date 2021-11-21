@@ -12,6 +12,13 @@ def fRemStack(iStack,iLevel):
         if k < iLevel: NewStack[k] = iStack[k]
     return NewStack
 
+#PIC 999, 9(3), XXX, X(3)...
+def getPicSize(arg):
+    if arg.find("(") > 0: 
+        return int(arg[arg.find("(")+1:arg.find(")")])
+    else:
+        return len(arg)
+
 # TYPE AND LENGTH CALCULATION #
 def getLenType(atr):
     ret = {}
@@ -29,12 +36,14 @@ def getLenType(atr):
 
     #Total data length
     PicNum = Picture.replace("V"," ").replace("S","").replace("-","").split()
-    Lgt = 0
-    for x in PicNum:
-        if x.find("(") > 0: 
-            Lgt += int(x[x.find("(")+1:x.find(")")])
-        else:
-            Lgt += len(x)
+    
+    Lgt = getPicSize(PicNum[0])
+
+    if len(PicNum) == 1:
+        ret['dplaces'] = 0
+    else:
+        ret['dplaces'] = getPicSize(PicNum[1])
+        Lgt += ret['dplaces']
 
     ret['length'] = Lgt
 
@@ -79,7 +88,8 @@ def add2dict(lvl, grp, itm, stt, id):
         stk[itm]['type'] = tplen['type']
         stk[itm]['length'] = tplen['length']
         stk[itm]['bytes'] = tplen['bytes']
-                
+        stk[itm]['dplaces'] = tplen['dplaces']
+
 ############################### MAIN ###################################
 # READS, CLEANS AND JOINS LINES #
 

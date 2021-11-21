@@ -20,6 +20,7 @@ def CreateExtraction(obj, altstack=[]):
                         item = {}
                         item['type'] = obj[k]['type']
                         item['bytes']  = obj[k]['bytes']
+                        item['dplaces']  = obj[k]['dplaces']
                         item['name'] = k
                         transf.append(item)
                         lrecl = lrecl + obj[k]['bytes']

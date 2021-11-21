@@ -10,7 +10,8 @@
             "pict": "-9(18)",
             "type": "ch",
             "length": 18,
-            "bytes": 19
+            "bytes": 19,
+            "dplaces": 0
         },
         "OUTFILE-UNPACKED": {
             "id": 3,
@@ -19,7 +20,8 @@
             "pict": "9(18)",
             "type": "zd",
             "length": 18,
-            "bytes": 18
+            "bytes": 18,
+            "dplaces": 0
         },
         "OUTFILE-UNPACKED-S": {
             "id": 4,
@@ -28,7 +30,8 @@
             "pict": "S9(18)",
             "type": "zd+",
             "length": 18,
-            "bytes": 18
+            "bytes": 18,
+            "dplaces": 0
         },
         "BINARY-FIELDS": {
             "id": 5,
@@ -41,7 +44,8 @@
                 "pict": "9(04)",
                 "type": "bi",
                 "length": 4,
-                "bytes": 2
+                "bytes": 2,
+                "dplaces": 0
             },
             "OUTFILE-COMP-04-S": {
                 "id": 7,
@@ -50,7 +54,8 @@
                 "pict": "S9(04)",
                 "type": "bi+",
                 "length": 4,
-                "bytes": 2
+                "bytes": 2,
+                "dplaces": 0
             },
             "OUTFILE-COMP-09": {
                 "id": 8,
@@ -59,7 +64,8 @@
                 "pict": "9(09)",
                 "type": "bi",
                 "length": 9,
-                "bytes": 4
+                "bytes": 4,
+                "dplaces": 0
             },
             "OUTFILE-COMP-09-S": {
                 "id": 9,
@@ -68,7 +74,8 @@
                 "pict": "S9(09)",
                 "type": "bi+",
                 "length": 9,
-                "bytes": 4
+                "bytes": 4,
+                "dplaces": 0
             },
             "OUTFILE-COMP-18": {
                 "id": 10,
@@ -77,7 +84,8 @@
                 "pict": "9(18)",
                 "type": "bi",
                 "length": 18,
-                "bytes": 8
+                "bytes": 8,
+                "dplaces": 0
             },
             "OUTFILE-COMP-18-S": {
                 "id": 11,
@@ -86,7 +94,8 @@
                 "pict": "S9(18)",
                 "type": "bi+",
                 "length": 18,
-                "bytes": 8
+                "bytes": 8,
+                "dplaces": 0
             }
         },
         "PACKED-DECIMAL-FIELDS": {
@@ -100,7 +109,8 @@
                 "pict": "9(04)",
                 "type": "pd",
                 "length": 4,
-                "bytes": 3
+                "bytes": 3,
+                "dplaces": 0
             },
             "OUTFILE-COMP3-04-S": {
                 "id": 14,
@@ -109,7 +119,8 @@
                 "pict": "S9(04)",
                 "type": "pd+",
                 "length": 4,
-                "bytes": 3
+                "bytes": 3,
+                "dplaces": 0
             },
             "OUTFILE-COMP3-09": {
                 "id": 15,
@@ -118,7 +129,8 @@
                 "pict": "9(09)",
                 "type": "pd",
                 "length": 9,
-                "bytes": 5
+                "bytes": 5,
+                "dplaces": 0
             },
             "OUTFILE-COMP3-09-S": {
                 "id": 16,
@@ -127,7 +139,8 @@
                 "pict": "S9(09)",
                 "type": "pd+",
                 "length": 9,
-                "bytes": 5
+                "bytes": 5,
+                "dplaces": 0
             },
             "OUTFILE-COMP3-18": {
                 "id": 17,
@@ -136,7 +149,8 @@
                 "pict": "9(18)",
                 "type": "pd",
                 "length": 18,
-                "bytes": 10
+                "bytes": 10,
+                "dplaces": 0
             },
             "OUTFILE-COMP3-18-S": {
                 "id": 18,
@@ -145,7 +159,8 @@
                 "pict": "S9(18)",
                 "type": "pd+",
                 "length": 18,
-                "bytes": 10
+                "bytes": 10,
+                "dplaces": 0
             }
         },
         "GROUP1": {
@@ -164,7 +179,8 @@
                     "pict": "X(01)",
                     "type": "ch",
                     "length": 1,
-                    "bytes": 1
+                    "bytes": 1,
+                    "dplaces": 0
                 }
             }
         },
@@ -180,7 +196,8 @@
                 "pict": "X(02)",
                 "type": "ch",
                 "length": 2,
-                "bytes": 2
+                "bytes": 2,
+                "dplaces": 0
             }
         },
         "FILLER_1": {
@@ -190,7 +207,8 @@
             "pict": "X(29)",
             "type": "ch",
             "length": 29,
-            "bytes": 29
+            "bytes": 29,
+            "dplaces": 0
         }
     }
 }

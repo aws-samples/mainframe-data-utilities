@@ -12,6 +12,9 @@ def GetLayout(_data, _rules):
             return r["transf"]
     return "transf"
 
+def AddDecPlaces(num,dplaces):
+    return num[:len(num)-dplaces] + '.' + num[len(num)-dplaces:]
+
 print("-----------------------------------------------------","\nParameter file.............|",sys.argv[1])
 
 with open(sys.argv[1]) as json_file: param = json.load(json_file)
@@ -41,8 +44,11 @@ while i < param["max"] or param["max"] == 0:
 
             fim += transf["bytes"]
 
-            OutF.write((ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]) + param["separator"]))
-
+            if transf["dplaces"] == 0:
+                OutF.write((ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]) + param["separator"]))
+            else:
+                OutF.write((AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]) + param["separator"]))
+            
             ini = fim
 
         OutF.write("\n")
