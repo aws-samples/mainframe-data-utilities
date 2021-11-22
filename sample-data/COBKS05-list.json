@@ -13,43 +13,50 @@
             "type": "bi",
             "bytes": 4,
             "dplaces": 0,
-            "name": "CLIENT-ID"
+            "name": "CLIENT-ID",
+            "key": true
         },
         {
             "type": "bi",
             "bytes": 2,
             "dplaces": 0,
-            "name": "CLIENT-TYPE"
+            "name": "CLIENT-TYPE",
+            "key": true
         },
         {
             "type": "ch",
             "bytes": 30,
             "dplaces": 0,
-            "name": "CLIENT-NAME"
+            "name": "CLIENT-NAME",
+            "key": false
         },
         {
             "type": "ch",
             "bytes": 10,
             "dplaces": 0,
-            "name": "CLIENT-BDATE"
+            "name": "CLIENT-BDATE",
+            "key": false
         },
         {
             "type": "ch",
             "bytes": 10,
             "dplaces": 0,
-            "name": "CLIENT-ED-LVL"
+            "name": "CLIENT-ED-LVL",
+            "key": false
         },
         {
             "type": "pd",
             "bytes": 5,
             "dplaces": 2,
-            "name": "CLIENT-INCOME"
+            "name": "CLIENT-INCOME",
+            "key": false
         },
         {
             "type": "ch",
             "bytes": 439,
             "dplaces": 0,
-            "name": "FILLER_1"
+            "name": "FILLER_1",
+            "key": false
         }
     ],
     "transf1": [
@@ -57,31 +64,36 @@
             "type": "bi",
             "bytes": 4,
             "dplaces": 0,
-            "name": "CLIENT-ID"
+            "name": "CLIENT-ID",
+            "key": true
         },
         {
             "type": "bi",
             "bytes": 2,
             "dplaces": 0,
-            "name": "CLIENT-TYPE"
+            "name": "CLIENT-TYPE",
+            "key": true
         },
         {
             "type": "bi",
             "bytes": 4,
             "dplaces": 0,
-            "name": "CLIENT-ADDR-NUMBER"
+            "name": "CLIENT-ADDR-NUMBER",
+            "key": false
         },
         {
             "type": "ch",
             "bytes": 40,
             "dplaces": 0,
-            "name": "CLIENT-ADDR-STREET"
+            "name": "CLIENT-ADDR-STREET",
+            "key": false
         },
         {
             "type": "ch",
             "bytes": 450,
             "dplaces": 0,
-            "name": "FILLER_2"
+            "name": "FILLER_2",
+            "key": false
         }
     ],
     "transf2": [
@@ -89,25 +101,29 @@
             "type": "bi",
             "bytes": 4,
             "dplaces": 0,
-            "name": "CLIENT-ID"
+            "name": "CLIENT-ID",
+            "key": true
         },
         {
             "type": "bi",
             "bytes": 2,
             "dplaces": 0,
-            "name": "CLIENT-TYPE"
+            "name": "CLIENT-TYPE",
+            "key": true
         },
         {
             "type": "bi",
             "bytes": 4,
             "dplaces": 0,
-            "name": "CLIENT-RECORD-COUNT"
+            "name": "CLIENT-RECORD-COUNT",
+            "key": false
         },
         {
             "type": "ch",
             "bytes": 490,
             "dplaces": 0,
-            "name": "FILLER_3"
+            "name": "FILLER_3",
+            "key": false
         }
     ]
 }

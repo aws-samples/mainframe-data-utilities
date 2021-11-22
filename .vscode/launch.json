@@ -46,16 +46,19 @@
             "program": "parse-copybook-to-json.py",
             "console": "integratedTerminal",
             "args": ["-copybook",
-                "LegacyReference/COBKS04.cpy",
+                "LegacyReference/COBKS05.cpy",
                 "-output",
-                "sample-data/cobks04-list.json", 
+                "sample-data/COBKS05-list.json", 
                 "-dict",
-                "sample-data/cobks04-dict.json",
+                "sample-data/COBKS05-dict.json",
                 "-ebcdic",
                 "sample-data/CLIENT.EBCDIC.txt",
                 "-ascii", 
                 "sample-data/CLIENT.ASCII.txt", "-print",
-                "10000"]
+                "10000",
+                "-keylen",
+                "8"
+            ]
         }
     ]
 }

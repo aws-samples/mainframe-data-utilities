@@ -1,7 +1,7 @@
 import json, sys, copybook
 
 ###### Create the extraction parameter file
-def CreateExtraction(obj, altstack=[]):
+def CreateExtraction(obj, altstack=[], keylength=0):
     global lrecl
     for k in obj:
         if type(obj[k]) is dict:
@@ -14,7 +14,7 @@ def CreateExtraction(obj, altstack=[]):
                 if 'redefines' not in obj[k]:
                     if obj[k]['group'] == True:
                         altstack.append(k)
-                        CreateExtraction(obj[k], altstack)
+                        CreateExtraction(obj[k], altstack, keylength)
                         altstack.remove(k)
                     else:
                         item = {}
@@ -22,6 +22,7 @@ def CreateExtraction(obj, altstack=[]):
                         item['bytes']  = obj[k]['bytes']
                         item['dplaces']  = obj[k]['dplaces']
                         item['name'] = k
+                        item['key'] = True if (lrecl + obj[k]['bytes']) < keylength else False
                         transf.append(item)
                         lrecl = lrecl + obj[k]['bytes']
                 else:
@@ -51,6 +52,7 @@ print("Parsed copybook (JSON List).|", iparm['-output'])
 if '-dict'   in iparm: print("JSON Dict (documentation)...|", iparm['-dict'])
 if '-ascii'  in iparm: print("ASCII file..................|", iparm['-ascii'])
 if '-ebcdic' in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
+if '-keylen' in iparm: print("Key length..................|", iparm['-keylen'])
 if '-print'  in iparm: print("Print each..................|", iparm['-print'])
 
 with open(iparm['-copybook'], "r") as finp:
@@ -60,10 +62,11 @@ if '-dict' in iparm:
     with open(iparm['-dict'],"w") as fout:
         fout.write(json.dumps(output,indent=4))
 
+keylen = int(iparm['-keylen']) if '-keylen' in iparm else 0
 altlay = []
 transf = []
 lrecl = 0
-CreateExtraction(output)
+CreateExtraction(output, [], keylen)
 
 param = {}
 param['input']  = iparm['-ebcdic'] if '-ebcdic' in iparm else 'ebcdicfile.txt'
@@ -80,6 +83,7 @@ param['transf'] = transf
 ialt = 0
 for r in altlay:
     transf = []
+    lrecl = 0
     redfkey = list(r.keys())[0]
 
     #POSITIONS ON REDEFINES
@@ -90,7 +94,7 @@ for r in altlay:
     newout[redfkey] = r[redfkey].copy()
     newout[redfkey].pop('redefines')
     
-    CreateExtraction(output)
+    CreateExtraction(output, [], keylen)
     ialt += 1
     param['transf' + str(ialt)] = transf
 
