@@ -84,7 +84,7 @@ There are often multiple layouts in mainframe VSAM or sequential (flat) files. I
 
 The REDEFINES statement allows multiple layouts declaration in the COBOL language.
 
-The [COBKS05.cpy](LegacyReference/COBKS05.cpy) is provided in [LegacyReference](LegacyReference/) folder as an example of a VSAM file copoybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
+The [COBKS05.cpy](LegacyReference/COBKS05.cpy) is provided in [LegacyReference](LegacyReference/) folder as an example of a VSAM file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
 
 1. Run the `parse-copybook-to-json.py` script to parse the copybook file provided in `sample-data`.
 
@@ -133,7 +133,7 @@ python3 extract-ebcdic-to-ascii.py sample-data/COBKS05-list.json
 
 ### parse-copybook-to-json
 
-Mainframe files are typicaly packed (into decimal and binary formats), and encoded in EBCDIC. 
+Mainframe files are typically packed (into decimal and binary formats), and encoded in EBCDIC. 
 
 To make the extraction possible it's important to slice the source file according to its layouts and data types. This module is an automation that reads the file's layout from a Cobol copybook and creates a JSON file that holds the information required to interpret and extract the data from the source file.
 
@@ -157,17 +157,17 @@ This script generates a JSON file that holds **general parameters** and **layout
 |Parameter      |Description                                           |
 |---------------|------------------------------------------------------|
 |input          |Name of the input EBCDIC file to be extracted         |
-|output         |Name of the outout ASCII file to be generated         |
+|output         |Name of the output ASCII file to be generated         |
 |max            |Max number of records to be extracted                 |
-|skip           |Number of records to be skiped                        |
-|print          |Amount of records before print status                 |
-|lrecl          |Logical record lenght of the ebcdic file              |
+|skip           |Number of records to be skipped                       |
+|print          |Number of records before print status                 |
+|lrecl          |Logical record length of the ebcdic file              |
 |rem-low-values |Remove null chars                                     |
 |separator      |Char to add between fields to separate them           |
-|transf-rule    |Rules for layout section whithin a multi-layout file  |
+|transf-rule    |Rules for layout section within a multi-layout file  |
 |transf         |List of the transformation fields (layout)            |
 |transf.type    |type of the field to be transformed                   |
-|transf.bytes   |Sice in bytes of the field to be transformed          |
+|transf.bytes   |Size in bytes of the field to be transformed          |
 |transf.name    |Name of the field to be transformed                   |
 
 Sample:
@@ -189,7 +189,7 @@ Sample:
         }
 ```
 
-The length is represented in bytes. A 18 digit integer field, for instance, only takes 10 bytes. For more information check [IBM Computational items documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items).
+The length is represented in bytes. An 18-digit integer field, for instance, only takes 10 bytes. For more information check [IBM Computational items documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items).
 
 #### Supported data types
 
@@ -255,4 +255,4 @@ The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBP
 - DynamoDB schema parser
 - Aurora schema parser (DDL)
 - Add similar packing statements (BINARY, PACKED-DECIMAL...)
-- Handle packing statement (COMP, COMP-3, etc) when declared before PIC statement.
+- Handle packing statement (COMP, COMP-3, etc.) when declared before PIC statement
