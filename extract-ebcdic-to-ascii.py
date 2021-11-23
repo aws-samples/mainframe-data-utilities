@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import json, sys, ebcdic, datetime
+import json, sys, ebcdic, datetime, dynamodb
 
 def GetLayout(_data, _rules):
     
@@ -13,14 +13,25 @@ def GetLayout(_data, _rules):
     return "transf"
 
 def AddDecPlaces(num,dplaces):
-    return num[:len(num)-dplaces] + '.' + num[len(num)-dplaces:]
+    if dplaces == 0:
+        return num
+    else:
+        return num[:len(num)-dplaces] + '.' + num[len(num)-dplaces:]
 
 print("-----------------------------------------------------","\nParameter file.............|",sys.argv[1])
 
 with open(sys.argv[1]) as json_file: param = json.load(json_file)
 
 InpF=open(param["input"],"rb")
-OutF=open(param["output"],"w")
+
+if param["ddb-output"] == "":
+    ddb = False
+    OutF=open(param["output"],"w")
+else:
+    DDbF=open(param["ddb-output"],"w")
+    ddb = True
+    DDbF.write("{\n\"" + param["ddb-name"] + "\": [\n")
+    sep = ""
 
 i=0
 while i < param["max"] or param["max"] == 0:
@@ -29,6 +40,8 @@ while i < param["max"] or param["max"] == 0:
 
     if not linha: break
     
+    if ddb: ddbo = dynamodb.DDB()
+
     i+= 1
     fim=0
     if i > param["skip"]:
@@ -38,17 +51,27 @@ while i < param["max"] or param["max"] == 0:
         if(param["print"] != 0 and i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
 
         if(i >= param["max"]-3 and i <= param["max"]): print(linha.hex())
-
+        
         ini = 0
-        for transf in param[layout]:
 
-            fim += transf["bytes"]
+        if ddb == False:
+            for transf in param[layout]:
 
-            if transf["dplaces"] == 0:
-                OutF.write((ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]) + param["separator"]))
-            else:
-                OutF.write((AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]) + param["separator"]))
+                fim += transf["bytes"]
+
+                OutF.write(AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]) + param["separator"])
+
+                ini = fim
+            OutF.write("\n")
+        else:
+            for transf in param[layout]:
+
+                fim += transf["bytes"]
+
+                ddbo.create(transf["name"], transf["type"],  transf["key"], param["keyname"], AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]))
+
+                ini = fim
             
-            ini = fim
-
-        OutF.write("\n")
+            DDbF.write(sep + json.dumps(ddbo.RedPutReq(),indent=4) + "\n")
+            sep = ","
+if ddb: DDbF.write("]}")

@@ -1,6 +1,8 @@
 {
     "input": "sample-data/CLIENT.EBCDIC.txt",
     "output": "sample-data/CLIENT.ASCII.txt",
+    "ddb-output": "sample-data/CLIENT.ASCII.json",
+    "ddb-name": "CLIENT",
     "max": 0,
     "skip": 0,
     "print": 20,
@@ -8,7 +10,20 @@
     "lrecl": 500,
     "rem-low-values": true,
     "separator": "|",
-    "transf-rule": [],
+    "transf-rule": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "transf": "transf1"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "transf": "transf2"
+        }
+    ],
     "transf": [
         {
             "type": "bi",

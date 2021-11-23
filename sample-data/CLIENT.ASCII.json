@@ -1,0 +1,4638 @@
+{
+"CLIENT": [
+{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "0|0"
+            },
+            "CLIENT-RECORD-COUNT": {
+                "N": "220"
+            },
+            "FILLER_3": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "1|1"
+            },
+            "CLIENT-NAME": {
+                "S": "HERBERT MOHAMED"
+            },
+            "CLIENT-BDATE": {
+                "S": "1958-08-31"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0010000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "1|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "36"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "THE ROE AVENUE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "2|1"
+            },
+            "CLIENT-NAME": {
+                "S": "JAYLEN GEORGE"
+            },
+            "CLIENT-BDATE": {
+                "S": "1969-05-29"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0020000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "2|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "365"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HEATHFIELD ESPLANADE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "3|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MIKAEEL WEBER"
+            },
+            "CLIENT-BDATE": {
+                "S": "1982-02-17"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "3|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4555"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MORRISON STRAND"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "4|1"
+            },
+            "CLIENT-NAME": {
+                "S": "APRIL BARRERA"
+            },
+            "CLIENT-BDATE": {
+                "S": "1967-01-12"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "4|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1311"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MARMION PARK"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "5|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ALEEZA PLANT"
+            },
+            "CLIENT-BDATE": {
+                "S": "1985-03-01"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0008000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "5|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3398"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "VICTORIA GAIT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "6|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MALAIKA BRAVO"
+            },
+            "CLIENT-BDATE": {
+                "S": "1966-06-22"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "6|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "857"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "STIRLING LEAS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "7|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KAYLEM PARRY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1988-09-11"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0032000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "7|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4893"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BRAMWELL LANE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "8|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CORDELIA GILES"
+            },
+            "CLIENT-BDATE": {
+                "S": "1961-01-26"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0041000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "8|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1096"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "DORSET LINK"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "9|1"
+            },
+            "CLIENT-NAME": {
+                "S": "VIKTORIA SAVAGE"
+            },
+            "CLIENT-BDATE": {
+                "S": "1995-01-22"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0013000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "9|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3168"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "RIDINGS WAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "10|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KAMRAN LYON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1987-05-10"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "10|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3811"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "WARDS CRESCENT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "11|1"
+            },
+            "CLIENT-NAME": {
+                "S": "EILIDH HOUGH"
+            },
+            "CLIENT-BDATE": {
+                "S": "1980-10-05"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "11|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3042"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PRINCESS CLIFF"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "12|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ASHTON MCINTYRE"
+            },
+            "CLIENT-BDATE": {
+                "S": "1989-02-05"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "12|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3024"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "NICHOLSON VIEW"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "13|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ZI VALENZUELA"
+            },
+            "CLIENT-BDATE": {
+                "S": "1992-06-05"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "13|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "397"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BRUNEL FARM"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "14|1"
+            },
+            "CLIENT-NAME": {
+                "S": "STANISLAW CHUNG"
+            },
+            "CLIENT-BDATE": {
+                "S": "1974-03-17"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "14|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2866"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "NEWLANDS LOAN"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "15|1"
+            },
+            "CLIENT-NAME": {
+                "S": "TODD BOOTH"
+            },
+            "CLIENT-BDATE": {
+                "S": "1975-12-02"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "15|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2625"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HOWE NESS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "16|1"
+            },
+            "CLIENT-NAME": {
+                "S": "LUCIAN NEEDHAM"
+            },
+            "CLIENT-BDATE": {
+                "S": "1958-10-08"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "16|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1386"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MORRIS ESTATE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "17|1"
+            },
+            "CLIENT-NAME": {
+                "S": "THELMA SHELDON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1978-07-21"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "17|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3962"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "CHERRY SPRINGS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "18|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MANISHA DREW"
+            },
+            "CLIENT-BDATE": {
+                "S": "1989-12-14"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "18|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4631"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "GREYFRIARS OAK"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "19|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ARCHIBALD HASSAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1984-07-12"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "19|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1012"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HADRIAN TOWN"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "20|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ZHANE MUSTAFA"
+            },
+            "CLIENT-BDATE": {
+                "S": "1957-05-21"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "20|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1589"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BLANDFORD CAUSEWAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "21|1"
+            },
+            "CLIENT-NAME": {
+                "S": "SUMMER-ROSE SANTOS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1988-01-01"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "21|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2407"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "EXMOUTH SQUARE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "22|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KIE DENNIS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1984-08-20"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "22|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1189"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "VICTORIA MOUNT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "23|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ELLIE-MAE DOUGHERTY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1981-04-04"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "23|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "790"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BEECHFIELD RIDGEWAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "24|1"
+            },
+            "CLIENT-NAME": {
+                "S": "JAMELIA AMOS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1955-03-26"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "24|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3334"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PALMERSTON CORNER"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "25|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MAEGAN COMBS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1958-03-05"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "25|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "664"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "LINCOLN HIGHWAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "26|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KEALAN WORTHINGTON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1956-04-27"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "26|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4671"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "ARMSTRONG ORCHARD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "27|1"
+            },
+            "CLIENT-NAME": {
+                "S": "SAMUEL RYAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1964-01-31"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "27|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1888"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "CARDINAL OAK"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "28|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MERRYN BARRERA"
+            },
+            "CLIENT-BDATE": {
+                "S": "1988-10-07"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "28|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1672"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "OAKHILL STREET"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "29|1"
+            },
+            "CLIENT-NAME": {
+                "S": "JEFF MARTINS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1957-03-28"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "29|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3836"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HARCOURT FIRS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "30|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CHARMAINE KENNEDY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1957-09-06"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "30|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3092"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "GREAT DRIFT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "31|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CONSTANCE GOOD"
+            },
+            "CLIENT-BDATE": {
+                "S": "1956-03-11"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "31|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3094"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PRINCE OF WALES CROFT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "32|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KYA CISNEROS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1985-10-15"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "32|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "704"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PEAKIRK ROAD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "33|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CHRISTY FORBES"
+            },
+            "CLIENT-BDATE": {
+                "S": "1965-04-01"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "33|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1615"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "LABURNUM ORCHARDS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "34|1"
+            },
+            "CLIENT-NAME": {
+                "S": "JAYNE PHILIP"
+            },
+            "CLIENT-BDATE": {
+                "S": "1992-04-02"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "34|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4892"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "SWAINSFIELD ROAD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "35|1"
+            },
+            "CLIENT-NAME": {
+                "S": "YARA BENJAMIN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1983-10-13"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "35|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4882"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HEXHAM QUAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "36|1"
+            },
+            "CLIENT-NAME": {
+                "S": "TEDDIE NEVILLE"
+            },
+            "CLIENT-BDATE": {
+                "S": "1954-11-21"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "36|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4568"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "WEST VIEW WILLOWS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "37|1"
+            },
+            "CLIENT-NAME": {
+                "S": "LUCCA HIBBERT"
+            },
+            "CLIENT-BDATE": {
+                "S": "1962-03-24"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "37|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1709"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "WAVERLEY GARDEN"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "38|1"
+            },
+            "CLIENT-NAME": {
+                "S": "BRANDEN MORRIS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1960-08-25"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "38|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "467"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "AUSTIN COMMON"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "39|1"
+            },
+            "CLIENT-NAME": {
+                "S": "TEDDY LEVINE"
+            },
+            "CLIENT-BDATE": {
+                "S": "1970-09-14"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "39|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "157"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "FIFE HILL"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "40|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KANE PENNINGTON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1962-09-30"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "40|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "685"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MUNRO VILLAGE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "41|1"
+            },
+            "CLIENT-NAME": {
+                "S": "NANCY LINDSEY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1980-02-12"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "41|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1961"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "FORT LODGE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "42|1"
+            },
+            "CLIENT-NAME": {
+                "S": "GUS REED"
+            },
+            "CLIENT-BDATE": {
+                "S": "1985-10-02"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "42|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "998"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "LOMBARD CROFT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "43|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ANABIA MAGANA"
+            },
+            "CLIENT-BDATE": {
+                "S": "1992-03-02"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "43|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "979"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "CONIFER CRESCENT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "44|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KIEFER SCHROEDER"
+            },
+            "CLIENT-BDATE": {
+                "S": "1965-05-02"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "44|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2748"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MONTPELIER RISE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "45|1"
+            },
+            "CLIENT-NAME": {
+                "S": "BRYSON MURRAY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1980-08-20"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "45|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4291"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "ALMOND PADDOCKS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "46|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MIKAEEL TRAYNOR"
+            },
+            "CLIENT-BDATE": {
+                "S": "1970-05-06"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "46|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4456"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HAMILTON WOODLANDS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "47|1"
+            },
+            "CLIENT-NAME": {
+                "S": "LEIGHTON AHMED"
+            },
+            "CLIENT-BDATE": {
+                "S": "1981-01-18"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "47|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "122"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MORETON NEWYDD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "48|1"
+            },
+            "CLIENT-NAME": {
+                "S": "SAMMY-JO JARAMILLO"
+            },
+            "CLIENT-BDATE": {
+                "S": "1955-08-30"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "48|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1098"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PITTSBURGH ROAD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "49|1"
+            },
+            "CLIENT-NAME": {
+                "S": "NAZIFA KING"
+            },
+            "CLIENT-BDATE": {
+                "S": "1954-12-22"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "49|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4664"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HAMPSTEAD SIDE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "50|1"
+            },
+            "CLIENT-NAME": {
+                "S": "TASNEEM MORROW"
+            },
+            "CLIENT-BDATE": {
+                "S": "1990-09-21"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "50|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3263"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "EPPING GARDENS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "51|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MINDY GUNN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1971-09-16"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "51|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3397"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PEARSON MEADOW"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "52|1"
+            },
+            "CLIENT-NAME": {
+                "S": "RUBY-LEIGH DRUMMOND"
+            },
+            "CLIENT-BDATE": {
+                "S": "1982-12-21"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "52|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "808"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MEAD MILL"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "53|1"
+            },
+            "CLIENT-NAME": {
+                "S": "BLOSSOM DIAZ"
+            },
+            "CLIENT-BDATE": {
+                "S": "1993-01-11"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "53|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3447"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BRAESIDE BUILDINGS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "54|1"
+            },
+            "CLIENT-NAME": {
+                "S": "FAIZA REGAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1963-04-19"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "54|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1529"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "LYNN GAIT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "55|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MILES WALMSLEY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1991-12-13"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "55|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1368"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "WALLACE NOOK"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "56|1"
+            },
+            "CLIENT-NAME": {
+                "S": "DIANE VO"
+            },
+            "CLIENT-BDATE": {
+                "S": "1995-10-10"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0060000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "56|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "742"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "NEW BARNES AVENUE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "57|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MANDEEP WILKINSON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1987-06-23"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "57|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1655"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "FOSTER ROAD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "58|1"
+            },
+            "CLIENT-NAME": {
+                "S": "RAYMOND FEENEY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1956-02-23"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "58|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4583"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "STONY WOOD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "59|1"
+            },
+            "CLIENT-NAME": {
+                "S": "IEUAN THOMSON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1989-10-27"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "59|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2634"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "DYKE HOUSE LANE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "60|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ALAYAH WATSON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1977-11-24"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "60|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1456"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "ASHURST LAS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "61|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KYMANI HILTON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1976-04-12"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "61|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4709"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HAMILTON STREET"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "62|1"
+            },
+            "CLIENT-NAME": {
+                "S": "SAFIA STEADMAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1957-09-05"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "62|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3673"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "KEATS COPPICE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "63|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MEERAB JOHNSTON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1960-02-28"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "63|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4493"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "RAMSAY RIDE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "64|1"
+            },
+            "CLIENT-NAME": {
+                "S": "EVAN PERALTA"
+            },
+            "CLIENT-BDATE": {
+                "S": "1961-06-15"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "64|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4032"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "SANDPIPER QUADRANT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "65|1"
+            },
+            "CLIENT-NAME": {
+                "S": "PADDY WILLIAMSON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1984-02-08"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "65|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4507"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "JOSEPH CLOSE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "66|1"
+            },
+            "CLIENT-NAME": {
+                "S": "SANAA NAYLOR"
+            },
+            "CLIENT-BDATE": {
+                "S": "1955-01-26"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "66|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "152"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "KILLIERSFIELD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "67|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ZACHERY SWEET"
+            },
+            "CLIENT-BDATE": {
+                "S": "1965-11-24"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "67|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2059"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "FOUNTAIN RIDGEWAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "68|1"
+            },
+            "CLIENT-NAME": {
+                "S": "GARRY GLENN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1961-04-30"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "68|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4694"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MIDLAND LANE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "69|1"
+            },
+            "CLIENT-NAME": {
+                "S": "DELILAH HAWKINS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1955-06-08"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "69|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "835"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PRESTON CORNER"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "70|1"
+            },
+            "CLIENT-NAME": {
+                "S": "PHILLIPA WEEKS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1958-07-20"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "70|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1425"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "SOLWAY SPUR"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "71|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CINAR DOWLING"
+            },
+            "CLIENT-BDATE": {
+                "S": "1964-04-05"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "71|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3773"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MAIN CEDARS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "72|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ALINA VANCE"
+            },
+            "CLIENT-BDATE": {
+                "S": "1972-10-04"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "72|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2525"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MAYFAIR FAIRWAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "73|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ROMILLY CONRAD"
+            },
+            "CLIENT-BDATE": {
+                "S": "1967-09-14"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "73|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2264"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BEACON SQUARE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "74|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ZOHAIB ODOM"
+            },
+            "CLIENT-BDATE": {
+                "S": "1962-01-31"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "74|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4116"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "LION SPRINGS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "75|1"
+            },
+            "CLIENT-NAME": {
+                "S": "JAYDEN-LEE PLANT"
+            },
+            "CLIENT-BDATE": {
+                "S": "1978-09-12"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "75|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2688"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "FOLDHILL LANE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "76|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KLAY COLLINS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1959-01-26"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "76|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3157"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "ATTLEE GATE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "77|1"
+            },
+            "CLIENT-NAME": {
+                "S": "GEORGA NORMAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1962-05-19"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "77|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4335"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "EWART CRESCENT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "78|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ALEXIE BREWER"
+            },
+            "CLIENT-BDATE": {
+                "S": "1989-12-20"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "78|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "179"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BOYES CRESCENT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "79|1"
+            },
+            "CLIENT-NAME": {
+                "S": "HAMAAD YOUNG"
+            },
+            "CLIENT-BDATE": {
+                "S": "1982-11-06"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "79|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "891"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "FURNESS FOLD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "80|1"
+            },
+            "CLIENT-NAME": {
+                "S": "BILLIE GRANT"
+            },
+            "CLIENT-BDATE": {
+                "S": "1966-04-30"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "80|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1281"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "GREENFIELDS MOOR"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "81|1"
+            },
+            "CLIENT-NAME": {
+                "S": "OLIVIA DOWNES"
+            },
+            "CLIENT-BDATE": {
+                "S": "1986-10-12"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "81|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2812"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "NAIRN CROFT"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "82|1"
+            },
+            "CLIENT-NAME": {
+                "S": "SIYA COSTA"
+            },
+            "CLIENT-BDATE": {
+                "S": "1976-04-19"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "82|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3982"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "ALDERS BROOK"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "83|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CARLY BARBER"
+            },
+            "CLIENT-BDATE": {
+                "S": "1971-07-24"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "83|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4670"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "WEST PARK BY-PASS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "84|1"
+            },
+            "CLIENT-NAME": {
+                "S": "JENNA ROSS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1971-12-21"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "84|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3406"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "MARSHMONT AVENUE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "85|1"
+            },
+            "CLIENT-NAME": {
+                "S": "TEO RAHMAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1994-12-26"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "85|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1109"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "NOBLE BROW"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "86|1"
+            },
+            "CLIENT-NAME": {
+                "S": "FAHEEM COMPTON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1965-07-11"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "86|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3530"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "CALEDONIA CREST"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "87|1"
+            },
+            "CLIENT-NAME": {
+                "S": "SHAYNA HENRY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1979-07-04"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "87|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4025"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "SYMONDS CLOSE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "88|1"
+            },
+            "CLIENT-NAME": {
+                "S": "HUMAIRA TALBOT"
+            },
+            "CLIENT-BDATE": {
+                "S": "1958-02-21"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "88|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3244"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BROOMHILL GARDENS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "89|1"
+            },
+            "CLIENT-NAME": {
+                "S": "VICTOR VAUGHAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1990-09-23"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "89|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4804"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "JACKSON HOLLIES"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "90|1"
+            },
+            "CLIENT-NAME": {
+                "S": "KRISTIE WILDER"
+            },
+            "CLIENT-BDATE": {
+                "S": "1987-09-03"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "90|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1086"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "CAERNARVON GRANGE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "91|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ARFA MCDONNELL"
+            },
+            "CLIENT-BDATE": {
+                "S": "1986-12-20"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "91|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1205"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "SHIRLEY LINKS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "92|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CAIUS HANCOCK"
+            },
+            "CLIENT-BDATE": {
+                "S": "1988-01-17"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "92|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3141"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "SINCLAIR HALL"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "93|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ARMAN ADAMS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1975-04-25"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "93|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4543"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "TOURTEL ROAD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "94|1"
+            },
+            "CLIENT-NAME": {
+                "S": "SELENA NOLAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1969-05-02"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "94|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "764"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "BLACKACRE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "95|1"
+            },
+            "CLIENT-NAME": {
+                "S": "LAYLA-ROSE WHEATLEY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1989-01-11"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "95|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1334"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "CANBERRA HAVEN"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "96|1"
+            },
+            "CLIENT-NAME": {
+                "S": "HYWEL MCARTHUR"
+            },
+            "CLIENT-BDATE": {
+                "S": "1960-05-29"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "96|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1188"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "DAIRY ESPLANADE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "97|1"
+            },
+            "CLIENT-NAME": {
+                "S": "WHITNEY GOMEZ"
+            },
+            "CLIENT-BDATE": {
+                "S": "1985-12-16"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "97|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1132"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "DRONLEY ROAD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "98|1"
+            },
+            "CLIENT-NAME": {
+                "S": "OLAF CONNOLLY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1983-11-05"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "98|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3787"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "RECTORY PIECE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "99|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CINDY BEAN"
+            },
+            "CLIENT-BDATE": {
+                "S": "1993-10-17"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "99|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "988"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "REDWOOD MALTINGS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "100|1"
+            },
+            "CLIENT-NAME": {
+                "S": "PETRA RIOS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1980-09-10"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "100|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4062"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "GREENFIELD CIRCUS"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "101|1"
+            },
+            "CLIENT-NAME": {
+                "S": "MONTAGUE GARRISON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1965-08-18"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "101|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2512"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PRINCE STREET"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "102|1"
+            },
+            "CLIENT-NAME": {
+                "S": "BEAUDEN STEPHENS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1990-10-02"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "102|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3760"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "CANAL LANE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "103|1"
+            },
+            "CLIENT-NAME": {
+                "S": "IZABEL BOOKER"
+            },
+            "CLIENT-BDATE": {
+                "S": "1980-12-25"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "103|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3454"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "WINTER WAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "104|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CIERAN NIXON"
+            },
+            "CLIENT-BDATE": {
+                "S": "1970-08-26"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0050000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "104|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4930"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PEACE STREET"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "105|1"
+            },
+            "CLIENT-NAME": {
+                "S": "JAYDON ARIAS"
+            },
+            "CLIENT-BDATE": {
+                "S": "1984-09-12"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "105|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4142"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "LUNA WAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "106|1"
+            },
+            "CLIENT-NAME": {
+                "S": "JARDEL WHITEHOUSE"
+            },
+            "CLIENT-BDATE": {
+                "S": "1957-07-29"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "106|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "2732"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "SOUTH LANE"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "107|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CLARKE TURNER"
+            },
+            "CLIENT-BDATE": {
+                "S": "1957-09-26"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "MASTER"
+            },
+            "CLIENT-INCOME": {
+                "N": "0030000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "107|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "3098"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "OAK ROW"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "108|1"
+            },
+            "CLIENT-NAME": {
+                "S": "CILLIAN YORK"
+            },
+            "CLIENT-BDATE": {
+                "S": "1984-02-19"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "DOCTOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0040000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "108|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1705"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "PINE WAY"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "109|1"
+            },
+            "CLIENT-NAME": {
+                "S": "ASHLEE BRADY"
+            },
+            "CLIENT-BDATE": {
+                "S": "1957-07-11"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "BACHELOR"
+            },
+            "CLIENT-INCOME": {
+                "N": "0000000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "109|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "4802"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "ANGEL BOULEVARD"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "110|1"
+            },
+            "CLIENT-NAME": {
+                "S": "PEDRO BEAUMONT"
+            },
+            "CLIENT-BDATE": {
+                "S": "1962-07-20"
+            },
+            "CLIENT-ED-LVL": {
+                "S": "ELEMENTARY"
+            },
+            "CLIENT-INCOME": {
+                "N": "0002000.00"
+            },
+            "FILLER_1": {
+                "S": ""
+            }
+        }
+    }
+}
+,{
+    "PutRequest": {
+        "Item": {
+            "CLIENT-KEY": {
+                "S": "110|2"
+            },
+            "CLIENT-ADDR-NUMBER": {
+                "N": "1472"
+            },
+            "CLIENT-ADDR-STREET": {
+                "S": "HAZELNUT STREET"
+            },
+            "FILLER_2": {
+                "S": ""
+            }
+        }
+    }
+}
+]}
