@@ -30,7 +30,7 @@ if param["ddb-output"] == "":
 else:
     DDbF=open(param["ddb-output"],"w")
     ddb = True
-    DDbF.write("{\n\"" + param["ddb-name"] + "\": [\n")
+    DDbF.write("{\"" + param["ddb-name"] + "\": [\n")
     sep = ""
 
 i=0
@@ -72,6 +72,6 @@ while i < param["max"] or param["max"] == 0:
 
                 ini = fim
             
-            DDbF.write(sep + json.dumps(ddbo.RedPutReq(),indent=4) + "\n")
+            DDbF.write(sep + json.dumps(ddbo.readPutReq(),indent=4) + "\n")
             sep = ","
 if ddb: DDbF.write("]}")

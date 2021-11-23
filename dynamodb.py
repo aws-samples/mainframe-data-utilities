@@ -17,7 +17,7 @@ class DDB:
     def read(self):
         return self.dict
 
-    def RedPutReq(self):
+    def readPutReq(self):
         tmp = {}
         tmp['PutRequest'] = {}
         tmp['PutRequest']['Item'] = self.dict
