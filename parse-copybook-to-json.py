@@ -49,11 +49,12 @@ if '-copybook' not in iparm or '-output' not in iparm:
 print("Copybook file...............|", iparm['-copybook'])
 print("Parsed copybook (JSON List).|", iparm['-output'])
 
-if '-dict'   in iparm: print("JSON Dict (documentation)...|", iparm['-dict'])
-if '-ascii'  in iparm: print("ASCII file..................|", iparm['-ascii'])
-if '-ebcdic' in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
-if '-keylen' in iparm: print("Key length..................|", iparm['-keylen'])
-if '-print'  in iparm: print("Print each..................|", iparm['-print'])
+if '-dict'    in iparm: print("JSON Dict (documentation)...|", iparm['-dict'])
+if '-ascii'   in iparm: print("ASCII file..................|", iparm['-ascii'])
+if '-ebcdic'  in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
+if '-keylen'  in iparm: print("Key length..................|", iparm['-keylen'])
+if '-keyname' in iparm: print("Key name....................|", iparm['-keyname'])
+if '-print'   in iparm: print("Print each..................|", iparm['-print'])
 
 with open(iparm['-copybook'], "r") as finp:
     output = copybook.toDict(finp.readlines())
@@ -73,7 +74,8 @@ param['input']  = iparm['-ebcdic'] if '-ebcdic' in iparm else 'ebcdicfile.txt'
 param['output'] = iparm['-ascii']  if '-ascii'  in iparm else 'asciifile.txt'
 param['max'] = 0
 param['skip'] = 0
-param['print'] = int(iparm['-print']) if '-print'in iparm else 0
+param['print'] = int(iparm['-print']) if '-print'   in iparm else 0
+param['keyname'] = iparm['-keyname']  if '-keyname' in iparm else ''
 param['lrecl'] = lrecl
 param['rem-low-values'] = True
 param['separator'] = '|'

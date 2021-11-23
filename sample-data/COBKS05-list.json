@@ -4,6 +4,7 @@
     "max": 0,
     "skip": 0,
     "print": 20,
+    "keyname": "CLIENT-KEY",
     "lrecl": 500,
     "rem-low-values": true,
     "separator": "|",
