@@ -40,7 +40,7 @@ while i < param["max"] or param["max"] == 0:
 
     if not linha: break
     
-    if ddb: ddbo = dynamodb.DDB()
+    if ddb: ddbo = dynamodb.item()
 
     i+= 1
     fim=0
