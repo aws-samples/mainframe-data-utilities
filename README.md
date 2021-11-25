@@ -54,6 +54,8 @@ Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 
 ## Getting started
 
+### Parsing a basic copybook
+
 1. Clone this repo:
 
 ```
@@ -72,17 +74,21 @@ python3 parse-copybook-to-json.py       \
 -print 10000
 ```
 
+### Extracting ebcdic data to a delimiter-separated ASCII file
+
 3. Run `extract-ebcdic-to-ascii.py`to extract the `COBPACK.OUTFILE.txt` into an ASCII file.
 
 ```
 python3 extract-ebcdic-to-ascii.py sample-data/cobpack2-list.json
 ```
 
-## Multiple layout support
+## Getting startet with multiple layout support
 
 There are often multiple layouts in mainframe VSAM or sequential (flat) files. It means that you need a different transformation depending on the row you are reading.
 
 The REDEFINES statement allows multiple layouts declaration in the COBOL language.
+
+### Parsing a multiple layout copybook
 
 The [COBKS05.cpy](LegacyReference/COBKS05.cpy) is provided in [LegacyReference](LegacyReference/) folder as an example of a VSAM file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
 
@@ -97,6 +103,22 @@ python3   parse-copybook-to-json.py     \
 -ascii    sample-data/CLIENT.ASCII.txt  \
 -print    20
 ```
+
+```
+python3   parse-copybook-to-json.py       \
+-copybook LegacyReference/COBPACK2.cpy    \
+-output   sample-data/cobpack2-list.json  \
+-dict     sample-data/cobpack2-dict.json  \
+-ebcdic   sample-data/COBPACK.OUTFILE.txt \
+-ascii    sample-data/COBPACK.ASCII.txt   \
+-keylen   19                              \
+-keyname  OUTFILE-K                       \
+-ddb-tbname OUTFILE \
+-sqs-url  https://sqs.us-east-1.amazonaws.com/481657631063/LoadDDB \
+-print    1000
+```
+
+### Extracting a multiple layout file
 
 2. The step above will generate the [COBKS05-list.json](sample-data/COBKS05-list.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list.json`:
 
