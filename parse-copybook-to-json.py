@@ -22,7 +22,7 @@ def CreateExtraction(obj, altstack=[], keylength=0):
                         item['bytes']  = obj[k]['bytes']
                         item['dplaces']  = obj[k]['dplaces']
                         item['name'] = k
-                        item['key'] = True if (lrecl + obj[k]['bytes']) < keylength else False
+                        item['key'] = True if (lrecl + obj[k]['bytes']) <= keylength else False
                         transf.append(item)
                         lrecl = lrecl + obj[k]['bytes']
                 else:
@@ -43,18 +43,23 @@ print("-----------------------------------------------------------------------")
 iparm = dict(zip(sys.argv[1::2], sys.argv[2::2]))
 
 if '-copybook' not in iparm or '-output' not in iparm:
-    print('Sintax: python parse-copybook-to json -copybook <copybookfile.cpb> -output <jsonfile.json>\n')
+    print('Sintax: python parse-copybook-to-json -copybook <copybookfile.cpb> -output <jsonfile.json>\n')
     quit()
 
 print("Copybook file...............|", iparm['-copybook'])
 print("Parsed copybook (JSON List).|", iparm['-output'])
 
-if '-dict'    in iparm: print("JSON Dict (documentation)...|", iparm['-dict'])
-if '-ascii'   in iparm: print("ASCII file..................|", iparm['-ascii'])
-if '-ebcdic'  in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
-if '-keylen'  in iparm: print("Key length..................|", iparm['-keylen'])
-if '-keyname' in iparm: print("Key name....................|", iparm['-keyname'])
-if '-print'   in iparm: print("Print each..................|", iparm['-print'])
+if '-dict'        in iparm: print("JSON Dict (documentation)...|", iparm['-dict'])
+if '-ascii'       in iparm: print("ASCII file..................|", iparm['-ascii'])
+if '-ebcdic'      in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
+if '-keylen'      in iparm: print("Key length..................|", iparm['-keylen'])
+if '-keyname'     in iparm: print("Key name....................|", iparm['-keyname'])
+if '-ddb-output'  in iparm: print("DynamoDB Output file........|", iparm['-ddb-output'])
+if '-ddb-tbname'  in iparm: print("DynamoDB Table name.........|", iparm['-ddb-tbname'])
+if '-ddb-putrate' in iparm: print("DynamoDB Put rate...........|", iparm['-ddb-putrate'])
+if '-sqs-msgrate' in iparm: print("SQS message rate............|", iparm['-sqs-msgrate'])
+if '-sqs-url    ' in iparm: print("SQS message rate............|", iparm['-sqs-url'])
+if '-print'       in iparm: print("Print each..................|", iparm['-print'])
 
 with open(iparm['-copybook'], "r") as finp:
     output = copybook.toDict(finp.readlines())
@@ -70,12 +75,18 @@ lrecl = 0
 CreateExtraction(output, [], keylen)
 
 param = {}
-param['input']  = iparm['-ebcdic'] if '-ebcdic' in iparm else 'ebcdicfile.txt'
-param['output'] = iparm['-ascii']  if '-ascii'  in iparm else 'asciifile.txt'
+param['input']       = iparm['-ebcdic']      if '-ebcdic'      in iparm else 'ebcdicfile.txt'
+param['output']      = iparm['-ascii']       if '-ascii'       in iparm else 'asciifile.txt'
+param['keyname']     = iparm['-keyname']     if '-keyname'     in iparm else ''
+param['ddb-output']  = iparm['-ddb-output']  if '-ddb-output'  in iparm else ''
+param['ddb-tbname']  = iparm['-ddb-tbname']  if '-ddb-tbname'  in iparm else ''
+param['ddb-putrate'] = iparm['-ddb-putrate'] if '-ddb-putrate' in iparm else 25
+param['sqs-msgrate'] = iparm['-sqs-msgrate'] if '-sqs-msgrate' in iparm else 10
+param['sqs-url']     = iparm['-sqs-url']     if '-sqs-url'     in iparm else ''
+
 param['max'] = 0
 param['skip'] = 0
 param['print'] = int(iparm['-print']) if '-print'   in iparm else 0
-param['keyname'] = iparm['-keyname']  if '-keyname' in iparm else ''
 param['lrecl'] = lrecl
 param['rem-low-values'] = True
 param['separator'] = '|'

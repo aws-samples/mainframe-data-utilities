@@ -22,6 +22,22 @@
             "args": ["sample-data/COBKS05-list.json"]
         },
         {
+            "name": "extract-ebcdic-to-sqs",
+            "type": "python",
+            "request": "launch",
+            "program": "extract-ebcdic-to-sqs.py",
+            "console": "integratedTerminal",
+            "args": ["sample-data/COBKS05-list.json"]
+        },
+        {
+            "name": "extract-ebcdic-to-ddb",
+            "type": "python",
+            "request": "launch",
+            "program": "extract-ebcdic-to-ddb.py",
+            "console": "integratedTerminal",
+            "args": ["sample-data/COBKS05-list.json"]
+        },
+        {
             "name": "parse-copybook-to-json",
             "type": "python",
             "request": "launch",

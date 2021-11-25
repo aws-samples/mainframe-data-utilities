@@ -1,7 +1,27 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-class DDB:
+import boto3, json
+ddbclient = boto3.client('dynamodb')
+
+class Batch:
+    def __init__(self, tbname, rate):
+        self.dict = {}
+        self.list = []
+        self.table = tbname
+        self.rate = rate
+
+    def WriteItems(self, item={}):
+
+        if item != {}:
+            self.list.append(item)
+
+        if len(self.list) >= self.rate or item == {}:
+
+            response = ddbclient.batch_write_item(RequestItems={ self.table : self.list })
+            self.list = []
+
+class item:
 
     def __init__(self):
         self.dict = {}
