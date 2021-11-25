@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import json, sys, ebcdic, datetime, dynamodb
+import json, sys, ebcdic, datetime
 
 def GetLayout(_data, _rules):
     
@@ -23,15 +23,7 @@ print("-----------------------------------------------------","\nParameter file.
 with open(sys.argv[1]) as json_file: param = json.load(json_file)
 
 InpF=open(param["input"],"rb")
-
-if param["ddb-output"] == "":
-    ddb = False
-    OutF=open(param["output"],"w")
-else:
-    DDbF=open(param["ddb-output"],"w")
-    ddb = True
-    DDbF.write("{\"" + param["ddb-name"] + "\": [\n")
-    sep = ""
+OutF=open(param["output"],"w")
 
 i=0
 while i < param["max"] or param["max"] == 0:
@@ -39,8 +31,6 @@ while i < param["max"] or param["max"] == 0:
     linha = InpF.read(param["lrecl"])
 
     if not linha: break
-    
-    if ddb: ddbo = dynamodb.item()
 
     i+= 1
     fim=0
@@ -54,24 +44,12 @@ while i < param["max"] or param["max"] == 0:
         
         ini = 0
 
-        if ddb == False:
-            for transf in param[layout]:
+        for transf in param[layout]:
 
-                fim += transf["bytes"]
+            fim += transf["bytes"]
 
-                OutF.write(AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]) + param["separator"])
+            OutF.write(AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]) + param["separator"])
 
-                ini = fim
-            OutF.write("\n")
-        else:
-            for transf in param[layout]:
-
-                fim += transf["bytes"]
-
-                ddbo.create(transf["name"], transf["type"],  transf["key"], param["keyname"], AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]))
-
-                ini = fim
-            
-            DDbF.write(sep + json.dumps(ddbo.readPutReq(),indent=4) + "\n")
-            sep = ","
-if ddb: DDbF.write("]}")
+            ini = fim
+        OutF.write("\n")
+       
