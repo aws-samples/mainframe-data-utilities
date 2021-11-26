@@ -47,4 +47,5 @@ while i < param["max"] or param["max"] == 0:
         
         ddbo.WriteItems(ddbitem.readPutReq())
 if len(ddbo.list): ddbo.WriteItems()
+print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
 print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| FINISHED")
