@@ -4,6 +4,7 @@
 import json, sys, ebcdic, datetime, dynamodb, utils
 
 print("-----------------------------------------------------","\nParameter file.............|",sys.argv[1])
+print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| STARTED")
 
 with open(sys.argv[1]) as json_file: param = json.load(json_file)
 
@@ -46,3 +47,4 @@ while i < param["max"] or param["max"] == 0:
         
         ddbo.WriteItems(ddbitem.readPutReq())
 if len(ddbo.list): ddbo.WriteItems()
+print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| FINISHED")
