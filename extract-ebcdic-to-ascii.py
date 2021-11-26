@@ -18,9 +18,17 @@ def AddDecPlaces(num,dplaces):
     else:
         return num[:len(num)-dplaces] + '.' + num[len(num)-dplaces:]
 
-print("-----------------------------------------------------","\nParameter file.............|",sys.argv[1])
+arg = dict(zip(sys.argv[1::2], sys.argv[2::2]))
 
-with open(sys.argv[1]) as json_file: param = json.load(json_file)
+if not '-local-json' in arg: 
+    print('\nSintax: python3 extract-ebcdic-to-ascii.py -local-json path/to/layout.json \n')
+    quit()
+
+print("-----------------------------------------------------")
+print("JSON Layout file           |", arg['-local-json'])
+print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| STARTED")
+
+with open(arg['-local-json']) as json_file: param = json.load(json_file)
 
 InpF=open(param["input"],"rb")
 OutF=open(param["output"],"w")
@@ -39,11 +47,8 @@ while i < param["max"] or param["max"] == 0:
         layout = GetLayout(linha, param["transf-rule"])
         
         if(param["print"] != 0 and i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
-
-        if(i >= param["max"]-3 and i <= param["max"]): print(linha.hex())
         
         ini = 0
-
         for transf in param[layout]:
 
             fim += transf["bytes"]
@@ -52,4 +57,3 @@ while i < param["max"] or param["max"] == 0:
 
             ini = fim
         OutF.write("\n")
-       
