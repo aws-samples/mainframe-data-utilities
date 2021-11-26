@@ -8,13 +8,9 @@ print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| STARTED")
 
 with open(sys.argv[1]) as json_file: param = json.load(json_file)
 
-frmt = utils.Param(param)
+prm = utils.Param(param)
 
 InpF=open(param["input"],"rb")
-#DDbF=open(param["ddb-output"],"w")
-
-#DDbF.write("{\"" + param["ddb-tbname"] + "\": [\n")
-#sep = ""
 
 ddbo = dynamodb.Batch(param["ddb-tbname"], 25)
 
@@ -35,13 +31,13 @@ while i < param["max"] or param["max"] == 0:
         
         ini = 0
     
-        layout = frmt.GetLayout(linha)
+        layout = prm.GetLayout(linha)
         
         for transf in layout:
 
             fim += transf["bytes"]
 
-            ddbitem.create(transf["name"], transf["type"],  transf["key"], param["keyname"], frmt.AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]))
+            ddbitem.create(transf["name"], transf["type"],  transf["key"], param["keyname"], prm.AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]))
 
             ini = fim
         
