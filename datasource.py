@@ -1,6 +1,6 @@
 import boto3, utils
 
-class SourceFile:
+class Input:
     def __init__(self, file) -> None:
         log = utils.Log()
 

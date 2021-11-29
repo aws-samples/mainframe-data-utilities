@@ -15,9 +15,9 @@ q = sqs.Batch(10,'LoadDDB')
 i=0
 while i < prm.max or prm.max == 0:
 
-    linha = InpF.read(prm.lrecl)
+    record = InpF.read(prm.lrecl)
 
-    if not linha: break
+    if not record: break
     
     ddbo = dynamodb.item()
     
@@ -29,13 +29,13 @@ while i < prm.max or prm.max == 0:
 
         ini = 0
 
-        layout = prm.GetLayout(linha)
+        layout = prm.GetLayout(record)
 
         for transf in layout:
 
             fim += transf["bytes"]
 
-            ddbo.create(transf["name"], transf["type"], transf["key"], prm.keyname, prm.AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], prm.remlval), transf["dplaces"]))
+            ddbo.create(transf["name"], transf["type"], transf["key"], prm.keyname, prm.AddDecPlaces(ebcdic.unpack(record[ini:fim],transf["type"], prm.remlval), transf["dplaces"]))
 
             ini = fim
         
