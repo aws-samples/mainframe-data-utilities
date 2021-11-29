@@ -41,19 +41,16 @@ while i < param["max"] or param["max"] == 0:
     if not linha: break
 
     i+= 1
-    fim=0
     if i > param["skip"]:
-            
+        if(param["print"] != 0 and i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
+
         layout = GetLayout(linha, param["transf-rule"])
         
-        if(param["print"] != 0 and i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
-        
-        ini = 0
         for transf in param[layout]:
+            OutF.write(
+                AddDecPlaces(
+                    ebcdic.unpack(
+                        linha[transf["offset"]:transf["offset"]+transf["bytes"]],transf["type"], param["rem-low-values"]),
+                    transf["dplaces"]) + param["separator"])
 
-            fim += transf["bytes"]
-
-            OutF.write(AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]) + param["separator"])
-
-            ini = fim
         OutF.write("\n")
