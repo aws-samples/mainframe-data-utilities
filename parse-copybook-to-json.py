@@ -20,6 +20,7 @@ def CreateExtraction(obj, altstack=[], keylength=0):
                         item = {}
                         item['type'] = obj[k]['type']
                         item['bytes']  = obj[k]['bytes']
+                        item['offset']  = lrecl
                         item['dplaces']  = obj[k]['dplaces']
                         item['name'] = k
                         item['key'] = True if (lrecl + obj[k]['bytes']) <= keylength else False

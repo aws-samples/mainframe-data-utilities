@@ -1,15 +1,15 @@
 {
     "input": "sample-data/COBPACK.OUTFILE.txt",
     "output": "sample-data/COBPACK.ASCII.txt",
-    "keyname": "OUTFILE-K",
+    "keyname": "",
     "ddb-output": "",
-    "ddb-tbname": "OUTFILE",
+    "ddb-tbname": "",
     "ddb-putrate": 25,
     "sqs-msgrate": 10,
-    "sqs-url": "https://sqs.us-east-1.amazonaws.com/481657631063/LoadDDB",
+    "sqs-url": "",
     "max": 0,
     "skip": 0,
-    "print": 1000,
+    "print": 10000,
     "lrecl": 150,
     "rem-low-values": true,
     "separator": "|",
@@ -18,13 +18,15 @@
         {
             "type": "ch",
             "bytes": 19,
+            "offset": 0,
             "dplaces": 0,
             "name": "OUTFILE-TEXT",
-            "key": true
+            "key": false
         },
         {
             "type": "zd",
             "bytes": 18,
+            "offset": 19,
             "dplaces": 0,
             "name": "OUTFILE-UNPACKED",
             "key": false
@@ -32,6 +34,7 @@
         {
             "type": "zd+",
             "bytes": 18,
+            "offset": 37,
             "dplaces": 0,
             "name": "OUTFILE-UNPACKED-S",
             "key": false
@@ -39,6 +42,7 @@
         {
             "type": "bi",
             "bytes": 2,
+            "offset": 55,
             "dplaces": 0,
             "name": "OUTFILE-COMP-04",
             "key": false
@@ -46,6 +50,7 @@
         {
             "type": "bi+",
             "bytes": 2,
+            "offset": 57,
             "dplaces": 0,
             "name": "OUTFILE-COMP-04-S",
             "key": false
@@ -53,6 +58,7 @@
         {
             "type": "bi",
             "bytes": 4,
+            "offset": 59,
             "dplaces": 0,
             "name": "OUTFILE-COMP-09",
             "key": false
@@ -60,6 +66,7 @@
         {
             "type": "bi+",
             "bytes": 4,
+            "offset": 63,
             "dplaces": 0,
             "name": "OUTFILE-COMP-09-S",
             "key": false
@@ -67,6 +74,7 @@
         {
             "type": "bi",
             "bytes": 8,
+            "offset": 67,
             "dplaces": 0,
             "name": "OUTFILE-COMP-18",
             "key": false
@@ -74,6 +82,7 @@
         {
             "type": "bi+",
             "bytes": 8,
+            "offset": 75,
             "dplaces": 0,
             "name": "OUTFILE-COMP-18-S",
             "key": false
@@ -81,6 +90,7 @@
         {
             "type": "pd",
             "bytes": 3,
+            "offset": 83,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-04",
             "key": false
@@ -88,6 +98,7 @@
         {
             "type": "pd+",
             "bytes": 3,
+            "offset": 86,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-04-S",
             "key": false
@@ -95,6 +106,7 @@
         {
             "type": "pd",
             "bytes": 5,
+            "offset": 89,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-09",
             "key": false
@@ -102,6 +114,7 @@
         {
             "type": "pd+",
             "bytes": 5,
+            "offset": 94,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-09-S",
             "key": false
@@ -109,6 +122,7 @@
         {
             "type": "pd",
             "bytes": 10,
+            "offset": 99,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-18",
             "key": false
@@ -116,6 +130,7 @@
         {
             "type": "pd+",
             "bytes": 10,
+            "offset": 109,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-18-S",
             "key": false
@@ -123,6 +138,7 @@
         {
             "type": "ch",
             "bytes": 1,
+            "offset": 119,
             "dplaces": 0,
             "name": "TEXT1",
             "key": false
@@ -130,6 +146,7 @@
         {
             "type": "ch",
             "bytes": 1,
+            "offset": 120,
             "dplaces": 0,
             "name": "TEXT1",
             "key": false
@@ -137,6 +154,7 @@
         {
             "type": "ch",
             "bytes": 29,
+            "offset": 121,
             "dplaces": 0,
             "name": "FILLER_1",
             "key": false
@@ -146,13 +164,15 @@
         {
             "type": "ch",
             "bytes": 19,
+            "offset": 0,
             "dplaces": 0,
             "name": "OUTFILE-TEXT",
-            "key": true
+            "key": false
         },
         {
             "type": "zd",
             "bytes": 18,
+            "offset": 19,
             "dplaces": 0,
             "name": "OUTFILE-UNPACKED",
             "key": false
@@ -160,6 +180,7 @@
         {
             "type": "zd+",
             "bytes": 18,
+            "offset": 37,
             "dplaces": 0,
             "name": "OUTFILE-UNPACKED-S",
             "key": false
@@ -167,6 +188,7 @@
         {
             "type": "bi",
             "bytes": 2,
+            "offset": 55,
             "dplaces": 0,
             "name": "OUTFILE-COMP-04",
             "key": false
@@ -174,6 +196,7 @@
         {
             "type": "bi+",
             "bytes": 2,
+            "offset": 57,
             "dplaces": 0,
             "name": "OUTFILE-COMP-04-S",
             "key": false
@@ -181,6 +204,7 @@
         {
             "type": "bi",
             "bytes": 4,
+            "offset": 59,
             "dplaces": 0,
             "name": "OUTFILE-COMP-09",
             "key": false
@@ -188,6 +212,7 @@
         {
             "type": "bi+",
             "bytes": 4,
+            "offset": 63,
             "dplaces": 0,
             "name": "OUTFILE-COMP-09-S",
             "key": false
@@ -195,6 +220,7 @@
         {
             "type": "bi",
             "bytes": 8,
+            "offset": 67,
             "dplaces": 0,
             "name": "OUTFILE-COMP-18",
             "key": false
@@ -202,6 +228,7 @@
         {
             "type": "bi+",
             "bytes": 8,
+            "offset": 75,
             "dplaces": 0,
             "name": "OUTFILE-COMP-18-S",
             "key": false
@@ -209,6 +236,7 @@
         {
             "type": "pd",
             "bytes": 3,
+            "offset": 83,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-04",
             "key": false
@@ -216,6 +244,7 @@
         {
             "type": "pd+",
             "bytes": 3,
+            "offset": 86,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-04-S",
             "key": false
@@ -223,6 +252,7 @@
         {
             "type": "pd",
             "bytes": 5,
+            "offset": 89,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-09",
             "key": false
@@ -230,6 +260,7 @@
         {
             "type": "pd+",
             "bytes": 5,
+            "offset": 94,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-09-S",
             "key": false
@@ -237,6 +268,7 @@
         {
             "type": "pd",
             "bytes": 10,
+            "offset": 99,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-18",
             "key": false
@@ -244,6 +276,7 @@
         {
             "type": "pd+",
             "bytes": 10,
+            "offset": 109,
             "dplaces": 0,
             "name": "OUTFILE-COMP3-18-S",
             "key": false
@@ -251,6 +284,7 @@
         {
             "type": "ch",
             "bytes": 2,
+            "offset": 119,
             "dplaces": 0,
             "name": "TEXT2",
             "key": false
@@ -258,6 +292,7 @@
         {
             "type": "ch",
             "bytes": 29,
+            "offset": 121,
             "dplaces": 0,
             "name": "FILLER_1",
             "key": false
