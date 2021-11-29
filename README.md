@@ -141,7 +141,7 @@ python3 extract-ebcdic-to-ascii.py sample-data/COBKS05-list.json
 
 4. Check the [CLIENT.ASCII.txt](sample-data/CLIENT.ASCII.txt) file.
 
-## Loading a DymamoDB form local disk
+## Loading a DymamoDB table from local disk
 
 ### Parse the copybook
 
@@ -164,7 +164,7 @@ python3      parse-copybook-to-json.py           \
 python3 extract-ebcdic-to-ddb.py -local-json sample-data/cobpack2-list-ddb.json
 ```
 
-## Loading a DymamoDB form s3
+## Loading a DymamoDB table from s3
 ### Parse
 ```
 python3      parse-copybook-to-json.py              \
