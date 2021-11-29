@@ -35,4 +35,4 @@ while i < prm.general["max"] or prm.general["max"] == 0:
 if len(ddbo.list): ddbo.WriteItems()
 
 log.Write(['Records processed', str(i)]) 
-log.Write(['Finished']) 
+log.Finish()
