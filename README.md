@@ -181,7 +181,7 @@ python3      parse-copybook-to-json.py              \
 ```
 ### Load
 ```
-python3 extract-ebcdic-to-ddb.py -local-json sample-data/cobpack2-list-ddb-s3..json
+python3 extract-ebcdic-to-ddb.py -local-json sample-data/cobpack2-list-ddb-s3.json
 ```
 
 ## How it works
