@@ -105,17 +105,17 @@ python3   parse-copybook-to-json.py     \
 ```
 
 ```
-python3   parse-copybook-to-json.py       \
--copybook LegacyReference/COBPACK2.cpy    \
--output   sample-data/cobpack2-list.json  \
--dict     sample-data/cobpack2-dict.json  \
--ebcdic   sample-data/COBPACK.OUTFILE.txt \
--ascii    sample-data/COBPACK.ASCII.txt   \
--keylen   19                              \
--keyname  OUTFILE-K                       \
--ddb-tbname OUTFILE \
--sqs-url  https://sqs.us-east-1.amazonaws.com/481657631063/LoadDDB \
--print    1000
+python3      parse-copybook-to-json.py       \
+-copybook    LegacyReference/COBPACK2.cpy    \
+-output      OUTFILE                         \
+-dict        sample-data/cobpack2-dict.json  \
+-ebcdic      sample-data/COBPACK.OUTFILE.txt \
+-ascii       sample-data/COBPACK.ASCII.txt   \
+-print       10000                           \
+-keylen      19                              \
+-keyname     OUTFILE-K                       \
+-output-type ddb                             \
+-req-size    25
 ```
 
 ### Extracting a multiple layout file

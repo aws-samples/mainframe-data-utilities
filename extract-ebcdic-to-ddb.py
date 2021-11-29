@@ -9,7 +9,7 @@ prm = utils.ParamReader(sys.argv)
 InpF = datasource.Input(prm.general["input"])
 
 ddbo = dynamodb.Batch(prm.general["ddb-tbname"], 25)
-
+ 
 i=0
 while i < prm.general["max"] or prm.general["max"] == 0:
 

@@ -1,5 +1,25 @@
 import json, sys, copybook
 
+def DisParam(arg):
+    desc = {
+        '-copybook'    : '* Copybook file name',
+        '-output'      : '* Parsed copybook (JSON List)',
+        '-ebcdic'      : 'EBCDIC file (to be converted)',
+        '-ascii'       : 'ASCII output',
+        '-keylen'      : 'Length of the key',
+        '-keyname'     : 'Name of the key (for ddb)',
+        '-output-type' : 'Output resource type (file, ddb or sqs)',
+        '-req-size'    : 'Itens sent per request',
+        '-print'       : 'Display after',
+        '-dict'        : 'Generate dict json file',
+        }
+
+    for a in arg:
+        if a in desc:
+            print(a.ljust(12, ' '), ' | ', desc[a].ljust(40, ' '), '|', arg[a])
+        else:
+            print(a.ljust(12, ' '), ' | ', '>>>Unknown argument<<<'.ljust(40, ' '), '|', arg[a])
+
 ###### Create the extraction parameter file
 def CreateExtraction(obj, altstack=[], keylength=0):
     global lrecl
@@ -39,31 +59,17 @@ def CreateExtraction(obj, altstack=[], keylength=0):
                         altlay.append(red)
                 
 ############################### MAIN ###################################
-print("-----------------------------------------------------------------------")
+print("--------------------------------------------------------------------------------------")
 
 iparm = dict(zip(sys.argv[1::2], sys.argv[2::2]))
 
 if '-copybook' not in iparm or '-output' not in iparm:
-    print('Sintax: python parse-copybook-to-json -copybook <copybookfile.cpb> -output <jsonfile.json>\n')
+    print('Basic sintax: python3 parse-copybook-to-json -copybook <copybookfile.cpb> -output <jsonfile.json>\n')
     quit()
 
-print("Copybook file...............|", iparm['-copybook'])
-print("Parsed copybook (JSON List).|", iparm['-output'])
+DisParam(iparm)
 
-if '-dict'        in iparm: print("JSON Dict (documentation)...|", iparm['-dict'])
-if '-ascii'       in iparm: print("ASCII file..................|", iparm['-ascii'])
-if '-ebcdic'      in iparm: print("EBCDIC file.................|", iparm['-ebcdic'])
-if '-keylen'      in iparm: print("Key length..................|", iparm['-keylen'])
-if '-keyname'     in iparm: print("Key name....................|", iparm['-keyname'])
-if '-ddb-output'  in iparm: print("DynamoDB Output file........|", iparm['-ddb-output'])
-if '-ddb-tbname'  in iparm: print("DynamoDB Table name.........|", iparm['-ddb-tbname'])
-if '-ddb-putrate' in iparm: print("DynamoDB Put rate...........|", iparm['-ddb-putrate'])
-if '-sqs-msgrate' in iparm: print("SQS message rate............|", iparm['-sqs-msgrate'])
-if '-sqs-url    ' in iparm: print("SQS message rate............|", iparm['-sqs-url'])
-if '-print'       in iparm: print("Print each..................|", iparm['-print'])
-
-with open(iparm['-copybook'], "r") as finp:
-    output = copybook.toDict(finp.readlines())
+with open(iparm['-copybook'], "r") as finp: output = copybook.toDict(finp.readlines())
 
 if '-dict' in iparm:
     with open(iparm['-dict'],"w") as fout:
@@ -76,19 +82,18 @@ lrecl = 0
 CreateExtraction(output, [], keylen)
 
 param = {}
-param['input']       = iparm['-ebcdic']      if '-ebcdic'      in iparm else 'ebcdicfile.txt'
-param['output']      = iparm['-ascii']       if '-ascii'       in iparm else 'asciifile.txt'
-param['keyname']     = iparm['-keyname']     if '-keyname'     in iparm else ''
-param['ddb-output']  = iparm['-ddb-output']  if '-ddb-output'  in iparm else ''
-param['ddb-tbname']  = iparm['-ddb-tbname']  if '-ddb-tbname'  in iparm else ''
-param['ddb-putrate'] = iparm['-ddb-putrate'] if '-ddb-putrate' in iparm else 25
-param['sqs-msgrate'] = iparm['-sqs-msgrate'] if '-sqs-msgrate' in iparm else 10
-param['sqs-url']     = iparm['-sqs-url']     if '-sqs-url'     in iparm else ''
+param['input']       = iparm['-ebcdic']       if '-ebcdic'      in iparm else 'ebcdicfile.txt'
+param['output']      = iparm['-ascii']        if '-ascii'       in iparm else 'asciifile.txt'
+param['keyname']     = iparm['-keyname']      if '-keyname'     in iparm else ''
+
+param['output-type'] = iparm['-output-type']   if '-output-type' in iparm else 'file'
+param['req-size']    = int(iparm['-req-size']) if '-req-size '   in iparm else 10
+param['print']       = int(iparm['-print'])    if '-print'       in iparm else 0
 
 param['max'] = 0
 param['skip'] = 0
-param['print'] = int(iparm['-print']) if '-print'   in iparm else 0
 param['lrecl'] = lrecl
+param['keylen'] = keylen
 param['rem-low-values'] = True
 param['separator'] = '|'
 param['transf-rule'] = []
@@ -112,7 +117,6 @@ for r in altlay:
     ialt += 1
     param['transf' + str(ialt)] = transf
 
-with open(iparm['-output'],"w") as fout:
-    fout.write(json.dumps(param,indent=4))
+with open(iparm['-output'],"w") as fout: fout.write(json.dumps(param,indent=4))
 
-print("-----------------------------------------------------------------------")
+print("--------------------------------------------------------------------------------------")
