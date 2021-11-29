@@ -1,10 +1,10 @@
 {
     "input": "sample-data/COBPACK.OUTFILE.txt",
-    "output": "OUTFILE",
+    "output": "sample-data/COBPACK.ASCII.txt",
     "keyname": "OUTFILE-K",
-    "output-type": "ddb",
+    "output-type": "file",
     "req-size": 25,
-    "print": 10000,
+    "print": 1000,
     "max": 0,
     "skip": 0,
     "lrecl": 150,
