@@ -63,7 +63,7 @@ class Log:
     def __init__(self) -> None:
         self.start = datetime.datetime.now()
     def Finish(self):
-        sec = str(datetime.datetime.now() - self.start)
+        sec = str((datetime.datetime.now() - self.start).total_seconds())
         print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,'Seconds', sec)
     def Write (self, content=[]):
         if len(content) > 0:

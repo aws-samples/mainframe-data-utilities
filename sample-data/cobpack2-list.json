@@ -21,7 +21,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "OUTFILE-TEXT",
-            "key": false
+            "key": true
         },
         {
             "type": "zd",
@@ -167,7 +167,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "OUTFILE-TEXT",
-            "key": false
+            "key": true
         },
         {
             "type": "zd",
