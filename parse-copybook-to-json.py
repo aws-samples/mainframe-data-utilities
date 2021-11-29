@@ -82,14 +82,12 @@ lrecl = 0
 CreateExtraction(output, [], keylen)
 
 param = {}
-param['input']       = iparm['-ebcdic']       if '-ebcdic'      in iparm else 'ebcdicfile.txt'
-param['output']      = iparm['-ascii']        if '-ascii'       in iparm else 'asciifile.txt'
-param['keyname']     = iparm['-keyname']      if '-keyname'     in iparm else ''
-
+param['input']       = iparm['-ebcdic']        if '-ebcdic'      in iparm else 'ebcdicfile.txt'
+param['output']      = iparm['-ascii']         if '-ascii'       in iparm else 'asciifile.txt'
+param['keyname']     = iparm['-keyname']       if '-keyname'     in iparm else ''
 param['output-type'] = iparm['-output-type']   if '-output-type' in iparm else 'file'
-param['req-size']    = int(iparm['-req-size']) if '-req-size '   in iparm else 10
+param['req-size']    = int(iparm['-req-size']) if '-req-size'   in iparm else 10
 param['print']       = int(iparm['-print'])    if '-print'       in iparm else 0
-
 param['max'] = 0
 param['skip'] = 0
 param['lrecl'] = lrecl

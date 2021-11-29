@@ -107,10 +107,10 @@ python3   parse-copybook-to-json.py     \
 ```
 python3      parse-copybook-to-json.py       \
 -copybook    LegacyReference/COBPACK2.cpy    \
--output      OUTFILE                         \
+-output      sample-data/cobpack2-list.json  \
 -dict        sample-data/cobpack2-dict.json  \
 -ebcdic      sample-data/COBPACK.OUTFILE.txt \
--ascii       sample-data/COBPACK.ASCII.txt   \
+-ascii       OUTFILE                         \
 -print       10000                           \
 -keylen      19                              \
 -keyname     OUTFILE-K                       \
