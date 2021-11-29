@@ -65,13 +65,17 @@ git clone git@github.com:aws-samples/mainframe-data-utilities.git.
 2. Run the `parse-copybook-to-json.py` script to parse the copybook file provided in `sample-data`.
 
 ```
-python3 parse-copybook-to-json.py       \
--copybook LegacyReference/COBPACK2.cpy  \
--output sample-data/cobpack2-list.json  \
--dict sample-data/cobpack2-dict.json    \
--ebcdic sample-data/COBPACK.OUTFILE.txt \
--ascii sample-data/COBPACK.ASCII.txt    \
--print 10000
+python3      parse-copybook-to-json.py       \                          
+-copybook    LegacyReference/COBPACK2.cpy    \
+-output      sample-data/cobpack2-list.json  \
+-dict        sample-data/cobpack2-dict.json  \
+-ebcdic      sample-data/COBPACK.OUTFILE.txt \
+-ascii       sample-data/COBPACK.ASCII.txt   \
+-print       50                              \
+-keylen      19                              \
+-keyname     OUTFILE-K                       \
+-output-type file                            \
+-req-size    25
 ```
 
 ### Extracting ebcdic data to a delimiter-separated ASCII file
@@ -102,20 +106,6 @@ python3   parse-copybook-to-json.py     \
 -ebcdic   sample-data/CLIENT.EBCDIC.txt \
 -ascii    sample-data/CLIENT.ASCII.txt  \
 -print    20
-```
-
-```
-python3      parse-copybook-to-json.py       \
--copybook    LegacyReference/COBPACK2.cpy    \
--output      sample-data/cobpack2-list.json  \
--dict        sample-data/cobpack2-dict.json  \
--ebcdic      sample-data/COBPACK.OUTFILE.txt \
--ascii       OUTFILE                         \
--print       10000                           \
--keylen      19                              \
--keyname     OUTFILE-K                       \
--output-type ddb                             \
--req-size    25
 ```
 
 ### Extracting a multiple layout file
@@ -150,6 +140,49 @@ python3 extract-ebcdic-to-ascii.py sample-data/COBKS05-list.json
 ```
 
 4. Check the [CLIENT.ASCII.txt](sample-data/CLIENT.ASCII.txt) file.
+
+## Loading a DymamoDB form local disk
+
+### Parse the copybook
+
+```
+python3      parse-copybook-to-json.py           \
+-copybook    LegacyReference/COBPACK2.cpy        \
+-output      sample-data/cobpack2-list-ddb.json  \
+-dict        sample-data/cobpack2-dict.json      \
+-ebcdic      sample-data/COBPACK.OUTFILE.txt     \
+-ascii       OUTFILE                             \
+-print       1000                                \
+-keylen      19                                  \
+-keyname     OUTFILE-K                           \
+-output-type ddb                                 \
+-req-size    25
+```
+
+### Load
+```
+python3 extract-ebcdic-to-ddb.py -local-json sample-data/cobpack2-list-ddb.json
+```
+
+## Loading a DymamoDB form s3
+### Parse
+```
+python3      parse-copybook-to-json.py              \
+-copybook    LegacyReference/COBPACK2.cpy           \
+-output      sample-data/cobpack2-list-ddb-s3.json  \
+-dict        sample-data/cobpack2-dict.json         \
+-ebcdic      s3://yourbucket/COBPACK.OUTFILE.txt    \
+-ascii       OUTFILE                                \
+-print       1000                                   \
+-keylen      19                                     \
+-keyname     OUTFILE-K                              \
+-output-type ddb                                    \
+-req-size    25
+```
+### Load
+```
+python3 extract-ebcdic-to-ddb.py -local-json sample-data/cobpack2-list-ddb-s3..json
+```
 
 ## How it works
 
