@@ -1,47 +1,47 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import json, sys, ebcdic, datetime, dynamodb, utils
+import sys, ebcdic, dynamodb, utils, data
 
-print("-----------------------------------------------------","\nParameter file.............|",sys.argv[1])
-print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| STARTED")
+log = utils.Log()
+prm = utils.ParamReader(sys.argv)
 
-with open(sys.argv[1]) as json_file: param = json.load(json_file)
+#y = globals()['A']()
+#InpF=open(prm.general["input"],"rb")
+InpF = data.SourceFile(prm.general["input"])
 
-prm = utils.Param(param)
-
-InpF=open(param["input"],"rb")
-
-ddbo = dynamodb.Batch(param["ddb-tbname"], 25)
+ddbo = dynamodb.Batch(prm.general["ddb-tbname"], 25)
 
 i=0
-while i < param["max"] or param["max"] == 0:
+while i < prm.general["max"] or prm.general["max"] == 0:
 
-    linha = InpF.read(param["lrecl"])
-
-    if not linha: break
+    record = InpF.read(prm.general["lrecl"])
+    
+    if not record: break
     
     ddbitem = dynamodb.item()
 
     i+= 1
     fim=0
-    if i > param["skip"]:
+    if i > prm.general["skip"]:
             
-        if(param["print"] != 0 and i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
+        if(prm.general["print"] != 0 and i % prm.general["print"] == 0): log.Write(['Records processed', str(i)]) 
         
         ini = 0
     
-        layout = prm.GetLayout(linha)
+        layout = prm.GetLayout(record)
         
         for transf in layout:
 
             fim += transf["bytes"]
 
-            ddbitem.create(transf["name"], transf["type"],  transf["key"], param["keyname"], prm.AddDecPlaces(ebcdic.unpack(linha[ini:fim],transf["type"], param["rem-low-values"]), transf["dplaces"]))
+            ddbitem.add(transf["name"], transf["type"],  transf["key"], prm.general["keyname"], prm.AddDecPlaces(ebcdic.unpack(record[ini:fim], transf["type"], prm.general["rem-low-values"]), transf["dplaces"]))
 
             ini = fim
         
         ddbo.WriteItems(ddbitem.readPutReq())
+
 if len(ddbo.list): ddbo.WriteItems()
-print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
-print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| FINISHED")
+
+log.Write(['Records processed', str(i)]) 
+log.Write(['Finished']) 

@@ -2,8 +2,12 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import boto3, json
-ddbclient = boto3.client('dynamodb')
+ddbClient = boto3.client('dynamodb')
 
+class Param:
+    def __init__(self, table, key) -> None:
+        pass
+        
 class Batch:
     def __init__(self, tbname, rate):
         self.dict = {}
@@ -18,7 +22,7 @@ class Batch:
 
         if len(self.list) >= self.rate or item == {}:
 
-            response = ddbclient.batch_write_item(RequestItems={ self.table : self.list })
+            response = ddbClient.batch_write_item(RequestItems={ self.table : self.list })
             self.list = []
 
 class item:
@@ -26,7 +30,7 @@ class item:
     def __init__(self):
         self.dict = {}
 
-    def create(self, id, type, key, keyname, value):
+    def add(self, id, type, key, keyname, value):
         
         if not key: 
             self.dict[id] = {}
