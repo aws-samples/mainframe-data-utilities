@@ -8,7 +8,7 @@ class ParamReader:
         desc = {
             'unknown'     : 'Unknown argument ',
             '-local-json' : 'Local Json file  ',
-            '-s3url-json' : 'S3 Json file     ' 
+            '-s3-json' : 'S3 Json file     ' 
             }
 
         for a in (arg := dict(zip(sysargv[1::2], sysargv[2::2]))):
