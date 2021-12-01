@@ -1,56 +1,43 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import json, sys, ebcdic, datetime
+import sys, ebcdic, utils, datasource
 
-def GetLayout(_data, _rules):
-    
-    if len(_rules) == 0: return "transf"
+def lambda_handler(event, context):
+    fileconvertion(['-json-s3',''])
 
-    for r in _rules:
-        if _data[r["offset"]:r["offset"]+r["size"]].hex() == r["hex"]: 
-            return r["transf"]
-    return "transf"
-
-def AddDecPlaces(num,dplaces):
-    if dplaces == 0:
-        return num
-    else:
-        return num[:len(num)-dplaces] + '.' + num[len(num)-dplaces:]
-
-arg = dict(zip(sys.argv[1::2], sys.argv[2::2]))
-
-if not '-local-json' in arg: 
-    print('\nSintax: python3 extract-ebcdic-to-ascii.py -local-json path/to/layout.json \n')
-    quit()
-
-print("-----------------------------------------------------")
-print("JSON Layout file           |", arg['-local-json'])
-print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| STARTED")
-
-with open(arg['-local-json']) as json_file: param = json.load(json_file)
-
-InpF=open(param["input"],"rb")
-OutF=open(param["output"],"w")
-
-i=0
-while i < param["max"] or param["max"] == 0:
-
-    linha = InpF.read(param["lrecl"])
-
-    if not linha: break
-
-    i+= 1
-    if i > param["skip"]:
-        if(param["print"] != 0 and i % param["print"] == 0): print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") ,"| Records processed:", i)
-
-        layout = GetLayout(linha, param["transf-rule"])
+def fileconvertion(args):
         
-        for transf in param[layout]:
-            OutF.write(
-                AddDecPlaces(
-                    ebcdic.unpack(
-                        linha[transf["offset"]:transf["offset"]+transf["bytes"]],transf["type"], param["rem-low-values"]),
-                    transf["dplaces"]) + param["separator"])
+    log = utils.Log()
+    prm = utils.ParamReader(args)
+    InpDS = datasource.Input(prm.general["input"])
+    OutDS = datasource.Output(prm.general)
 
-        OutF.write("\n")
+    i=0
+    while i < prm.general["max"] or prm.general["max"] == 0:
+
+        record = InpDS.read(prm.general["lrecl"])
+        
+        if not record: break
+        
+        OutRecord = datasource.item(prm.general)
+
+        i+= 1
+        if i > prm.general["skip"]:
+                
+            if(prm.general["print"] != 0 and i % prm.general["print"] == 0): log.Write(['Records processed', str(i)]) 
+            
+            layout = prm.GetLayout(record)
+            
+            for transf in layout:
+
+                OutRecord.addField(transf["name"], transf["type"],  transf["key"], prm.general["keyname"], prm.AddDecPlaces(ebcdic.unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], prm.general["rem-low-values"]), transf["dplaces"]))
+            
+            OutDS.Write(OutRecord.get())
+    OutDS.Write()
+
+    log.Write(['Records processed', str(i)]) 
+    log.Finish()
+
+if __name__ == '__main__':
+    fileconvertion(sys.argv)

@@ -54,7 +54,7 @@
             "request": "launch",
             "program": "extract-ebcdic-to-ddb.py",
             "console": "integratedTerminal",
-            "args": ["-local-json","sample-data/cobpack2-list.json"]
+            "args": ["-local-json","sample-data/cobpack2-list-ddb.json"]
         },
         {
             "name": "extract-ebcdic-to-ddb-s3",
