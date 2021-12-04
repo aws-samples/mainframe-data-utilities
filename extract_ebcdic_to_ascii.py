@@ -2,8 +2,23 @@
 # SPDX-License-Identifier: Apache-2.0
 import sys, ebcdic, utils, datasource
 
+log = utils.Log()
+
 def lambda_handler(event, context):
-    fileconvertion(['-json-s3',''])
+
+    bkt =  event['Records'][0]['s3']['bucket']['name']
+    key =  event['Records'][0]['s3']['object']['key']
+    
+    if len(key.split('/')) > 1: 
+        log.Write(['Please upload the file to the root folder:', key])
+        quit()
+
+    jsonlayout = 's3://' + bkt + '/layout/' + ''.join(key.replace('.txt','').split('.')[:-1]) + '.json'
+    
+    fileconvertion(['extract_ebcdic_to_ascii.py',
+                    '-s3-json' , jsonlayout,
+                    '-s3-input','s3://' + bkt + '/' + key
+                    ])
 
 def fileconvertion(args):
         

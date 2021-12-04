@@ -8,7 +8,9 @@ class ParamReader:
         desc = {
             'unknown'     : 'Unknown argument ',
             '-local-json' : 'Local Json file  ',
-            '-s3-json' : 'S3 Json file     ' 
+            '-s3-json'    : 'S3 Json file     ',
+            '-s3-input'   : 'S3 input file    ',
+            '-s3-output'  : 'S3 output file   ' 
             }
 
         for a in (arg := dict(zip(sysargv[1::2], sysargv[2::2]))):
@@ -27,6 +29,9 @@ class ParamReader:
             l.Write(['Error! Sintax must be: python3 ' + sysargv[0] + ' -local-json (path/to/layout.json | -s3-json s3://buketname/filename)'])
             l.Write()
             quit()
+
+        if '-s3-input'  in arg: self.general['input']  = arg['-s3-input']
+        if '-s3-output' in arg: self.general['output'] = arg['-s3-output']
         
         self.rules = []
         for  paramrule in self.general["transf-rule"]:
