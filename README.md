@@ -144,7 +144,20 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 
 ## Loading a DymamoDB table from local disk
 
+### Create the DynamoDB table
+
+1. Create the DynanamoDb table which will be loaded on next steps. In this example we defined `OUTFILE` as the table name and `OUTFILE-K` as its key.
+
+![](images/dynamodb.png)
+
 ### Parse the copybook
+
+2. Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
+
+ 1. Inform the name of the DynamoDB table (created before) name as the `-ascii`value.
+ 2. Inform the name of the DynamoDB table key name as the `-keyname` value.
+ 3. Inform the length of the key of the ebcdic input file as the `-keylen` value.
+
 
 ```
 python3      parse_copybook_to_json.py           \
@@ -152,16 +165,12 @@ python3      parse_copybook_to_json.py           \
 -output      sample-data/cobpack2-list-ddb.json  \
 -ebcdic      sample-data/COBPACK.OUTFILE.txt     \
 -ascii       OUTFILE                             \
+-keyname     OUTFILE-K                           \
 -print       1000                                \
 -keylen      19                                  \
--keyname     OUTFILE-K                           \
 -output-type ddb                                 \
 -req-size    25
 ```
-
-### Create the DynamoDB table
-
-![](images/dynamodb.png)
 
 ### Load
 ```
