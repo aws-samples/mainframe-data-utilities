@@ -173,11 +173,15 @@ python3      parse_copybook_to_json.py           \
 ```
 
 ### Load
+
+1. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` and load into the `OUTFILE` Dynamodb table in the ASCII encoding.
+
 ```
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb.json
 ```
 
-## Loading a DymamoDB table from s3
+## Loading a DymamoDB table directly from s3
+
 ### Parse
 ```
 python3      parse_copybook_to_json.py              \
