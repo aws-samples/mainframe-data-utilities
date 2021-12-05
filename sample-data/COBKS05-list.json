@@ -1,35 +1,22 @@
 {
     "input": "sample-data/CLIENT.EBCDIC.txt",
     "output": "sample-data/CLIENT.ASCII.txt",
-    "ddb-output": "sample-data/CLIENT.ASCII.json",
-    "ddb-tbname": "CLIENT",
-    "ddb-putrate": 25,
-    "sqs-sndrate": 10,
+    "keyname": "",
+    "output-type": "file",
+    "req-size": 10,
+    "print": 20,
     "max": 0,
     "skip": 0,
-    "print": 20,
-    "keyname": "CLIENT-KEY",
     "lrecl": 500,
+    "keylen": 19,
     "rem-low-values": true,
     "separator": "|",
-    "transf-rule": [
-        {
-            "offset": 4,
-            "size": 2,
-            "hex": "0002",
-            "transf": "transf1"
-        },
-        {
-            "offset": 4,
-            "size": 2,
-            "hex": "0000",
-            "transf": "transf2"
-        }
-    ],
+    "transf-rule": [],
     "transf": [
         {
             "type": "bi",
             "bytes": 4,
+            "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
             "key": true
@@ -37,6 +24,7 @@
         {
             "type": "bi",
             "bytes": 2,
+            "offset": 4,
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "key": true
@@ -44,6 +32,7 @@
         {
             "type": "ch",
             "bytes": 30,
+            "offset": 6,
             "dplaces": 0,
             "name": "CLIENT-NAME",
             "key": false
@@ -51,6 +40,7 @@
         {
             "type": "ch",
             "bytes": 10,
+            "offset": 36,
             "dplaces": 0,
             "name": "CLIENT-BDATE",
             "key": false
@@ -58,6 +48,7 @@
         {
             "type": "ch",
             "bytes": 10,
+            "offset": 46,
             "dplaces": 0,
             "name": "CLIENT-ED-LVL",
             "key": false
@@ -65,6 +56,7 @@
         {
             "type": "pd",
             "bytes": 5,
+            "offset": 56,
             "dplaces": 2,
             "name": "CLIENT-INCOME",
             "key": false
@@ -72,6 +64,7 @@
         {
             "type": "ch",
             "bytes": 439,
+            "offset": 61,
             "dplaces": 0,
             "name": "FILLER_1",
             "key": false
@@ -81,6 +74,7 @@
         {
             "type": "bi",
             "bytes": 4,
+            "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
             "key": true
@@ -88,6 +82,7 @@
         {
             "type": "bi",
             "bytes": 2,
+            "offset": 4,
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "key": true
@@ -95,13 +90,15 @@
         {
             "type": "bi",
             "bytes": 4,
+            "offset": 6,
             "dplaces": 0,
             "name": "CLIENT-ADDR-NUMBER",
-            "key": false
+            "key": true
         },
         {
             "type": "ch",
             "bytes": 40,
+            "offset": 10,
             "dplaces": 0,
             "name": "CLIENT-ADDR-STREET",
             "key": false
@@ -109,6 +106,7 @@
         {
             "type": "ch",
             "bytes": 450,
+            "offset": 50,
             "dplaces": 0,
             "name": "FILLER_2",
             "key": false
@@ -118,6 +116,7 @@
         {
             "type": "bi",
             "bytes": 4,
+            "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
             "key": true
@@ -125,6 +124,7 @@
         {
             "type": "bi",
             "bytes": 2,
+            "offset": 4,
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "key": true
@@ -132,13 +132,15 @@
         {
             "type": "bi",
             "bytes": 4,
+            "offset": 6,
             "dplaces": 0,
             "name": "CLIENT-RECORD-COUNT",
-            "key": false
+            "key": true
         },
         {
             "type": "ch",
             "bytes": 490,
+            "offset": 10,
             "dplaces": 0,
             "name": "FILLER_3",
             "key": false

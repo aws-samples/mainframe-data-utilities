@@ -63,11 +63,11 @@ print("-------------------------------------------------------------------------
 
 iparm = dict(zip(sys.argv[1::2], sys.argv[2::2]))
 
-if '-copybook' not in iparm or '-output' not in iparm:
-    print('Basic sintax: python3 parse-copybook-to-json -copybook <copybookfile.cpb> -output <jsonfile.json>\n')
-    quit()
-
 DisParam(iparm)
+
+if '-copybook' not in iparm or '-output' not in iparm:
+    print('Error! The basic sintax is: python3 parse_copybook_to_json.py -copybook <copybookfile.cpb> -output <jsonfile.json>\n')
+    quit()
 
 with open(iparm['-copybook'], "r") as finp: output = copybook.toDict(finp.readlines())
 
