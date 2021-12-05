@@ -161,7 +161,7 @@ python3      parse_copybook_to_json.py           \
 
 ### Create the DynamoDB table
 
-![image](images/dynamodb.png)
+![](images/dynamodb.png)
 
 ### Load
 ```
