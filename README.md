@@ -154,9 +154,10 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 
 Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
 
- 1. Inform the name of the DynamoDB table (created before) name as the `-ascii`value.
- 2. Inform the name of the DynamoDB table key name as the `-keyname` value.
- 3. Inform the length of the key of the ebcdic input file as the `-keylen` value.
+ 1. Inform `ddb` as the value the `-output-type` value.
+ 2. Inform the name of the DynamoDB table (created before) name as the `-ascii`value.
+ 3. Inform the name of the DynamoDB table key name as the `-keyname` value.
+ 4. Inform the length of the key of the ebcdic input file as the `-keylen` value.
 
 
 ```
@@ -182,12 +183,20 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb.jso
 
 ## Loading a DymamoDB table directly from s3
 
-### Parse
+### Parse the copybook
+
+Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
+
+1. Inform `ddb` as the value the `-output-type` value.
+2. Inform the name of the DynamoDB table (created before) name as the `-ascii`value.
+3. Inform the name of the DynamoDB table key name as the `-keyname` value.
+4. Inform the length of the key of the ebcdic input file as the `-keylen` value.
+5. The `-ebcdic` value must contain the EBCDIC file S3 URI
+
 ```
 python3      parse_copybook_to_json.py              \
 -copybook    LegacyReference/COBPACK2.cpy           \
 -output      sample-data/cobpack2-list-ddb-s3.json  \
--dict        sample-data/cobpack2-dict.json         \
 -ebcdic      s3://yourbucket/COBPACK.OUTFILE.txt    \
 -ascii       OUTFILE                                \
 -print       1000                                   \
@@ -196,9 +205,13 @@ python3      parse_copybook_to_json.py              \
 -output-type ddb                                    \
 -req-size    25
 ```
+
 ### Load
+
+1. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` and load into the `OUTFILE` Dynamodb table in the ASCII encoding.
+
 ```
-python3 extract-ebcdic-to-ddb.py -local-json sample-data/cobpack2-list-ddb-s3.json
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.json
 ```
 
 ## How it works

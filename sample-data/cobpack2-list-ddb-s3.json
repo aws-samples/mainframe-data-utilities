@@ -1,5 +1,5 @@
 {
-    "input": "s3://ftp-mainframe/input/COBPACK.OUTFILE.txt",
+    "input": "s3://your-bucket/COBPACK.OUTFILE.txt",
     "output": "OUTFILE",
     "keyname": "OUTFILE-K",
     "output-type": "ddb",
