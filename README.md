@@ -150,7 +150,6 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 python3      parse_copybook_to_json.py           \
 -copybook    LegacyReference/COBPACK2.cpy        \
 -output      sample-data/cobpack2-list-ddb.json  \
--dict        sample-data/cobpack2-dict.json      \
 -ebcdic      sample-data/COBPACK.OUTFILE.txt     \
 -ascii       OUTFILE                             \
 -print       1000                                \
@@ -160,9 +159,13 @@ python3      parse_copybook_to_json.py           \
 -req-size    25
 ```
 
+### Create the DynamoDB table
+
+![image](images/dynamodb.png)
+
 ### Load
 ```
-python3 extract-ebcdic-to-ddb.py -local-json sample-data/cobpack2-list-ddb.json
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb.json
 ```
 
 ## Loading a DymamoDB table from s3
