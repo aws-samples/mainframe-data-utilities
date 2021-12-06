@@ -105,7 +105,7 @@ python3   parse_copybook_to_json.py     \
 -dict     sample-data/COBKS05-dict.json \
 -ebcdic   sample-data/CLIENT.EBCDIC.txt \
 -ascii    sample-data/CLIENT.ASCII.txt  \
--keylen   19                            \
+-keylen   6                             \
 -print    20
 ```
 

@@ -8,7 +8,7 @@
     "max": 0,
     "skip": 0,
     "lrecl": 500,
-    "keylen": 19,
+    "keylen": 6,
     "rem-low-values": true,
     "separator": "|",
     "transf-rule": [
@@ -106,7 +106,7 @@
             "offset": 6,
             "dplaces": 0,
             "name": "CLIENT-ADDR-NUMBER",
-            "key": true
+            "key": false
         },
         {
             "type": "ch",
@@ -148,7 +148,7 @@
             "offset": 6,
             "dplaces": 0,
             "name": "CLIENT-RECORD-COUNT",
-            "key": true
+            "key": false
         },
         {
             "type": "ch",
