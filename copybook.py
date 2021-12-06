@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 # FUNCTIONS TO HANDLE THE HIERARCHICAL STACK #
 def fGetSetack():
     global stack, output

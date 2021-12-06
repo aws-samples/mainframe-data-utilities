@@ -30,9 +30,9 @@ The purpose of this project is to provide Python scripts as a starting point for
 
 The current release of this toolset consists of three scripts:
 
-- **parse-copybook-to-json** is a module that creates a JSON parameter file by parsing Cobol Copybook. The parameter file is a description of the file EBCDIC file layout, required by extract-ebcdic-to-ascii.py 
+- **parse_copybook_to_json** is a module that creates a JSON parameter file by parsing Cobol Copybook. The parameter file is a description of the file EBCDIC file layout, required by extract_ebcdic_to_ascii.py 
 
-- **extract-ebcdic-to-ascii.py** uses the JSON parameter file to slice a fixed length EBCDIC file, unpack its contents and write them to an ASCII file.
+- **extract_ebcdic_to_ascii.py** uses the JSON parameter file to slice a fixed length EBCDIC file, unpack its contents and write them to an ASCII file.
 
 - **ebcdic.py** is the main library that handles the encoding transformation logic.
 
@@ -54,49 +54,62 @@ Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
 
 ## Getting started
 
+### Parsing a basic copybook
+
 1. Clone this repo:
 
 ```
 git clone git@github.com:aws-samples/mainframe-data-utilities.git.
 ```
 
-2. Run the `parse-copybook-to-json.py` script to parse the copybook file provided in `sample-data`.
+2. Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
 
 ```
-python3 parse-copybook-to-json.py       \
--copybook LegacyReference/COBPACK2.cpy  \
--output sample-data/cobpack2-list.json  \
--dict sample-data/cobpack2-dict.json    \
--ebcdic sample-data/COBPACK.OUTFILE.txt \
--ascii sample-data/COBPACK.ASCII.txt    \
--print 10000
+python3      parse_copybook_to_json.py       \
+-copybook    LegacyReference/COBPACK2.cpy    \
+-output      sample-data/cobpack2-list.json  \
+-dict        sample-data/cobpack2-dict.json  \
+-ebcdic      sample-data/COBPACK.OUTFILE.txt \
+-ascii       sample-data/COBPACK.ASCII.txt   \
+-print       10000                           \
+-keylen      19                              \
+-keyname     OUTFILE-K                       \
+-output-type file                            \
+-req-size    25
 ```
 
-3. Run `extract-ebcdic-to-ascii.py`to extract the `COBPACK.OUTFILE.txt` into an ASCII file.
+### Extracting ebcdic data to a delimiter-separated ASCII file
+
+3. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` into an ASCII file.
 
 ```
-python3 extract-ebcdic-to-ascii.py sample-data/cobpack2-list.json
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list.json
 ```
 
-## Multiple layout support
+## Getting startet with multiple layout support
 
 There are often multiple layouts in mainframe VSAM or sequential (flat) files. It means that you need a different transformation depending on the row you are reading.
 
 The REDEFINES statement allows multiple layouts declaration in the COBOL language.
 
+### Parsing a multiple layout copybook
+
 The [COBKS05.cpy](LegacyReference/COBKS05.cpy) is provided in [LegacyReference](LegacyReference/) folder as an example of a VSAM file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
 
-1. Run the `parse-copybook-to-json.py` script to parse the copybook file provided in `sample-data`.
+1. Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
 
 ```
-python3   parse-copybook-to-json.py     \
+python3   parse_copybook_to_json.py     \
 -copybook LegacyReference/COBKS05.cpy   \
 -output   sample-data/COBKS05-list.json \
 -dict     sample-data/COBKS05-dict.json \
 -ebcdic   sample-data/CLIENT.EBCDIC.txt \
 -ascii    sample-data/CLIENT.ASCII.txt  \
+-keylen   6                             \
 -print    20
 ```
+
+### Extracting a multiple layout file
 
 2. The step above will generate the [COBKS05-list.json](sample-data/COBKS05-list.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list.json`:
 
@@ -117,21 +130,93 @@ python3   parse-copybook-to-json.py     \
     ],
 ```
 
-The parameters above will inform the `extract-ebcdic-to-ascii.py` script that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout. Whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
+The parameters above will inform the `extract_ebcdic_to_ascii.py` script that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout. Whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
 
 The result of the change above must be a file like [COBKS05-rules.json](sample-data/COBKS05-rules.json).
 
-3. Run `extract-ebcdic-to-ascii.py`to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
+3. Run `extract_ebcdic_to_ascii.py`to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
 ```
-python3 extract-ebcdic-to-ascii.py sample-data/COBKS05-list.json
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 ```
 
 4. Check the [CLIENT.ASCII.txt](sample-data/CLIENT.ASCII.txt) file.
 
+## Loading a DymamoDB table from local disk
+
+### Create the DynamoDB table
+
+1. Create the DynanamoDb table which will be loaded on next steps. In this example we defined `OUTFILE` as the table name and `OUTFILE-K` as its key.
+
+![](images/dynamodb.png)
+
+### Parse the copybook
+
+Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
+
+ 1. Inform `ddb` as the value the `-output-type` value.
+ 2. Inform the name of the DynamoDB table (created before) name as the `-ascii`value.
+ 3. Inform the name of the DynamoDB table key name as the `-keyname` value.
+ 4. Inform the length of the key of the ebcdic input file as the `-keylen` value.
+
+
+```
+python3      parse_copybook_to_json.py           \
+-copybook    LegacyReference/COBPACK2.cpy        \
+-output      sample-data/cobpack2-list-ddb.json  \
+-ebcdic      sample-data/COBPACK.OUTFILE.txt     \
+-ascii       OUTFILE                             \
+-keyname     OUTFILE-K                           \
+-print       1000                                \
+-keylen      19                                  \
+-output-type ddb                                 \
+-req-size    25
+```
+
+### Load
+
+1. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` and load into the `OUTFILE` Dynamodb table in the ASCII encoding.
+
+```
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb.json
+```
+
+## Loading a DymamoDB table directly from s3
+
+### Parse the copybook
+
+Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
+
+1. Inform `ddb` as the value the `-output-type` value.
+2. Inform the name of the DynamoDB table (created before) name as the `-ascii`value.
+3. Inform the name of the DynamoDB table key name as the `-keyname` value.
+4. Inform the length of the key of the ebcdic input file as the `-keylen` value.
+5. The `-ebcdic` value must contain the EBCDIC file S3 URI
+
+```
+python3      parse_copybook_to_json.py              \
+-copybook    LegacyReference/COBPACK2.cpy           \
+-output      sample-data/cobpack2-list-ddb-s3.json  \
+-ebcdic      s3://yourbucket/COBPACK.OUTFILE.txt    \
+-ascii       OUTFILE                                \
+-print       1000                                   \
+-keylen      19                                     \
+-keyname     OUTFILE-K                              \
+-output-type ddb                                    \
+-req-size    25
+```
+
+### Load
+
+1. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` and load into the `OUTFILE` Dynamodb table in the ASCII encoding.
+
+```
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.json
+```
+
 ## How it works
 
-### parse-copybook-to-json
+### parse_copybook_to_json
 
 Mainframe files are typically packed (into decimal and binary formats), and encoded in EBCDIC. 
 
