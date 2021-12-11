@@ -9,7 +9,10 @@ Table of contents
 * Requirements
 * Limitations
 * Getting started
-* Multi-layout support
+* Multiple layout support
+* Load a DymamoDB table from local disk
+* Load a DymamoDB table from s3
+* Load a DymamoDB table from s3 through Lambda
 * How it works
 * LegacyReference
 * To be implemented
@@ -86,7 +89,7 @@ python3      parse_copybook_to_json.py       \
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list.json
 ```
 
-## Getting startet with multiple layout support
+## Multiple layout support
 
 There are often multiple layouts in mainframe VSAM or sequential (flat) files. It means that you need a different transformation depending on the row you are reading.
 
@@ -142,7 +145,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 
 4. Check the [CLIENT.ASCII.txt](sample-data/CLIENT.ASCII.txt) file.
 
-## Loading a DymamoDB table from local disk
+## Load a DymamoDB table from local disk
 
 ### Create the DynamoDB table
 
@@ -181,7 +184,7 @@ python3      parse_copybook_to_json.py           \
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb.json
 ```
 
-## Loading a DymamoDB table directly from s3
+## Load a DymamoDB table from s3
 
 ### Parse the copybook
 
@@ -213,6 +216,11 @@ python3      parse_copybook_to_json.py              \
 ```
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.json
 ```
+
+## Load a DymamoDB table from s3 through Lambda
+
+In progress...
+
 
 ## How it works
 
@@ -258,20 +266,20 @@ This script generates a JSON file that holds **general parameters** and **layout
 Sample:
 ```
    "input": "extract-ebcdic-to-ascii/COBPACK.OUTFILE.txt",
-    "output": "extract-ebcdic-to-ascii/COBPACK.ASCII.txt",
-    "max": 0,
-    "skip": 0,
-    "print": 10000,
-    "lrecl": 150,
-    "rem-low-values": true,
-    "separator": "|",
-    "transf-rule": [],
-    "transf": [
-        {
-            "type": "ch",
-            "bytes": 19,
-            "name": "OUTFILE-TEXT"
-        }
+   "output": "extract-ebcdic-to-ascii/COBPACK.ASCII.txt",
+   "max": 0,
+   "skip": 0,
+   "print": 10000,
+   "lrecl": 150,
+   "rem-low-values": true,
+   "separator": "|",
+   "transf-rule": [],
+   "transf": [
+      {
+         "type": "ch",
+         "bytes": 19,
+         "name": "OUTFILE-TEXT"
+      }
 ```
 
 The length is represented in bytes. An 18-digit integer field, for instance, only takes 10 bytes. For more information check [IBM Computational items documentation](https://www.ibm.com/docs/en/cobol-zos/4.2?topic=clause-computational-items).
@@ -297,8 +305,8 @@ Once the Cobol copybook is parsed to JSON it can be used as the input of this mo
 Both **input** (EBCDIC) and **output** (ASCII) files are identified by the JSON file.
 
 ```
-   "input": "extract-ebcdic-to-ascii/COBPACK.OUTFILE.txt",
-    "output": "extract-ebcdic-to-ascii/COBPACK.ASCII.txt",
+   "input":  "extract-ebcdic-to-ascii/COBPACK.OUTFILE.txt",
+   "output": "extract-ebcdic-to-ascii/COBPACK.ASCII.txt",
 ```
 
 ## LegacyReference 
@@ -337,7 +345,10 @@ The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBP
 ## To be implemented
 
 ### Copybook parser
-- DynamoDB schema parser
 - Aurora schema parser (DDL)
 - Add similar packing statements (BINARY, PACKED-DECIMAL...)
 - Handle packing statement (COMP, COMP-3, etc.) when declared before PIC statement
+
+### Data conversion
+
+- Aurora data load
