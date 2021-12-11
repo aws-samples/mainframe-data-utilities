@@ -12,7 +12,6 @@ Table of contents
 * Multiple layout support
 * Load a DymamoDB table from local disk
 * Load a DymamoDB table from s3
-* Load a DymamoDB table from s3 through Lambda
 * How it works
 * LegacyReference
 * To be implemented
@@ -162,7 +161,6 @@ Run the `parse_copybook_to_json.py` script to parse the copybook file provided i
  3. Inform the name of the DynamoDB table key name as the `-keyname` value.
  4. Inform the length of the key of the ebcdic input file as the `-keylen` value.
 
-
 ```
 python3      parse_copybook_to_json.py           \
 -copybook    LegacyReference/COBPACK2.cpy        \
@@ -209,7 +207,7 @@ python3      parse_copybook_to_json.py              \
 -req-size    25
 ```
 
-### Load
+### Load (locally triggered)
 
 1. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` and load into the `OUTFILE` Dynamodb table in the ASCII encoding.
 
@@ -217,10 +215,19 @@ python3      parse_copybook_to_json.py              \
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.json
 ```
 
-## Load a DymamoDB table from s3 through Lambda
+### Load (triggered from Lambda)
+
+1. Create a Lambda function
+2. Assign a role with:
+   * Read access to the S3 bucket that will host the EBCDIC files
+   * Write access to the target DynamoDb table
+3. Create a zip file with the Python code and load it into the Lambda function
+   ```
+   zip mdu.zip *
+   ```
+4. Change the 'Handler' from `?.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` at the Runtime settings section.
 
 In progress...
-
 
 ## How it works
 
