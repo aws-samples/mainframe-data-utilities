@@ -217,7 +217,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.
 
 ### Load (triggered from Lambda)
 
-1. Create a Lambda function
+1. Create a Python 3.9 (or above) Lambda function
 2. Assign a role with:
    * Read access to the S3 bucket that will host the EBCDIC files
    * Write access to the target DynamoDb table
@@ -225,7 +225,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.
    ```
    zip mdu.zip *
    ```
-4. Change the 'Handler' from `?.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` at the Runtime settings section.
+4. Change the 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` at the Runtime settings section.
 
 In progress...
 
