@@ -9,15 +9,12 @@ def lambda_handler(event, context):
     bkt =  event['Records'][0]['s3']['bucket']['name']
     key =  event['Records'][0]['s3']['object']['key']
     
-    if len(key.split('/')) > 1: 
-        log.Write(['Please upload the file to the root folder:', key])
-        quit()
+    jfld = ('/' + '/'.join(karr[:-1]) if len(karr := key.split('/')) > 1 else '') + '/layout/'
+    jfle = '.'.join(karr[-1:][0].replace('.txt','').split('.')[:-1]) + '.json'
 
-    jsonlayout = 's3://' + bkt + '/layout/' + ''.join(key.replace('.txt','').split('.')[:-1]) + '.json'
-    
     fileconvertion(['extract_ebcdic_to_ascii.py',
-                    '-s3-json' , jsonlayout,
-                    '-s3-input','s3://' + bkt + '/' + key
+                    '-s3-json' , 's3://' + bkt + jfld + jfle,
+                    '-s3-input', 's3://' + bkt + '/'  + key
                     ])
 
 def fileconvertion(args):

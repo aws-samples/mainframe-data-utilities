@@ -207,7 +207,7 @@ python3      parse_copybook_to_json.py              \
 -req-size    25
 ```
 
-### Load (locally triggered)
+### Data load (locally triggered)
 
 1. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` and load into the `OUTFILE` Dynamodb table in the ASCII encoding.
 
@@ -215,7 +215,7 @@ python3      parse_copybook_to_json.py              \
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.json
 ```
 
-### Load (triggered from Lambda)
+### Data load (triggered from Lambda)
 
 1. Create a Python 3.9 (or above) Lambda function
 2. Assign a role with:
@@ -226,6 +226,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.
    zip mdu.zip *
    ```
 4. Change the 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` at the Runtime settings section.
+5. Upload the json file
 
 In progress...
 
