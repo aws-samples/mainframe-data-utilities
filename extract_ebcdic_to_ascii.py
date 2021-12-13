@@ -2,8 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 import sys, ebcdic, utils, datasource
 
-log = utils.Log()
-
 def lambda_handler(event, context):
 
     bkt =  event['Records'][0]['s3']['bucket']['name']
