@@ -217,16 +217,20 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.
 
 ### Data load (triggered from Lambda)
 
-1. Create a Python 3.9 (or above) Lambda function
-2. Assign a role with:
-   * Read access to the S3 bucket that will host the EBCDIC files
+1. Create an S3 bucket and folder that will receive the input EBCDIC file.
+2. Create a the `layout/` folder inside the bucket/folder previously created.
+3. Create the DynamoDB table that will receive the converted data. 
+   * The table name must be `OUTFILE` (same as provided in the `-ascii` parameter of the `parse_copybook_to_json.py` script)
+   * The table key must be `OUTFILE-K` (same as provided in the `-keyname` parameter of the `parse_copybook_to_json.py` script)
+4. Create a Python 3.9 (or above) Lambda function and assign a role with:
+   * Read access to the source data S3 bucket
    * Write access to the target DynamoDb table
-3. Create a zip file with the Python code and load it into the Lambda function
+5. Create a zip file with the Python code and upload it into the Lambda function
    ```
    zip mdu.zip *
    ```
-4. Change the 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` at the Runtime settings section.
-5. Upload the json file
+6. Change the Lambda funcion 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` at the Runtime settings section.
+7. Copy the `sample-data/cobpack2-list.json` to `COBPACK.json` and upload it to the `/layout` folder created on step 2.
 
 In progress...
 
