@@ -49,8 +49,6 @@ def CreateExtraction(obj, altstack=[], partklen=0, sortklen=0):
                         item['sort-key'] = True if (lrecl + obj[k]['bytes']) <= (sortklen + partklen) and (lrecl + obj[k]['bytes']) > partklen else False
                         transf.append(item)
 
-                        print('length', lrecl + obj[k]['bytes'])
-
                         lrecl = lrecl + obj[k]['bytes']
                 else:
                     add2alt = True
