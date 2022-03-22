@@ -46,7 +46,7 @@ Stable
 
 ## Requirements
 
-Make sure [Python](https://www.python.org/downloads/) 3 or above is installed.
+Make sure [Python](https://www.python.org/downloads/) 3.8 or above is installed.
 
 ## Limitations
 
@@ -222,7 +222,8 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.
 3. Create the DynamoDB table that will receive the converted data. 
    * The table name must be `OUTFILE` (same as provided in the `-ascii` parameter of the `parse_copybook_to_json.py` script)
    * The table key must be `OUTFILE-K` (same as provided in the `-keyname` parameter of the `parse_copybook_to_json.py` script)
-4. Create a Python 3.9 (or above) Lambda function and assign a role with:
+   * To process the contents of the sample file choose 300 as the minimum write capacity and 400 as the maximum.
+4. Create a Python 3.8 (or above) Lambda function and assign a role with:
    * Read access to the source data S3 bucket
    * Write access to the target DynamoDb table
 5. Create a zip file with the Python code and upload it into the Lambda function
@@ -230,9 +231,9 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.
    zip mdu.zip *
    ```
 6. Change the Lambda funcion 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` at the Runtime settings section.
-7. Copy the `sample-data/cobpack2-list.json` to `COBPACK.json` and upload it to the `/layout` folder created on step 2.
-
-In progress...
+7. Rename the `sample-data/cobpack2-list.json` to `COBPACK.json` and upload it to the `/layout` folder created on step 2.
+8. Create a new Lambda test event with the contens of `sample-data/COBPACK-TEST.json` 
+9. Replace the `example-bucket` by the bucket name created on step 1 and trigger the event.
 
 ## How it works
 
