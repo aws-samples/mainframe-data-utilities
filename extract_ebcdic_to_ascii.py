@@ -40,7 +40,7 @@ def fileconvertion(args):
             
             for transf in layout:
 
-                OutRecord.addField(transf["name"], transf["type"],  transf["key"], prm.general["keyname"], prm.AddDecPlaces(ebcdic.unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], prm.general["rem-low-values"]), transf["dplaces"]))
+                OutRecord.addField(transf["name"], transf["type"],  transf["part-key"], prm.general["partkname"], transf["sort-key"], prm.general["sortkname"], prm.AddDecPlaces(ebcdic.unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], prm.general["rem-low-values"]), transf["dplaces"]))
             
             OutDS.Write(OutRecord.get())
     OutDS.Write()

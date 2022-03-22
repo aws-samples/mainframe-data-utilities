@@ -60,18 +60,25 @@ class item:
 
         if self.Type ==  'file': self.Record['row'] = []
 
-    def addField(self, id, type, key, keyname, value):
+    def addField(self, id, type, partkey, partkname, sortkey, sortkname, value):
         
         if self.Type == 'ddb' or self.Type == 'sqs':
-            if not key: 
+
+            if not partkey and not sortkey: 
                 self.Record[id] = {}
                 self.Record[id]['S' if type == "ch" else 'N'] = value
-            else:
-                if keyname in self.Record:
-                    self.Record[keyname]['S'] = self.Record[keyname]['S'] + "|" + value
+            elif not partkey:
+                if sortkname in self.Record:
+                    self.Record[sortkname]['S'] = self.Record[sortkname]['S'] + "|" + value
                 else:
-                    self.Record[keyname] = {}
-                    self.Record[keyname]['S'] = value
+                    self.Record[sortkname] = {}
+                    self.Record[sortkname]['S'] = value
+            else:
+                if partkname in self.Record:
+                    self.Record[partkname]['S'] = self.Record[partkname]['S'] + "|" + value
+                else:
+                    self.Record[partkname] = {}
+                    self.Record[partkname]['S'] = value
         else:
             self.Record['row'].append(value)
 

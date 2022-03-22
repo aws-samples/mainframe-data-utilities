@@ -74,8 +74,8 @@ python3      parse_copybook_to_json.py       \
 -ebcdic      sample-data/COBPACK.OUTFILE.txt \
 -ascii       sample-data/COBPACK.ASCII.txt   \
 -print       10000                           \
--keylen      19                              \
--keyname     OUTFILE-K                       \
+-part-k-len  19                              \
+-part-k-name Unpacked-text                   \
 -output-type file                            \
 -req-size    25
 ```
@@ -101,13 +101,16 @@ The [COBKS05.cpy](LegacyReference/COBKS05.cpy) is provided in [LegacyReference](
 1. Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
 
 ```
-python3   parse_copybook_to_json.py     \
--copybook LegacyReference/COBKS05.cpy   \
--output   sample-data/COBKS05-list.json \
--dict     sample-data/COBKS05-dict.json \
--ebcdic   sample-data/CLIENT.EBCDIC.txt \
--ascii    sample-data/CLIENT.ASCII.txt  \
--keylen   6                             \
+python3      parse_copybook_to_json.py     \
+-copybook    LegacyReference/COBKS05.cpy   \
+-output      sample-data/COBKS05-list.json \
+-dict        sample-data/COBKS05-dict.json \
+-ebcdic      sample-data/CLIENT.EBCDIC.txt \
+-ascii       sample-data/CLIENT.ASCII.txt  \
+-part-k-len  4                             \
+-part-k-name CLIENT-ID                     \
+-sort-k-len  2                             \
+-sort-k-name CLIENT-REC                    \
 -print    20
 ```
 
