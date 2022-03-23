@@ -206,7 +206,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-rules.jso
 
 ### Update the copybook parsed json file
 
-Create a copy of the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json) file and change the `input` parameter.
+Create a copy of the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json) file and change the `input` parameter. An example is available in [COBKS05-ddb-s3.json](sample-data/COBKS05-ddb-s3.json).
 
 From: `"input": "sample-data/CLIENT.EBCDIC.txt",`
 To: `"input": "s3://yourbucket/yourfolder/CLIENT.EBCDIC.txt",`
