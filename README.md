@@ -99,16 +99,12 @@ The [COBKS05.cpy](LegacyReference/COBKS05.cpy) is provided in [LegacyReference](
 1. Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
 
 ```
-python3      parse_copybook_to_json.py     \
--copybook    LegacyReference/COBKS05.cpy   \
--output      sample-data/COBKS05-list.json \
--dict        sample-data/COBKS05-dict.json \
--ebcdic      sample-data/CLIENT.EBCDIC.txt \
--ascii       sample-data/CLIENT.ASCII.txt  \
--part-k-len  4                             \
--part-k-name ID                            \
--sort-k-len  2                             \
--sort-k-name TYPE                          \
+python3   parse_copybook_to_json.py     \
+-copybook LegacyReference/COBKS05.cpy   \
+-output   sample-data/COBKS05-list.json \
+-dict     sample-data/COBKS05-dict.json \
+-ebcdic   sample-data/CLIENT.EBCDIC.txt \
+-ascii    sample-data/CLIENT.ASCII.txt  \
 -print    20
 ```
 
@@ -135,7 +131,7 @@ python3      parse_copybook_to_json.py     \
 
 The parameters above will inform the `extract_ebcdic_to_ascii.py` script that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout, whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
 
-The result of the change above must be a file like [COBKS05-rules.json](sample-data/COBKS05-rules.json).
+The result of the change above must produce a file like [COBKS05-rules.json](sample-data/COBKS05-rules.json).
 
 3. Run `extract_ebcdic_to_ascii.py`to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
@@ -157,30 +153,53 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 
 Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
 
- 1. Inform `ddb` as the value the `-output-type` value.
- 2. Inform the name of the DynamoDB table (created before) name as the `-ascii`value.
- 3. Inform the name of the DynamoDB table key name as the `-keyname` value.
- 4. Inform the length of the key of the ebcdic input file as the `-keylen` value.
+ 1. Inform `ddb` on `-output-type`.
+ 2. Inform the DynamoDB table name (created before) on `-ascii`.
+ 3. Inform the DynamoDB table partition key name on `-part-k-name`.
+ 4. Inform the DynamoDB table partition key size (as it is in the EBCDIC file) on `-part-k-len`.
+ 5. Inform the DynamoDB table sort key name on `-sort-k-name`.
+ 6. Inform the DynamoDB table sort key size (as it is in the EBCDIC file) on `-sort-k-len`.
 
 ```
-python3      parse_copybook_to_json.py           \
--copybook    LegacyReference/COBPACK2.cpy        \
--output      sample-data/cobpack2-list-ddb.json  \
--ebcdic      sample-data/COBPACK.OUTFILE.txt     \
--ascii       OUTFILE                             \
--keyname     OUTFILE-K                           \
--print       1000                                \
--keylen      19                                  \
--output-type ddb                                 \
--req-size    25
+python3      parse_copybook_to_json.py     \
+-copybook    LegacyReference/COBKS05.cpy   \
+-output      sample-data/COBKS05-ddb.json \
+-ebcdic      sample-data/CLIENT.EBCDIC.txt \
+-ascii       CLIENT                        \
+-part-k-len  4                             \
+-part-k-name CLIENT-ID                     \
+-sort-k-len  2                             \
+-sort-k-name CLIENT-R-TYPE                 \
+-output-type ddb                           \
+-print    20
+```
+### Set the transformatiom rules
+
+The step above will generate the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list.json`:
+
+```
+ "transf-rule": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "transf": "transf1"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "transf": "transf2"
+        }
+    ],
 ```
 
-### Load
+### Load the file
 
-1. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` and load into the `OUTFILE` Dynamodb table in the ASCII encoding.
+1. Run `extract_ebcdic_to_ascii.py`to extract the [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) and load into the `CLIENT` Dynamodb table in the ASCII encoding.
 
 ```
-python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb.json
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb.json
 ```
 
 ## Load a DymamoDB table from s3
