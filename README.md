@@ -145,7 +145,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 
 ### Create the DynamoDB table
 
-1. Create the DynanamoDb table which will be loaded on next steps. In this example we defined `OUTFILE` as the table name and `OUTFILE-K` as its key.
+1. Create the DynanamoDb table which will be loaded on next steps. In this example we defined `CLIENT` as the table name, `CLIENT-ID` as its partition key, and CLIENT-R-TYPE as its sort key.
 
 ![](images/dynamodb.png)
 
