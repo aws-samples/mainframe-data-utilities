@@ -202,7 +202,7 @@ The step above will generate the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-rules.json
 ```
 
-## Load the CLIENT DymamoDB table from s3
+## Load the CLIENT DymamoDB table from s3 (locally triggered)
 
 ### Update the copybook parsed json file
 
@@ -211,7 +211,7 @@ Create a copy of the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json) file and c
 From: `"input": "sample-data/CLIENT.EBCDIC.txt",`
 To: `"input": "s3://yourbucket/yourfolder/CLIENT.EBCDIC.txt",`
 
-### Load data from s3 (locally triggered)
+### Trigger the data load
 
 1. Run `extract_ebcdic_to_ascii.py`to extract the [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) and load into the `CLIENT` Dynamodb table in the ASCII encoding.
 
@@ -219,25 +219,40 @@ To: `"input": "s3://yourbucket/yourfolder/CLIENT.EBCDIC.txt",`
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
 ```
 
-### Data load (triggered from Lambda)
+## Load the CLIENT DymamoDB table from s3 (using Lambda)
 
-1. Create an S3 bucket and folder that will receive the input EBCDIC file.
-2. Create a the `layout/` folder inside the bucket/folder previously created.
-3. Create the DynamoDB table that will receive the converted data. 
-   * The table name must be `OUTFILE` (same as provided in the `-ascii` parameter of the `parse_copybook_to_json.py` script)
-   * The table key must be `OUTFILE-K` (same as provided in the `-keyname` parameter of the `parse_copybook_to_json.py` script)
-   * To process the contents of the sample file choose 300 as the minimum write capacity and 400 as the maximum.
-4. Create a Python 3.8 (or above) Lambda function and assign a role with:
+### Prepare the bucket to receive the EBCDIC file
+
+1. Create an S3 bucket.
+2. Create the folder that will receive the input EBCDIC data file.
+3. Create a `layout/` folder inside the bucket/folder previously created.
+4. Rename the [sample-data/COBKS05-ddb-s3.json](sample-data/COBKS05-ddb-s3.json) to `CLIENT.json` 
+5. Remove the `input` key inside the CLIENT.json file and upload it to the `/layout` folder.
+
+### Create the Lambda function
+
+1. Create a Python 3.8+ Lambda function and assign a role with the below permissions:
    * Read access to the source data S3 bucket
    * Write access to the target DynamoDb table
-5. Create a zip file with the Python code and upload it into the Lambda function
+   * Write access to CloudWatch logs
+2. Create a zip file with the Python code and upload it into the Lambda function
    ```
-   zip mdu.zip *
+   zip mdu.zip *.py
    ```
-6. Change the Lambda funcion 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` at the Runtime settings section.
-7. Rename the `sample-data/cobpack2-list.json` to `COBPACK.json` and upload it to the `/layout` folder created on step 2.
-8. Create a new Lambda test event with the contens of `sample-data/COBPACK-TEST.json` 
-9. Replace the `example-bucket` by the bucket name created on step 1 and trigger the event.
+3. Change the Lambda funcion 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` under the Runtime settings section.
+4. Create a new Lambda test event with the contens of `sample-data/CLIENT-TEST.json` 
+5. Replace the `example-bucket` by the bucket name created on step 1 and trigger the event.
+6. Change the timeout to 10 seconds under General configuration.
+7. Trigger the test.
+
+### Create the S3 event
+
+1. Select the bucket.
+2. Select properties.
+3. Select 'Create Event Notification' under the Event notifications section.
+4. Type a name.
+5. Select the 'Put' event type
+6. And the lambda function in the Destination section.
 
 ## How it works
 

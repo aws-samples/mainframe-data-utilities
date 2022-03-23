@@ -15,6 +15,8 @@ def lambda_handler(event, context):
                     '-s3-input', 's3://' + bkt + '/'  + key
                     ])
 
+    return {'statusCode': 200}
+
 def fileconvertion(args):
         
     log = utils.Log()
