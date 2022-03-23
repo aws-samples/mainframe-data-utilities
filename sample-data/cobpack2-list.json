@@ -1,15 +1,15 @@
 {
     "input": "sample-data/COBPACK.OUTFILE.txt",
     "output": "sample-data/COBPACK.ASCII.txt",
-    "partkname": "Unpacked-text",
+    "partkname": "",
     "sortkname": "",
     "output-type": "file",
-    "req-size": 25,
+    "req-size": 10,
     "print": 10000,
     "max": 0,
     "skip": 0,
     "lrecl": 150,
-    "partklen": 19,
+    "partklen": 0,
     "sortklen": 0,
     "rem-low-values": true,
     "separator": "|",
@@ -21,7 +21,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "OUTFILE-TEXT",
-            "part-key": true,
+            "part-key": false,
             "sort-key": false
         },
         {
@@ -185,7 +185,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "OUTFILE-TEXT",
-            "part-key": true,
+            "part-key": false,
             "sort-key": false
         },
         {

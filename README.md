@@ -64,7 +64,7 @@ Make sure [Python](https://www.python.org/downloads/) 3.8 or above is installed.
 git clone git@github.com:aws-samples/mainframe-data-utilities.git.
 ```
 
-2. Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
+2. Run the `parse_copybook_to_json.py` script to parse the [COBPACK2](LegacyReference/COBPACK2.cpy) copybook file provided in `sample-data`.
 
 ```
 python3      parse_copybook_to_json.py       \
@@ -73,24 +73,22 @@ python3      parse_copybook_to_json.py       \
 -dict        sample-data/cobpack2-dict.json  \
 -ebcdic      sample-data/COBPACK.OUTFILE.txt \
 -ascii       sample-data/COBPACK.ASCII.txt   \
--print       10000                           \
--part-k-len  19                              \
--part-k-name Unpacked-text                   \
--output-type file                            \
--req-size    25
+-print       10000                           
 ```
 
 ### Extracting ebcdic data to a delimiter-separated ASCII file
 
-3. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` into an ASCII file.
+3. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` EBCDIC file into an ASCII file.
 
 ```
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list.json
 ```
 
+4. The generated ASCCI file must martch the provided [COBPACK.ASCII.txt](sample-data/COBPACK.ASCII.txt).
+
 ## Multiple layout support
 
-There are often multiple layouts in mainframe VSAM or sequential (flat) files. It means that you need a different transformation depending on the row you are reading.
+There are often multiple layouts in mainframe VSAM or sequential (flat) files. It means that you need a different transformation rule depending on the row you are reading.
 
 The REDEFINES statement allows multiple layouts declaration in the COBOL language.
 
@@ -108,9 +106,9 @@ python3      parse_copybook_to_json.py     \
 -ebcdic      sample-data/CLIENT.EBCDIC.txt \
 -ascii       sample-data/CLIENT.ASCII.txt  \
 -part-k-len  4                             \
--part-k-name CLIENT-ID                     \
+-part-k-name ID                            \
 -sort-k-len  2                             \
--sort-k-name CLIENT-REC                    \
+-sort-k-name TYPE                          \
 -print    20
 ```
 
@@ -135,7 +133,7 @@ python3      parse_copybook_to_json.py     \
     ],
 ```
 
-The parameters above will inform the `extract_ebcdic_to_ascii.py` script that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout. Whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
+The parameters above will inform the `extract_ebcdic_to_ascii.py` script that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout, whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
 
 The result of the change above must be a file like [COBKS05-rules.json](sample-data/COBKS05-rules.json).
 

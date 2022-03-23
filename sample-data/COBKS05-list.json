@@ -1,32 +1,19 @@
 {
     "input": "sample-data/CLIENT.EBCDIC.txt",
     "output": "sample-data/CLIENT.ASCII.txt",
-    "partkname": "CLIENT-ID",
-    "sortkname": "CLIENT-REC",
+    "partkname": "",
+    "sortkname": "",
     "output-type": "file",
     "req-size": 10,
     "print": 20,
     "max": 0,
     "skip": 0,
     "lrecl": 500,
-    "partklen": 4,
-    "sortklen": 2,
+    "partklen": 0,
+    "sortklen": 0,
     "rem-low-values": true,
     "separator": "|",
-    "transf-rule": [
-        {
-            "offset": 4,
-            "size": 2,
-            "hex": "0002",
-            "transf": "transf1"
-        },
-        {
-            "offset": 4,
-            "size": 2,
-            "hex": "0000",
-            "transf": "transf2"
-        }
-    ],
+    "transf-rule": [],
     "transf": [
         {
             "type": "bi",
@@ -34,7 +21,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
-            "part-key": true,
+            "part-key": false,
             "sort-key": false
         },
         {
@@ -44,7 +31,7 @@
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "part-key": false,
-            "sort-key": true
+            "sort-key": false
         },
         {
             "type": "ch",
@@ -99,7 +86,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
-            "part-key": true,
+            "part-key": false,
             "sort-key": false
         },
         {
@@ -109,7 +96,7 @@
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "part-key": false,
-            "sort-key": true
+            "sort-key": false
         },
         {
             "type": "bi",
@@ -146,7 +133,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
-            "part-key": true,
+            "part-key": false,
             "sort-key": false
         },
         {
@@ -156,7 +143,7 @@
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "part-key": false,
-            "sort-key": true
+            "sort-key": false
         },
         {
             "type": "bi",
