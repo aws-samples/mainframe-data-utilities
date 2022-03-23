@@ -202,37 +202,21 @@ The step above will generate the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-rules.json
 ```
 
-## Load a DymamoDB table from s3
+## Load the CLIENT DymamoDB table from s3
 
-### Parse the copybook
+### Update the copybook parsed json file
 
-Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
+Create a copy of the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json) file and change the `input` parameter.
 
-1. Inform `ddb` as the value the `-output-type` value.
-2. Inform the name of the DynamoDB table (created before) name as the `-ascii`value.
-3. Inform the name of the DynamoDB table key name as the `-keyname` value.
-4. Inform the length of the key of the ebcdic input file as the `-keylen` value.
-5. The `-ebcdic` value must contain the EBCDIC file S3 URI
+From: `"input": "sample-data/CLIENT.EBCDIC.txt",`
+To: `"input": "s3://yourbucket/yourfolder/CLIENT.EBCDIC.txt",`
 
-```
-python3      parse_copybook_to_json.py              \
--copybook    LegacyReference/COBPACK2.cpy           \
--output      sample-data/cobpack2-list-ddb-s3.json  \
--ebcdic      s3://yourbucket/COBPACK.OUTFILE.txt    \
--ascii       OUTFILE                                \
--print       1000                                   \
--keylen      19                                     \
--keyname     OUTFILE-K                              \
--output-type ddb                                    \
--req-size    25
-```
+### Load data from s3 (locally triggered)
 
-### Data load (locally triggered)
-
-1. Run `extract_ebcdic_to_ascii.py`to extract the `COBPACK.OUTFILE.txt` and load into the `OUTFILE` Dynamodb table in the ASCII encoding.
+1. Run `extract_ebcdic_to_ascii.py`to extract the [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) and load into the `CLIENT` Dynamodb table in the ASCII encoding.
 
 ```
-python3 extract_ebcdic_to_ascii.py -local-json sample-data/cobpack2-list-ddb-s3.json
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
 ```
 
 ### Data load (triggered from Lambda)
