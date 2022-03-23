@@ -175,7 +175,7 @@ python3      parse_copybook_to_json.py     \
 ```
 ### Set the transformatiom rules
 
-The step above will generate the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list.json`:
+The step above will generate the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-ddb-rules.json`:
 
 ```
  "transf-rule": [
@@ -194,12 +194,12 @@ The step above will generate the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json
     ],
 ```
 
-### Load the file
+### Load the data into the CLIENT Dynamodb table
 
 1. Run `extract_ebcdic_to_ascii.py`to extract the [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) and load into the `CLIENT` Dynamodb table in the ASCII encoding.
 
 ```
-python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb.json
+python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-rules.json
 ```
 
 ## Load a DymamoDB table from s3
