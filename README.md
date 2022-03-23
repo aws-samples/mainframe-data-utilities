@@ -151,7 +151,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 
 ### Parse the copybook
 
-Run the `parse_copybook_to_json.py` script to parse the copybook file provided in `sample-data`.
+Run the `parse_copybook_to_json.py` script to parse the [COBKS05](LegacyReference/COBKS05.cpy) copybook file provided in `sample-data`.
 
  1. Inform `ddb` on `-output-type`.
  2. Inform the DynamoDB table name (created before) on `-ascii`.
