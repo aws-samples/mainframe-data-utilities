@@ -11,7 +11,8 @@ Table of contents
 * Getting started
 * Multiple layout support
 * Load a DymamoDB table from local disk
-* Load a DymamoDB table from s3
+* Load a DymamoDB table from s3 (locally triggered)
+* Load a DymamoDB table from s3 (using Lambda)
 * How it works
 * LegacyReference
 * To be implemented
@@ -202,7 +203,7 @@ The step above will generate the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-rules.json
 ```
 
-## Load the CLIENT DymamoDB table from s3 (locally triggered)
+## Load a DymamoDB table from s3 (locally triggered)
 
 ### Update the copybook parsed json file
 
@@ -219,7 +220,7 @@ To: `"input": "s3://yourbucket/yourfolder/CLIENT.EBCDIC.txt",`
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
 ```
 
-## Load the CLIENT DymamoDB table from s3 (using Lambda)
+## Load a DymamoDB table from s3 (using Lambda)
 
 ### Prepare the bucket to receive the EBCDIC file
 
