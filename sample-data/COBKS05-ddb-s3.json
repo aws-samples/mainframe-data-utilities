@@ -1,5 +1,5 @@
 {
-    "input": "s3://your-bucket/CLIENT.EBCDIC.txt",
+    "input": "s3://your-bucket-name/CLIENT.EBCDIC.txt",
     "output": "CLIENT",
     "partkname": "CLIENT-ID",
     "sortkname": "CLIENT-R-TYPE",

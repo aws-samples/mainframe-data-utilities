@@ -211,7 +211,7 @@ Create a copy of the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json) file and c
 
 From: `"input": "sample-data/CLIENT.EBCDIC.txt",`
 
-To: `"input": "s3://yourbucket/yourfolder/CLIENT.EBCDIC.txt",`
+To: `"input": "s3://your-bucket-name/yourfolder/CLIENT.EBCDIC.txt",`
 
 ### Trigger the data load
 
@@ -243,7 +243,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
    ```
 3. Change the Lambda funcion 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` under the Runtime settings section.
 4. Create a new Lambda test event with the contens of `sample-data/CLIENT-TEST.json` 
-5. Replace the `example-bucket` by the bucket name created on step 1 and trigger the event.
+5. Replace the `your-bucket-name` by the bucket name created on step 1 and trigger the event.
 6. Change the timeout to 10 seconds under General configuration.
 7. Trigger the test.
 

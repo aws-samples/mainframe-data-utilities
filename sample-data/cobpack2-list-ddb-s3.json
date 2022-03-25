@@ -1,5 +1,5 @@
 {
-    "input": "s3://your-bucket/COBPACK.OUTFILE.txt",
+    "input": "s3://your-bucket-name/COBPACK.OUTFILE.txt",
     "output": "OUTFILE",
     "keyname": "OUTFILE-K",
     "output-type": "ddb",
