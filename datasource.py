@@ -1,4 +1,4 @@
-import boto3, utils
+import boto3, utils, urllib3
 
 ddbClient = boto3.client('dynamodb')
 
@@ -9,6 +9,9 @@ class Input:
         if file[:5] == "s3://":
             s3 = utils.S3File(file)
             self.Input = boto3.client('s3').get_object(Bucket=s3.bucket, Key=s3.s3obje)['Body']
+        elif file[:8] == "https://":
+            http = urllib3.PoolManager()
+            self.Input = http.request('GET', file).data
         elif file:
             self.Input=open(file,"rb")
         else:
@@ -18,14 +21,15 @@ class Input:
     def read(self, lrecl):
         return self.Input.read(lrecl)
 
-
 class Output:
-    def __init__(self, param) -> None:
+    def __init__(self, param, req_route='', req_token='') -> None:
         
         log = utils.Log()
         self.type = param['output-type']
         self.Deli = param['separator']
         self.rsize = param['req-size']
+        self.reqrt = req_route
+        self.reqtk = req_token
         self.list = []
         self.crlf = ''
 
@@ -35,7 +39,6 @@ class Output:
             self.Record = {}
             self.dsrc = param['output']
             
-
     def Write(self, item={}):
         
         if item != {}: 
@@ -47,10 +50,15 @@ class Output:
         if (len(self.list) >= self.rsize) or (len(self.list) > 0  and item == {}):
             if self.type == 'ddb':
                 response = ddbClient.batch_write_item(RequestItems={ self.dsrc : self.list })
+                self.list = []
+            elif self.type == 's3-obj':
+                if self.type == {}:
+                    s3 = boto3.client('s3')
+                    s3.write_get_object_response(Body=('\n'.join(self.list)),RequestRoute=self.reqrt,RequestToken=self.reqtk)
             else:
                 self.Output.write(self.crlf + '\n'.join(self.list))
                 self.crlf = '\n'
-            self.list = []
+                self.list = []
 
 class item:
 
