@@ -3,19 +3,24 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [        
-
-
-
-
-    
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
         {
             "name": "extract-ebcdic-to-ascii",
             "type": "python",
             "request": "launch",
             "program": "extract-ebcdic-to-ascii.py",
             "console": "integratedTerminal",
-            "args": ["sample-data/cobpack2-list.json"]
+            "args": [
+                "sample-data/cobpack2-list.json"
+            ]
         },
         {
             "name": "extract-ebcdic-to-ascii-multi",
@@ -23,7 +28,9 @@
             "request": "launch",
             "program": "extract-ebcdic-to-ascii.py",
             "console": "integratedTerminal",
-            "args": ["sample-data/COBKS05-list.json"]
+            "args": [
+                "sample-data/COBKS05-list.json"
+            ]
         },
         {
             "name": "extract-ebcdic-to-sqs",
@@ -31,7 +38,9 @@
             "request": "launch",
             "program": "extract-ebcdic-to-sqs.py",
             "console": "integratedTerminal",
-            "args": ["sample-data/COBKS05-list.json"]
+            "args": [
+                "sample-data/COBKS05-list.json"
+            ]
         },
         {
             "name": "extract-ebcdic-to-ddb",
@@ -39,7 +48,9 @@
             "request": "launch",
             "program": "extract-ebcdic-to-ddb.py",
             "console": "integratedTerminal",
-            "args": ["sample-data/COBKS05-list.json"]
+            "args": [
+                "sample-data/COBKS05-list.json"
+            ]
         },
         {
             "name": "extract-ebcdic-to-ddb-noargs",
@@ -54,7 +65,10 @@
             "request": "launch",
             "program": "extract-ebcdic-to-ddb.py",
             "console": "integratedTerminal",
-            "args": ["-local-json","sample-data/cobpack2-list-ddb.json"]
+            "args": [
+                "-local-json",
+                "sample-data/cobpack2-list-ddb.json"
+            ]
         },
         {
             "name": "extract-ebcdic-to-ddb-s3",
@@ -62,26 +76,31 @@
             "request": "launch",
             "program": "extract-ebcdic-to-ddb.py",
             "console": "integratedTerminal",
-            "args": ["-s3-json","s3://mainframe-ftp/cobpack2-list-s3.json"]
+            "args": [
+                "-s3-json",
+                "s3://mainframe-ftp/cobpack2-list-s3.json"
+            ]
         },
-
         {
             "name": "parse-copybook-to-json",
             "type": "python",
             "request": "launch",
             "program": "parse-copybook-to-json.py",
             "console": "integratedTerminal",
-            "args": ["-copybook",
+            "args": [
+                "-copybook",
                 "LegacyReference/COBPACK2.cpy",
                 "-output",
-                "sample-data/cobpack2-list.json", 
+                "sample-data/cobpack2-list.json",
                 "-dict",
                 "sample-data/cobpack2-dict.json",
                 "-ebcdic",
                 "sample-data/COBPACK.OUTFILE.txt",
-                "-ascii", 
-                "sample-data/COBPACK.ASCII.txt", "-print",
-                "10000"]
+                "-ascii",
+                "sample-data/COBPACK.ASCII.txt",
+                "-print",
+                "10000"
+            ]
         },
         {
             "name": "parse-copybook-to-json-multi",
@@ -89,16 +108,18 @@
             "request": "launch",
             "program": "parse-copybook-to-json.py",
             "console": "integratedTerminal",
-            "args": ["-copybook",
+            "args": [
+                "-copybook",
                 "LegacyReference/COBKS05.cpy",
                 "-output",
-                "sample-data/COBKS05-list.json", 
+                "sample-data/COBKS05-list.json",
                 "-dict",
                 "sample-data/COBKS05-dict.json",
                 "-ebcdic",
                 "sample-data/CLIENT.EBCDIC.txt",
-                "-ascii", 
-                "sample-data/CLIENT.ASCII.txt", "-print",
+                "-ascii",
+                "sample-data/CLIENT.ASCII.txt",
+                "-print",
                 "10000",
                 "-keylen",
                 "8"

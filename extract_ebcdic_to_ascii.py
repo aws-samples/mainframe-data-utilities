@@ -17,7 +17,7 @@ def lambda_handler(event, context):
 
     return {'statusCode': 200}
 
-def s3_obj_lamnda_handler(event, context):
+def s3_obj_lambda_handler(event, context):
 
     request_route = event["getObjectContext"]["outputRoute"]
     request_token = event["getObjectContext"]["outputToken"]
@@ -26,7 +26,7 @@ def s3_obj_lamnda_handler(event, context):
     layout = event['configuration']['payload'] + '.'.join(s3_url.split('?')[0].split('/')[-1].split('.')[:-2]) + '.json'
 
     fileconvertion(['extract_ebcdic_to_ascii.py',
-                    '-s3-json' , layout,
+                    '-s3-json' , 's3://' + layout,
                     '-s3-input', s3_url
                     ], request_route, request_token)
 

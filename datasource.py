@@ -5,6 +5,8 @@ ddbClient = boto3.client('dynamodb')
 class Input:
     def __init__(self, file) -> None:
         log = utils.Log()
+        self.obj = True
+        self.slice = 0
 
         if file[:5] == "s3://":
             s3 = utils.S3File(file)
@@ -12,6 +14,7 @@ class Input:
         elif file[:8] == "https://":
             http = urllib3.PoolManager()
             self.Input = http.request('GET', file).data
+            self.obj = False
         elif file:
             self.Input=open(file,"rb")
         else:
@@ -19,8 +22,12 @@ class Input:
             quit()
 
     def read(self, lrecl):
-        return self.Input.read(lrecl)
-
+        if self.obj:
+            return self.Input.read(lrecl)
+        else:
+            self.slice += lrecl
+            return self.Input[self.slice - lrecl :self.slice]
+            
 class Output:
     def __init__(self, param, req_route='', req_token='') -> None:
         
@@ -52,7 +59,7 @@ class Output:
                 response = ddbClient.batch_write_item(RequestItems={ self.dsrc : self.list })
                 self.list = []
             elif self.type == 's3-obj':
-                if self.type == {}:
+                if item == {}:
                     s3 = boto3.client('s3')
                     s3.write_get_object_response(Body=('\n'.join(self.list)),RequestRoute=self.reqrt,RequestToken=self.reqtk)
             else:
@@ -66,7 +73,7 @@ class item:
         self.Type   = param['output-type']
         self.Record = {}
 
-        if self.Type ==  'file': self.Record['row'] = []
+        if self.Type == 'file' or self.Type ==  's3-obj': self.Record['row'] = []
 
     def addField(self, id, type, partkey, partkname, sortkey, sortkname, value, addempty = False):
         
