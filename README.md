@@ -54,6 +54,7 @@ Make sure [Python](https://www.python.org/downloads/) 3.8 or above is installed.
 1. File layouts defined inside Cobol programs are not supported.
 2. Packing statement is ignored when defined before the PIC clause. 
 3. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
+4. The `REDEFINES` statement for **data items**, it's only supported for **group items**.
 
 ## Getting started
 
@@ -134,7 +135,7 @@ The parameters above will inform the `extract_ebcdic_to_ascii.py` script that re
 
 The result of the change above must produce a file like [COBKS05-rules.json](sample-data/COBKS05-rules.json).
 
-3. Run `extract_ebcdic_to_ascii.py`to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
+3. Run `extract_ebcdic_to_ascii.py` to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
 ```
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json

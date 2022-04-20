@@ -41,7 +41,7 @@ class ParamReader:
         if len(self.rules) == 0: return self.general['transf']
 
         for r in self.rules:
-            if _data[r.offset:r.end].hex() == r.hexv:
+            if _data[r.offset:r.end].hex() == r.hexv.lower():
                 return self.general[r.transf]
 
         return self.general['transf']
