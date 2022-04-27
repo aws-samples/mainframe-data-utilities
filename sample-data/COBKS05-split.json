@@ -1,6 +1,6 @@
 {
     "input-file": "CLIENT.EBCDIC.txt",
-    "input-bucket": "luisdant-demo",
+    "input-bucket": "myBucket",
     "output-type": "file",
     "print": 20,
     "max": 0,
@@ -11,7 +11,7 @@
             "offset": 4,
             "size": 2,
             "hex": "0000",
-            "bucket" : "luisdant-demo",
+            "bucket" : "myBucket",
             "key" : "CLIENT.EBCDIC-0.txt",
             "file": "sample-data/CLIENT.EBCDIC-0.txt"
         },
@@ -19,7 +19,7 @@
             "offset": 4,
             "size": 2,
             "hex": "0001",
-            "bucket" : "luisdant-demo",
+            "bucket" : "myBucket",
             "key" : "CLIENT.EBCDIC-1.txt",
             "file": "sample-data/CLIENT.EBCDIC-1.txt"
         },
@@ -27,7 +27,7 @@
             "offset": 4,
             "size": 2,
             "hex": "0002",
-            "bucket" : "luisdant-demo",
+            "bucket" : "myBucket",
             "key" : "CLIENT.EBCDIC-2.txt",
             "file": "sample-data/CLIENT.EBCDIC-2.txt"
         }

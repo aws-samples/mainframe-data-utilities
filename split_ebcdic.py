@@ -5,9 +5,9 @@
 
 import utils, sys, boto3, json
 
-log = utils.Log
-
 def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
+
+    log = utils.Log()
 
     if bucket != '':
         Input = boto3.client('s3').get_object(Bucket=bucket, Key=inputfile)['Body']
@@ -26,7 +26,8 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
     while max == 0 or i < max:
 
         record = Input.read(lrecl)
-        
+        ctRead += 1
+
         if not record: break
 
         i+= 1
@@ -44,16 +45,20 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
             for r in split_rule:
                 if record[r['offset']:r['offset']+r['size']].hex() == r['hex'].lower():
                     output[r['file']].write(record)
-                    ctWrit[rule['file']] += 1
+                    ctWrit[r['file']] += 1
 
     for rule in split_rule:
         if rule['bucket'] != '' and rule['key'] != '':
             boto3.client('s3').put_object(Body=open(rule['file'], 'rb'), Bucket=rule['bucket'], Key=rule['key'])
 
+    log.Write(['Records read', str(ctRead)]) 
+    for rule in split_rule:
+        log.Write(['Records written', rule['file'], str(ctWrit[rule['file']])]) 
+        
 if __name__ == '__main__':
 
     arg = dict(zip(sys.argv[1::2], sys.argv[2::2]))
 
     with open(arg['-local-json']) as json_file: param = json.load(json_file)
 
-    run(param['input-file'],param['lrecl'],param['split-rules'], param['input-bucket'])
+    run(param['input-file'],param['lrecl'],param['split-rules'], param['input-bucket'], param['max'], param['skip'],param['print'])
