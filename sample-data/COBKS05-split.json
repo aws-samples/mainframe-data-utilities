@@ -1,0 +1,32 @@
+{
+    "input-file": "sample-data/CLIENT.EBCDIC.txt",
+    "input-bucket": "",
+    "output-type": "file",
+    "print": 20,
+    "max": 0,
+    "skip": 0,
+    "lrecl": 500,
+    "split-rules": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "bucket" : "",
+            "file": "sample-data/CLIENT.EBCDIC-0.txt"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0001",
+            "bucket" : "",
+            "file": "sample-data/CLIENT.EBCDIC-1.txt"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "bucket" : "",
+            "file": "sample-data/CLIENT.EBCDIC-2.txt"
+        }
+    ]
+}
