@@ -1,6 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-#how to run: split_ebcdic.py -local-json sample-data/COBKS05-split.json
+# How to run: split_ebcdic.py -local-json sample-data/COBKS05-split.json
 
 import utils, sys, boto3, json
 
