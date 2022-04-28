@@ -15,7 +15,7 @@ Table of contents
 * Load a DymamoDB table from s3 (using Lambda)
 * How it works
 * LegacyReference
-* To be implemented
+* Do you want to help?
 
 ## Security
 
@@ -377,13 +377,19 @@ The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBP
    03 FILLER                      PIC  X(29).                   
 ```
 
-## To be implemented
+## Do you want to help?
+
+### General
+- Test automation.
+- Code organization / refactoring.
 
 ### Copybook parser
+- OCCURS DEPENDING ON copybook parsing.
+- Data item REDEFINES.
 - Aurora schema parser (DDL)
 - Add similar packing statements (BINARY, PACKED-DECIMAL...)
 - Handle packing statement (COMP, COMP-3, etc.) when declared before PIC statement
 
 ### Data conversion
-
+- VB file conversion
 - Aurora data load

@@ -106,8 +106,12 @@ def toDict(lines):
     id = 0
     stt = ""
     for line in lines: 
-        if len(line) > 1:
-            if line[6] != "*": stt += line.replace('\t', '    ')[6:72]    
+        if len(line.strip()) > 1:
+            if line[6] in [' ' , '-']: 
+                stt += line.replace('\t', '    ')[6:72]    
+            elif line[6] != '*':
+                print('Unnexpected character in column 7', line) 
+                quit()
 
     # READS FIELD BY FIELD / SPLITS ATTRIBUTES #
     for variable in stt.split("."):
