@@ -1,13 +1,19 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-
-#split_ebcdic.py -local-json sample-data/COBKS05-split.json
+#how to run: split_ebcdic.py -local-json sample-data/COBKS05-split.json
 
 import utils, sys, boto3, json
 
-def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
+log = utils.Log()
 
-    log = utils.Log()
+def stats(reads, rules, writes):
+
+    log.Write(['Records read', str(reads)]) 
+
+    for rule in rules:
+        log.Write(['Records written', rule['file'], str(writes[rule['file']])]) 
+
+def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
 
     if bucket != '':
         Input = boto3.client('s3').get_object(Bucket=bucket, Key=inputfile)['Body']
@@ -33,14 +39,9 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
         i+= 1
         if i > skip:
 
-            if (print != 0 and i % print == 0): 
-                log.Write(['Records read', str(ctRead)]) 
-                for rule in split_rule:
-                    log.Write(['Records written', rule['file'], str(ctWrit[rule['file']])]) 
+            if (print != 0 and i % print == 0): stats(ctRead, split_rule, ctWrit)
 
-            if len(split_rule) == 0: 
-                log.Write('no rules!')
-                quit()
+            if len(split_rule) == 0: raise Exception('Please define split rules')
 
             for r in split_rule:
                 if record[r['offset']:r['offset']+r['size']].hex() == r['hex'].lower():
@@ -51,9 +52,7 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
         if rule['bucket'] != '' and rule['key'] != '':
             boto3.client('s3').put_object(Body=open(rule['file'], 'rb'), Bucket=rule['bucket'], Key=rule['key'])
 
-    log.Write(['Records read', str(ctRead)]) 
-    for rule in split_rule:
-        log.Write(['Records written', rule['file'], str(ctWrit[rule['file']])]) 
+    stats(ctRead, split_rule, ctWrit)
         
 if __name__ == '__main__':
 

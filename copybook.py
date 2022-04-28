@@ -110,7 +110,7 @@ def toDict(lines):
             if line[6] in [' ' , '-']: 
                 stt += line.replace('\t', '    ')[6:72]    
             elif line[6] != '*':
-                print('Unnexpected character in column 7', line) 
+                print('Unnexpected character in column 7:', line) 
                 quit()
 
     # READS FIELD BY FIELD / SPLITS ATTRIBUTES #

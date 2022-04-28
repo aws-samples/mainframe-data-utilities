@@ -1,0 +1,11 @@
+{
+    "input-file": "sample-data/CLIENT.EBCDIC.txt",
+    "input-bucket": "",
+    "output-type": "file",
+    "print": 20,
+    "max": 0,
+    "skip": 0,
+    "lrecl": 500,
+    "split-rules": [
+    ]
+}
