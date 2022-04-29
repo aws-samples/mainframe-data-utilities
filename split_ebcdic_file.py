@@ -58,6 +58,9 @@ if __name__ == '__main__':
 
     arg = dict(zip(sys.argv[1::2], sys.argv[2::2]))
 
+    if not '-local-json' in arg:
+        raise Exception('Error! Sintax must be: python3 ' + sys.argv[0] + ' -local-json path/to/layout.json')
+
     with open(arg['-local-json']) as json_file: param = json.load(json_file)
 
     run(param['input-file'],param['lrecl'],param['split-rules'], param['input-bucket'], param['max'], param['skip'],param['print'])
