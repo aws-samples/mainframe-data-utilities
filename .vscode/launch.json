@@ -2,129 +2,41 @@
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    //LegacyReference/SYSDISP.cpy
+
+
     "version": "0.2.0",
     "configurations": [
 
         {
-            "name": "Python: Current File",
+            "name": "Parse DEPENDING ON my",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "justMyCode": true,
-            "args": ["-local-json", "sample-data/COBKS05-split.json"]
-        },
-        {
-            "name": "extract-ebcdic-to-ascii",
-            "type": "python",
-            "request": "launch",
-            "program": "extract-ebcdic-to-ascii.py",
-            "console": "integratedTerminal",
-            "args": [
-                "sample-data/cobpack2-list.json"
-            ]
-        },
-        {
-            "name": "extract-ebcdic-to-ascii-multi",
-            "type": "python",
-            "request": "launch",
-            "program": "extract-ebcdic-to-ascii.py",
-            "console": "integratedTerminal",
-            "args": [
-                "sample-data/COBKS05-list.json"
-            ]
-        },
-        {
-            "name": "extract-ebcdic-to-sqs",
-            "type": "python",
-            "request": "launch",
-            "program": "extract-ebcdic-to-sqs.py",
-            "console": "integratedTerminal",
-            "args": [
-                "sample-data/COBKS05-list.json"
-            ]
-        },
-        {
-            "name": "extract-ebcdic-to-ddb",
-            "type": "python",
-            "request": "launch",
-            "program": "extract-ebcdic-to-ddb.py",
-            "console": "integratedTerminal",
-            "args": [
-                "sample-data/COBKS05-list.json"
-            ]
-        },
-        {
-            "name": "extract-ebcdic-to-ddb-noargs",
-            "type": "python",
-            "request": "launch",
-            "program": "extract-ebcdic-to-ddb.py",
-            "console": "integratedTerminal"
-        },
-        {
-            "name": "extract-ebcdic-to-ddb-local",
-            "type": "python",
-            "request": "launch",
-            "program": "extract-ebcdic-to-ddb.py",
-            "console": "integratedTerminal",
-            "args": [
-                "-local-json",
-                "sample-data/cobpack2-list-ddb.json"
-            ]
-        },
-        {
-            "name": "extract-ebcdic-to-ddb-s3",
-            "type": "python",
-            "request": "launch",
-            "program": "extract-ebcdic-to-ddb.py",
-            "console": "integratedTerminal",
-            "args": [
-                "-s3-json",
-                "s3://mainframe-ftp/cobpack2-list-s3.json"
-            ]
-        },
-        {
-            "name": "parse-copybook-to-json",
-            "type": "python",
-            "request": "launch",
-            "program": "parse-copybook-to-json.py",
+            "program": "parse_copybook_to_json.py",
             "console": "integratedTerminal",
             "args": [
                 "-copybook",
-                "LegacyReference/COBPACK2.cpy",
+                "LegacyReference/COBDEPON.cpy",
                 "-output",
-                "sample-data/cobpack2-list.json",
+                "sample-data/COBDEPON-list.json",
                 "-dict",
-                "sample-data/cobpack2-dict.json",
-                "-ebcdic",
-                "sample-data/COBPACK.OUTFILE.txt",
-                "-ascii",
-                "sample-data/COBPACK.ASCII.txt",
-                "-print",
-                "10000"
+                "sample-data/COBDEPON-dict.json"
             ]
         },
         {
-            "name": "parse-copybook-to-json-multi",
+            "name": "Parse DEPENDING CAP",
             "type": "python",
             "request": "launch",
-            "program": "parse-copybook-to-json.py",
+            "program": "parse_copybook_to_json.py",
             "console": "integratedTerminal",
             "args": [
                 "-copybook",
-                "LegacyReference/COBKS05.cpy",
+                "LegacyReference/SYSDISP.cpy",
                 "-output",
-                "sample-data/COBKS05-list.json",
+                "sample-data/SYSDISP-list.json",
                 "-dict",
-                "sample-data/COBKS05-dict.json",
-                "-ebcdic",
-                "sample-data/CLIENT.EBCDIC.txt",
-                "-ascii",
-                "sample-data/CLIENT.ASCII.txt",
-                "-print",
-                "10000",
-                "-keylen",
-                "8"
+                "sample-data/SYSDISP-dict.json"
             ]
         }
     ]

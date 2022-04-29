@@ -78,7 +78,13 @@ def add2dict(lvl, grp, itm, stt, id):
     stk[itm]['id'] = id
     stk[itm]['level'] = lvl
     stk[itm]['group'] = grp
-    if 'OCCURS'   in stt: stk[itm]['occurs']    = int(stt[stt.index('OCCURS')+1])
+    
+    if 'OCCURS'   in stt: 
+        if 'TIMES' in stt:
+            stk[itm]['occurs'] = int(stt[stt.index('TIMES')-1])
+        else:
+            raise Exception('OCCURS WITHOU TIMES?' + ' '.join(stt))
+
     if 'REDEFINES'in stt: stk[itm]['redefines'] = stt[stt.index('REDEFINES')+1]
 
     if grp == True:
