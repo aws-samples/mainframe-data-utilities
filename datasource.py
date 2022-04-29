@@ -1,14 +1,23 @@
-import boto3, utils
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+import boto3, utils, urllib3
 
 ddbClient = boto3.client('dynamodb')
 
 class Input:
     def __init__(self, file) -> None:
         log = utils.Log()
+        self.obj = True
+        self.slice = 0
 
         if file[:5] == "s3://":
             s3 = utils.S3File(file)
             self.Input = boto3.client('s3').get_object(Bucket=s3.bucket, Key=s3.s3obje)['Body']
+        elif file[:8] == "https://":
+            http = urllib3.PoolManager()
+            self.Input = http.request('GET', file).data
+            self.obj = False
         elif file:
             self.Input=open(file,"rb")
         else:
@@ -16,16 +25,21 @@ class Input:
             quit()
 
     def read(self, lrecl):
-        return self.Input.read(lrecl)
-
-
+        if self.obj:
+            return self.Input.read(lrecl)
+        else:
+            self.slice += lrecl
+            return self.Input[self.slice - lrecl :self.slice]
+            
 class Output:
-    def __init__(self, param) -> None:
+    def __init__(self, param, req_route='', req_token='') -> None:
         
         log = utils.Log()
         self.type = param['output-type']
         self.Deli = param['separator']
         self.rsize = param['req-size']
+        self.reqrt = req_route
+        self.reqtk = req_token
         self.list = []
         self.crlf = ''
 
@@ -35,7 +49,6 @@ class Output:
             self.Record = {}
             self.dsrc = param['output']
             
-
     def Write(self, item={}):
         
         if item != {}: 
@@ -47,10 +60,15 @@ class Output:
         if (len(self.list) >= self.rsize) or (len(self.list) > 0  and item == {}):
             if self.type == 'ddb':
                 response = ddbClient.batch_write_item(RequestItems={ self.dsrc : self.list })
+                self.list = []
+            elif self.type == 's3-obj':
+                if item == {}:
+                    s3 = boto3.client('s3')
+                    s3.write_get_object_response(Body=('\n'.join(self.list)),RequestRoute=self.reqrt,RequestToken=self.reqtk)
             else:
                 self.Output.write(self.crlf + '\n'.join(self.list))
                 self.crlf = '\n'
-            self.list = []
+                self.list = []
 
 class item:
 
@@ -58,7 +76,7 @@ class item:
         self.Type   = param['output-type']
         self.Record = {}
 
-        if self.Type ==  'file': self.Record['row'] = []
+        if self.Type == 'file' or self.Type ==  's3-obj': self.Record['row'] = []
 
     def addField(self, id, type, partkey, partkname, sortkey, sortkname, value, addempty = False):
         

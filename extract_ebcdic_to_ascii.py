@@ -17,12 +17,27 @@ def lambda_handler(event, context):
 
     return {'statusCode': 200}
 
-def fileconvertion(args):
+def s3_obj_lambda_handler(event, context):
+
+    request_route = event["getObjectContext"]["outputRoute"]
+    request_token = event["getObjectContext"]["outputToken"]
+    s3_url = event["getObjectContext"]["inputS3Url"]
+
+    layout = event['configuration']['payload'] + '.'.join(s3_url.split('?')[0].split('/')[-1].split('.')[:-2]) + '.json'
+
+    fileconvertion(['extract_ebcdic_to_ascii.py',
+                    '-s3-json' , 's3://' + layout,
+                    '-s3-input', s3_url
+                    ], request_route, request_token)
+
+    return {'statusCode': 200}
+
+def fileconvertion(args, route='', token=''):
         
     log = utils.Log()
     prm = utils.ParamReader(args)
     InpDS = datasource.Input(prm.general["input"])
-    OutDS = datasource.Output(prm.general)
+    OutDS = datasource.Output(prm.general, route, token)
 
     i=0
     while i < prm.general["max"] or prm.general["max"] == 0:
