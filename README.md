@@ -257,6 +257,11 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
 5. Select the 'Put' event type
 6. And the lambda function in the Destination section.
 
+
+## File split
+
+parse_copybook_to_json.py -copybook LegacyReference/COBDEPON.cpy -output sample-data/COBDEPON-list.json -dict sample-data/COBDEPON-dict.jsongit
+
 ## How it works
 
 ### parse_copybook_to_json
