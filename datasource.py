@@ -32,14 +32,14 @@ class Input:
             return self.Input[self.slice - lrecl :self.slice]
             
 class Output:
-    def __init__(self, param, req_route='', req_token='') -> None:
+    def __init__(self, param, req_route='', req_tkn='') -> None:
         
         log = utils.Log()
         self.type = param['output-type']
         self.Deli = param['separator']
         self.rsize = param['req-size']
         self.reqrt = req_route
-        self.reqtk = req_token
+        self.reqtk = req_tkn
         self.list = []
         self.crlf = ''
 

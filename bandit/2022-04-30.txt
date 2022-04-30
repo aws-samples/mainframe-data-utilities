@@ -1,0 +1,21 @@
+Run started:2022-04-30 13:13:38.150603
+
+Test results:
+	No issues identified.
+
+Code scanned:
+	Total lines of code: 451
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 0.0
+Files skipped (0):

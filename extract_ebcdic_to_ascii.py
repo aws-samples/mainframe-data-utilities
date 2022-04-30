@@ -32,12 +32,12 @@ def s3_obj_lambda_handler(event, context):
 
     return {'statusCode': 200}
 
-def fileconvertion(args, route='', token=''):
+def fileconvertion(args, route='', tkn=''):
         
     log = utils.Log()
     prm = utils.ParamReader(args)
     InpDS = datasource.Input(prm.general["input"])
-    OutDS = datasource.Output(prm.general, route, token)
+    OutDS = datasource.Output(prm.general, route, tkn)
 
     i=0
     while i < prm.general["max"] or prm.general["max"] == 0:
