@@ -2,8 +2,8 @@ import json, sys, copybook
 
 def DisParam(arg):
     desc = {
-        '-copybook'    : '* Copybook file name',
-        '-output'      : '* Parsed copybook (JSON List)',
+        '-copybook'    : 'REQUIRED: Copybook file name',
+        '-output'      : 'REQUIRED: Parsed copybook (JSON List)',
         '-ebcdic'      : 'EBCDIC file (to be converted)',
         '-ascii'       : 'ASCII output',
         '-part-k-len'  : 'Partition key length',
@@ -14,6 +14,7 @@ def DisParam(arg):
         '-req-size'    : 'Itens sent per request',
         '-print'       : 'Display after',
         '-dict'        : 'Generate dict json file',
+        '-recfm'       : 'Record format (FB/VB)'
         }
 
     for a in arg:
@@ -92,7 +93,8 @@ param['output']      = iparm['-ascii']         if '-ascii'       in iparm else '
 param['partkname']   = iparm['-part-k-name']   if '-part-k-name' in iparm else ''
 param['sortkname']   = iparm['-sort-k-name']   if '-sort-k-name' in iparm else ''
 param['output-type'] = iparm['-output-type']   if '-output-type' in iparm else 'file'
-param['req-size']    = int(iparm['-req-size']) if '-req-size'   in iparm else 10
+param['recfm']       = iparm['-recfm'].lower() if '-recfm'       in iparm else 'fb'
+param['req-size']    = int(iparm['-req-size']) if '-req-size'    in iparm else 10
 param['print']       = int(iparm['-print'])    if '-print'       in iparm else 0
 param['max'] = 0
 param['skip'] = 0

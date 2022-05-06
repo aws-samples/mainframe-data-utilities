@@ -6,18 +6,24 @@ import boto3, utils, urllib3
 ddbClient = boto3.client('dynamodb')
 
 class Input:
-    def __init__(self, file) -> None:
-        log = utils.Log()
-        self.obj = True
-        self.slice = 0
 
+    def __init__(self, general) -> None:
+        log = utils.Log()
+        self.localfile = True
+        self.slice = 0
+        self.recfm = general['recfm'] if 'recfm' in general else 'fb'
+
+        file = general["input"]
+        
         if file[:5] == "s3://":
             s3 = utils.S3File(file)
             self.Input = boto3.client('s3').get_object(Bucket=s3.bucket, Key=s3.s3obje)['Body']
+
         elif file[:8] == "https://":
             http = urllib3.PoolManager()
             self.Input = http.request('GET', file).data
-            self.obj = False
+            self.localfile = False
+
         elif file:
             self.Input=open(file,"rb")
         else:
@@ -25,11 +31,24 @@ class Input:
             quit()
 
     def read(self, lrecl):
-        if self.obj:
-            return self.Input.read(lrecl)
+        if self.localfile:
+            if self.recfm == 'fb':
+                return self.Input.read(lrecl)
+            else:
+                l = self.getRDW(self.Input.read(4))
+                return self.Input.read(l)
         else:
-            self.slice += lrecl
-            return self.Input[self.slice - lrecl :self.slice]
+            if self.recfm == 'fb':
+                self.slice += lrecl
+                return self.Input[self.slice - lrecl :self.slice]
+            else:
+                self.slice += 4
+                l = self.getRDW(self.Input[self.slice - lrecl :self.slice])
+                self.slice += l
+                return self.Input[self.slice - l :self.slice]
+                
+    def getRDW(self, b: bytearray):
+        return int("0x" + b[:2].hex(), 0) - 4 if len(b) > 0 else 0
             
 class Output:
     def __init__(self, param, req_route='', req_tkn='') -> None:

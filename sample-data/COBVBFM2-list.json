@@ -1,0 +1,227 @@
+{
+    "input": "sample-data/COBVBFM2.EBCDIC.txt",
+    "output": "sample-data/COBVBFM2.ASCII.txt",
+    "partkname": "",
+    "sortkname": "",
+    "output-type": "file",
+    "recfm": "vb",
+    "req-size": 10,
+    "print": 0,
+    "max": 0,
+    "skip": 0,
+    "lrecl": 306,
+    "partklen": 0,
+    "sortklen": 0,
+    "rem-low-values": true,
+    "separator": "|",
+    "transf-rule": [],
+    "transf": [
+        {
+            "type": "ch",
+            "bytes": 2,
+            "offset": 0,
+            "dplaces": 0,
+            "name": "OUTK-TYPE",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 2,
+            "offset": 2,
+            "dplaces": 0,
+            "name": "OUTK-SEQT",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "pd+",
+            "bytes": 2,
+            "offset": 4,
+            "dplaces": 0,
+            "name": "OUT-REC-CNT",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 6,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 15,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 36,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 45,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 66,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 75,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 96,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 105,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 126,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 135,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 156,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 165,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 186,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 195,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 216,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 225,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 246,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 255,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "zd",
+            "bytes": 9,
+            "offset": 276,
+            "dplaces": 0,
+            "name": "OUT-REC-NO",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 21,
+            "offset": 285,
+            "dplaces": 0,
+            "name": "OUT-NAME",
+            "part-key": false,
+            "sort-key": false
+        }
+    ]
+}

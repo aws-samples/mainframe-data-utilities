@@ -36,7 +36,7 @@ def fileconvertion(args, route='', tkn=''):
         
     log = utils.Log()
     prm = utils.ParamReader(args)
-    InpDS = datasource.Input(prm.general["input"])
+    InpDS = datasource.Input(prm.general)
     OutDS = datasource.Output(prm.general, route, tkn)
 
     i=0
