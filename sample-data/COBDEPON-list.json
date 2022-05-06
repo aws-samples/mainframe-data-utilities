@@ -8,7 +8,7 @@
     "print": 0,
     "max": 0,
     "skip": 0,
-    "lrecl": 622,
+    "lrecl": 621,
     "partklen": 0,
     "sortklen": 0,
     "rem-low-values": true,
@@ -35,7 +35,7 @@
         },
         {
             "type": "pd+",
-            "bytes": 3,
+            "bytes": 2,
             "offset": 4,
             "dplaces": 0,
             "name": "VSAM-REC-CNT",
@@ -45,7 +45,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 7,
+            "offset": 6,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -54,7 +54,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 16,
+            "offset": 15,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -63,7 +63,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 34,
+            "offset": 33,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -72,7 +72,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 46,
+            "offset": 45,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -81,7 +81,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 48,
+            "offset": 47,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -90,7 +90,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 57,
+            "offset": 56,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -99,7 +99,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 75,
+            "offset": 74,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -108,7 +108,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 87,
+            "offset": 86,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -117,7 +117,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 89,
+            "offset": 88,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -126,7 +126,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 98,
+            "offset": 97,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -135,7 +135,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 116,
+            "offset": 115,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -144,7 +144,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 128,
+            "offset": 127,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -153,7 +153,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 130,
+            "offset": 129,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -162,7 +162,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 139,
+            "offset": 138,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -171,7 +171,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 157,
+            "offset": 156,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -180,7 +180,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 169,
+            "offset": 168,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -189,7 +189,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 171,
+            "offset": 170,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -198,7 +198,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 180,
+            "offset": 179,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -207,7 +207,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 198,
+            "offset": 197,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -216,7 +216,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 210,
+            "offset": 209,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -225,7 +225,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 212,
+            "offset": 211,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -234,7 +234,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 221,
+            "offset": 220,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -243,7 +243,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 239,
+            "offset": 238,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -252,7 +252,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 251,
+            "offset": 250,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -261,7 +261,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 253,
+            "offset": 252,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -270,7 +270,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 262,
+            "offset": 261,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -279,7 +279,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 280,
+            "offset": 279,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -288,7 +288,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 292,
+            "offset": 291,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -297,7 +297,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 294,
+            "offset": 293,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -306,7 +306,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 303,
+            "offset": 302,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -315,7 +315,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 321,
+            "offset": 320,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -324,7 +324,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 333,
+            "offset": 332,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -333,7 +333,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 335,
+            "offset": 334,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -342,7 +342,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 344,
+            "offset": 343,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -351,7 +351,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 362,
+            "offset": 361,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -360,7 +360,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 374,
+            "offset": 373,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -369,7 +369,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 376,
+            "offset": 375,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -378,7 +378,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 385,
+            "offset": 384,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -387,7 +387,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 403,
+            "offset": 402,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -396,7 +396,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 415,
+            "offset": 414,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -405,7 +405,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 417,
+            "offset": 416,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -414,7 +414,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 426,
+            "offset": 425,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -423,7 +423,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 444,
+            "offset": 443,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -432,7 +432,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 456,
+            "offset": 455,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -441,7 +441,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 458,
+            "offset": 457,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -450,7 +450,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 467,
+            "offset": 466,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -459,7 +459,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 485,
+            "offset": 484,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -468,7 +468,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 497,
+            "offset": 496,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -477,7 +477,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 499,
+            "offset": 498,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -486,7 +486,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 508,
+            "offset": 507,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -495,7 +495,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 526,
+            "offset": 525,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -504,7 +504,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 538,
+            "offset": 537,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -513,7 +513,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 540,
+            "offset": 539,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -522,7 +522,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 549,
+            "offset": 548,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -531,7 +531,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 567,
+            "offset": 566,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -540,7 +540,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 579,
+            "offset": 578,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,
@@ -549,7 +549,7 @@
         {
             "type": "zd",
             "bytes": 9,
-            "offset": 581,
+            "offset": 580,
             "dplaces": 0,
             "name": "REC-NO",
             "part-key": false,
@@ -558,7 +558,7 @@
         {
             "type": "ch",
             "bytes": 18,
-            "offset": 590,
+            "offset": 589,
             "dplaces": 0,
             "name": "LAST-NAME",
             "part-key": false,
@@ -567,7 +567,7 @@
         {
             "type": "ch",
             "bytes": 12,
-            "offset": 608,
+            "offset": 607,
             "dplaces": 0,
             "name": "FIRST-NAME",
             "part-key": false,
@@ -576,7 +576,7 @@
         {
             "type": "ch",
             "bytes": 2,
-            "offset": 620,
+            "offset": 619,
             "dplaces": 0,
             "name": "STATE",
             "part-key": false,

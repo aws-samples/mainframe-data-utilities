@@ -13,7 +13,20 @@
     "sortklen": 2,
     "rem-low-values": true,
     "separator": "|",
-    "transf-rule": [],
+    "transf-rule": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "transf": "transf1"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "transf": "transf2"
+        }
+    ],
     "transf": [
         {
             "type": "bi",

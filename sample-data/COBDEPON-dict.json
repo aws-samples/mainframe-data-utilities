@@ -35,7 +35,7 @@
             "pict": "S999",
             "type": "pd+",
             "length": 3,
-            "bytes": 3,
+            "bytes": 2,
             "dplaces": 0
         },
         "VSAM-REC": {

@@ -23,10 +23,12 @@ def getPicSize(arg):
         return len(arg)
 
 # TYPE AND LENGTH CALCULATION #
-def getLenType(atr):
+def getLenType(atr, p):
     ret = {}
-    FirstCh = atr[3][:1].upper()
-    Picture = atr[3].upper()
+    #FirstCh = atr[3][:1].upper()
+    #Picture = atr[3].upper()
+    FirstCh = atr[p][:1].upper()
+    Picture = atr[p].upper()
 
     #data type
     if   'COMP-3'in atr and FirstCh=='S': ret['type'] = "pd+"
@@ -92,8 +94,9 @@ def add2dict(lvl, grp, itm, stt, id):
         cur = lvl
     else:
         tplen = {}
-        tplen = getLenType(stt)
-        stk[itm]['pict'] = stt[3]
+        tplen = getLenType(stt, pic := stt.index('PIC')+1)
+        #stk[itm]['pict'] = stt[3]
+        stk[itm]['pict'] = stt[pic]
         stk[itm]['type'] = tplen['type']
         stk[itm]['length'] = tplen['length']
         stk[itm]['bytes'] = tplen['bytes']
