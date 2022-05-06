@@ -260,7 +260,9 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
 
 ## File split
 
-parse_copybook_to_json.py -copybook LegacyReference/COBDEPON.cpy -output sample-data/COBDEPON-list.json -dict sample-data/COBDEPON-dict.jsongit
+```
+python3 split_ebcdic_file.py sample-data/COBKS05-split-local.json
+````
 
 ## How it works
 
