@@ -27,6 +27,7 @@
             05 OUTFILE-COMP-09-S         PIC S9(09) COMP.               00039500
             05 OUTFILE-COMP-18           PIC  9(18) COMP.               00039500
             05 OUTFILE-COMP-18-S         PIC S9(18) COMP.               00039500
+       SKIP1
            03  PACKED-DECIMAL-FIELDS.                                   00039400
             05 OUTFILE-COMP3-01          PIC  9(01) COMP-3.             00039500
             05 OUTFILE-COMP3-01-S        PIC S9(01) COMP-3.             00039500

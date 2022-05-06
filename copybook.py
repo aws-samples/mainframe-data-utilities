@@ -114,7 +114,8 @@ def toDict(lines):
     for line in lines: 
         if len(line.strip()) > 1:
             if line[6] in [' ' , '-']: 
-                stt += line.replace('\t', '    ')[6:72]    
+                if not line[6:72].split()[0] in ['SKIP1','SKIP2','SKIP3']:
+                    stt += line[6:72].replace('\t', ' ')
             elif line[6] != '*':
                 print('Unnexpected character in column 7:', line) 
                 quit()
