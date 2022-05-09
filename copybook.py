@@ -115,7 +115,7 @@ def toDict(lines):
     id = 0
     stt = ""
     for line in lines: 
-        if len(line.strip()) > 1:
+        if len(line[6:72].strip()) > 1:
             if line[6] in [' ' , '-']: 
                 if not line[6:72].split()[0] in ['SKIP1','SKIP2','SKIP3']:
                     stt += line[6:72].replace('\t', ' ')

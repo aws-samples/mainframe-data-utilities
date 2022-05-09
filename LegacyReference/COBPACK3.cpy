@@ -3,6 +3,7 @@
       * SPDX-License-Identifier: Apache-2.0
       *-----------------------------------------------------------------
        01  REC-OUTFILE.                                                 00039300
+                                                                        BLANKLNE
            03  OUTFILE-TEXT              PIC -9(18).                    00039400
            03  OUTFILE-UNPACKED          PIC  9(18).                    00039400
            03  OUTFILE-UNPACKED-S        PIC S9(18).                    00039400
