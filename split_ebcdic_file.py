@@ -2,9 +2,21 @@
 # SPDX-License-Identifier: Apache-2.0
 # How to run: split_ebcdic.py -local-json sample-data/COBKS05-split.json
 
-import utils, sys, boto3, json
+import utils, sys, boto3, json, operator
+
+opr = {
+    "lt" : operator.lt,
+    "le" : operator.le,
+    "eq" : operator.eq,
+    "ne" : operator.ne,
+    "ge" : operator.ge,
+    "gt" : operator.gt
+}
 
 log = utils.Log()
+
+def getRDW(b: bytearray):
+    return int("0x" + b[:2].hex(), 0) - 4 if len(b) > 0 else 0
 
 def stats(reads, rules, writes):
 
@@ -13,7 +25,7 @@ def stats(reads, rules, writes):
     for rule in rules:
         log.Write(['Records written', rule['file'], str(writes[rule['file']])]) 
 
-def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
+def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0, recfm='fb'):
 
     if bucket != '':
         Input = boto3.client('s3').get_object(Bucket=bucket, Key=inputfile)['Body']
@@ -31,7 +43,12 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0):
     i=0
     while max == 0 or i < max:
 
-        record = Input.read(lrecl)
+        if recfm == 'fb':
+            record = Input.read(lrecl)
+        else:
+            l = getRDW(Input.read(4))
+            record = Input.read(l)
+
         ctRead += 1
 
         if not record: break
@@ -63,4 +80,4 @@ if __name__ == '__main__':
 
     with open(arg['-local-json']) as json_file: param = json.load(json_file)
 
-    run(param['input-file'],param['lrecl'],param['split-rules'], param['input-bucket'], param['max'], param['skip'],param['print'])
+    run(param['input-file'],param['lrecl'],param['split-rules'], param['input-bucket'], param['max'], param['skip'],param['print'],param['recfm'])
