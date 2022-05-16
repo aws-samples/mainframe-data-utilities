@@ -12,6 +12,7 @@
             "offset": 4,
             "size": 2,
             "hex": "0000",
+            "cond": "eq",
             "bucket" : "",
             "file": "sample-data/CLIENT.EBCDIC-0.txt"
         },
@@ -19,6 +20,7 @@
             "offset": 4,
             "size": 2,
             "hex": "0001",
+            "cond": "eq",
             "bucket" : "",
             "file": "sample-data/CLIENT.EBCDIC-1.txt"
         },
@@ -26,6 +28,7 @@
             "offset": 4,
             "size": 2,
             "hex": "0002",
+            "cond": "eq",
             "bucket" : "",
             "file": "sample-data/CLIENT.EBCDIC-2.txt"
         }

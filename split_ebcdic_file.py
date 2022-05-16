@@ -2,16 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # How to run: split_ebcdic.py -local-json sample-data/COBKS05-split.json
 
-import utils, sys, boto3, json, operator
-
-opr = {
-    "lt" : operator.lt,
-    "le" : operator.le,
-    "eq" : operator.eq,
-    "ne" : operator.ne,
-    "ge" : operator.ge,
-    "gt" : operator.gt
-}
+import utils, sys, boto3, json
 
 log = utils.Log()
 
@@ -49,9 +40,9 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0, r
             l = getRDW(Input.read(4))
             record = Input.read(l)
 
-        ctRead += 1
-
         if not record: break
+        
+        ctRead += 1
 
         i+= 1
         if i > skip:
@@ -61,7 +52,7 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0, r
             if len(split_rule) == 0: raise Exception('Please define split rules')
 
             for r in split_rule:
-                if record[r['offset']:r['offset']+r['size']].hex() == r['hex'].lower():
+                if utils.cond[r['cond']](record[r['offset']:r['offset']+r['size']].hex() , r['hex'].lower()):
                     output[r['file']].write(record)
                     ctWrit[r['file']] += 1
 

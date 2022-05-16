@@ -1,4 +1,13 @@
-import datetime, json, boto3
+import datetime, json, boto3, operator
+
+cond = {
+    "lt" : operator.lt,
+    "le" : operator.le,
+    "eq" : operator.eq,
+    "ne" : operator.ne,
+    "ge" : operator.ge,
+    "gt" : operator.gt
+}
 
 class ParamReader:
     def __init__(self, sysargv):
