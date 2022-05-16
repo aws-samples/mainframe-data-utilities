@@ -6,6 +6,7 @@
     "max": 0,
     "skip": 0,
     "lrecl": 500,
+    "recfm": "fb",
     "split-rules": [
     ]
 }
