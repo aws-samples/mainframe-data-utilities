@@ -1,0 +1,28 @@
+{
+    "input-file": "sample-data/COBVBFM2.EBCDIC.txt",
+    "input-bucket": "",
+    "output-type": "file",
+    "print": 0,
+    "max": 0,
+    "skip": 0,
+    "lrecl": 0,
+    "recfm": "vb",
+    "split-rules": [
+        {
+            "offset": 2,
+            "size": 2,
+            "hex": "f1f0",
+            "cond": "le",
+            "bucket" : "",
+            "file": "sample-data/COBVBFM2.EBCDIC-le10.txt"
+        },
+        {
+            "offset": 2,
+            "size": 2,
+            "hex": "f1f0",
+            "cond": "gt",
+            "bucket" : "",
+            "file": "sample-data/COBVBFM2.EBCDIC-gt10.txt"
+        }
+    ]
+}
