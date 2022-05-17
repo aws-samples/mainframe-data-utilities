@@ -14,6 +14,7 @@
             "hex": "f1f0",
             "cond": "le",
             "bucket" : "",
+            "key" : "",
             "file": "sample-data/COBVBFM2.EBCDIC-le10.txt"
         },
         {
@@ -22,6 +23,7 @@
             "hex": "f1f0",
             "cond": "gt",
             "bucket" : "",
+            "key" : "",
             "file": "sample-data/COBVBFM2.EBCDIC-gt10.txt"
         }
     ]
