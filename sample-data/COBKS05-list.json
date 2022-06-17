@@ -4,6 +4,7 @@
     "partkname": "",
     "sortkname": "",
     "output-type": "file",
+    "recfm": "fb",
     "req-size": 10,
     "print": 20,
     "max": 0,
