@@ -150,7 +150,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 1. Create the DynanamoDb table which will be loaded on next steps. In this example we defined `CLIENT` as the table name, `CLIENT-ID` as its partition key, and CLIENT-R-TYPE as its sort key.
 
 ```
-aws dynamodb create-table --table-name CLIENT --attribute-definitions AttributeName=CLIENT-ID,AttributeType=N AttributeName=CLIENT-R-TYPE,AttributeType=N  --key-schema AttributeName=CLIENT-ID,KeyType=HASH AttributeName=CLIENT-R-TYPE,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 
+aws dynamodb create-table --table-name CLIENT --attribute-definitions AttributeName=CLIENT-ID,AttributeType=S AttributeName=CLIENT-R-TYPE,AttributeType=S  --key-schema AttributeName=CLIENT-ID,KeyType=HASH AttributeName=CLIENT-R-TYPE,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 
 ```
 
 2. Check the status of the table creation:
@@ -206,7 +206,7 @@ The step above will generate the [COBKS05-ddb.json](sample-data/COBKS05-ddb.json
 
 ### Load the data into the CLIENT Dynamodb table
 
-1. Run `extract_ebcdic_to_ascii.py`to extract the [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) and load into the `CLIENT` Dynamodb table in the ASCII encoding.
+1. Run `extract_ebcdic_to_ascii.py` to extract the [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) and load into the `CLIENT` Dynamodb table in the ASCII encoding.
 
 ```
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-rules.json
@@ -224,7 +224,7 @@ To: `"input": "s3://your-bucket-name/yourfolder/CLIENT.EBCDIC.txt",`
 
 ### Trigger the data load
 
-1. Run `extract_ebcdic_to_ascii.py`to extract the [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) and load into the `CLIENT` Dynamodb table in the ASCII encoding.
+1. Run `extract_ebcdic_to_ascii.py` to extract the [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) and load into the `CLIENT` Dynamodb table in the ASCII encoding.
 
 ```
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
