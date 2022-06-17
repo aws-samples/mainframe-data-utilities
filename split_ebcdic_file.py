@@ -35,9 +35,10 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0, r
     while max == 0 or i < max:
 
         if recfm == 'fb':
+            rdw = bytearray()
             record = Input.read(lrecl)
         else:
-            l = getRDW(Input.read(4))
+            l = getRDW(rdw:= Input.read(4))
             record = Input.read(l)
 
         if not record: break
@@ -53,7 +54,7 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0, r
 
             for r in split_rule:
                 if utils.cond[r['cond']](record[r['offset']:r['offset']+r['size']].hex() , r['hex'].lower()):
-                    output[r['file']].write(record)
+                    output[r['file']].write(rdw + record)
                     ctWrit[r['file']] += 1
 
     for rule in split_rule:
