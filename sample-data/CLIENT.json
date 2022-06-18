@@ -1,16 +1,17 @@
 {
-    "input": "sample-data/CLIENT.EBCDIC.txt",
-    "output": "sample-data/CLIENT.ASCII.txt",
-    "partkname": "",
-    "sortkname": "",
-    "output-type": "s3-obj",
-    "req-size": 0,
-    "print": 0,
+    "input": "",
+    "output": "CLIENT",
+    "partkname": "CLIENT-ID",
+    "sortkname": "CLIENT-R-TYPE",
+    "output-type": "ddb",
+    "recfm": "fb",
+    "req-size": 10,
+    "print": 20,
     "max": 0,
     "skip": 0,
     "lrecl": 500,
-    "partklen": 0,
-    "sortklen": 0,
+    "partklen": 4,
+    "sortklen": 2,
     "rem-low-values": true,
     "separator": "|",
     "transf-rule": [
@@ -34,7 +35,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
-            "part-key": false,
+            "part-key": true,
             "sort-key": false
         },
         {
@@ -44,7 +45,7 @@
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "part-key": false,
-            "sort-key": false
+            "sort-key": true
         },
         {
             "type": "ch",
@@ -99,7 +100,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
-            "part-key": false,
+            "part-key": true,
             "sort-key": false
         },
         {
@@ -109,7 +110,7 @@
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "part-key": false,
-            "sort-key": false
+            "sort-key": true
         },
         {
             "type": "bi",
@@ -146,7 +147,7 @@
             "offset": 0,
             "dplaces": 0,
             "name": "CLIENT-ID",
-            "part-key": false,
+            "part-key": true,
             "sort-key": false
         },
         {
@@ -156,7 +157,7 @@
             "dplaces": 0,
             "name": "CLIENT-TYPE",
             "part-key": false,
-            "sort-key": false
+            "sort-key": true
         },
         {
             "type": "bi",
