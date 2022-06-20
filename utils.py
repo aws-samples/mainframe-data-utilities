@@ -22,14 +22,17 @@ class ParamReader:
             '-s3-output'  : 'S3 output file   ' 
             }
 
-        for a in (arg := dict(zip(sysargv[1::2], sysargv[2::2]))):
+        arg = dict(zip(sysargv[1::2], sysargv[2::2]))
+
+        for a in arg:
             if a in desc:
                 l.Write([desc[a],a,arg[a]])
             else:
                 l.Write([desc['unknown'],a,arg[a]])
 
         if '-s3-json' in arg:
-            bucket = arg['-s3-json'][5:(slash := arg['-s3-json'].find('/',5))]
+            slash  = arg['-s3-json'].find('/',5)
+            bucket = arg['-s3-json'][5:slash]
             s3obje = arg['-s3-json'][slash+1:]
             self.general = json.load(boto3.client('s3').get_object(Bucket=bucket, Key=s3obje)['Body'])            
         elif '-local-json' in arg: 
@@ -70,7 +73,8 @@ class TransformationRule:
 
 class S3File:
     def __init__(self, url) -> None:
-        self.bucket = url[5:(slash := url.find('/',5))]
+        slash = url.find('/',5)
+        self.bucket = url[5:slash]
         self.s3obje = url[slash+1:]
 
 class Log:

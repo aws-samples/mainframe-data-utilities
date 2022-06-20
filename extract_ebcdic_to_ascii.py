@@ -7,7 +7,9 @@ def lambda_handler(event, context):
     bkt =  event['Records'][0]['s3']['bucket']['name']
     key =  event['Records'][0]['s3']['object']['key']
     
-    jfld = ('/' + '/'.join(karr[:-1]) if len(karr := key.split('/')) > 1 else '') + '/layout/'
+    karr = key.split('/')
+
+    jfld = ('/' + '/'.join(karr[:-1]) if len(karr) > 1 else '') + '/layout/'
     jfle = '.'.join(karr[-1:][0].replace('.txt','').split('.')[:-1]) + '.json'
 
     fileconvertion(['extract_ebcdic_to_ascii.py',
