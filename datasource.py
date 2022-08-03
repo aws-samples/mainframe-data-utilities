@@ -51,22 +51,24 @@ class Input:
         return int("0x" + b[:2].hex(), 0) - 4 if len(b) > 0 else 0
             
 class Output:
-    def __init__(self, param, req_route='', req_tkn='') -> None:
+    def __init__(self, param, req_route='', req_tkn='', tmp='') -> None:
         
         log = utils.Log()
         self.type = param['output-type']
         self.Deli = param['separator']
         self.rsize = param['req-size']
+        self.dsrc = param['output']
+        self.s3key = param['output-s3key'] if 'output-s3key' in param else param['output']
+        self.s3bkt = param['output-s3bkt']
         self.reqrt = req_route
         self.reqtk = req_tkn
         self.list = []
         self.crlf = ''
 
-        if param['output-type'] == 'file': self.Output=open(param['output'],'w')
-            
-        elif param['output-type'] == 'ddb':
-            self.Record = {}
-            self.dsrc = param['output']
+        if param['output-type'] == 'file' or param['output-type'] == 's3': 
+            self.Output=open(tmp + param['output'],'w')
+        elif param['output-type'] == 'ddb': 
+            self.Record = {}  
             
     def Write(self, item={}):
         
@@ -88,7 +90,9 @@ class Output:
                 self.Output.write(self.crlf + '\n'.join(self.list))
                 self.crlf = '\n'
                 self.list = []
-
+                if item == {} and self.type == 's3':
+                    boto3.client('s3').put_object(Body=open(self.dsrc, 'rb'), Bucket='', Key=self.s3key)
+                    #boto3.client('s3').put_object(Body=open('sample-data/COBVBFM2.EBCDIC-gt10.txt', 'rb'), Bucket='bucket-name', Key='COBVBFM2.EBCDIC-gt10.txt')
 class item:
 
     def __init__(self, param):
