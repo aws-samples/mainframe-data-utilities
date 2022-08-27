@@ -26,6 +26,7 @@ def DisParam(arg):
 ###### Create the extraction parameter file
 def CreateExtraction(obj, altstack=[], partklen=0, sortklen=0):
     global lrecl
+    global altpos
     for k in obj:
         if type(obj[k]) is dict:
             t = 1 if 'occurs' not in obj[k] else obj[k]['occurs']
@@ -61,7 +62,8 @@ def CreateExtraction(obj, altstack=[], partklen=0, sortklen=0):
                         red[obj[k]['redefines']] = obj[k].copy()
                         red[obj[k]['redefines']]['newname'] = k
                         red[obj[k]['redefines']]['stack'] = altstack.copy()
-                        altlay.append(red)
+                        altpos+=1
+                        altlay.insert(altpos,red)
                 
 ############################### MAIN ###################################
 print("--------------------------------------------------------------------------------------")
@@ -85,6 +87,7 @@ sortklen = int(iparm['-sort-k-len']) if '-sort-k-len' in iparm else 0
 altlay = []
 transf = []
 lrecl = 0
+altpos = 0
 CreateExtraction(output, [], partklen, sortklen)
 
 param = {}
@@ -120,6 +123,7 @@ for r in altlay:
     newout[redfkey] = r[redfkey].copy()
     newout[redfkey].pop('redefines')
     
+    altpos = ialt
     CreateExtraction(output, [], partklen, sortklen)
     ialt += 1
     param['transf' + str(ialt)] = transf
