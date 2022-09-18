@@ -94,7 +94,8 @@ def add2dict(lvl, grp, itm, stt, id):
         cur = lvl
     else:
         tplen = {}
-        tplen = getLenType(stt, pic := stt.index('PIC')+1)
+        pic = stt.index('PIC')+1
+        tplen = getLenType(stt, pic)
         #stk[itm]['pict'] = stt[3]
         stk[itm]['pict'] = stt[pic]
         stk[itm]['type'] = tplen['type']
