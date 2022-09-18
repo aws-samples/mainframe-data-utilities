@@ -59,7 +59,7 @@ class Output:
         self.rsize = param['req-size']
         self.dsrc = param['output']
         self.s3key = param['output-s3key'] if 'output-s3key' in param else param['output']
-        self.s3bkt = param['output-s3bkt']
+        self.s3bkt = param['output-s3bkt'] if 'output-s3bkt' in param else ''
         self.reqrt = req_route
         self.reqtk = req_tkn
         self.list = []
