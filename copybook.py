@@ -44,11 +44,13 @@ def getLenType(atr, p):
     
     Lgt = getPicSize(PicNum[0])
 
-    if len(PicNum) == 1:
+    if len(PicNum) == 1 and FirstCh !='V':
         ret['dplaces'] = 0
-    else:
+    elif FirstCh !='V':
         ret['dplaces'] = getPicSize(PicNum[1])
         Lgt += ret['dplaces']
+    else:
+        ret['dplaces'] = getPicSize(PicNum[0])
 
     ret['length'] = Lgt
 
