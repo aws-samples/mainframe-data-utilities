@@ -15,7 +15,8 @@ def lambda_handler(event, context):
     fileconvertion(['extract_ebcdic_to_ascii.py',
                     '-s3-json' , 's3://' + bkt + jfld + jfle,
                     '-s3-input', 's3://' + bkt + '/'  + key
-                    ])
+                    ],
+                    tmp='/tmp/')
 
     return {'statusCode': 200}
 

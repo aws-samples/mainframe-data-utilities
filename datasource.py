@@ -62,11 +62,12 @@ class Output:
         self.s3bkt = param['output-s3bkt'] if 'output-s3bkt' in param else ''
         self.reqrt = req_route
         self.reqtk = req_tkn
+        self.tmpfd = tmp 
         self.list = []
         self.crlf = ''
 
         if param['output-type'] == 'file' or param['output-type'] == 's3': 
-            self.Output=open(tmp + param['output'],'w')
+            self.Output=open(self.tmpfd + self.dsrc, 'w')
         elif param['output-type'] == 'ddb': 
             self.Record = {}  
             
@@ -91,8 +92,9 @@ class Output:
                 self.crlf = '\n'
                 self.list = []
                 if item == {} and self.type == 's3':
-                    boto3.client('s3').put_object(Body=open(self.dsrc, 'rb'), Bucket='', Key=self.s3key)
-                    #boto3.client('s3').put_object(Body=open('sample-data/COBVBFM2.EBCDIC-gt10.txt', 'rb'), Bucket='bucket-name', Key='COBVBFM2.EBCDIC-gt10.txt')
+                    self.Output.close()
+                    boto3.client('s3').put_object(Body=open(self.tmpfd + self.dsrc,'rb'), Bucket=self.s3bkt, Key=self.s3key)
+                                     
 class item:
 
     def __init__(self, param):
