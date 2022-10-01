@@ -101,7 +101,7 @@ class item:
         self.Type   = param['output-type']
         self.Record = {}
 
-        if self.Type == 'file' or self.Type ==  's3-obj': self.Record['row'] = []
+        if self.Type in ['file', 's3-obj', 's3'] : self.Record['row'] = []
 
     def addField(self, id, type, partkey, partkname, sortkey, sortkname, value, addempty = False):
         
