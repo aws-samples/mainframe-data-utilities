@@ -4,6 +4,8 @@
     "partkname": "CLIENT-ID",
     "sortkname": "CLIENT-R-TYPE",
     "output-type": "ddb",
+    "output-s3key": "",
+    "output-s3bkt": "",
     "recfm": "fb",
     "req-size": 10,
     "print": 20,

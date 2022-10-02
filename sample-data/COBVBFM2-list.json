@@ -4,6 +4,8 @@
     "partkname": "",
     "sortkname": "",
     "output-type": "file",
+    "output-s3key": "",
+    "output-s3bkt": "",
     "recfm": "vb",
     "req-size": 10,
     "print": 0,
