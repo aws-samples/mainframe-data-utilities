@@ -1,0 +1,183 @@
+{
+    "input": "ebcdicfile.txt",
+    "output": "asciifile.txt",
+    "partkname": "",
+    "sortkname": "",
+    "output-type": "s3",
+    "output-s3key": "CLIENT.ASCII.txt",
+    "output-s3bkt": "your-bucket-name",
+    "recfm": "fb",
+    "req-size": 10,
+    "print": 20,
+    "max": 0,
+    "skip": 0,
+    "lrecl": 500,
+    "partklen": 0,
+    "sortklen": 0,
+    "rem-low-values": true,
+    "separator": "|",
+    "transf-rule": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "transf": "transf1"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "transf": "transf2"
+        }
+    ],
+    "transf": [
+        {
+            "type": "bi",
+            "bytes": 4,
+            "offset": 0,
+            "dplaces": 0,
+            "name": "CLIENT-ID",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "bi",
+            "bytes": 2,
+            "offset": 4,
+            "dplaces": 0,
+            "name": "CLIENT-TYPE",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 30,
+            "offset": 6,
+            "dplaces": 0,
+            "name": "CLIENT-NAME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 10,
+            "offset": 36,
+            "dplaces": 0,
+            "name": "CLIENT-BDATE",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 10,
+            "offset": 46,
+            "dplaces": 0,
+            "name": "CLIENT-ED-LVL",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "pd",
+            "bytes": 5,
+            "offset": 56,
+            "dplaces": 2,
+            "name": "CLIENT-INCOME",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 439,
+            "offset": 61,
+            "dplaces": 0,
+            "name": "FILLER_1",
+            "part-key": false,
+            "sort-key": false
+        }
+    ],
+    "transf1": [
+        {
+            "type": "bi",
+            "bytes": 4,
+            "offset": 0,
+            "dplaces": 0,
+            "name": "CLIENT-ID",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "bi",
+            "bytes": 2,
+            "offset": 4,
+            "dplaces": 0,
+            "name": "CLIENT-TYPE",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "bi",
+            "bytes": 4,
+            "offset": 6,
+            "dplaces": 0,
+            "name": "CLIENT-ADDR-NUMBER",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 40,
+            "offset": 10,
+            "dplaces": 0,
+            "name": "CLIENT-ADDR-STREET",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 450,
+            "offset": 50,
+            "dplaces": 0,
+            "name": "FILLER_2",
+            "part-key": false,
+            "sort-key": false
+        }
+    ],
+    "transf2": [
+        {
+            "type": "bi",
+            "bytes": 4,
+            "offset": 0,
+            "dplaces": 0,
+            "name": "CLIENT-ID",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "bi",
+            "bytes": 2,
+            "offset": 4,
+            "dplaces": 0,
+            "name": "CLIENT-TYPE",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "bi",
+            "bytes": 4,
+            "offset": 6,
+            "dplaces": 0,
+            "name": "CLIENT-RECORD-COUNT",
+            "part-key": false,
+            "sort-key": false
+        },
+        {
+            "type": "ch",
+            "bytes": 490,
+            "offset": 10,
+            "dplaces": 0,
+            "name": "FILLER_3",
+            "part-key": false,
+            "sort-key": false
+        }
+    ]
+}
