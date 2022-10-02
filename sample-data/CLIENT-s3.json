@@ -5,7 +5,7 @@
     "sortkname": "",
     "output-type": "s3",
     "output-s3key": "CLIENT.ASCII.txt",
-    "output-s3bkt": "luisdant-temp",
+    "output-s3bkt": "your-bucket-name",
     "recfm": "fb",
     "req-size": 10,
     "print": 20,
