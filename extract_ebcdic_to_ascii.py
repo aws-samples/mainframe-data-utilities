@@ -1,19 +1,17 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-import sys, ebcdic, utils, datasource
+import sys, ebcdic, utils, datasource, os
 
 def lambda_handler(event, context):
 
     bkt =  event['Records'][0]['s3']['bucket']['name']
     key =  event['Records'][0]['s3']['object']['key']
-    
     karr = key.split('/')
 
-    jfld = ('/' + '/'.join(karr[:-1]) if len(karr) > 1 else '') + '/layout/'
     jfle = '.'.join(karr[-1:][0].replace('.txt','').split('.')[:-1]) + '.json'
 
     fileconvertion(['extract_ebcdic_to_ascii.py',
-                    '-s3-json' , 's3://' + bkt + jfld + jfle,
+                    '-s3-json' , 's3://' + os.environ.get('layout') + jfle,
                     '-s3-input', 's3://' + bkt + '/'  + key
                     ],
                     tmp='/tmp/')
