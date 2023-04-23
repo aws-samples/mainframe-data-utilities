@@ -32,11 +32,10 @@ def FileProcess(log, ExtArgs: ExtractArgs):
 
         InpDS = open(inp_temp,"rb")
 
-    #ThreadCur = 1
-#
-    #output_files = {}
-    #output_newln = {}
-#
+    ThreadCur = 1
+    output_files = {}
+    output_newln = {}
+
     #while ThreadCur <= fMetaData.general('output-files'):
     #    output_files[str(ThreadCur)] = open(fMetaData.general['wfolder'] + fMetaData.general['output'] + (ThreadCur if ThreadCur > 1 else ''), 'w')
     #    output_newln[str(ThreadCur)] = ''
@@ -57,32 +56,37 @@ def FileProcess(log, ExtArgs: ExtractArgs):
 
             if(fMetaData.general["print"] != 0 and i % fMetaData.general["print"] == 0): log.Write(['Records processed', str(i)])
 
-            OutRec = [] if fMetaData.general['output-type'] in ['file', 's3-obj', 's3'] else {}
-
-            layout = fMetaData.GetLayout(record)
-
-            for transf in layout:
-                addField(
-                    fMetaData.general['output-type'],
-                    OutRec,
-                    transf['name'],
-                    transf['type'],
-                    transf['part-key'],
-                    fMetaData.general['partkname'],
-                    transf['sort-key'],
-                    fMetaData.general['sortkname'],
-                    unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], transf["dplaces"], fMetaData.general["rem-low-values"], False ),
-                    False)
-
-            if fMetaData.general['output-type'] in ['file', 's3-obj', 's3']:
-
-                OutDs.write(NewLine + fMetaData.general['separator'].join(OutRec))
-                NewLine = '\n'
-            else:
-                OutDs.write(str(OutRec) + '\n')
+            process_record(fMetaData, record, OutDs, NewLine)
+            NewLine = '\n'
 
     log.Write(['Records processed', str(i)])
     log.Finish()
+
+def process_record(fMetaData, record, OutDs, NewLine):
+
+    OutRec = [] if fMetaData.general['output-type'] in ['file', 's3-obj', 's3'] else {}
+
+    layout = fMetaData.GetLayout(record)
+
+    for transf in layout:
+        addField(
+            fMetaData.general['output-type'],
+            OutRec,
+            transf['name'],
+            transf['type'],
+            transf['part-key'],
+            fMetaData.general['partkname'],
+            transf['sort-key'],
+            fMetaData.general['sortkname'],
+            unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], transf["dplaces"], fMetaData.general["rem-low-values"], False ),
+            False)
+
+    if fMetaData.general['output-type'] in ['file', 's3-obj', 's3']:
+
+        OutDs.write(NewLine + fMetaData.general['separator'].join(OutRec))
+
+    else:
+        OutDs.write(str(OutRec) + '\n')
 
 def local_input(wfolder, key):
 
