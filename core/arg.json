@@ -1,0 +1,10 @@
+{
+    "extract": {
+        "-json": "Json metadata file",
+        "-json-s3": "Json metadata file bucket",
+        "-input": "S3 input file (overrides the json metadata)",
+        "-input-s3": "input data bucket name (without s3://) (overrides the json metadata)",
+        "-output": "S3 output file (overrides the json metadata)",
+        "-output-s3": "S3 output bucket name (without s3://) (overrides the json metadata)"
+    }
+}
