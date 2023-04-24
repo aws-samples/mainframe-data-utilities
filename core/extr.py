@@ -2,8 +2,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import boto3, urllib.request, json
-from core.ebcdic import unpack
-from core.arg import ExtractArgs
+import multiprocessing as mp
+from core.ebcdic        import unpack
+from core.arg           import ExtractArgs
+from itertools          import cycle
 
 def FileProcess(log, ExtArgs: ExtractArgs):
 
@@ -32,17 +34,20 @@ def FileProcess(log, ExtArgs: ExtractArgs):
 
         InpDS = open(inp_temp,"rb")
 
-    ThreadCur = 1
-    output_files = {}
-    output_newln = {}
+    # prepare for multiprocessing
+    lstFiles = []
+    dctQueue = {}
+    lstProce = []
 
-    #while ThreadCur <= fMetaData.general('output-files'):
-    #    output_files[str(ThreadCur)] = open(fMetaData.general['wfolder'] + fMetaData.general['output'] + (ThreadCur if ThreadCur > 1 else ''), 'w')
-    #    output_newln[str(ThreadCur)] = ''
-    #    ThreadCur += 1
+    for f in range(1, fMetaData.general['output-parallelism']+1):
+        strOutFile = fMetaData.general['wfolder'] + fMetaData.general['output'] + (str(f) if f > 1 else '')
+        lstFiles.append(strOutFile)
+        dctQueue[strOutFile] = mp.Queue()
+        p = mp.Process(target=process_record, args=(fMetaData, strOutFile, dctQueue[strOutFile]))
+        p.start()
+        lstProce.append(p)
 
-    OutDs=open(fMetaData.general['wfolder'] + fMetaData.general['output'], 'w')
-    NewLine = ''
+    cyFiles = cycle(lstFiles)
 
     i=0
     while i < fMetaData.general['max'] or fMetaData.general['max'] == 0:
@@ -54,39 +59,55 @@ def FileProcess(log, ExtArgs: ExtractArgs):
         i+= 1
         if i > fMetaData.general["skip"]:
 
-            if(fMetaData.general["print"] != 0 and i % fMetaData.general["print"] == 0): log.Write(['Records processed', str(i)])
+            if(fMetaData.general["print"] != 0 and i % fMetaData.general["print"] == 0): log.Write(['Records read', str(i)])
 
-            process_record(fMetaData, record, OutDs, NewLine)
-            NewLine = '\n'
+            nxq = next(cyFiles)
+            dctQueue[nxq].put(record)
+
+            #process_record(fMetaData, record, OutDs, NewLine)
+            #NewLine = '\n'
+
+    # stop /wait for the workers
+    for f in lstFiles: dctQueue[f].put(None)
+    for p in lstProce:
+        p.join()
 
     log.Write(['Records processed', str(i)])
-    log.Finish()
 
-def process_record(fMetaData, record, OutDs, NewLine):
+def process_record(fMetaData, OutDs, q):
 
-    OutRec = [] if fMetaData.general['output-type'] in ['file', 's3-obj', 's3'] else {}
+    outfile = open(OutDs, 'w')
+    newl = ''
 
-    layout = fMetaData.GetLayout(record)
+    while True:
+        record = q.get()
+        if record is None:
+            outfile.close()
+            break
 
-    for transf in layout:
-        addField(
-            fMetaData.general['output-type'],
-            OutRec,
-            transf['name'],
-            transf['type'],
-            transf['part-key'],
-            fMetaData.general['partkname'],
-            transf['sort-key'],
-            fMetaData.general['sortkname'],
-            unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], transf["dplaces"], fMetaData.general["rem-low-values"], False ),
-            False)
+        OutRec = [] if fMetaData.general['output-type'] in ['file', 's3-obj', 's3'] else {}
 
-    if fMetaData.general['output-type'] in ['file', 's3-obj', 's3']:
+        layout = fMetaData.GetLayout(record)
 
-        OutDs.write(NewLine + fMetaData.general['separator'].join(OutRec))
+        for transf in layout:
+            addField(
+                fMetaData.general['output-type'],
+                OutRec,
+                transf['name'],
+                transf['type'],
+                transf['part-key'],
+                fMetaData.general['partkname'],
+                transf['sort-key'],
+                fMetaData.general['sortkname'],
+                unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], transf["dplaces"], fMetaData.general["rem-low-values"], False ),
+                False)
 
-    else:
-        OutDs.write(str(OutRec) + '\n')
+        if fMetaData.general['output-type'] in ['file', 's3-obj', 's3']:
+
+            outfile.write(newl + fMetaData.general['separator'].join(OutRec))
+            newl='\n'
+        else:
+            OutDs.write(str(OutRec) + '\n')
 
 def local_input(wfolder, key):
 
@@ -163,8 +184,8 @@ class FileMetaData:
         self.general['input-s3-url'] = args.inp_s3url   if args.inp_s3url else False
 
         # new parameter to define parallelism
-        if 'output-files' not in self.general:
-            self.general['output-files'] = 1
+        if 'output-parallelism' not in self.general:
+            self.general['output-parallelism'] = 1
 
         #identify the input file source
         if self.general['input-s3-url'] != False and self.general['input-s3-url']   != '':
