@@ -39,6 +39,8 @@ def FileProcess(log, ExtArgs: ExtractArgs):
     dctQueue = {}
     lstProce = []
 
+    log.Write([ '# of threads' , str(fMetaData.general['output-parallelism']) ])
+
     for f in range(1, fMetaData.general['output-parallelism']+1):
         strOutFile = fMetaData.general['wfolder'] + fMetaData.general['output'] + (str(f) if f > 1 else '')
         lstFiles.append(strOutFile)
@@ -103,11 +105,10 @@ def process_record(fMetaData, OutDs, q):
                 False)
 
         if fMetaData.general['output-type'] in ['file', 's3-obj', 's3']:
-
             outfile.write(newl + fMetaData.general['separator'].join(OutRec))
-            newl='\n'
         else:
-            OutDs.write(str(OutRec) + '\n')
+            outfile.write(newl + str(OutRec))
+        newl='\n'
 
 def local_input(wfolder, key):
 
