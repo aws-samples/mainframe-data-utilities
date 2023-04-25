@@ -157,9 +157,10 @@ class FileMetaData:
         else:
             log.Write(['Downloading json metadata from s3'])
 
-            json_local = args.wfolder + args.json.split("/")[-1]
+            json_local = (args.wfolder if args.wfolder else '') + args.json.split("/")[-1]
 
-            with open(json_local, 'w') as f: boto3.client('s3').download_fileobj(args.json_s3, args.json, f)
+            with open(json_local, 'wb') as data:
+                boto3.client('s3').download_fileobj(args.json_s3, args.json, data)
 
         with open(json_local) as json_file:
             self.general = json.load(json_file)
