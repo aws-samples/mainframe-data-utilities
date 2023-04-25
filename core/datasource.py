@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import boto3, utils, urllib3
+import boto3, core.utils as utils, urllib3
 
 ddbClient = boto3.client('dynamodb')
 
@@ -14,7 +14,7 @@ class Input:
         self.recfm = general['recfm'] if 'recfm' in general else 'fb'
 
         file = general["input"]
-        
+
         if file[:5] == "s3://":
             s3 = utils.S3File(file)
             self.Input = boto3.client('s3').get_object(Bucket=s3.bucket, Key=s3.s3obje)['Body']
@@ -46,13 +46,13 @@ class Input:
                 l = self.getRDW(self.Input[self.slice - lrecl :self.slice])
                 self.slice += l
                 return self.Input[self.slice - l :self.slice]
-                
+
     def getRDW(self, b: bytearray):
         return int("0x" + b[:2].hex(), 0) - 4 if len(b) > 0 else 0
-            
+
 class Output:
     def __init__(self, param, req_route='', req_tkn='', tmp='') -> None:
-        
+
         log = utils.Log()
         self.type = param['output-type']
         self.Deli = param['separator']
@@ -62,18 +62,18 @@ class Output:
         self.s3bkt = param['output-s3bkt'] if 'output-s3bkt' in param else ''
         self.reqrt = req_route
         self.reqtk = req_tkn
-        self.tmpfd = tmp 
+        self.tmpfd = tmp
         self.list = []
         self.crlf = ''
 
-        if param['output-type'] == 'file' or param['output-type'] == 's3': 
+        if param['output-type'] == 'file' or param['output-type'] == 's3':
             self.Output=open(self.tmpfd + self.dsrc, 'w')
-        elif param['output-type'] == 'ddb': 
-            self.Record = {}  
-            
+        elif param['output-type'] == 'ddb':
+            self.Record = {}
+
     def Write(self, item={}):
-        
-        if item != {}: 
+
+        if item != {}:
             if self.type == 'ddb':
                 self.list.append(item)
             else:
@@ -94,7 +94,7 @@ class Output:
                 if item == {} and self.type == 's3':
                     self.Output.close()
                     boto3.client('s3').put_object(Body=open(self.tmpfd + self.dsrc,'rb'), Bucket=self.s3bkt, Key=self.s3key)
-                                     
+
 class item:
 
     def __init__(self, param):
@@ -104,10 +104,10 @@ class item:
         if self.Type in ['file', 's3-obj', 's3'] : self.Record['row'] = []
 
     def addField(self, id, type, partkey, partkname, sortkey, sortkname, value, addempty = False):
-        
+
         if self.Type == 'ddb' or self.Type == 'sqs':
 
-            if not partkey and not sortkey: 
+            if not partkey and not sortkey:
                 if value != '' or addempty:
                     self.Record[id] = {}
                     self.Record[id]['S' if type == "ch" else 'N'] = value

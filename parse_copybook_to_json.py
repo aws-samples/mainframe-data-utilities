@@ -1,4 +1,4 @@
-import json, sys, copybook
+import json, sys, core.copybook as copybook
 
 def DisParam(arg):
     desc = {
@@ -66,7 +66,7 @@ def CreateExtraction(obj, altstack=[], partklen=0, sortklen=0):
                         red[obj[k]['redefines']]['stack'] = altstack.copy()
                         altpos+=1
                         altlay.insert(altpos,red)
-                
+
 ############################### MAIN ###################################
 print("--------------------------------------------------------------------------------------")
 
@@ -126,7 +126,7 @@ for r in altlay:
 
     newout[redfkey] = r[redfkey].copy()
     newout[redfkey].pop('redefines')
-    
+
     altpos = ialt
     CreateExtraction(output, [], partklen, sortklen)
     ialt += 1

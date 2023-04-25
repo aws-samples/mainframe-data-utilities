@@ -13,7 +13,6 @@ def main(arg):
     cli = CommandLine(log, arg)
 
     if cli.type == 'extr':
-
         Extract.FileProcess(log, cli.Extract)
 
     else:
