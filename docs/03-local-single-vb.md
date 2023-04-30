@@ -2,7 +2,9 @@
 
 ## VB record format files
 
-To convert a Variable Block file you only need to inform the `-input-recfm vb` when parsing the copybook:
+To convert a Variable Block file you only need to inform the `-input-recfm vb` when parsing the copybook.
+
+From the **/src** folder run:
 ```
 python3 mdu.py parse                        \
         ../LegacyReference/COBVBFM2.cpy     \
@@ -12,10 +14,13 @@ python3 mdu.py parse                        \
 -input-recfm vb -verbose true
 ```
 
+The [COBVBFM2-list.json](/sample-json/COBVBFM2-list.json) metadata will be generated at [sample-json](/sample-json)
 
+### Convert the local file
 
+From the **/src** folder, run the `extract` function to convert the `/sample-data/COBVBFM2.EBCDIC.txt` EBCDIC file into an ASCII file.
 ```
-python3 mdu.py ../sample-json/COBVBFM2-list.json
+python3 mdu.py extract ../sample-json/COBVBFM2-list.json
 ```
 
 ### For another use cases
