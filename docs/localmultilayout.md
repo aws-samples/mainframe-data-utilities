@@ -10,14 +10,14 @@ The REDEFINES statement allows multiple layouts declaration in the COBOL languag
 
 The [COBKS05.cpy](/LegacyReference/COBKS05.cpy) is provided in the [LegacyReference](/LegacyReference/) folder as an example of a VSAM file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
 
-Run `mdu.py` script, using the `parse` function, to parse the copybook file provided in [LegacyReference](/LegacyReference):
+From **/src** Run the `mdu.py` script, using the `parse` function, to parse the copybook file provided in [LegacyReference](/LegacyReference):
 
 ```
 python3 mdu.py parse \
-        LegacyReference/COBKS05.cpy   \
+        ../LegacyReference/COBKS05.cpy   \
         ../sample-json/COBKS05-list.json \
--input  sample-data/CLIENT.EBCDIC.txt \
--output sample-data/CLIENT.ASCII.txt  \
+-input  ../sample-data/CLIENT.EBCDIC.txt \
+-output ../sample-data/CLIENT.ASCII.txt  \
 -print  20 -verbose true
 ```
 
