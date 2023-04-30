@@ -39,7 +39,8 @@ The purpose of this project is to provide Python scripts as a starting point for
 
 ## Docs
 
-1. Quickstart: [Parse a copybook and convert the corresponding data file locally](localfile.md).
+1. Quickstart: [Download the source](/docs/sourcecode.md).
+1. Quickstart: [Convert a single layout file](/docs/localsinglelayout.md).
 
 ## Backlog
 
