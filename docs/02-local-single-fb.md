@@ -27,6 +27,6 @@ python3 mdu.py extract ../sample-json/cobpack2-list.json
 
 The generated ASCCI file must match the provided [COBPACK.ASCII.txt](/sample-data/COBPACK.ASCII.txt).
 
-### Convert a sample VB file
+### For another use cases
 
-Check the [Single Layout VB Sample](/docs/03-local-single-vb.md) page.
+Check the [Read me](/docs/readme.md) page.

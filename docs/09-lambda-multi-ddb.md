@@ -34,3 +34,7 @@
 4. Type a name.
 5. Select the 'Put' event type
 6. And the lambda function in the Destination section.
+
+### For another use cases
+
+Check the [Read me](/docs/readme.md) page.

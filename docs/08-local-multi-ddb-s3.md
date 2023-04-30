@@ -17,3 +17,7 @@ To: `"input": "s3://your-bucket-name/yourfolder/CLIENT.EBCDIC.txt",`
 ```
 python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
 ```
+
+### For another use cases
+
+Check the [Read me](/docs/readme.md) page.

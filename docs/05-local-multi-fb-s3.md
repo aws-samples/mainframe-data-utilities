@@ -53,3 +53,11 @@ python3 mdu.py extract ../sample-json/COBKS05-list-rules.json
 ```
 
 4. Check the [CLIENT.ASCII.txt](/sample-data/CLIENT.ASCII.txt) file.
+
+### For another use cases
+
+Check the [Read me](/docs/readme.md) page.
+
+### For another use cases
+
+Check the [Read me](/docs/readme.md) page.
