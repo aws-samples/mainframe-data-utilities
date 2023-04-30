@@ -39,8 +39,8 @@ The purpose of this project is to provide Python scripts as a starting point for
 
 ## Docs
 
-1. Quickstart: [Download the source](/docs/sourcecode.md).
-1. Quickstart: [Convert a single layout file](/docs/localsinglelayout.md).
+1. [Download the source](/docs/sourcecode.md).
+1. [Convert a single layout file](/docs/localsinglelayout.md).
 
 ## Backlog
 

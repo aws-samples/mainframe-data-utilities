@@ -2,7 +2,7 @@
     "function": "parse",
     "copybook": "../LegacyReference/COBPACK2.cpy",
     "json": "../sample-json/cobpack2-list.json",
-    "json_debug": "../sample-json/cobpack2-dict.json",
+    "json_debug": "",
     "input": "../sample-data/COBPACK.OUTFILE.txt",
     "input_s3": "",
     "input_s3_url": "",
