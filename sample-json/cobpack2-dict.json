@@ -1,0 +1,214 @@
+{
+    "REC-OUTFILE": {
+        "id": 1,
+        "level": 1,
+        "group": true,
+        "OUTFILE-TEXT": {
+            "id": 2,
+            "level": 3,
+            "group": false,
+            "pict": "-9(18)",
+            "type": "ch",
+            "length": 18,
+            "bytes": 19,
+            "dplaces": 0
+        },
+        "OUTFILE-UNPACKED": {
+            "id": 3,
+            "level": 3,
+            "group": false,
+            "pict": "9(18)",
+            "type": "zd",
+            "length": 18,
+            "bytes": 18,
+            "dplaces": 0
+        },
+        "OUTFILE-UNPACKED-S": {
+            "id": 4,
+            "level": 3,
+            "group": false,
+            "pict": "S9(18)",
+            "type": "zd+",
+            "length": 18,
+            "bytes": 18,
+            "dplaces": 0
+        },
+        "BINARY-FIELDS": {
+            "id": 5,
+            "level": 3,
+            "group": true,
+            "OUTFILE-COMP-04": {
+                "id": 6,
+                "level": 5,
+                "group": false,
+                "pict": "9(04)",
+                "type": "bi",
+                "length": 4,
+                "bytes": 2,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP-04-S": {
+                "id": 7,
+                "level": 5,
+                "group": false,
+                "pict": "S9(04)",
+                "type": "bi+",
+                "length": 4,
+                "bytes": 2,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP-09": {
+                "id": 8,
+                "level": 5,
+                "group": false,
+                "pict": "9(09)",
+                "type": "bi",
+                "length": 9,
+                "bytes": 4,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP-09-S": {
+                "id": 9,
+                "level": 5,
+                "group": false,
+                "pict": "S9(09)",
+                "type": "bi+",
+                "length": 9,
+                "bytes": 4,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP-18": {
+                "id": 10,
+                "level": 5,
+                "group": false,
+                "pict": "9(18)",
+                "type": "bi",
+                "length": 18,
+                "bytes": 8,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP-18-S": {
+                "id": 11,
+                "level": 5,
+                "group": false,
+                "pict": "S9(18)",
+                "type": "bi+",
+                "length": 18,
+                "bytes": 8,
+                "dplaces": 0
+            }
+        },
+        "PACKED-DECIMAL-FIELDS": {
+            "id": 12,
+            "level": 3,
+            "group": true,
+            "OUTFILE-COMP3-04": {
+                "id": 13,
+                "level": 5,
+                "group": false,
+                "pict": "9(04)",
+                "type": "pd",
+                "length": 4,
+                "bytes": 3,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP3-04-S": {
+                "id": 14,
+                "level": 5,
+                "group": false,
+                "pict": "S9(04)",
+                "type": "pd+",
+                "length": 4,
+                "bytes": 3,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP3-09": {
+                "id": 15,
+                "level": 5,
+                "group": false,
+                "pict": "9(09)",
+                "type": "pd",
+                "length": 9,
+                "bytes": 5,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP3-09-S": {
+                "id": 16,
+                "level": 5,
+                "group": false,
+                "pict": "S9(09)",
+                "type": "pd+",
+                "length": 9,
+                "bytes": 5,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP3-18": {
+                "id": 17,
+                "level": 5,
+                "group": false,
+                "pict": "9(18)",
+                "type": "pd",
+                "length": 18,
+                "bytes": 10,
+                "dplaces": 0
+            },
+            "OUTFILE-COMP3-18-S": {
+                "id": 18,
+                "level": 5,
+                "group": false,
+                "pict": "S9(18)",
+                "type": "pd+",
+                "length": 18,
+                "bytes": 10,
+                "dplaces": 0
+            }
+        },
+        "GROUP1": {
+            "id": 19,
+            "level": 3,
+            "group": true,
+            "GROUP1-1": {
+                "id": 20,
+                "level": 5,
+                "group": true,
+                "occurs": 2,
+                "TEXT1": {
+                    "id": 21,
+                    "level": 7,
+                    "group": false,
+                    "pict": "X(01)",
+                    "type": "ch",
+                    "length": 1,
+                    "bytes": 1,
+                    "dplaces": 0
+                }
+            }
+        },
+        "GROUP2": {
+            "id": 22,
+            "level": 3,
+            "group": true,
+            "redefines": "GROUP1",
+            "TEXT2": {
+                "id": 23,
+                "level": 5,
+                "group": false,
+                "pict": "X(02)",
+                "type": "ch",
+                "length": 2,
+                "bytes": 2,
+                "dplaces": 0
+            }
+        },
+        "FILLER_1": {
+            "id": 24,
+            "level": 3,
+            "group": false,
+            "pict": "X(29)",
+            "type": "ch",
+            "length": 29,
+            "bytes": 29,
+            "dplaces": 0
+        }
+    }
+}
