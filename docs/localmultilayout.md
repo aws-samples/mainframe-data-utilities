@@ -23,10 +23,10 @@ python3 mdu.py parse \
 
 ### Extracting a multiple layout file
 
-2. The step above will generate the [COBKS05-list.json](sample-data/COBKS05-list.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list.json`:
+2. The step above will generate the [COBKS05-list.json](/sample-json/COBKS05-list.json) with an empty transformation rules list: `"transf_rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list-rules.json`:
 
 ```
- "transf-rule": [
+ "transf_rule": [
         {
             "offset": 4,
             "size": 2,
@@ -42,14 +42,14 @@ python3 mdu.py parse \
     ],
 ```
 
-The parameters above will inform the `extract_ebcdic_to_ascii.py` script that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout, whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
+The parameters above will inform the `extract` function that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout, whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
 
-The result of the change above must produce a file like [COBKS05-rules.json](sample-data/COBKS05-rules.json).
+The result of the change above must produce a file like [COBKS05-rules.json](/sample-json/COBKS05-rules.json).
 
-3. Run `extract_ebcdic_to_ascii.py` to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
+3. From **/src** folder run `mdu.py extract` to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
 ```
-python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
+python3 mdu.py extract ../sample-json/COBKS05-list-rules.json
 ```
 
-4. Check the [CLIENT.ASCII.txt](sample-data/CLIENT.ASCII.txt) file.
+4. Check the [CLIENT.ASCII.txt](/sample-data/CLIENT.ASCII.txt) file.
