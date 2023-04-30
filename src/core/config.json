@@ -1,0 +1,149 @@
+{
+    "parse": {
+        "help": "",
+        "argument": {
+            "copybook": {
+                "help": "Path to the Copybook to be parsed.",
+                "default": ""
+            },
+            "json": {
+                "help": "Path to the JSON metadata to be generated.",
+                "default": ""
+            },
+            "-json-debug": {
+                "help": "Path to the JSON debug file.",
+                "default": ""
+            },
+            "-input": {
+                "help": "Path to the EBCDIC data file to be read.",
+                "default": "ebcdic_file.txt"
+            },
+            "-input-s3": {
+                "help": "S3 Bucket name (without s3://) to download the EBCDIC data file.",
+                "default": ""
+            },
+            "-input-s3-url": {
+                "help": "S3 Object lamnbda url.",
+                "default": ""
+            },
+            "-input-recfm": {
+                "help": "Input file record format (FB/VB).",
+                "default": "fb"
+            },
+            "-input-recl": {
+                "help": "Input file length.",
+                "default": 0
+            },
+            "-output-type": {
+                "help": "Output type (file or ddb).",
+                "default": "file"
+            },
+            "-output": {
+                "help": "Output ASCII file name or Dynamodb table.",
+                "default": ""
+            },
+            "-output-s3": {
+                "help": "S3 Bucket name (without s3://) to upload the ASCII data file.",
+                "default": ""
+            },
+            "-output-parallelism": {
+                "help": "Number of threads.",
+                "default": 1
+            },
+            "-output-separator": {
+                "help": "Character between fields.",
+                "default": "|"
+            },
+            "-part-k-len": {
+                "help": "Length of the Dynamodb partition key in the source file.",
+                "default": 0
+            },
+            "-part-k-name": {
+                "help": "Name to be given the Dynamodb partition key.",
+                "default": ""
+            },
+            "-sort-k-len": {
+                "help": "Length of the Dynamodb sort key in the source file.",
+                "default": 0,
+                "type": "int"
+            },
+            "-sort-k-name": {
+                "help": "Name to be given the Dynamodb sort key.",
+                "default": ""
+            },
+            "-req-size": {
+                "help": "Number of BatchWriteItem itens.",
+                "default": 0
+            },
+            "-print": {
+                "help": "Records to read before print status.",
+                "default": 0
+            },
+            "-skip": {
+                "help": "Records to skip.",
+                "default": 0
+            },
+            "-max": {
+                "help": "Max number of records to process.",
+                "default": 0
+            },
+            "-rem-low-values": {
+                "help": "Remove low values from text.",
+                "default": true
+            },
+            "-rem-spaces": {
+                "help": "Remove ltrailing spaces from text.",
+                "default": false
+            },
+            "-working-folder": {
+                "help": "Working folder.",
+                "default": ""
+            },
+            "-verbose": {
+                "help": "Verbose mode.",
+                "default": false
+            }
+        }
+    },
+    "extract": {
+        "help": "",
+        "argument": {
+            "json": {
+                "help": "Path to the JSON metadata to be read.",
+                "default": ""
+            },
+            "-json-s3": {
+                "help": "Json metadata file S3 Bucket name.",
+                "default": ""
+            },
+            "-input": {
+                "help": "Path to the EBCDIC data file to be read (overrides the json metadata).",
+                "default": ""
+            },
+            "-input-s3": {
+                "help": "S3 Bucket name (without s3://) to download the EBCDIC data file (overrides the json metadata).",
+                "default": ""
+            },
+            "-input-s3-url": {
+                "help": "S3 Object lamnbda url. (overrides the json metadata",
+                "default": ""
+            },
+            "-output": {
+                "help": "Output ASCII file name or Dynamodb table (overrides the json metadata).",
+                "default": ""
+            },
+            "-output-s3": {
+                "help": "S3 Bucket name (without s3://) to upload the ASCII data file (overrides the json metadata).",
+                "default": ""
+            },
+            "-working-folder": {
+                "help": "Working folder.",
+                "default": ""
+            },
+            "-verbose": {
+                "help": "Verbose mode.",
+                "default": false
+            }
+        }
+    }
+}

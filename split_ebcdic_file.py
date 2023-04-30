@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # How to run: split_ebcdic.py -local-json sample-data/COBKS05-split.json
 
-import utils, sys, boto3, json
+import core.utils as utils, sys, boto3, json
 
 log = utils.Log()
 
@@ -11,10 +11,10 @@ def getRDW(b: bytearray):
 
 def stats(reads, rules, writes):
 
-    log.Write(['Records read', str(reads)]) 
+    log.Write(['Records read', str(reads)])
 
     for rule in rules:
-        log.Write(['Records written', rule['file'], str(writes[rule['file']])]) 
+        log.Write(['Records written', rule['file'], str(writes[rule['file']])])
 
 def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0, recfm='fb'):
 
@@ -42,7 +42,7 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0, r
             record = Input.read(l)
 
         if not record: break
-        
+
         ctRead += 1
 
         i+= 1
@@ -62,7 +62,7 @@ def run(inputfile, lrecl, split_rule, bucket = '', max = 0, skip = 0, print=0, r
             boto3.client('s3').put_object(Body=open(rule['file'], 'rb'), Bucket=rule['bucket'], Key=rule['key'])
 
     stats(ctRead, split_rule, ctWrit)
-        
+
 if __name__ == '__main__':
 
     arg = dict(zip(sys.argv[1::2], sys.argv[2::2]))

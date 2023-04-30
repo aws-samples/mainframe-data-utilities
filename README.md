@@ -1,5 +1,8 @@
 # Mainframe Data Utilities
 
+| :exclamation:  Mainframe Data Utilities v2 documentation available at [docs](docs) |
+|-----------------------------------------|
+
 Table of contents
 =================
 * Security
@@ -33,7 +36,7 @@ The purpose of this project is to provide Python scripts as a starting point for
 
 The current release of this toolset consists of three scripts:
 
-- **parse_copybook_to_json** is a module that creates a JSON parameter file by parsing Cobol Copybook. The parameter file is a description of the file EBCDIC file layout, required by extract_ebcdic_to_ascii.py 
+- **parse_copybook_to_json** is a module that creates a JSON parameter file by parsing Cobol Copybook. The parameter file is a description of the file EBCDIC file layout, required by extract_ebcdic_to_ascii.py
 
 - **extract_ebcdic_to_ascii.py** uses the JSON parameter file to slice a fixed length EBCDIC file, unpack its contents and write them to an ASCII file.
 
@@ -52,7 +55,7 @@ Make sure [Python](https://www.python.org/downloads/) 3.8 or above is installed.
 ## Limitations
 
 1. File layouts defined inside Cobol programs are not supported.
-2. Packing statement is ignored when defined before the PIC clause. 
+2. Packing statement is ignored when defined before the PIC clause.
 3. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
 4. The `REDEFINES` statement for **data items**, it's only supported for **group items**.
 
@@ -75,7 +78,7 @@ python3      parse_copybook_to_json.py       \
 -dict        sample-data/cobpack2-dict.json  \
 -ebcdic      sample-data/COBPACK.OUTFILE.txt \
 -ascii       sample-data/COBPACK.ASCII.txt   \
--print       10000                           
+-print       10000
 ```
 
 ### Extracting ebcdic data to a delimiter-separated ASCII file
@@ -150,7 +153,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-list.json
 1. Create the DynanamoDb table which will be loaded on next steps. In this example we defined `CLIENT` as the table name, `CLIENT-ID` as its partition key, and CLIENT-R-TYPE as its sort key.
 
 ```
-aws dynamodb create-table --table-name CLIENT --attribute-definitions AttributeName=CLIENT-ID,AttributeType=S AttributeName=CLIENT-R-TYPE,AttributeType=S  --key-schema AttributeName=CLIENT-ID,KeyType=HASH AttributeName=CLIENT-R-TYPE,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 
+aws dynamodb create-table --table-name CLIENT --attribute-definitions AttributeName=CLIENT-ID,AttributeType=S AttributeName=CLIENT-R-TYPE,AttributeType=S  --key-schema AttributeName=CLIENT-ID,KeyType=HASH AttributeName=CLIENT-R-TYPE,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
 ```
 
 2. Check the status of the table creation:
@@ -237,7 +240,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
 1. Create an S3 bucket.
 2. Create the folder that will receive the input EBCDIC data file.
 3. Create a `layout/` folder inside the bucket/folder previously created.
-4. Rename the [sample-data/COBKS05-ddb-s3.json](sample-data/COBKS05-ddb-s3.json) to `CLIENT.json` 
+4. Rename the [sample-data/COBKS05-ddb-s3.json](sample-data/COBKS05-ddb-s3.json) to `CLIENT.json`
 5. Remove the `input` key inside the CLIENT.json file and upload it to the `/layout` folder.
 
 ### Create the Lambda function
@@ -251,7 +254,7 @@ python3 extract_ebcdic_to_ascii.py -local-json sample-data/COBKS05-ddb-s3.json
    zip mdu.zip *.py
    ```
 3. Change the Lambda funcion 'Handler' from `lambda_function.lambda_handler` to `extract_ebcdic_to_ascii.lambda_handler` under the Runtime settings section.
-4. Create a new Lambda test event with the contens of `sample-data/CLIENT-TEST.json` 
+4. Create a new Lambda test event with the contens of `sample-data/CLIENT-TEST.json`
 5. Replace the `your-bucket-name` by the bucket name created on step 1 and trigger the event.
 6. Change the timeout to 10 seconds under General configuration.
 7. Trigger the test.
@@ -279,7 +282,7 @@ python3 split_ebcdic_file.py -local-json sample-data/COBKS05-split-local.json
 
 ### parse_copybook_to_json
 
-Mainframe files are typically packed (into decimal and binary formats), and encoded in EBCDIC. 
+Mainframe files are typically packed (into decimal and binary formats), and encoded in EBCDIC.
 
 To make the extraction possible it's important to slice the source file according to its layouts and data types. This module is an automation that reads the file's layout from a Cobol copybook and creates a JSON file that holds the information required to interpret and extract the data from the source file.
 
@@ -362,37 +365,37 @@ Both **input** (EBCDIC) and **output** (ASCII) files are identified by the JSON 
    "output": "extract-ebcdic-to-ascii/COBPACK.ASCII.txt",
 ```
 
-## LegacyReference 
+## LegacyReference
 
 The source code under the *LegacyReference* folder are JCL and Cobol components created exclusively to generate EBCDIC data mass for testing purposes.
 
 The [layout](LegacyReference/COBPACK2.cpy) of the [source file](sample-data/COBPACK.OUTFILE.txt) used for testing (in Cobol notation) is:
 
 ```
-01 REC-OUTFILE.                                                 
-   03 OUTFILE-TEXT                PIC -9(18).                    
-   03 OUTFILE-UNPACKED            PIC  9(18).                    
-   03 OUTFILE-UNPACKED-S          PIC S9(18).                    
-   03 BINARY-FIELDS.                                           
-      05 OUTFILE-COMP-04          PIC  9(04) COMP.               
-      05 OUTFILE-COMP-04-S        PIC S9(04) COMP.               
-      05 OUTFILE-COMP-09          PIC  9(09) COMP.               
-      05 OUTFILE-COMP-09-S        PIC S9(09) COMP.               
-      05 OUTFILE-COMP-18          PIC  9(18) COMP.               
-      05 OUTFILE-COMP-18-S        PIC S9(18) COMP.               
-   03 PACKED-DECIMAL-FIELDS.                                  
-      05 OUTFILE-COMP3-04         PIC  9(04) COMP-3.             
-      05 OUTFILE-COMP3-04-S       PIC S9(04) COMP-3.             
-      05 OUTFILE-COMP3-09         PIC  9(09) COMP-3.             
-      05 OUTFILE-COMP3-09-S       PIC S9(09) COMP-3.             
-      05 OUTFILE-COMP3-18         PIC  9(18) COMP-3.             
-      05 OUTFILE-COMP3-18-S       PIC S9(18) COMP-3.             
+01 REC-OUTFILE.
+   03 OUTFILE-TEXT                PIC -9(18).
+   03 OUTFILE-UNPACKED            PIC  9(18).
+   03 OUTFILE-UNPACKED-S          PIC S9(18).
+   03 BINARY-FIELDS.
+      05 OUTFILE-COMP-04          PIC  9(04) COMP.
+      05 OUTFILE-COMP-04-S        PIC S9(04) COMP.
+      05 OUTFILE-COMP-09          PIC  9(09) COMP.
+      05 OUTFILE-COMP-09-S        PIC S9(09) COMP.
+      05 OUTFILE-COMP-18          PIC  9(18) COMP.
+      05 OUTFILE-COMP-18-S        PIC S9(18) COMP.
+   03 PACKED-DECIMAL-FIELDS.
+      05 OUTFILE-COMP3-04         PIC  9(04) COMP-3.
+      05 OUTFILE-COMP3-04-S       PIC S9(04) COMP-3.
+      05 OUTFILE-COMP3-09         PIC  9(09) COMP-3.
+      05 OUTFILE-COMP3-09-S       PIC S9(09) COMP-3.
+      05 OUTFILE-COMP3-18         PIC  9(18) COMP-3.
+      05 OUTFILE-COMP3-18-S       PIC S9(18) COMP-3.
    03 GROUP1.
-      05 GROUP1-1 OCCURS 2 TIMES.                                 
-         07 TEXT1                 PIC  X(01).                     
+      05 GROUP1-1 OCCURS 2 TIMES.
+         07 TEXT1                 PIC  X(01).
    03 GROUP2 REDEFINES GROUP1.
-      05 TEXT2                    PIC  X(02).                    
-   03 FILLER                      PIC  X(29).                   
+      05 TEXT2                    PIC  X(02).
+   03 FILLER                      PIC  X(29).
 ```
 
 ## Do you want to help?
