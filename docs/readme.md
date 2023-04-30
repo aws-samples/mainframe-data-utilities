@@ -27,7 +27,8 @@ The purpose of this project is to provide Python scripts as a starting point for
 
 ## Requirements
 
-Make sure [Python](https://www.python.org/downloads/) 3.8 or above is installed.
+- [Python](https://www.python.org/downloads/) 3.8 or above
+- [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 
 ## Limitations
 

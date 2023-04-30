@@ -5,7 +5,7 @@
 ### Clone this repo:
 
 ```
-git clone git@github.com:aws-samples/mainframe-data-utilities.git.
+git clone -b mdu_v2 git@github.com:aws-samples/mainframe-data-utilities.git.
 ```
 
 ### Change directory:
