@@ -16,7 +16,7 @@ cd mainframe-data-utilities/src
 
 ### Parse a sample copybook
 
-`mdu.py` is now the root CLI script. Run the `parse` function to parse the [COBPACK2](LegacyReference/COBPACK2.cpy) copybook file provided in `sample-data`.
+`mdu.py` is now the root CLI script. Run the `parse` function to parse the [COBPACK2](/LegacyReference/COBPACK2.cpy) copybook file provided in `sample-data`.
 
 ```
 python3 mdu.py parse \

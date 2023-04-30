@@ -38,7 +38,7 @@ Make sure [Python](https://www.python.org/downloads/) 3.8 or above is installed.
 
 ## Docs
 
-1. Quickstart: [Parse a copybook and convert the corresponding data file localy](localfile.md).
+1. Quickstart: [Parse a copybook and convert the corresponding data file locally](localfile.md).
 
 ## Backlog
 
