@@ -39,8 +39,15 @@ The purpose of this project is to provide Python scripts as a starting point for
 
 ## Docs
 
-1. [Download the source](/docs/sourcecode.md).
-1. [Convert a single layout file](/docs/localsinglelayout.md).
+First [download the source](/docs/01-sourcecode.md).
+
+There are some examples about how to extract data on different use cases:
+
+1. [Single layout FB file](/docs/02-local-single-fb.md).
+1. [Single layout VB file](/docs/03-local-single-vb.md).
+1. [Multiple layout FB file](/docs/04-local-multi-fb.md).
+1. [Multiple layout FB file from an S3 bucket]().
+
 
 ## Backlog
 

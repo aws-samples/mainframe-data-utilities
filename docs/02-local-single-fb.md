@@ -1,6 +1,6 @@
 # Mainframe Data Utilities V2
 
-## Locally convert a single layout file
+## Locally convert a single layout FB file
 
 ### Parse a sample copybook
 
@@ -26,3 +26,7 @@ python3 mdu.py extract ../sample-json/cobpack2-list.json
 ```
 
 The generated ASCCI file must match the provided [COBPACK.ASCII.txt](/sample-data/COBPACK.ASCII.txt).
+
+### Convert a sample VB file
+
+Check the [Single Layout VB Sample](/docs/03-local-single-vb.md) page.
