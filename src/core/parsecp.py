@@ -67,8 +67,8 @@ def RunParse(log, iparm):
     # get the default values
     param = vars(iparm)
 
-    #partklen = iparm.part_k_len
-    #sortklen = iparm.sort_k_len
+    partklen = iparm.part_k_len
+    sortklen = iparm.sort_k_len
 
     CreateExtraction(output, [], partklen, sortklen)
 

@@ -1,4 +1,4 @@
-# Mainframe Data Utilities V2 <- current
+# Mainframe Data Utilities V2
 
 ## Locally convert a multiple layout file and upload to S3
 

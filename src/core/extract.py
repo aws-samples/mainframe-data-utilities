@@ -79,21 +79,31 @@ def FileProcess(log, ExtArgs):
 
 def process_record(log, fMetaData, OutDs, q):
 
-    outfile = open(OutDs, 'w')
-    newl = ''
+    if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
+        outfile = open(OutDs, 'w')
+        newl = ''
+    else:
+        outfile = []
 
     while True:
         record = q.get()
         if record is None:
-            outfile.close()
+            if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
 
-            if fMetaData.general['output_s3'] != '':
-                if fMetaData.general['verbose']: log.Write(['Uploading to s3', OutDs])
+                outfile.close()
 
-                try:
-                    response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], OutDs)
-                except ClientError as e:
-                    log.Write(e)
+                if fMetaData.general['output_s3'] != '':
+
+                    if fMetaData.general['verbose']: log.Write(['Uploading to s3', OutDs])
+
+                    try:
+                        response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], OutDs)
+                    except ClientError as e:
+                        log.Write(e)
+            else:
+                if len(outfile) >= 0:
+                    log.Write(['Updating DynamoDB', str(len(outfile))])
+                    response = boto3.client('dynamodb').batch_write_item(RequestItems={ fMetaData.general['output'] : outfile })
             break
 
         OutRec = [] if fMetaData.general['output_type'] in ['file', 's3-obj', 's3'] else {}
@@ -115,9 +125,15 @@ def process_record(log, fMetaData, OutDs, q):
 
         if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
             outfile.write(newl + fMetaData.general['output_separator'].join(OutRec))
+            newl='\n'
         else:
-            outfile.write(newl + str(OutRec))
-        newl='\n'
+            # prepare the batchwrite
+            outfile.append({'PutRequest' : { 'Item' : OutRec }})
+
+            if len(outfile) >= fMetaData.general['req_size']:
+                log.Write(['Updating DynamoDB', str(len(outfile))])
+                response = boto3.client('dynamodb').batch_write_item(RequestItems={ fMetaData.general['output'] : outfile })
+                outfile = []
 
 def local_input(working_folder, key):
 
@@ -141,8 +157,8 @@ def addField(outtype, record, id, type, partkey, partkname, sortkey, sortkname, 
     else:
         if not partkey and not sortkey:
             if value != '' or addempty:
-                record[id] = {}
-                record[id]['S' if type == "ch" else 'N'] = value
+                record[id.replace('-','_')] = {}
+                record[id.replace('-','_')]['S' if type == "ch" else 'N'] = value
         elif not partkey:
             if sortkname in record:
                 record[sortkname]['S'] = record[sortkname]['S'] + "|" + value
