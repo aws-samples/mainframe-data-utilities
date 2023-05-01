@@ -47,7 +47,7 @@ python3      src/mdu.py parse              \
 ```
 ### Set the transformatiom rules
 
-The step above will generate the [COBKS05-ddb.json](sample-json/COBKS05-ddb.json) with empty transformation rules: `"transf-rule"=[],`. Replace the transformation rule with the content bellow and save it. Example: [COBKS05-ddb-rules.json](sample-json/COBKS05-ddb-rules.json):
+The step above will generate the [COBKS05-ddb.json](sample-json/COBKS05-ddb.json) with empty transformation rules: `"transf_rule"=[],`. Replace the transformation rule with the content bellow and save it. Example: [COBKS05-ddb-rules.json](sample-json/COBKS05-ddb-rules.json):
 
 ```
  "transf_rule": [
