@@ -1,4 +1,4 @@
-# Mainframe Data Utilities V2 <-
+# Mainframe Data Utilities V2
 
 ## VB record format files
 

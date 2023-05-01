@@ -1,20 +1,25 @@
-# Mainframe Data Utilities V2
+# Mainframe Data Utilities V2 <-
 
-## Locally convert a multiple layout file (reading a data file from S3)
+## Locally convert a multiple layout file
 
+### Upload the input file to S3
+
+```
+aws s3 cp sample-data/CLIENT.EBCDIC.txt s3://your-bucket-name/sample-data/
+```
 ### Parsing a multiple layout copybook
 
-The [COBKS05.cpy](/LegacyReference/COBKS05.cpy) is provided in the [LegacyReference](/LegacyReference/) folder as an example of a VSAM/flat file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
+Run the `src/mdu.py` script, using the `parse` function, to convert the copybook file provided in [LegacyReference](/LegacyReference) from Cobol to JSON representation:
 
-From **/src** Run the `mdu.py` script, using the `parse` function, to parse the copybook file provided in [LegacyReference](/LegacyReference):
-
+```
 python3     src/mdu.py parse \
             LegacyReference/COBKS05.cpy   \
-            sample-json/COBKS05-list.json \
+            sample-json/COBKS05-list-s3.json \
 -input      sample-data/CLIENT.EBCDIC.txt \
--input-s3   luisdant-temp \
+-input-s3   your-bucket-name \
 -output     sample-data/CLIENT.ASCII.txt  \
 -print      20 -verbose true
+```
 
 ### Extracting a multiple layout file
 
@@ -37,22 +42,16 @@ python3     src/mdu.py parse \
     ],
 ```
 
-The parameters above will inform the `extract` function that records having "0002" hexadecimal value between its 5th and 6th bytes must be converted through the layout specified in "transf1" layout, whereas records that contain "0000" at the same position will be extracted with the "transf2" layout.
+The result of the change above must produce a file like [COBKS05-s3-rules.json](/sample-json/COBKS05-rules.json).
 
-The result of the change above must produce a file like [COBKS05-rules.json](/sample-json/COBKS05-rules.json).
-
-3. From **/src** folder run `mdu.py extract` to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
+3. Run the `src/mdu.py extract` fucntion to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
 ```
-python3 mdu.py extract ../sample-json/COBKS05-list-rules.json
+python3 src/mdu.py extract sample-json/COBKS05-list-s3.json
 ```
 
 4. Check the [CLIENT.ASCII.txt](/sample-data/CLIENT.ASCII.txt) file.
 
-### For another use cases
-
-Check the [Read me](/docs/readme.md) page.
-
-### For another use cases
+### For more use cases
 
 Check the [Read me](/docs/readme.md) page.

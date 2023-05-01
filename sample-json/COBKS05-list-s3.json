@@ -1,10 +1,10 @@
 {
     "function": "parse",
     "copybook": "LegacyReference/COBKS05.cpy",
-    "json": "sample-json/COBKS05-list.json",
+    "json": "sample-json/COBKS05-list-s3.json",
     "json_debug": "",
     "input": "sample-data/CLIENT.EBCDIC.txt",
-    "input_s3": "",
+    "input_s3": "your-bucket-name",
     "input_s3_url": "",
     "input_recfm": "fb",
     "input_recl": 500,
@@ -25,7 +25,20 @@
     "rem_spaces": false,
     "working_folder": "",
     "verbose": true,
-    "transf_rule": [],
+    "transf_rule": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "transf": "transf1"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "transf": "transf2"
+        }
+    ],
     "transf": [
         {
             "type": "bi",

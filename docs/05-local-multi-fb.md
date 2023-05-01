@@ -21,7 +21,7 @@ python3 src/mdu.py parse \
 -print  20 -verbose true
 ```
 
-### Extracting a multiple layout file
+### Add the transformation rules
 
 2. The step above will generate the [COBKS05-list.json](/sample-json/COBKS05-list.json) with an empty transformation rules list: `"transf_rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list-rules.json`:
 
@@ -46,10 +46,12 @@ The parameters above will inform the `extract` function that records having "000
 
 The result of the change above must produce a file like [COBKS05-rules.json](/sample-json/COBKS05-rules.json).
 
-3. From **/src** folder run `mdu.py extract` to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
+### Extract a multiple layout file
+
+3. Run the `src/mdu.py extract` fucntion to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
 ```
-python3 mdu.py extract ../sample-json/COBKS05-list-rules.json
+python3 src/mdu.py extract sample-json/COBKS05-list-rules.json
 ```
 
 4. Check the [CLIENT.ASCII.txt](/sample-data/CLIENT.ASCII.txt) file.
