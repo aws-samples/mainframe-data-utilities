@@ -5,6 +5,7 @@ import boto3, urllib3, json
 import multiprocessing as mp
 from core.ebcdic        import unpack
 from itertools          import cycle
+from botocore.exceptions import ClientError
 
 def FileProcess(log, ExtArgs):
 
@@ -49,7 +50,7 @@ def FileProcess(log, ExtArgs):
         strOutFile = fMetaData.general['working_folder'] + fMetaData.general['output'] + (str(f) if f > 1 else '')
         lstFiles.append(strOutFile)
         dctQueue[strOutFile] = mp.Queue()
-        p = mp.Process(target=process_record, args=(fMetaData, strOutFile, dctQueue[strOutFile]))
+        p = mp.Process(target=process_record, args=(log, fMetaData, strOutFile, dctQueue[strOutFile]))
         p.start()
         lstProce.append(p)
 
@@ -76,7 +77,7 @@ def FileProcess(log, ExtArgs):
 
     log.Write(['Records processed', str(i)])
 
-def process_record(fMetaData, OutDs, q):
+def process_record(log, fMetaData, OutDs, q):
 
     outfile = open(OutDs, 'w')
     newl = ''
@@ -85,6 +86,14 @@ def process_record(fMetaData, OutDs, q):
         record = q.get()
         if record is None:
             outfile.close()
+
+            if fMetaData.general['output_s3'] != '':
+                if fMetaData.general['verbose']: log.Write(['Uploading to s3', OutDs])
+
+                try:
+                    response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], OutDs)
+                except ClientError as e:
+                    log.Write(e)
             break
 
         OutRec = [] if fMetaData.general['output_type'] in ['file', 's3-obj', 's3'] else {}

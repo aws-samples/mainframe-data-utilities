@@ -1,4 +1,4 @@
-# Mainframe Data Utilities V2 <-
+# Mainframe Data Utilities V2
 
 ## Locally convert a multiple layout file
 
@@ -7,7 +7,7 @@
 ```
 aws s3 cp sample-data/CLIENT.EBCDIC.txt s3://your-bucket-name/sample-data/
 ```
-### Parsing a multiple layout copybook
+### Parse a multiple layout copybook
 
 Run the `src/mdu.py` script, using the `parse` function, to convert the copybook file provided in [LegacyReference](/LegacyReference) from Cobol to JSON representation:
 
@@ -21,7 +21,7 @@ python3     src/mdu.py parse \
 -print      20 -verbose true
 ```
 
-### Extracting a multiple layout file
+### Extract a multiple layout file
 
 2. The step above will generate the [COBKS05-list.json](/sample-json/COBKS05-list.json) with an empty transformation rules list: `"transf_rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list-rules.json`:
 
