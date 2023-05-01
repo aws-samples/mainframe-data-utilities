@@ -1,25 +1,20 @@
 # Mainframe Data Utilities V2
 
-## Locally convert a multiple layout file
-
-There are often multiple layouts in mainframe VSAM or sequential (flat) files. It means that you need a different transformation rule depending on the row you are reading.
-
-The REDEFINES statement allows multiple layouts declaration in the COBOL language.
+## Locally convert a multiple layout file (reading a data file from S3)
 
 ### Parsing a multiple layout copybook
 
-The [COBKS05.cpy](/LegacyReference/COBKS05.cpy) is provided in the [LegacyReference](/LegacyReference/) folder as an example of a VSAM file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
+The [COBKS05.cpy](/LegacyReference/COBKS05.cpy) is provided in the [LegacyReference](/LegacyReference/) folder as an example of a VSAM/flat file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
 
 From **/src** Run the `mdu.py` script, using the `parse` function, to parse the copybook file provided in [LegacyReference](/LegacyReference):
 
-```
-python3 mdu.py parse \
-        ../LegacyReference/COBKS05.cpy   \
-        ../sample-json/COBKS05-list.json \
--input  ../sample-data/CLIENT.EBCDIC.txt \
--output ../sample-data/CLIENT.ASCII.txt  \
--print  20 -verbose true
-```
+python3     src/mdu.py parse \
+            LegacyReference/COBKS05.cpy   \
+            sample-json/COBKS05-list.json \
+-input      sample-data/CLIENT.EBCDIC.txt \
+-input-s3   luisdant-temp \
+-output     sample-data/CLIENT.ASCII.txt  \
+-print      20 -verbose true
 
 ### Extracting a multiple layout file
 
@@ -53,6 +48,10 @@ python3 mdu.py extract ../sample-json/COBKS05-list-rules.json
 ```
 
 4. Check the [CLIENT.ASCII.txt](/sample-data/CLIENT.ASCII.txt) file.
+
+### For another use cases
+
+Check the [Read me](/docs/readme.md) page.
 
 ### For another use cases
 

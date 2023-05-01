@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 
 class CommandLine:
 
@@ -7,7 +8,7 @@ class CommandLine:
 
         parser = {}
 
-        with open("core//config.json", "r") as configfile:
+        with open(os.path.dirname(os.path.realpath(__file__)) + '//config.json', 'r') as configfile:
             config = json.load(configfile)
 
         main_arg = argparse.ArgumentParser()

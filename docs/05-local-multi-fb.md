@@ -8,16 +8,16 @@ The REDEFINES statement allows multiple layouts declaration in the COBOL languag
 
 ### Parsing a multiple layout copybook
 
-The [COBKS05.cpy](/LegacyReference/COBKS05.cpy) is provided in the [LegacyReference](/LegacyReference/) folder as an example of a VSAM file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
+The [COBKS05.cpy](/LegacyReference/COBKS05.cpy) is provided in the [LegacyReference](/LegacyReference/) folder as an example of a VSAM or a flat file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.
 
-From **/src** Run the `mdu.py` script, using the `parse` function, to parse the copybook file provided in [LegacyReference](/LegacyReference):
+Run the `src/mdu.py` script, using the `parse` function, to convert the copybook file provided in [LegacyReference](/LegacyReference) from Cobol to JSON representation:
 
 ```
-python3 mdu.py parse \
-        ../LegacyReference/COBKS05.cpy   \
-        ../sample-json/COBKS05-list.json \
--input  ../sample-data/CLIENT.EBCDIC.txt \
--output ../sample-data/CLIENT.ASCII.txt  \
+python3 src/mdu.py parse \
+        LegacyReference/COBKS05.cpy   \
+        sample-json/COBKS05-list.json \
+-input  sample-data/CLIENT.EBCDIC.txt \
+-output sample-data/CLIENT.ASCII.txt  \
 -print  20 -verbose true
 ```
 
@@ -54,10 +54,6 @@ python3 mdu.py extract ../sample-json/COBKS05-list-rules.json
 
 4. Check the [CLIENT.ASCII.txt](/sample-data/CLIENT.ASCII.txt) file.
 
-### For another use cases
-
-Check the [Read me](/docs/readme.md) page.
-
-### For another use cases
+### For more use cases
 
 Check the [Read me](/docs/readme.md) page.

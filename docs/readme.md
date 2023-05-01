@@ -52,6 +52,7 @@ There are some examples about how to extract data on different use cases:
 ## Backlog
 
 ### General
+- There are still some try / exceptions to be coded.
 - Test automation.
 - Code organization / refactoring.
 
