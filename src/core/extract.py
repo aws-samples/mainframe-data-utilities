@@ -179,16 +179,18 @@ class FileMetaData:
         if args.json_s3 == '':
             json_local = args.working_folder + args.json
 
+            with open(json_local) as json_file:
+                self.general = json.load(json_file)
         else:
             json_local = args.working_folder + args.json.split("/")[-1]
 
             log.Write(['Downloading json metadata from s3'])
 
-            with open(json_local, 'wb') as data:
-                boto3.client('s3').download_fileobj(args.json_s3, args.json, data)
+            #pending try / except
+            self.general = json.load(boto3.client('s3').get_object(Bucket=args.json_s3, Key=args.json)['Body'])
 
-        with open(json_local) as json_file:
-            self.general = json.load(json_file)
+            #with open(json_local, 'wb') as data:
+            #    boto3.client('s3').download_fileobj(args.json_s3, args.json, data)
 
         #override and validate json parameters
         if args.input != '':        self.general['input']       = args.input

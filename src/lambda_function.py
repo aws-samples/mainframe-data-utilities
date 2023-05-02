@@ -8,7 +8,6 @@ from   core.cli import CommandLine
 
 json_s3 = os.environ.get('json_s3')
 json_pre = os.environ.get('json_pre')
-work_dir = os.environ.get('work_dir')
 
 def lambda_handler(event, context):
 
@@ -19,15 +18,14 @@ def lambda_handler(event, context):
 
     cli = CommandLine(
         [
-        'extract',
-        json,
+        'extract', json,
         '-json-s3', json_s3,
         '-input', key,
-        '-input-s3', bkt,
-        '-working-folder', work_dir,
-        '-verbose', 'true'
+        '-input-s3', bkt
         ]
     )
+
+    # -output and -output-s3 can be added to override the JSON content.
 
     log = Log(cli.verbose)
 

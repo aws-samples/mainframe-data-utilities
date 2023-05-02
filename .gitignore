@@ -3,5 +3,5 @@ __pycache__/
 test
 .vscode
 asciifile.txt
-testcases
+test*
 s_*
