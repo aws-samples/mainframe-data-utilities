@@ -46,10 +46,6 @@
                 "help": "S3 Bucket name (without s3://) to upload the ASCII data file.",
                 "default": ""
             },
-            "-output-parallelism": {
-                "help": "Number of threads.",
-                "default": 1
-            },
             "-output-separator": {
                 "help": "Character between fields.",
                 "default": "|"
@@ -102,6 +98,10 @@
             "-verbose": {
                 "help": "Verbose mode.",
                 "default": false
+            },
+            "-threads": {
+                "help": "Number of threads.",
+                "default": 1
             }
         }
     },

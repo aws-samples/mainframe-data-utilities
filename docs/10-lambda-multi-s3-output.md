@@ -2,15 +2,25 @@
 
 ## Convert from EBCDIC to ASCII when a file is uploaded to s3 (using Lambda)
 
-###
+### Variables
 ```
 bucket=bucket-name
 account=account-number
 region=region-code
+json_s3=layout-bucket
+json_pre=layout-prefix/
 ```
 
-mkdir workdir; cd workdir
+### CloudShell
 
+Create a working fodler
+```
+mkdir workdir; cd workdir
+```
+
+Create a trust policy
+
+```
 E2ATrustPol=$(cat <<EOF
 {
     "Version": "2012-10-17",
@@ -27,9 +37,14 @@ E2ATrustPol=$(cat <<EOF
 EOF
 )
 printf "$E2ATrustPol" > E2ATrustPol.json
-
+```
+Create a role for your Lambda
+```
 aws iam create-role --role-name E2AConvLambdaRole --assume-role-policy-document file://E2ATrustPol.json
+```
 
+Create a policy for the role
+```
 E2APolicy=$(cat <<EOF
 {
     "Version": "2012-10-17",
@@ -65,12 +80,20 @@ E2APolicy=$(cat <<EOF
 EOF
 )
 printf "$E2APolicy" "$bucket" "$bucket" > E2AConvLambdaPolicy.json
+```
 
+Put the policy
+
+```
 aws iam put-role-policy --role-name E2AConvLambdaRole --policy-name E2AConvLambdaPolicy --policy-document file://E2AConvLambdaPolicy.json
+```
 
+Download mdu:
+```
 git clone https://github.com/aws-samples/mainframe-data-utilities.git mdu
 
 cd mdu/src; zip -r ../../mdu.zip *; cd ../..
+```
 
 aws lambda create-function \
 --function-name E2A \

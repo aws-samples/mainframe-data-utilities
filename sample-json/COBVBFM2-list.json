@@ -11,7 +11,6 @@
     "output_type": "file",
     "output": "sample-data/COBVBFM2.ASCII.txt",
     "output_s3": "",
-    "output_parallelism": 1,
     "output_separator": "|",
     "part_k_len": 0,
     "part_k_name": "",
@@ -25,6 +24,7 @@
     "rem_spaces": false,
     "working_folder": "",
     "verbose": true,
+    "threads": 1,
     "transf_rule": [],
     "transf": [
         {

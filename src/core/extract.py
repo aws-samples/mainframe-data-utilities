@@ -1,14 +1,16 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import boto3, urllib3, json
+import boto3, urllib3
 import multiprocessing as mp
+from core.filemeta      import FileMetaData
 from core.ebcdic        import unpack
 from itertools          import cycle
 from botocore.exceptions import ClientError
 
 def FileProcess(log, ExtArgs):
 
+    # Download the output file
     fMetaData = FileMetaData(log, ExtArgs)
 
     if fMetaData.inputtype == 'local':
@@ -19,7 +21,7 @@ def FileProcess(log, ExtArgs):
 
         log.Write(['Downloading file from s3'])
 
-        inp_temp = local_input(fMetaData.general['working_folder'], fMetaData.general['input'])
+        inp_temp = fMetaData.general['working_folder'] + fMetaData.general['input'].split("/")[-1]
 
         if fMetaData.inputtype == 's3':
 
@@ -30,8 +32,6 @@ def FileProcess(log, ExtArgs):
 
             if fMetaData.general['input_s3_url'].lower().startswith('http'):
 
-                #urllib.request.urlretrieve(fMetaData.general['input_s3_url'], inp_temp) #nosec url validated above
-
                 http = urllib3.PoolManager()
                 cont = http.request('GET', fMetaData.general['input_s3_url']).data
 
@@ -39,23 +39,40 @@ def FileProcess(log, ExtArgs):
 
         InpDS = open(inp_temp,"rb")
 
-    # prepare for multiprocessing
-    lstFiles = []
-    dctQueue = {}
-    lstProce = []
+    log.Write([ '# of threads' , str(fMetaData.general['threads']) ])
 
-    log.Write([ '# of threads' , str(fMetaData.general['output_parallelism']) ])
+    # Open the output file if single trheaded
+    if fMetaData.general['threads'] == 1:
 
-    for f in range(1, fMetaData.general['output_parallelism']+1):
-        strOutFile = fMetaData.general['working_folder'] + fMetaData.general['output'] + (str(f) if f > 1 else '')
-        lstFiles.append(strOutFile)
-        dctQueue[strOutFile] = mp.Queue()
-        p = mp.Process(target=process_record, args=(log, fMetaData, strOutFile, dctQueue[strOutFile]))
-        p.start()
-        lstProce.append(p)
+        if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
+            outfile = open(fMetaData.general['working_folder'] + fMetaData.general['output'], 'w')
+            newl = ''
+        else:
+            outfile = []
 
-    cyFiles = cycle(lstFiles)
+    # Create threads if multi threaded
+    else:
+        lstFiles = []
+        dctQueue = {}
+        lstProce = []
 
+        for f in range(1, fMetaData.general['threads']+1):
+
+            strOutFile = fMetaData.general['working_folder'] + fMetaData.general['output'] + "." + str(f)
+
+            lstFiles.append(strOutFile)
+
+            dctQueue[strOutFile] = mp.Queue()
+
+            p = mp.Process(target=queue_worker, args=(log, fMetaData, strOutFile, dctQueue[strOutFile]))
+
+            p.start()
+
+            lstProce.append(p)
+
+        cyFiles = cycle(lstFiles)
+
+    # Process each input record
     i=0
     while i < fMetaData.general['max'] or fMetaData.general['max'] == 0:
 
@@ -68,16 +85,72 @@ def FileProcess(log, ExtArgs):
 
             if(fMetaData.general["print"] != 0 and i % fMetaData.general["print"] == 0): log.Write(['Records read', str(i)])
 
-            nxq = next(cyFiles)
-            dctQueue[nxq].put(record)
+            if fMetaData.general['threads'] == 1:
+                write_output(log, fMetaData, outfile, record, newl)
+                newl='\n'
+            else:
+                nxq = next(cyFiles)
+                dctQueue[nxq].put(record)
 
-    # stop /wait for the workers
-    for f in lstFiles: dctQueue[f].put(None)
-    for p in lstProce: p.join()
+    if fMetaData.general['threads'] == 1:
+        close_output(log, fMetaData, outfile, fMetaData.general['working_folder'] + fMetaData.general['output'])
+    else:
+        # stop /wait for the workers
+        for f in lstFiles: dctQueue[f].put(None)
+        for p in lstProce: p.join()
 
     log.Write(['Records processed', str(i)])
 
-def process_record(log, fMetaData, OutDs, q):
+def write_output(log, fMetaData, outfile, record, newl):
+
+    OutRec = [] if fMetaData.general['output_type'] in ['file', 's3-obj', 's3'] else {}
+
+    layout = fMetaData.GetLayout(record)
+
+    for transf in layout:
+        addField(
+            fMetaData.general['output_type'],
+            OutRec,
+            transf['name'],
+            transf['type'],
+            transf['part-key'],
+            fMetaData.general['part_k_name'],
+            transf['sort-key'],
+            fMetaData.general['sort_k_name'],
+            unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], transf["dplaces"], fMetaData.general["rem_low_values"], False ),
+            False)
+
+    if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
+        outfile.write(newl + fMetaData.general['output_separator'].join(OutRec))
+    else:
+        outfile.append({'PutRequest' : { 'Item' : OutRec }})
+
+        if len(outfile) >= fMetaData.general['req_size']:
+            ddb_write(log, fMetaData.general['output'], outfile)
+            outfile = []
+
+def ddb_write(log, table, data):
+    log.Write(['Updating DynamoDB', str(len(data))])
+    response = boto3.client('dynamodb').batch_write_item(RequestItems={ table : data })
+
+def close_output(log, fMetaData, outfile, OutDs):
+
+    if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
+
+        outfile.close()
+
+        if fMetaData.general['output_s3'] != '':
+
+            if fMetaData.general['verbose']: log.Write(['Uploading to s3', OutDs])
+
+            try:
+                response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], OutDs)
+            except ClientError as e:
+                log.Write(e)
+    else:
+        if len(outfile) >= 0: ddb_write(log, fMetaData.general['output'], outfile)
+
+def queue_worker(log, fMetaData, OutDs, q):
 
     if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
         outfile = open(OutDs, 'w')
@@ -87,57 +160,13 @@ def process_record(log, fMetaData, OutDs, q):
 
     while True:
         record = q.get()
-        if record is None:
-            if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
 
-                outfile.close()
-
-                if fMetaData.general['output_s3'] != '':
-
-                    if fMetaData.general['verbose']: log.Write(['Uploading to s3', OutDs])
-
-                    try:
-                        response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], OutDs)
-                    except ClientError as e:
-                        log.Write(e)
-            else:
-                if len(outfile) >= 0:
-                    log.Write(['Updating DynamoDB', str(len(outfile))])
-                    response = boto3.client('dynamodb').batch_write_item(RequestItems={ fMetaData.general['output'] : outfile })
-            break
-
-        OutRec = [] if fMetaData.general['output_type'] in ['file', 's3-obj', 's3'] else {}
-
-        layout = fMetaData.GetLayout(record)
-
-        for transf in layout:
-            addField(
-                fMetaData.general['output_type'],
-                OutRec,
-                transf['name'],
-                transf['type'],
-                transf['part-key'],
-                fMetaData.general['part_k_name'],
-                transf['sort-key'],
-                fMetaData.general['sort_k_name'],
-                unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], transf["dplaces"], fMetaData.general["rem_low_values"], False ),
-                False)
-
-        if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
-            outfile.write(newl + fMetaData.general['output_separator'].join(OutRec))
+        if record is not None:
+            write_output(log, fMetaData, outfile, record, newl)
             newl='\n'
         else:
-            # prepare the batchwrite
-            outfile.append({'PutRequest' : { 'Item' : OutRec }})
-
-            if len(outfile) >= fMetaData.general['req_size']:
-                log.Write(['Updating DynamoDB', str(len(outfile))])
-                response = boto3.client('dynamodb').batch_write_item(RequestItems={ fMetaData.general['output'] : outfile })
-                outfile = []
-
-def local_input(working_folder, key):
-
-     return working_folder + key.split("/")[-1]
+            close_output(log, fMetaData, outfile, OutDs)
+            break
 
 def read(input, recfm, lrecl):
 
@@ -171,78 +200,3 @@ def addField(outtype, record, id, type, partkey, partkname, sortkey, sortkname, 
             else:
                 record[partkname] = {}
                 record[partkname]['S'] = value
-
-class FileMetaData:
-
-    def __init__(self, log, args):
-
-        if args.json_s3 == '':
-            json_local = args.working_folder + args.json
-
-            with open(json_local) as json_file:
-                self.general = json.load(json_file)
-        else:
-            json_local = args.working_folder + args.json.split("/")[-1]
-
-            log.Write(['Downloading json metadata from s3'])
-
-            #pending try / except
-            self.general = json.load(boto3.client('s3').get_object(Bucket=args.json_s3, Key=args.json)['Body'])
-
-            #with open(json_local, 'wb') as data:
-            #    boto3.client('s3').download_fileobj(args.json_s3, args.json, data)
-
-        #override and validate json parameters
-        if args.input != '':        self.general['input']       = args.input
-
-        if args.input_s3 != '':
-            self.general['input_s3']    = args.input_s3
-        elif 'input_s3' not in self.general:
-            self.general['input_s3']    = ''
-
-        if args.output_s3 != '':
-            self.general['output_s3']   = args.output_s3
-        elif 'output_s3' not in self.general:
-            self.general['output_s3']   = ''
-
-        if args.working_folder != '':
-            self.general['working_folder']     = args.working_folder
-        elif 'working_folder' not in self.general:
-            self.general['working_folder']     = ''
-
-        if args.input_s3_url != '':
-            self.general['input_s3_url'] = args.input_s3_url
-
-        # new parameter to define parallelism
-        if 'output_parallelism' not in self.general:
-            self.general['output_parallelism'] = 1
-
-        #identify the input file source
-        if  self.general['input_s3_url']    !=  '':
-            self.inputtype                  =   's3_url'
-        elif self.general['input_s3']       !=  '':
-            self.inputtype                  =   's3'
-        else:
-            self.inputtype = 'local'
-
-        self.rules = []
-
-        for paramrule in self.general["transf_rule"]:
-            self.rules.append(TransformationRule(paramrule["offset"],paramrule["size"],paramrule["hex"],paramrule["transf"]))
-
-    def GetLayout(self, _data):
-        if len(self.rules) == 0: return self.general['transf']
-
-        for r in self.rules:
-            if _data[r.offset:r.end].hex() == r.hexv.lower():
-                return self.general[r.transf]
-
-        return self.general['transf']
-
-class TransformationRule:
-    def __init__(self, _offset, _size, _hex, _transf):
-        self.offset = _offset
-        self.size = _size
-        self.end = _offset + _size
-        self.hexv = _hex
-        self.transf = _transf

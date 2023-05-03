@@ -11,7 +11,7 @@
     "output_type": "file",
     "output": "sample-data/CLIENT.ASCII.txt",
     "output_s3": "your-bucket-name",
-    "output_parallelism": 1,
+    "threads": 1,
     "output_separator": "|",
     "part_k_len": 0,
     "part_k_name": "",

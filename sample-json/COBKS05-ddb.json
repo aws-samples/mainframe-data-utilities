@@ -11,7 +11,7 @@
     "output_type": "ddb",
     "output": "CLIENT",
     "output_s3": "",
-    "output_parallelism": 1,
+    "threads": 1,
     "output_separator": "|",
     "part_k_len": 4,
     "part_k_name": "CLIENT_ID",
