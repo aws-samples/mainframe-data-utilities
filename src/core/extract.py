@@ -74,6 +74,7 @@ def FileProcess(log, ExtArgs):
 
     # Process each input record
     i=0
+    newl=''
     while i < fMetaData.general['max'] or fMetaData.general['max'] == 0:
 
         record = read(InpDS, fMetaData.general['input_recfm'], fMetaData.general["input_recl"])
@@ -127,7 +128,7 @@ def write_output(log, fMetaData, outfile, record, newl):
 
         if len(outfile) >= fMetaData.general['req_size']:
             ddb_write(log, fMetaData.general['output'], outfile)
-            outfile = []
+            outfile.clear()
 
 def ddb_write(log, table, data):
     log.Write(['Updating DynamoDB', str(len(data))])
@@ -154,9 +155,10 @@ def queue_worker(log, fMetaData, OutDs, q):
 
     if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
         outfile = open(OutDs, 'w')
-        newl = ''
     else:
         outfile = []
+
+    newl = ''
 
     while True:
         record = q.get()

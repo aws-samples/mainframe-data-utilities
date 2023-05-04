@@ -4,7 +4,7 @@
 
 ### Create the DynamoDB table
 
-1. Create the DynanamoDb table which will be loaded on next steps. In this example we defined `CLIENT` as the table name, `CLIENT-ID` as its partition key, and CLIENT-R-TYPE as its sort key.
+1. Create the DynanamoDb table which will be loaded on next steps. In this example we defined `CLIENT` as the table name, `CLIENT_ID` as its partition key, and CLIENT-R-TYPE as its sort key.
 
 ```
 aws dynamodb create-table \
