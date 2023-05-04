@@ -149,7 +149,9 @@ python3        mdu/src/mdu.py parse \
 -print         10000 \
 -verbose       1
 
+Edit the CLIENT.json
 
+```
 "transf_rule": [
 {
 "offset": 4,
@@ -164,6 +166,7 @@ python3        mdu/src/mdu.py parse \
 "transf": "transf2"
 }
 ],
+```
 
 aws s3 cp CLIENT.json s3://$bucket/layout/CLIENT.json
 

@@ -5,7 +5,7 @@
 ### Clone this repo:
 
 ```
-git clone -b mdu_v2 git@github.com:aws-samples/mainframe-data-utilities.git.
+git clone -b mdu_v2 https://github.com/aws-samples/mainframe-data-utilities.git mdu
 ```
 
 ### Convert a sample FB file

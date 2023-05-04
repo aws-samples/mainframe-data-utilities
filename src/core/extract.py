@@ -7,6 +7,7 @@ from core.filemeta      import FileMetaData
 from core.ebcdic        import unpack
 from itertools          import cycle
 from botocore.exceptions import ClientError
+from pathlib            import Path
 
 def FileProcess(log, ExtArgs):
 
@@ -19,9 +20,9 @@ def FileProcess(log, ExtArgs):
 
     else:
 
-        log.Write(['Downloading file from s3'])
-
         inp_temp = fMetaData.general['working_folder'] + fMetaData.general['input'].split("/")[-1]
+
+        log.Write(['Downloading file from s3'], inp_temp)
 
         if fMetaData.inputtype == 's3':
 
@@ -45,6 +46,11 @@ def FileProcess(log, ExtArgs):
     if fMetaData.general['threads'] == 1:
 
         if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
+
+            folder = Path(fMetaData.general['working_folder'] + fMetaData.general['output']).parent
+
+            Path(folder).mkdir(parents=True, exist_ok=True)
+
             outfile = open(fMetaData.general['working_folder'] + fMetaData.general['output'], 'w')
             newl = ''
         else:
@@ -142,10 +148,12 @@ def close_output(log, fMetaData, outfile, OutDs):
 
         if fMetaData.general['output_s3'] != '':
 
-            if fMetaData.general['verbose']: log.Write(['Uploading to s3', OutDs])
+            log.Write(['Uploading to s3', OutDs])
+
+            if fMetaData.general['verbose']: log.Write(['Source file', OutDs])
 
             try:
-                response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], OutDs)
+                response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], fMetaData.general['output'])
             except ClientError as e:
                 log.Write(e)
     else:
