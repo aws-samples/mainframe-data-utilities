@@ -148,7 +148,7 @@ def close_output(log, fMetaData, outfile, OutDs):
 
         if fMetaData.general['output_s3'] != '':
 
-            log.Write(['Uploading to s3', OutDs])
+            log.Write(['Uploading to s3',  fMetaData.general['output_s3'], fMetaData.general['output']])
 
             if fMetaData.general['verbose']: log.Write(['Source file', OutDs])
 
