@@ -23,7 +23,7 @@ python3 src/mdu.py parse \
 
 ### Add the transformation rules
 
-2. The step above will generate the [COBKS05-list.json](/sample-json/COBKS05-list.json) with an empty transformation rules list: `"transf_rule"=[],`. Replace the transformation rule with the content bellow and save the `COBKS05-list-rules.json`:
+2. The step above will generate the [COBKS05-list.json](/sample-json/COBKS05-list.json) with an empty transformation rules list: `"transf_rule"=[],`. Replace the transformation rule with the content bellow and save it:
 
 ```
  "transf_rule": [
@@ -51,11 +51,11 @@ The result of the change above must produce a file like [COBKS05-rules.json](/sa
 3. Run the `src/mdu.py extract` fucntion to extract the `CLIENT.EBCDIC.txt` into an ASCII file.
 
 ```
-python3 src/mdu.py extract sample-json/COBKS05-list-rules.json
+python3 src/mdu.py extract sample-json/COBKS05-list.json
 ```
 
 4. Check the [CLIENT.ASCII.txt](/sample-data/CLIENT.ASCII.txt) file.
 
-### For more use cases
+### More use cases
 
 Check the [Read me](/docs/readme.md) page.

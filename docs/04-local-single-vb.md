@@ -21,6 +21,6 @@ Run the `extract` function to convert the `/sample-data/COBVBFM2.EBCDIC.txt` EBC
 python3 src/mdu.py extract sample-json/COBVBFM2-list.json
 ```
 
-### For more use cases
+### More use cases
 
 Check the [Read me](/docs/readme.md) page.

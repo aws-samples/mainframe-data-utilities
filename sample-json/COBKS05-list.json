@@ -11,7 +11,6 @@
     "output_type": "file",
     "output": "sample-data/CLIENT.ASCII.txt",
     "output_s3": "",
-    "threads": 1,
     "output_separator": "|",
     "part_k_len": 0,
     "part_k_name": "",
@@ -25,7 +24,21 @@
     "rem_spaces": false,
     "working_folder": "",
     "verbose": true,
-    "transf_rule": [],
+    "threads": 1,
+    "transf_rule": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "transf": "transf1"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "transf": "transf2"
+        }
+    ],
     "transf": [
         {
             "type": "bi",

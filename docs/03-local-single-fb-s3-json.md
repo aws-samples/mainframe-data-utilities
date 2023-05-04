@@ -20,6 +20,6 @@ python3 src/mdu.py extract cobpack2-list.json -json-s3 <your-bucket-name>
 
 The generated ASCCI file will match the provided [COBPACK.ASCII.txt](/sample-data/COBPACK.ASCII.txt).
 
-### For more use cases
+### More use cases
 
 Check the [Read me](/docs/readme.md) page.
