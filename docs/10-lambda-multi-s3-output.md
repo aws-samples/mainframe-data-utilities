@@ -1,4 +1,4 @@
-# Mainframe Data Utilities V2 (to be refactored)
+# Mainframe Data Utilities V2
 
 ## Convert from EBCDIC to ASCII when a file is uploaded to s3 (using Lambda)
 
@@ -9,6 +9,7 @@ account=account-number
 region=region-code
 json_s3=layout-bucket
 json_pre=layout-prefix/
+echo $bucket $account $region $json_s3 $json_pre
 ```
 
 ### IAM
@@ -107,10 +108,10 @@ aws lambda create-function \
 --function-name E2A \
 --runtime python3.10 \
 --zip-file fileb://mdu.zip \
---role arn:aws:iam::$account:role/E2AConvLambdaRole \
+--role arn:aws:iam::${account}:role/E2AConvLambdaRole \
 --timeout 10 \
 --handler lambda_function.lambda_handler \
---environment "Variables={json_s3=$bucket,json_pre=$json_pre}"
+--environment "Variables={json_s3=${bucket},json_pre=${json_pre}}"
 ```
 
 Add the permission to the S3 event:
@@ -120,8 +121,8 @@ aws lambda add-permission \
 --function-name E2A \
 --action lambda:InvokeFunction \
 --principal s3.amazonaws.com \
---source-arn arn:aws:s3:::$bucket \
---source-account $account \
+--source-arn arn:aws:s3:::${bucket} \
+--source-account ${account} \
 --statement-id 1
 ```
 
@@ -155,7 +156,7 @@ printf "$S3E2AEvent" "$region" "$account" > S3E2AEvent.json
 
 Create the S3 event:
 ```
-aws s3api put-bucket-notification-configuration --bucket $bucket --notification-configuration file://S3E2AEvent.json
+aws s3api put-bucket-notification-configuration --bucket ${bucket} --notification-configuration file://S3E2AEvent.json
 ```
 
 ### Run
@@ -166,7 +167,7 @@ python3        mdu/src/mdu.py parse \
                mdu/LegacyReference/COBKS05.cpy \
                CLIENT.json \
 -output        output/CLIENT.ASCII.txt \
--output-s3     $bucket \
+-output-s3     ${bucket} \
 -output-type   s3 \
 -working-folder /tmp/ \
 -print         10000 \
@@ -194,14 +195,16 @@ Edit the CLIENT.json and replace the `transf_rule` with the following:
 
 Upload the CLIENT.json to S3:
 ```
-aws s3 cp CLIENT.json s3://$bucket/layout/CLIENT.json
+aws s3 cp CLIENT.json s3://${bucket}/layout/CLIENT.json
 ```
 
 Upload the data file to S3:
 ```
-aws s3 cp mdu/sample-data/CLIENT.EBCDIC.txt s3://$bucket/input/
+aws s3 cp mdu/sample-data/CLIENT.EBCDIC.txt s3://${bucket}/input/
 ```
 
+Check the bucket content
+aws s3 ls s3://${bucket}/output/
 
 ### More use cases
 
