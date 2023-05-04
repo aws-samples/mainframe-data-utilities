@@ -22,7 +22,7 @@ def FileProcess(log, ExtArgs):
 
         inp_temp = fMetaData.general['working_folder'] + fMetaData.general['input'].split("/")[-1]
 
-        log.Write(['Downloading file from s3'], inp_temp)
+        log.Write(['Downloading file from s3', inp_temp])
 
         if fMetaData.inputtype == 's3':
 
