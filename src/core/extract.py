@@ -29,16 +29,14 @@ def FileProcess(log, ExtArgs):
             with open(inp_temp, 'wb') as f:
                 boto3.client('s3').download_fileobj(fMetaData.general['input_s3'], fMetaData.general['input'], f)
 
+            InpDS = open(inp_temp,"rb")
+
         else:
+            log.Write(['Opening connection with S3'])
 
-            if fMetaData.general['input_s3_url'].lower().startswith('http'):
+            http = urllib3.PoolManager()
 
-                http = urllib3.PoolManager()
-                cont = http.request('GET', fMetaData.general['input_s3_url']).data
-
-            log.Write(['Object lambda not implemented'])
-
-        InpDS = open(inp_temp,"rb")
+            InpDS = http.request('GET', fMetaData.general['input_s3_url'], preload_content=False).data
 
     log.Write([ '# of threads' , str(fMetaData.general['threads']) ])
 
@@ -156,6 +154,11 @@ def close_output(log, fMetaData, outfile, OutDs):
                 response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], fMetaData.general['output'])
             except ClientError as e:
                 log.Write(e)
+
+        elif fMetaData.general['input_s3_url'] != '':
+
+            boto3.client('s3').write_get_object_response(Body=OutDs,RequestRoute=fMetaData.general['input_s3_route'],RequestToken=fMetaData.general['input_s3_token'])
+
     else:
         if len(outfile) >= 0: ddb_write(log, fMetaData.general['output'], outfile)
 

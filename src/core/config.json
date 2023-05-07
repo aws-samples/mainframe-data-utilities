@@ -26,6 +26,14 @@
                 "help": "S3 Object lamnbda url.",
                 "default": ""
             },
+            "-input-s3-route": {
+                "help": "S3 Object lambda output route.",
+                "default": ""
+            },
+            "-input-s3-token": {
+                "help": "S3 Object lambda output token.",
+                "default": ""
+            },
             "-input-recfm": {
                 "help": "Input file record format (FB/VB).",
                 "default": "fb"
