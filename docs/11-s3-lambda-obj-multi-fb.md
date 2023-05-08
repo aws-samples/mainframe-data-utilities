@@ -216,6 +216,15 @@ aws s3api get-object \
 --key CLIENT.EBCDIC.txt CLIENT.ASCII.txt
 ```
 
+### Cleanup
+```
+aws s3control delete-access-point-for-object-lambda --account-id $account --name $bucket-ascii
+aws s3control delete-access-point --account-id $account --name $access_point
+aws lambda delete-function --function-name S3OLConverter
+aws iam delete-role-policy --role-name S3OLRole --policy-name S3OLPolicy
+aws iam delete-role --role-name S3OLRole
+```
+
 
 
 ### More use cases
