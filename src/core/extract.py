@@ -22,21 +22,24 @@ def FileProcess(log, ExtArgs):
 
         inp_temp = fMetaData.general['working_folder'] + fMetaData.general['input'].split("/")[-1]
 
-        log.Write(['Downloading file from s3', inp_temp])
-
         if fMetaData.inputtype == 's3':
+
+            log.Write(['Downloading file from s3', inp_temp])
 
             with open(inp_temp, 'wb') as f:
                 boto3.client('s3').download_fileobj(fMetaData.general['input_s3'], fMetaData.general['input'], f)
 
-            InpDS = open(inp_temp,"rb")
-
         else:
-            log.Write(['Opening connection with S3'])
+            log.Write(['Downloading file from s3 url'])
 
             http = urllib3.PoolManager()
 
-            InpDS = http.request('GET', fMetaData.general['input_s3_url'], preload_content=False).data
+            resp = http.request('GET', fMetaData.general['input_s3_url'])
+
+            with open(inp_temp, 'wb') as f:
+                f.write(resp.data)
+
+        InpDS = open(inp_temp,"rb")
 
     log.Write([ '# of threads' , str(fMetaData.general['threads']) ])
 
