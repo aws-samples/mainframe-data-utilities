@@ -162,7 +162,10 @@ def close_output(log, fMetaData, outfile, OutDs):
 
         elif fMetaData.general['input_s3_url'] != '':
 
-            boto3.client('s3').write_get_object_response(Body=OutDs,RequestRoute=fMetaData.general['input_s3_route'],RequestToken=fMetaData.general['input_s3_token'])
+            log.Write(['Generating s3 lambda object response'])
+
+            with open(OutDs, 'rb') as f:
+                boto3.client('s3').write_get_object_response(Body=f,RequestRoute=fMetaData.general['input_s3_route'],RequestToken=fMetaData.general['input_s3_token'])
 
     else:
         if len(outfile) >= 0: ddb_write(log, fMetaData.general['output'], outfile)

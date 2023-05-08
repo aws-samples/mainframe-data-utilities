@@ -43,7 +43,7 @@ class FileMetaData:
         if args.input_s3_url != '':
             self.general['input_s3_url']   = args.input_s3_url
             self.general['input_s3_route'] = args.input_s3_route
-            self.general['input_s3_token'] = args.input_s3_route
+            self.general['input_s3_token'] = args.input_s3_token
 
         # new parameter to define parallelism
         if 'threads' not in self.general:
