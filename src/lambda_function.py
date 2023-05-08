@@ -37,15 +37,15 @@ def s3_obj_lambda_handler(event, context):
 
     request_route = event["getObjectContext"]["outputRoute"]
     request_token = event["getObjectContext"]["outputToken"]
+    s3_url        = event["getObjectContext"]["inputS3Url"]
+    key           = event['userRequest']['url']
 
-    s3_url = event["getObjectContext"]["inputS3Url"]
-
-    json = json_pre + '.'.join(s3_url.split('?')[0].split('/')[-1].split('.')[:-2]) + '.json'
+    json = json_pre + key.split('/')[-1].split('.')[0] + '.json'
 
     cli = CommandLine(
         [
         'extract', json,
-        '-input-s3', json_s3,
+        '-json-s3', json_s3,
         '-input-s3-url', s3_url,
         '-input-s3-route', request_route,
         '-input-s3-token', request_token
