@@ -24,10 +24,23 @@
     "max": 0,
     "rem_low_values": true,
     "rem_spaces": false,
-    "working_folder": "",
+    "working_folder": "/tmp",
     "verbose": true,
     "threads": 1,
-    "transf_rule": [],
+    "transf_rule": [
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0002",
+            "transf": "transf1"
+        },
+        {
+            "offset": 4,
+            "size": 2,
+            "hex": "0000",
+            "transf": "transf2"
+        }
+    ],
     "transf": [
         {
             "type": "bi",

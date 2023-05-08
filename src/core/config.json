@@ -22,18 +22,6 @@
                 "help": "S3 Bucket name (without s3://) to download the EBCDIC data file.",
                 "default": ""
             },
-            "-input-s3-url": {
-                "help": "S3 Object lamnbda url.",
-                "default": ""
-            },
-            "-input-s3-route": {
-                "help": "S3 Object lambda output route.",
-                "default": ""
-            },
-            "-input-s3-token": {
-                "help": "S3 Object lambda output token.",
-                "default": ""
-            },
             "-input-recfm": {
                 "help": "Input file record format (FB/VB).",
                 "default": "fb"
@@ -134,6 +122,14 @@
             },
             "-input-s3-url": {
                 "help": "S3 Object lamnbda url. (overrides the json metadata",
+                "default": ""
+            },
+            "-input-s3-route": {
+                "help": "S3 Object lambda output route.",
+                "default": ""
+            },
+            "-input-s3-token": {
+                "help": "S3 Object lambda output token.",
                 "default": ""
             },
             "-output": {

@@ -13,7 +13,7 @@ mkdir workdir; cd workdir
 
 ### Create variables to simplify next steps
 ```
-bucket=your-bucket-name
+bucket=bucket-to-create
 access_point=your-access-point-name
 account=your-account-number
 region=your-region-code
