@@ -4,6 +4,13 @@
 
 This page shows how to convert an EBCDIC file which has been downloaded to a local directory.
 
+### Clone this repo:
+From a Windows, Mac, Linux (including CloudShel), clone this repo:
+
+```
+git clone -b mdu_v2 https://github.com/aws-samples/mainframe-data-utilities.git mdu
+```
+
 ### Parse the copybook
 
 Use the `parse` function to convert the copybook from Cobol to JSON representation.
@@ -11,11 +18,12 @@ Use the `parse` function to convert the copybook from Cobol to JSON representati
 This sample converts the [COBPACK2.cpy](/LegacyReference/COBPACK2.cpy) copybook file provided in [LegacyReference](/LegacyReference).
 
 ```
-python3 src/mdu.py parse                 \
-        LegacyReference/COBPACK2.cpy     \
-        sample-json/cobpack2-list.json   \
--input  sample-data/COBPACK.OUTFILE.txt  \
--output sample-data/COBPACK.ASCII.txt    \
+cd mdu
+python3 src/mdu.py parse               \
+        LegacyReference/COBPACK2.cpy   \
+        sample-json/cobpack2-list.json \
+-input  sample-data/COBPACK.OUTFILE.txt    \
+-output sample-data/COBPACK.ASCII.txt      \
 -print  10000 -verbose true
 ```
 
