@@ -35,9 +35,10 @@ class FileMetaData:
             self.general['output_s3']   = ''
 
         if args.working_folder != '':
-            self.general['working_folder']     = args.working_folder
+            self.general['working_folder']          = args.working_folder
+            if self.general['working_folder'][-1]  != '/': self.general['working_folder'] += '/'
         elif 'working_folder' not in self.general:
-            self.general['working_folder']     = ''
+            self.general['working_folder']          = ''
 
         if args.input_s3_url != '':
             self.general['input_s3_url']   = args.input_s3_url

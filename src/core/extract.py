@@ -45,6 +45,8 @@ def FileProcess(log, ExtArgs):
 
         if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
 
+            log.Write(['Creating output file', fMetaData.general['working_folder'], fMetaData.general['output']])
+
             folder = Path(fMetaData.general['working_folder'] + fMetaData.general['output']).parent
 
             Path(folder).mkdir(parents=True, exist_ok=True)
