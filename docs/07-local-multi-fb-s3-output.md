@@ -7,8 +7,13 @@
 
 ### Create a variable for you bucket name
 ```
-s3_bucket=your-bucket-name
+bucket=your-bucket-name
 ```
+
+### Clone this repo
+
+Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
+
 ### Parse a multiple layout copybook
 
 Run the `src/mdu.py` script, using the `parse` function, to convert the copybook file provided in [LegacyReference](/LegacyReference) from Cobol to JSON representation. Use `-output-s3` to inform your bucket name:
@@ -18,7 +23,7 @@ python3     src/mdu.py parse \
             LegacyReference/COBKS05.cpy     \
             sample-json/COBKS05-list-s3-out.json \
 -input      sample-data/CLIENT.EBCDIC.txt   \
--output-s3  $s3_bucket               \
+-output-s3  ${bucket}               \
 -output     sample-data/CLIENT.ASCII.txt    \
 -threads    2 \
 -print      20 -verbose true

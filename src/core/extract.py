@@ -73,7 +73,7 @@ def FileProcess(log, ExtArgs):
 
             dctQueue[strOutFile] = mp.Queue()
 
-            p = mp.Process(target=queue_worker, args=(log, fMetaData, strOutFile, dctQueue[strOutFile]))
+            p = mp.Process(target=queue_worker, args=(log, fMetaData, strOutFile, dctQueue[strOutFile], '.' + str(f)))
 
             p.start()
 
@@ -143,7 +143,7 @@ def ddb_write(log, table, data):
     log.Write(['Updating DynamoDB', str(len(data))])
     response = boto3.client('dynamodb').batch_write_item(RequestItems={ table : data })
 
-def close_output(log, fMetaData, outfile, OutDs):
+def close_output(log, fMetaData, outfile, OutDs, strSuff = ''):
 
     if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
 
@@ -151,12 +151,13 @@ def close_output(log, fMetaData, outfile, OutDs):
 
         if fMetaData.general['output_s3'] != '':
 
-            log.Write(['Uploading to s3',  fMetaData.general['output_s3'], fMetaData.general['output']])
+            log.Write(['Uploading to s3',  fMetaData.general['output_s3'], fMetaData.general['output'] + strSuff])
 
             if fMetaData.general['verbose']: log.Write(['Source file', OutDs])
 
             try:
-                response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], fMetaData.general['output'])
+                response = boto3.client('s3').upload_file(OutDs, fMetaData.general['output_s3'], fMetaData.general['output'] + strSuff)
+
             except ClientError as e:
                 log.Write(e)
 
@@ -164,13 +165,14 @@ def close_output(log, fMetaData, outfile, OutDs):
 
             log.Write(['Generating s3 lambda object response'])
 
+            # try/except missing
             with open(OutDs, 'rb') as f:
                 boto3.client('s3').write_get_object_response(Body=f,RequestRoute=fMetaData.general['input_s3_route'],RequestToken=fMetaData.general['input_s3_token'])
 
     else:
         if len(outfile) >= 0: ddb_write(log, fMetaData.general['output'], outfile)
 
-def queue_worker(log, fMetaData, OutDs, q):
+def queue_worker(log, fMetaData, OutDs, q, strSuf = ''):
 
     if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
         outfile = open(OutDs, 'w')
@@ -186,7 +188,8 @@ def queue_worker(log, fMetaData, OutDs, q):
             write_output(log, fMetaData, outfile, record, newl)
             newl='\n'
         else:
-            close_output(log, fMetaData, outfile, OutDs)
+            log.Write(['Closing file', OutDs])
+            close_output(log, fMetaData, outfile, OutDs, strSuf)
             break
 
 def read(input, recfm, lrecl):

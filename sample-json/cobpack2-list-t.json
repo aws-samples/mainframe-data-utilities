@@ -5,7 +5,6 @@
     "json_debug": "",
     "input": "sample-data/COBPACK.OUTFILE.txt",
     "input_s3": "",
-    "input_s3_url": "",
     "input_recfm": "fb",
     "input_recl": 150,
     "output_type": "file",

@@ -5,7 +5,6 @@
     "json_debug": "",
     "input": "sample-data/COBVBFM2.EBCDIC.txt",
     "input_s3": "",
-    "input_s3_url": "",
     "input_recfm": "vb",
     "input_recl": 306,
     "output_type": "file",

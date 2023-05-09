@@ -5,14 +5,18 @@
 ### Pre-requisites
 - An S3 bucket already created
 
+### Clone this repo
+
+Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
+
 ### Create a variable for you bucket name
 ```
-s3_bucket=your-bucket-name
+bucket=your-bucket-name
 ```
 ### Upload the input file to S3
 
 ```
-aws s3 cp sample-data/CLIENT.EBCDIC.txt s3://$s3_bucket/sample-data/
+aws s3 cp sample-data/CLIENT.EBCDIC.txt s3://${bucket}/sample-data/
 ```
 ### Parse a multiple layout copybook
 
@@ -23,7 +27,7 @@ python3     src/mdu.py parse \
             LegacyReference/COBKS05.cpy   \
             sample-json/COBKS05-list-s3.json \
 -input      sample-data/CLIENT.EBCDIC.txt \
--input-s3   $s3_bucket \
+-input-s3   ${bucket} \
 -output     sample-data/CLIENT.ASCII.txt  \
 -print      20 -verbose true
 ```
