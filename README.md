@@ -48,16 +48,19 @@ There are some examples about how to extract data on different use cases:
 |Document  |Description|
 |---------------------------------|-|
 |[Download](docs/00-download.md)| How to download the codebase |
-|[](docs/01-local-single-fb.md)||
-|[](docs/02-local-single-fb-s3-json.md)||
-|[](docs/03-local-single-fb-thread.md)||
-|[](docs/04-local-single-vb.md)||
-|[](docs/05-local-multi-fb.md)||
-|[](docs/06-local-multi-fb-s3-input.md)||
-|[](docs/06-local-multi-fb-s3-input.md)||
-|[](docs/06-local-multi-fb-s3-input.md)||
-|[](docs/07-local-multi-fb-s3-output.md)||
-|[](docs/07-local-multi-fb-s3-output.md)||
+|[Single Layout Fixed Blocked file](docs/01-local-single-fb.md)|Simplest conversion. Local, fixed blocked and single layout file|
+|[Read the metadata JSON from Amazon S3](docs/02-local-single-fb-s3-json.md)|Single Layout Fixed Blocked file|
+|[2](docs/03-local-single-fb-thread.md)||
+|[3](docs/04-local-single-vb.md)||
+|[4](docs/05-local-multi-fb.md)||
+|[5](docs/06-local-multi-fb-s3-input.md)||
+|[6](docs/07-local-multi-fb-s3-output.md)||
+|[7](docs/08-local-multi-ddb.md)||
+|[8](docs/09-lambda-multi-s3-output.md)||
+|[9](docs/10-s3-lambda-obj-multi-fb.md)||
+|[10]()||
+|[11]()||
+|[12]()||
 
 
 1. [Single layout FB file](/docs/02-local-single-fb.md).

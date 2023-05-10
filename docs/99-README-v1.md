@@ -1,6 +1,6 @@
 # Mainframe Data Utilities
 
-| :exclamation:  Mainframe Data Utilities v2 documentation available at [docs](docs) |
+| :exclamation:  Mainframe Data Utilities v2 documentation available at [Readme](/) |
 |-----------------------------------------|
 
 Table of contents
