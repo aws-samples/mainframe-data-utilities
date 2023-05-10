@@ -26,6 +26,7 @@ def FileProcess(log, ExtArgs):
 
             log.Write(['Downloading file from s3', inp_temp])
 
+            #try except missing
             with open(inp_temp, 'wb') as f:
                 boto3.client('s3').download_fileobj(fMetaData.general['input_s3'], fMetaData.general['input'], f)
 
@@ -188,7 +189,7 @@ def queue_worker(log, fMetaData, OutDs, q, strSuf = ''):
             write_output(log, fMetaData, outfile, record, newl)
             newl='\n'
         else:
-            log.Write(['Closing file', OutDs])
+            log.Write(['Closing output', fMetaData.general['output'], 'thread', strSuf])
             close_output(log, fMetaData, outfile, OutDs, strSuf)
             break
 

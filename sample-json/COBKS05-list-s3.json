@@ -5,7 +5,6 @@
     "json_debug": "",
     "input": "sample-data/CLIENT.EBCDIC.txt",
     "input_s3": "your-bucket-name",
-    "input_s3_url": "",
     "input_recfm": "fb",
     "input_recl": 500,
     "output_type": "file",

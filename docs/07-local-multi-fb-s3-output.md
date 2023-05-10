@@ -19,13 +19,13 @@ Download the codebase through the clone command. More instructions [here](/docs/
 Run the `src/mdu.py` script, using the `parse` function, to convert the copybook file provided in [LegacyReference](/LegacyReference) from Cobol to JSON representation. Use `-output-s3` to inform your bucket name:
 
 ```
-python3     src/mdu.py parse \
+python3     src/mdu.py parse                \
             LegacyReference/COBKS05.cpy     \
             sample-json/COBKS05-list-s3-out.json \
 -input      sample-data/CLIENT.EBCDIC.txt   \
--output-s3  ${bucket}               \
+-output-s3  ${bucket}                       \
 -output     sample-data/CLIENT.ASCII.txt    \
--threads    2 \
+-threads    2                               \
 -print      20 -verbose true
 ```
 

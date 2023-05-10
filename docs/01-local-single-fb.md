@@ -15,11 +15,11 @@ Use the `parse` function to convert the copybook from Cobol to JSON representati
 This sample converts the [COBPACK2.cpy](/LegacyReference/COBPACK2.cpy) copybook file provided in [LegacyReference](/LegacyReference).
 
 ```
-python3 src/mdu.py parse               \
-        LegacyReference/COBPACK2.cpy   \
-        sample-json/cobpack2-list.json \
--input  sample-data/COBPACK.OUTFILE.txt    \
--output sample-data/COBPACK.ASCII.txt      \
+python3 src/mdu.py parse                \
+        LegacyReference/COBPACK2.cpy    \
+        sample-json/cobpack2-list.json  \
+-input  sample-data/COBPACK.OUTFILE.txt \
+-output sample-data/COBPACK.ASCII.txt   \
 -print  10000 -verbose true
 ```
 

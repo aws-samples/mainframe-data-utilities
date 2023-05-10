@@ -5,13 +5,11 @@
     "json_debug": "",
     "input": "sample-data/CLIENT.EBCDIC.txt",
     "input_s3": "",
-    "input_s3_url": "",
     "input_recfm": "fb",
     "input_recl": 500,
     "output_type": "ddb",
     "output": "CLIENT",
     "output_s3": "",
-    "threads": 1,
     "output_separator": "|",
     "part_k_len": 4,
     "part_k_name": "CLIENT_ID",
@@ -25,6 +23,7 @@
     "rem_spaces": false,
     "working_folder": "",
     "verbose": false,
+    "threads": 1,
     "transf_rule": [
         {
             "offset": 4,
