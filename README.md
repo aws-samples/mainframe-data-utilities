@@ -59,18 +59,18 @@ There are some examples about how to extract data on different use cases:
 
 |Document  |Description|
 | - | - |
-|[Single Layout FB file](docs/01-local-single-fb.md)                |The simplest conversion. Local, 'fixed blocked' and 'single layout' input file.|
-|[Metadata JSON from Amazon S3](docs/02-local-single-fb-s3-json.md) |The JSON metadata file read from S3.|
-|[Local Single Layout](docs/03-local-single-fb-thread.md)           |Process a file using multithreading and generating multiple output files.|
-|[Local Single Layout VB](docs/04-local-single-vb.md)               ||
-|[Local Multiple Layout](docs/05-local-multi-fb.md)                 ||
-|[Local Multiple Layout from S3](docs/06-local-multi-fb-s3-input.md)||
-|[Local Multiple Layout to S3](docs/07-local-multi-fb-s3-output.md) ||
-|[Local Multiple Layout to DynamoDB](docs/08-local-multi-ddb.md)    ||
-|[Lambda Multiple layout to S3](docs/09-lambda-multi-s3-output.md)  ||
-|[S3 Object Lambda](docs/10-s3-lambda-obj-multi-fb.md)              ||
-|[Split files by content/key](docs/docs/99-file-split-fb.md)        ||
-|[Mainframe Data Utilities v1](docs/99-README-v1.md)                ||
+|[Single Layout FB file](docs/01-local-single-fb.md)                    |The simplest conversion. Local, 'fixed blocked' and 'single layout' input file.|
+|[Read JSON metadata from Amazon S3](docs/02-local-single-fb-s3-json.md)|The JSON metadata file read from S3.|
+|[Single Layout FB file](docs/03-local-single-fb-thread.md)             |Convert a file using multithreading and generating multiple output files.|
+|[Single Layout VB file](docs/04-local-single-vb.md)                    |Convert a Variable Block input file.|
+|[Multiple Layout file](docs/05-local-multi-fb.md)                      |Convert a multiple layout input file.|
+|[Read the input file from S3](docs/06-local-multi-fb-s3-input.md)      |Get the input file from S3 and generate a local converted file.|
+|[Write the output file on S3](docs/07-local-multi-fb-s3-output.md)     |Read a local file and write a converted file on S3.|
+|[Write the output data on DynamoDB](docs/08-local-multi-ddb.md)        |Read a local file and write its data on DynamoDB.|
+|[Convert files using a Lambda function](docs/09-lambda-multi-s3-output.md)|Use a Lambda function to read an EBCDIC file from S3 and write the converted file back to S3.|
+|[Convert files using S3 Object Lambda](docs/10-s3-lambda-obj-multi-fb.md) |Use an Object Lambda to convert a EBCDIC file while it's downloaded from S3.|
+|[Split files by content/key](docs/docs/99-file-split-fb.md)            ||
+|[Mainframe Data Utilities v1](docs/99-README-v1.md)                    ||
 
 ## Backlog
 
