@@ -1,6 +1,6 @@
 # Mainframe Data Utilities v2
 
-| :exclamation:  Looking for Mainframe Data Utilities v1? [v1](docs/99-README-v1.md) :exclamation: |
+| :exclamation:  Looking for [Mainframe Data Utilities v1](docs/99-README-v1.md)? :exclamation: |
 |-----------------------------------------|
 # Mainframe Data Utilities
 
