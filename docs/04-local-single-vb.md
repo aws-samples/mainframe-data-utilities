@@ -1,9 +1,5 @@
 # Mainframe Data Utilities V2
 
-### Clone this repo
-
-Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
-
 ## VB record format files
 
 To convert a Variable Block file you need to inform the `-input-recfm vb` when parsing the copybook. Run the `parse` function to convert the copybook:

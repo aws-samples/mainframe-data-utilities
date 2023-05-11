@@ -6,10 +6,6 @@ There are often multiple layouts in mainframe VSAM or sequential (flat) files. I
 
 The REDEFINES statement allows multiple layouts declaration in the COBOL language.
 
-### Clone this repo
-
-Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
-
 ### Parse a multiple layout copybook
 
 The [COBKS05.cpy](/LegacyReference/COBKS05.cpy) is provided in the [LegacyReference](/LegacyReference/) folder as an example of a VSAM or a flat file copybook having three record layouts. The [CLIENT.EBCDIC.txt](sample-data/CLIENT.EBCDIC.txt) is the EBCDIC sample that can be converted through the following steps.

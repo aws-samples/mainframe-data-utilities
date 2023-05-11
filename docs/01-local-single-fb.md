@@ -4,10 +4,6 @@
 
 This page shows how to convert an EBCDIC file which has been downloaded to a local directory.
 
-### Clone this repo
-
-Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
-
 ### Parse the copybook
 
 Use the `parse` function to convert the copybook from Cobol to JSON representation.

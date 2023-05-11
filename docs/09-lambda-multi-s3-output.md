@@ -12,10 +12,6 @@ json_pre=layout-prefix/
 echo $bucket $account $region $json_s3 $json_pre
 ```
 
-### Clone this repo
-
-Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
-
 ### IAM
 
 From CloudShell or any Linux environment.

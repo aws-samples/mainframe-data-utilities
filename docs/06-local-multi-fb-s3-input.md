@@ -5,10 +5,6 @@
 ### Pre-requisites
 - An S3 bucket already created
 
-### Clone this repo
-
-Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
-
 ### Create a variable for you bucket name
 ```
 bucket=your-bucket-name

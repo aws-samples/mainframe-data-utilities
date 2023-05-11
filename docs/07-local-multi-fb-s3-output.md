@@ -10,10 +10,6 @@
 bucket=your-bucket-name
 ```
 
-### Clone this repo
-
-Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
-
 ### Parse a multiple layout copybook
 
 Run the `src/mdu.py` script, using the `parse` function, to convert the copybook file provided in [LegacyReference](/LegacyReference) from Cobol to JSON representation. Use `-output-s3` to inform your bucket name:

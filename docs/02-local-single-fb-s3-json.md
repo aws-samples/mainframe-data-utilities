@@ -5,10 +5,6 @@
 ### Create an S3 bucket and set a variable
 export bucket=your-bucket-name
 
-### Clone this repo
-
-Download the codebase through the clone command. More instructions [here](/docs/00-download.md).
-
 ### Convert the JSON metadata to an S3 file
 
 Upload the [cobpack2-list.json](/sample-json/cobpack2-list.json) metadata created in the [Locally convert a single layout FB file](/docs/02-local-single-fb.md) procedure to your `s3 bucket`.

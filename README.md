@@ -41,32 +41,36 @@ The purpose of this project is to provide Python scripts as a starting point for
 3. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
 4. The `REDEFINES` statement for **data items**, it's only supported for **group items**.
 
+
+## Download
+
+Download the code to run a preloaded example.
+
+From Windows, Mac or Linux shell (including AWS CloudShell), clone this repo and change directory:
+
+```
+git clone https://github.com/aws-samples/mainframe-data-utilities.git mdu
+cd mdu
+```
+
 ## Examples
 
 There are some examples about how to extract data on different use cases:
 
 |Document  |Description|
 | - | - |
-|[Download](docs/00-download.md)| How to download the codebase |
-|[Single Layout FB file](docs/01-local-single-fb.md)|Simplest conversion. Local, fixed blocked and single layout file|
-|[Metadata JSON from Amazon S3](docs/02-local-single-fb-s3-json.md)|Single Layout Fixed Blocked file|
-|[Local Single Layout](docs/03-local-single-fb-thread.md)||
-|[Local Single Layout VB](docs/04-local-single-vb.md)||
-|[Local Multiple Layout](docs/05-local-multi-fb.md)||
+|[Single Layout FB file](docs/01-local-single-fb.md)                |The simplest conversion. Local, 'fixed blocked' and 'single layout' input file.|
+|[Metadata JSON from Amazon S3](docs/02-local-single-fb-s3-json.md) |The JSON metadata file read from S3.|
+|[Local Single Layout](docs/03-local-single-fb-thread.md)           |Process a file using multithreading and generating multiple output files.|
+|[Local Single Layout VB](docs/04-local-single-vb.md)               ||
+|[Local Multiple Layout](docs/05-local-multi-fb.md)                 ||
 |[Local Multiple Layout from S3](docs/06-local-multi-fb-s3-input.md)||
-|[Local Multiple Layout to S3](docs/07-local-multi-fb-s3-output.md)||
-|[Local Multiple Layout to DynamoDB](docs/08-local-multi-ddb.md)||
-|[Lambda Multiple layout to S3](docs/09-lambda-multi-s3-output.md)||
-|[S3 Object Lambda](docs/10-s3-lambda-obj-multi-fb.md)||
-|[Split files by content/key](docs/docs/99-file-split-fb.md)||
-|[Mainframe Data Utilities v1](docs/99-README-v1.md)||
-
-
-1. [Single layout FB file](/docs/02-local-single-fb.md).
-1. [Single layout VB file](/docs/03-local-single-vb.md).
-1. [Multiple layout FB file](/docs/04-local-multi-fb.md).
-1. [Multiple layout FB file from an S3 bucket]().
-
+|[Local Multiple Layout to S3](docs/07-local-multi-fb-s3-output.md) ||
+|[Local Multiple Layout to DynamoDB](docs/08-local-multi-ddb.md)    ||
+|[Lambda Multiple layout to S3](docs/09-lambda-multi-s3-output.md)  ||
+|[S3 Object Lambda](docs/10-s3-lambda-obj-multi-fb.md)              ||
+|[Split files by content/key](docs/docs/99-file-split-fb.md)        ||
+|[Mainframe Data Utilities v1](docs/99-README-v1.md)                ||
 
 ## Backlog
 
