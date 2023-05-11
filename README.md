@@ -1,6 +1,6 @@
-# Mainframe Data Utilities
+# Mainframe Data Utilities v2
 
-| :exclamation:  Mainframe Data Utilities v1 documentation available at [v1](docs/99-README-v1.md) :exclamation: |
+| :exclamation:  Looking for Mainframe Data Utilities v1? [v1](docs/99-README-v1.md) :exclamation: |
 |-----------------------------------------|
 # Mainframe Data Utilities
 
@@ -69,8 +69,8 @@ There are some examples about how to extract data on different use cases:
 |[Write the output data on DynamoDB](docs/08-local-multi-ddb.md)        |Read a local file and write its data on DynamoDB.|
 |[Convert files using a Lambda function](docs/09-lambda-multi-s3-output.md)|Use a Lambda function to read an EBCDIC file from S3 and write the converted file back to S3.|
 |[Convert files using S3 Object Lambda](docs/10-s3-lambda-obj-multi-fb.md) |Use an Object Lambda to convert a EBCDIC file while it's downloaded from S3.|
-|[Split files by content/key](docs/docs/99-file-split-fb.md)            ||
-|[Mainframe Data Utilities v1](docs/99-README-v1.md)                    ||
+|[Split files by content/key](docs/99-file-split-fb.md)                 |Split an EBCDIC file according with a key provided |
+|[Mainframe Data Utilities v1](docs/99-README-v1.md)                    |First version of this sample|
 
 ## Backlog
 
