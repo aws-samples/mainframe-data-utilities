@@ -12,7 +12,8 @@ Table of contents
 * Status
 * Requirements
 * Limitations
-* Docs
+* Download
+* Examples
 * Backlog
 
 ## Security
@@ -37,10 +38,8 @@ The purpose of this project is to provide Python scripts as a starting point for
 ## Limitations
 
 1. File layouts defined inside Cobol programs are not supported.
-2. Packing statement is ignored when defined before the PIC clause.
-3. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
+2. The file's logical record length is the sum of all field sizes. This means that in some cases the calculation may result in a size that is smaller than the physical file definition.
 4. The `REDEFINES` statement for **data items**, it's only supported for **group items**.
-
 
 ## Download
 
