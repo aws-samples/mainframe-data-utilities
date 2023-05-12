@@ -1,6 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-import sys, core.ebcdic as ebcdic, core.utils as utils, core.datasource as datasource, os
+import sys, ebcdic as ebcdic, utils as utils, datasource as datasource, os
 
 def lambda_handler(event, context):
 

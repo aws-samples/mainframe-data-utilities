@@ -1,4 +1,4 @@
-import json, sys, core.copybook as copybook
+import json, sys, copybook as copybook
 
 def DisParam(arg):
     desc = {

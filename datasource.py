@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import boto3, core.utils as utils, urllib3
+import boto3, utils as utils, urllib3
 
 ddbClient = boto3.client('dynamodb')
 

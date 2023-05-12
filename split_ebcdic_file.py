@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # How to run: split_ebcdic.py -local-json sample-data/COBKS05-split.json
 
-import core.utils as utils, sys, boto3, json
+import utils as utils, sys, boto3, json
 
 log = utils.Log()
 
