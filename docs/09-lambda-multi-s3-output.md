@@ -218,7 +218,6 @@ aws s3api delete-bucket --bucket ${bucket} --region ${region} --force
 
 ```
 
-
 ### More use cases
 
-Check the [Read me](/docs/readme.md) page.
+Check the [main page](/).

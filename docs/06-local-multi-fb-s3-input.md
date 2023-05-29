@@ -61,4 +61,4 @@ python3 src/mdu.py extract sample-json/COBKS05-list-s3.json
 
 ### More use cases
 
-Check the [Read me](/docs/readme.md) page.
+Check the [main page](/).

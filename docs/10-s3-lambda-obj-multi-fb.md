@@ -225,8 +225,6 @@ aws iam delete-role-policy --role-name S3OLRole --policy-name S3OLPolicy
 aws iam delete-role --role-name S3OLRole
 ```
 
-
-
 ### More use cases
 
-Check the [Read me](/docs/readme.md) page.
+Check the [main page](/).

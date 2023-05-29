@@ -58,6 +58,6 @@ python3 src/mdu.py extract sample-json/COBKS05-list-s3-out.json
 
 4. Check the [CLIENT.ASCII.txt](/sample-data/CLIENT.ASCII.txt) file (and your S3 bucket content).
 
-### For more use cases
+### More use cases
 
-Check the [Read me](/docs/readme.md) page.
+Check the [main page](/).

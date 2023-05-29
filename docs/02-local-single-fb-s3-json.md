@@ -25,4 +25,4 @@ The generated ASCCI file will match the provided [COBPACK.ASCII.txt](/sample-dat
 
 ### More use cases
 
-Check the [Read me](/docs/readme.md) page.
+Check the [main page](/).

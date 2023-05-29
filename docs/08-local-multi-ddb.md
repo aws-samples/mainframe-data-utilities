@@ -73,3 +73,7 @@ The step above will generate the [COBKS05-ddb.json](sample-json/COBKS05-ddb.json
 ```
 python3 src/mdu.py extract sample-json/COBKS05-ddb.json
 ```
+
+### More use cases
+
+Check the [main page](/).
