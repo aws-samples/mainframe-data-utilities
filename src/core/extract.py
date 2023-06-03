@@ -116,29 +116,33 @@ def write_output(log, fMetaData, outfile, record, newl):
 
     OutRec = [] if fMetaData.general['output_type'] in ['file', 's3-obj', 's3'] else {}
 
-    layout = fMetaData.GetLayout(record)
+    #layout = fMetaData.GetLayout(record)
+    layout = fMetaData.Layout(record)
 
-    for transf in layout:
-        addField(
-            fMetaData.general['output_type'],
-            OutRec,
-            transf['name'],
-            transf['type'],
-            transf['part-key'],
-            fMetaData.general['part_k_name'],
-            transf['sort-key'],
-            fMetaData.general['sort_k_name'],
-            unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], transf["dplaces"], fMetaData.general["rem_low_values"], False ),
-            False)
+    if layout != 'skip':
 
-    if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
-        outfile.write(newl + fMetaData.general['output_separator'].join(OutRec))
-    else:
-        outfile.append({'PutRequest' : { 'Item' : OutRec }})
+        #for transf in layout:
+        for transf in fMetaData.general[layout]:
+            addField(
+                fMetaData.general['output_type'],
+                OutRec,
+                transf['name'],
+                transf['type'],
+                transf['part-key'],
+                fMetaData.general['part_k_name'],
+                transf['sort-key'],
+                fMetaData.general['sort_k_name'],
+                unpack(record[transf["offset"]:transf["offset"]+transf["bytes"]], transf["type"], transf["dplaces"], fMetaData.general["rem_low_values"], False ),
+                False)
 
-        if len(outfile) >= fMetaData.general['req_size']:
-            ddb_write(log, fMetaData.general['output'], outfile)
-            outfile.clear()
+        if fMetaData.general['output_type'] in ['file', 's3_obj', 's3']:
+            outfile.write(newl + fMetaData.general['output_separator'].join(OutRec))
+        else:
+            outfile.append({'PutRequest' : { 'Item' : OutRec }})
+
+            if len(outfile) >= fMetaData.general['req_size']:
+                ddb_write(log, fMetaData.general['output'], outfile)
+                outfile.clear()
 
 def ddb_write(log, table, data):
     log.Write(['Updating DynamoDB', str(len(data))])
