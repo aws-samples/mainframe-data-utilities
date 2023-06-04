@@ -69,7 +69,7 @@ There are some examples about how to extract data on different use cases:
 |[Convert files using a Lambda function](docs/09-lambda-multi-s3-output.md)|Use a Lambda function to read an EBCDIC file from S3 and write the converted file back to S3.|
 |[Convert files using S3 Object Lambda](docs/10-s3-lambda-obj-multi-fb.md) |Use an Object Lambda to convert a EBCDIC file while it's downloaded from S3.|
 |[Split files by content/key](docs/99-file-split-fb.md)                 |Split an EBCDIC file according with a key provided |
-|[Dicard specific layout](docs/11-local-multi-fb-discard.md)            |Convert a multiple layout input file while discarding selected record types|
+|[Discard specific layout](docs/11-local-multi-fb-discard.md)           |Convert a multiple layout input file while discarding selected record types|
 
 ## Backlog
 
