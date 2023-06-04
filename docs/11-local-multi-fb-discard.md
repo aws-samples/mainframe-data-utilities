@@ -1,6 +1,6 @@
 # Mainframe Data Utilities V2
 
-## Locally convert a multiple layout file
+## Locally convert a multiple layout file and discard specificy record types
 
 ### Parse a multiple layout copybook
 
