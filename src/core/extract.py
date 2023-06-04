@@ -119,7 +119,7 @@ def write_output(log, fMetaData, outfile, record, newl):
     #layout = fMetaData.GetLayout(record)
     layout = fMetaData.Layout(record)
 
-    if layout != 'skip':
+    if layout != 'discard':
 
         #for transf in layout:
         for transf in fMetaData.general[layout]:
