@@ -97,8 +97,8 @@ def FileProcess(log, ExtArgs):
             if(fMetaData.general["print"] != 0 and i % fMetaData.general["print"] == 0): log.Write(['Records read', str(i)])
 
             if fMetaData.general['threads'] == 1:
-                write_output(log, fMetaData, outfile, record, newl)
-                newl='\n'
+                r = write_output(log, fMetaData, outfile, record, newl)
+                if r: newl='\n'
             else:
                 nxq = next(cyFiles)
                 dctQueue[nxq].put(record)
@@ -116,12 +116,10 @@ def write_output(log, fMetaData, outfile, record, newl):
 
     OutRec = [] if fMetaData.general['output_type'] in ['file', 's3-obj', 's3'] else {}
 
-    #layout = fMetaData.GetLayout(record)
     layout = fMetaData.Layout(record)
 
     if layout != 'discard':
 
-        #for transf in layout:
         for transf in fMetaData.general[layout]:
             addField(
                 fMetaData.general['output_type'],
@@ -143,6 +141,8 @@ def write_output(log, fMetaData, outfile, record, newl):
             if len(outfile) >= fMetaData.general['req_size']:
                 ddb_write(log, fMetaData.general['output'], outfile)
                 outfile.clear()
+        return True
+    return False
 
 def ddb_write(log, table, data):
     log.Write(['Updating DynamoDB', str(len(data))])
@@ -190,8 +190,8 @@ def queue_worker(log, fMetaData, OutDs, q, strSuf = ''):
         record = q.get()
 
         if record is not None:
-            write_output(log, fMetaData, outfile, record, newl)
-            newl='\n'
+            r = write_output(log, fMetaData, outfile, record, newl)
+            if r: newl='\n'
         else:
             log.Write(['Closing output', fMetaData.general['output'], 'thread', strSuf])
             close_output(log, fMetaData, outfile, OutDs, strSuf)
