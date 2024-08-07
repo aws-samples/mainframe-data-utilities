@@ -37,7 +37,7 @@ def unpack(bytes: bytearray, type: str, dec_places: int, rem_lv: bool, rem_space
     # - 2 bytes comp-signed   struct h: -32768 through +32767
     # - 2 bytes comp-unsigned struct H: 0 through +65535
 
-    if type.lower() == "ch" or type.lower() == "zd":
+    if type.lower() == "ch":
         return bytes.decode('cp037').replace('\x00', '').rstrip() if rem_lv == True else bytes.decode('cp037')
 
     elif type.lower() == "pd" or type.lower() == "pd+":
@@ -49,8 +49,15 @@ def unpack(bytes: bytearray, type: str, dec_places: int, rem_lv: bool, rem_space
     elif type.lower() == "bi+":
         return AddDecPlaces(str(int("0x" + bytes.hex(), 0) - int("0x" + len(bytes) * 2 * "f", 0) -1), dec_places)
 
+    if type.lower() == "zd":
+        return AddDecPlaces(bytes.decode('cp037').replace('\x00', '').rstrip(), dec_places)
+
     elif type.lower() == "zd+":
         return AddDecPlaces(("" if bytes.hex()[-2:-1] != "d" else "-") + bytes[:-1].decode('cp037') + bytes.hex()[-1:], dec_places)
+
+    elif type.lower() == "hex":
+        return bytes.hex() 
+
     else:
         print("---------------------------\nLength & Type not supported\nLength: ",len(bytes),"\nType..: " ,type)
         exit()
