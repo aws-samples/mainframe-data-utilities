@@ -58,6 +58,9 @@ def unpack(bytes: bytearray, type: str, dec_places: int, rem_lv: bool, rem_space
     elif type.lower() == "hex":
         return bytes.hex() 
 
+    elif type.lower() == "bit":
+        return bin(bytes[0]).replace("0b", "").zfill(len(bytes)*8)
+    
     else:
         print("---------------------------\nLength & Type not supported\nLength: ",len(bytes),"\nType..: " ,type)
         exit()
