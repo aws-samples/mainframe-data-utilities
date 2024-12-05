@@ -1,0 +1,25 @@
+{
+    "max": 0,
+    "lrecl": 24,
+    "printeach": 1000000,
+    "ebcdic": "my.ebcdic.txt",
+    "ascii": "my.asccii.txt",
+    "report": "report.txt",
+    "layout": [
+        {
+            "type": "bin",
+            "val": 6,
+            "description": "CPF"
+        },
+        {
+            "type": "nobin",
+            "val": 7,
+            "description": "LIN"
+        },
+        {
+            "type": "skip",
+            "val": 11,
+            "description": "DTIN"
+        }
+    ]
+}
